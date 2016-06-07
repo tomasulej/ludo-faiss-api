@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Starter Template for Bootstrap</title>
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" integrity="sha384-XXXXXXXX" crossorigin="anonymous">
+
+<style>
+body {
+    padding: 2rem;
+    
+}
+
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #555;
+}
+
+
+.sloha {margin: 0 0 15px 0;
+		padding-left:2em;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  color: #333;
+}
+	
+	
+</style>	
+
+ <script>
+function show_lyrics2(cas) 
+{
+	  
+  var counter=0;
+	for (var i = 0, len = times_arr.length; i < len; i++) {
+			
+		for (var j = 0, len2 = times_arr[i].length; j < len2-1; j++) {
+
+			//console.log(cas);
+			//console.log(times_arr[i][j]+" --- ");
+			
+
+			if ((cas>times_arr[i][j]) && (cas<times_arr[i][j+1])) {
+				sp="#l"+counter;
+				$(sp).attr("style","background-color: #CED2F7");
+				//console.log(sp);
+				
+			} 
+			else {
+				//sp=".slova";
+								sp="#l"+counter;
+				
+				$(sp).attr("style","background-color: white");
+
+			}
+				
+			counter++;	
+		}
+	}
+}
+</script>
+
+
+
+
+
+  </head>
+
+  <body onload="javascript:abc2svg();">
+
+
+
+    <div class="container">
+
+
+
+<div class="row">
+<div class="col-md-9">	
+	        <h3>%s</h3>
+
+	
+<div id="buttons">
+    <div id="meddiv">
+        <audio id="aud" controls="controls" ontimeupdate="show_lyrics2(this.currentTime)" autoplay>Your browser does not support the audio element.</audio>
+        <video id="vid" controls="controls" autoplay>Your browser does not support the video element.</video>
+        <div id="vidyub"></div>
+    </div>
+</div>
+<div id="streep"></div>
+<div id="notation"></div>
+
+<div id="lyrics">
+<p>%s</p>	
+</div>
+
+<div id="poznamky">
+<hr>
+<strong>Poznámky</strong>:<BR>
+%s	
+
+
+
+</div>	
+
+
+</div>
+	
+
+
+
+<div class="col-md-3">
+	<div class="well"><strong>O piesni</strong><BR>
+	%s
+
+</div>
+
+
+
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" integrity="sha384-XXXXXXXX" crossorigin="anonymous"></script>
+	<script src="http://wim.vree.org/js/abc2svg-1.js"></script>
+	<script src="http://wim.vree.org/js/abcweb-min.js"></script>
+	<script src="http://wim.vree.org/js/xml2abc-min.js"></script>
+	<script src="http://wim.vree.org/js/xml2abc-min.js"></script>
+	<script src="abcjs_basic_2.3-min.js"></script>	
+
+<script>
+
+function abc2svg() {
+
+
+$('.abc').each(function(i, obj) {
+  ABCJS.renderAbc(obj, $(obj).text()); 	
+ 
+});
+	
+	
+
+
+
+	
+	
+}
+
+	
+</script>		
+	
+
+
+    </body>
+</html>
+

@@ -1,0 +1,479 @@
+#poem h2 + p:first-letter {
+					float: left;
+					font-size: 38px;
+					line-height: 1;
+					margin: 2px 5px 0 0;
+				}
+				
+			#poem p:first-line {
+				font-variant: small-caps;
+				letter-spacing: 1px;
+				}
+			
+			#poem p:last-child {
+				margin-bottom: 30px;
+				padding-bottom: 30px;
+				}
+
+
+
+body{
+	font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+}
+
+a{
+	cursor: pointer;
+	color: #905769;
+}
+
+h1, h2, h3, h4, h5, h6{
+	color: #905769;
+}
+
+
+header{
+	background-size: cover;
+	background-position: center top;
+}
+
+.menu-top{
+	background: rgba(255, 255, 255, 0.95);
+}
+
+.menu-top .item{
+	line-height: 40px;
+	margin-right: 20px;
+	color: #7e7e7e;
+}
+
+.menu-top .item.active{
+	color: #000;
+}
+
+.header{
+	padding-top: 60px;
+	padding-bottom: 100px;
+}
+
+.header-sub{
+	padding-bottom: 20px;
+	margin-bottom: 40px;
+}
+
+.header h1{
+	margin: 0;
+	font-weight: bold;
+	line-height: 30px;
+}
+
+.header h1 a{
+	color: #fff;
+	font-size: 24px;
+}
+
+.header h1 a:hover{
+	text-decoration: none;
+}
+
+.header .menu{
+	line-height: 40px;
+	color: #905769;
+	font-size: 16px;
+}
+
+.header .menu .item{
+	color: #905769;
+	margin-right: 10px;
+}
+
+.header .menu a .glyphicon{
+	vertical-align: middle;
+	margin-right: 5px;
+	position: relative;
+	top: -1px;
+}
+
+.header .search input{
+	border: 2px solid #fff;
+	border-radius: 20px;
+	height: 40px;
+	background: rgba(0, 0, 0, 0.2);
+	width: 100%;
+	padding: 0 10px;
+	color: #fff;
+	padding-left: 30px;
+}
+
+.header .search .glyphicon{
+	position: absolute;
+	top: 12px;
+	left: 25px;
+	color: #fff;
+}
+
+.header .logo{
+	display: block;
+	cursor: pointer;
+	text-align: center;
+	margin-top: 40px;
+}
+
+.intro{
+	position: relative;
+	top: -100px;
+	margin-bottom: -60px;
+}
+
+.intro img{
+	height: 200px;
+	border-radius: 50%;
+}
+
+.intro h2{
+	color: #fff;
+	margin-top: 50px;
+	font-size: 24px;
+	text-align: left;
+}
+
+.intro p{
+	font-size: 18px;
+	margin-top: 40px;
+}
+
+.content{
+	margin-bottom: 40px;
+}
+
+.content.grey{
+	background: #f2f2f2;
+	padding-bottom: 20px;
+}
+
+.content h2{
+	text-align: center;
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+
+.content h2.with-subhdg{
+	margin-bottom: 0;
+}
+
+.content .subhdg{
+	text-align: center;
+}
+
+.searchbox{
+	text-align: center;
+	width: 40%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.searchbox input{
+	border: 0;
+	border-radius: 20px;
+	height: 40px;
+	background: rgba(0, 0, 0, 0.2);
+	width: 100%;
+	padding: 0 10px;
+	color: #fff;
+	padding-left: 30px;
+}
+
+.searchbox .glyphicon{
+	position: absolute;
+	top: 12px;
+	left: 10px;
+	color: #fff;
+}
+
+.quotes{}
+
+.quotes .item{
+	padding: 20px;
+	position: relative;
+	min-height: 130px;
+	padding-left: 140px;
+	margin-top: 20px;
+}
+
+.quotes .item p{
+	font-size: 18px;
+}
+
+.quotes .item img{
+	height: 100px;
+	border-radius: 50%;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 20px;
+}
+
+.block{
+	margin-top: 20px;
+}
+
+.center{
+	text-align: center;
+}
+
+.sidebar{
+	
+}
+
+.sidebar .nav{
+	margin: 0;
+	list-style: none;
+	padding: 10px;
+	margin-bottom: 20px;
+	width: 260px;
+}
+
+.sidebar .nav.affix{
+ 	top: 50px;
+}
+
+.sidebar .nav.affix-bot{
+	position: absolute;
+}
+
+.sidebar .nav li{
+	margin: 0;
+	padding: 0;
+}
+
+.sidebar .nav li a{
+	padding: 7px 0 0 37px;
+	position: relative;
+	margin-bottom: 8px;
+	display: block;
+}
+
+.sidebar .nav li.active a{
+	color: #000;
+	font-weight: bold;
+}
+
+.sidebar .nav li.active a b{
+	background: #363636;
+}
+
+.sidebar .nav li a:hover{
+	text-decoration: none;
+	background: none;
+}
+
+.sidebar .nav li a b{
+	background: #905769;
+	color: #fff;
+	display: block;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border-radius: 15px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.sidebar .nav li.active .nav li a{
+	font-weight: normal;
+	margin-bottom: 0px;
+}
+
+.sidebar .nav li.active .nav li.active a{
+	font-weight: bold;
+}
+
+.quotes-list{
+	font-size: 16px;
+}
+
+.quotes-list h3{
+	margin: 20px 0 10px 0;
+}
+
+.quotes-list ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 10px;
+	line-height: 26px;
+}
+
+.quotes-list ul li{}
+
+.quotes-list ul li a{
+	color: #363636;
+}
+
+.quotes-list .tags{
+	margin-bottom: 10px;
+}
+
+.quotes-list .category{
+	font-style: italic;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+footer{
+	background: #3c3c3c;
+	color: #fff;
+	padding-bottom: 40px;
+}
+
+footer .menu{
+	line-height: 30px;
+	color: #fff;
+	font-size: 16px;
+	margin-top: 20px;
+}
+
+footer .menu h3{
+	margin-top: 0px;
+}
+
+footer .menu .item{
+	color: #fff;
+	margin-right: 10px;
+	display: block;
+}
+
+footer .menu a .glyphicon{
+	vertical-align: middle;
+	margin-right: 5px;
+	position: relative;
+	top: -1px;
+}
+
+footer .copyright{
+	margin-top: 20px;
+	text-align: right;
+}
+
+footer a, footer h3{
+	color: #cfa3b1;
+}
+
+footer a:hover{
+	color: #cfa3b1;
+}
+
+.quote-popover{
+	font-size: 16px;
+	padding: 15px;
+}
+
+.quote-popover ol{
+	margin: 0;
+	padding: 0;
+	margin-left: 25px;
+}
+
+.detail{
+	padding-bottom: 40px;
+}
+
+.detail .img{
+	width: 100%;
+	border-radius: 50%;
+}
+
+.detail .social{
+	margin-top: 20px;
+}
+
+@media (max-width: 480px) {
+	
+    .header .menu .item{
+		display: block;		
+	}
+	
+	.header .logo img{
+		width: 80%;
+	}
+	
+	.searchbox{
+		width: 100% !important;
+	}
+}
+
+@media (max-width: 991px) {
+
+	.intro{
+		text-align: center;
+	}	
+	
+	.intro h2{
+		color: #000;
+		margin-top: 20px;
+		text-align: center;
+	}
+	
+	.intro p{
+		font-size: 16px;
+		margin-top: 10px;
+	}
+	
+	.header{
+		padding-bottom: 140px;
+	}
+	
+	.header-sub{
+		padding-bottom: 20px;
+	}
+	
+	.header-sub h2{
+		font-size: 24px;
+	}
+	
+	.searchbox{
+		width: 50%;
+	}
+	
+	.quotes .item{
+		margin-left: auto;
+		margin-right: auto;
+		width: 80%
+	}
+	
+	footer .copyright, footer .menu{
+		text-align: center;
+	}
+	
+	.sidebar menu.affix{
+		position: relative;
+		top: 0px;
+	}
+	
+	.sidebar menu{
+		width: auto !important;
+	}
+	
+	.detail{
+		text-align: center;
+	}
+	
+	.detail .img{
+		width: 50%;
+		border-radius: 50%;
+	}
+}
+
+@media (max-width: 1200px) {
+	
+	.sidebar menu{
+		width: 220px;
+	}
+	
+	.header-sub h2{
+		color: #fff;
+	}
+}
+
+

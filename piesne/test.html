@@ -1,0 +1,92 @@
+
+
+<html>
+	
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+
+<script>
+$(document).ready(function(){
+document.addEventListener('play', function(e){
+    alert('k');
+}, true);
+});
+</script>
+		
+	</head>	
+	
+
+<body>
+
+
+<div id="tracktime">
+	
+	  <p begin="00.010" id="p0" end="04.540">Na Kráľovej holi</p>
+      <p begin="04.540" id="p1" end="10.240">Stojí strom zelený</p>
+      <p begin="11.108" id="p2" end="15.021">Na Kráľovej holi</p>
+      <p begin="15.051" id="p3" end="20.378">Stojí strom zelený</p>
+      <p begin="21.737" id="p4" end="25.447">Vrch má naklonený</p>
+      <p begin="25.465" id="p5" end="29.447">Vrch má naklonený</p><BR>
+      <p begin="29.465" id="p6" end="22.697">Vrch má naklonený</p>
+      <p begin="32.687" id="p7" end="38.396">Do šumiackej zemi</p>
+	
+	
+	
+</div>
+
+
+
+<video id="vid" controls  ontimeupdate="show_lyrics(this.currentTime);" onplaying="">
+  <source src="na-kralovej-holi.mp4" type="video/mp4" >
+  
+         
+Your browser does not support the video tag.
+</video>
+
+<script>
+	
+	function show_lyrics(cas) {
+		
+		
+		$( "p" ).each(function( index ) {
+			
+			if ((cas>$(this).attr("begin")) && (cas<$(this).attr("end"))) {
+				//$(this).html($(this).attr("begin")+" - <strong>"+$(this).html()+"</strong>");	
+				$(this).attr("style","color:red;font-size:25x");
+				
+				
+			} else {
+				$(this).attr("style","");
+			}
+		
+			
+		});
+		
+		
+		
+		//document.getElementById('tracktime').innerHTML = cas;
+		
+		
+		
+	}
+	
+</script>	
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+</html>

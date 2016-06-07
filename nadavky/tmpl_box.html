@@ -1,0 +1,25 @@
+<div align="center">
+ <form method="get">
+<p class="titulok">Nechaj si poradiť od <strong>ľudu slovenského</strong><sup>&trade;</sup>. Začni písať čo ťa trápi</p>  
+
+<input type="text" name="ac" id="ac" autocomplete="off" value="%s">
+
+<p class="podtitulok">(napríklad <code>láska</code>, <code>peniaze</code>, <code>muži</code>, <code>ženy</code>)</p>
+  <div id="upd" class="upd"></div>
+</form> 
+</div>
+
+<script type="text/javascript" language="JavaScript">
+<!--
+  new Ajax.Autocompleter('ac','upd', 'autocompleter.php', 
+  { minChars: 1, 
+    afterUpdateElement: getSelectionId}
+  );
+
+ function getSelectionId(text, li) {
+    window.location=li.id;
+}  
+
+
+//-->
+</script>

@@ -1,0 +1,317 @@
+<!doctype html>
+
+<head>
+
+
+<title>Príslovia a porekadlá > %s</title>
+
+<meta property="og:title" content="Ľuda slovenského príslovia a porekadlá na tému %s" />
+<meta property="og:description" content="Ľudo slovenský radí a poradí aj Tebe. Príď sa pozrieť na 12-tisíc jeho porekadiel a prísloví" />
+
+
+<meta charset="utf-8">
+<meta name="description" content="Slovenské príslovia">
+<meta name="autor" content="Tomáš Ulej">
+
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap-theme.min.css">
+
+
+<link href='http://fonts.googleapis.com/css?family=Cardo:400,400italic,700' rel='stylesheet' type='text/css'>
+
+
+
+<style type="text/css">
+
+
+.popover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1010;
+  display: none;
+  max-width: 400px;
+  padding: 1px;
+  text-align: left;
+  white-space: normal;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+     -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: padding-box;
+     -moz-background-clip: padding;
+          background-clip: padding-box;
+}
+
+
+
+
+body {padding-top: 10px;padding-left:20px; padding-right: 20px}	    
+
+
+.popup_prislovie {font-size: 24px}
+.popup_poznamky {font-size: 14px; padding-left: 5px}
+.popup_utvar {font-size: 12px; padding-left: 5px; text-transform:uppercase; text-align: right}
+
+.popup_cesta {font-size: 14px}
+.popup_cesta a {color:red}  
+.popup_cesta a {text-decoration: underline}  
+  
+  
+ p {font-family: 'Cardo', serif;font-size: 15pt;padding: 0 15px;} 
+ p a {color:black}
+ p a:hover {color:black}
+/*  .bs-sidenav {width:250px} */
+  h1 {font-family: 'Cardo', serif; font-size: 30pt; font-weight: 800} 
+  h2 {font-family: 'Cardo', serif; font-size: 25pt; font-weight: 500} 
+ 
+
+ p.kod {font-family: 'Cardo', serif;font-size: 12pt;} 
+ div.zdielaj {font-family: 'Cardo', serif;font-size: 10pt;} 
+ p.klucove_slovo {
+  font-family: 'Cardo', serif; 
+  font-size: 16pt; 
+  text-transform: uppercase; 
+  margin-top: 15px; 
+  margin-bottom: 15px; 
+
+ } 
+ p.utvar {
+  font-family: 'Cardo', serif; 
+  font-size: 18pt; 
+  margin-top: 15px; 
+  margin-bottom: 0px; 
+  font-style: italic
+ } 
+ 
+ 
+ 
+ div.row.riadok  {  
+       line-height: 1.2
+      }
+
+div.cislo {margin-top:0px}
+ 
+.bs-sidenav {width:250px; font-family: 'Cardo', serif; font-size: 13pt}
+
+
+
+
+
+
+/* First level of nav */
+.bs-sidenav {
+    margin-top: 60px;
+    margin-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* text-shadow: 0 1px 0 #fff; */
+    background-color: #e9e9e9;
+    border-radius: 5px;
+}
+
+/* All levels of nav */
+.bs-sidebar .nav > li > a {
+    display: block;
+    color: black;
+    padding: 5px 20px;
+}
+
+.bs-sidebar .nav > li > a:hover,
+.bs-sidebar .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #e5e3e9;
+}
+
+.bs-sidebar .nav > .active > a,
+.bs-sidebar .nav > .active:hover > a,
+.bs-sidebar .nav > .active:focus > a {
+    font-weight: bold;
+
+    color: #000000;
+    background-color: transparent;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    margin-bottom: 8px;
+}
+
+.bs-sidebar .nav .nav > li > a {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 30px;
+    font-size: 10pt;
+    
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-sidebar .nav > .active > ul {
+        display: block;
+    }
+
+    /* Widen the fixed sidebar */
+    .bs-sidebar.affix,
+    .bs-sidebar.affix-bottom {
+        width: 213px;
+    }
+
+    .bs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 80px;
+    }
+
+    .bs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+
+    .bs-sidebar.affix-bottom .bs-sidenav,
+    .bs-sidebar.affix .bs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-sidebar.affix-bottom,
+    .bs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>   
+</head>
+
+
+ <body data-spy="scroll" data-target="#lave_menu" data-offset="300">
+
+
+
+ <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
+
+<script src="js/typeahead.js"></script>
+<link rel="stylesheet" href="js/typeahead.css">
+
+
+%s
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46378127-1', 'ludoslovensky.sk');
+  ga('send', 'pageview');
+
+</script>    
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=619723681422597";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    
+
+    
+
+ 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1402931466605062";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+<div class="container">
+
+<div class="row">
+<div class="col-md-3 bs-sidebar" id="lave_menu">
+
+
+%s   
+
+</div>
+
+
+
+
+<div id="hlavny_obsah" class="col-md-9" role="main" >
+<div class="page-header">
+  <h1>%s</h1>
+   
+  
+</div>  
+
+%s
+%s
+
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
+<script src="http://cherne.net/brian/resources/jquery.hoverIntent.js"></script>
+
+
+<script type="text/javascript">
+
+var config = {    
+     sensitivity: 1, // number = sensitivity threshold (must be 1 or higher)    
+     interval: 4500, // number = milliseconds for onMouseOver polling interval    
+     timeout: 4500, // number = milliseconds delay before onMouseOut    
+};
+
+
+$(".aprislovie").hoverIntent(function () {
+
+		 var i = this
+		 $(this).delay("slow").fadeIn();	
+
+		 $.ajax({url: "prislovie_p.php?id="+$(this).data("id"), dataType: "html", cache:true, success: 				function(data){
+			 	$(i).popover({html:true,placement:'right',title:$(this).html(), content:data}).popover('show')
+	     }})
+		  $('.popover:visible').prev().popover('destroy')
+
+
+}, function() {
+		 $(this).delay("slow").fadeIn();	
+
+
+});
+
+
+
+
+
+
+$(document).keyup(function(e) {
+  if (e.keyCode == 27) { $('.popover:visible').prev().popover('destroy') }   // esc
+});
+
+
+
+
+    //$('#lave_menu').affix();
+</script>
+
+
+
+
+</body>
+</html>

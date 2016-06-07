@@ -1,0 +1,22 @@
+.l-footer{
+
+  background: $color-dark;
+  color: #fff;
+  padding: 3rem 0;
+
+  .l-footer__signature{
+
+    text-align: center;
+    font-family: 'Qanelas-Soft Semibold', sans-serif;
+
+    .l-footer__logo{
+
+      display: inline-block;
+      margin-bottom: 1rem;
+
+      img{
+        width: 7rem;
+      }
+    }
+  }
+}

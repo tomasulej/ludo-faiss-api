@@ -1,0 +1,150 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+
+<title>Príslovia</title>
+
+<meta charset="utf-8">
+<meta name="description" content="Slovenské príslovia">
+<meta name="autor" content="Tomáš Ulej">
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap-theme.min.css">
+
+
+<link href='http://fonts.googleapis.com/css?family=Cardo:400,400italic,700' rel='stylesheet' type='text/css'>
+
+
+
+<style type="text/css">  
+ p {font-family: 'Cardo', serif;font-size: 16pt;} 
+ h1 {font-family: 'Cardo', serif; font-size: 30pt; font-weight: 800}
+ h2 {font-family: 'Cardo', serif; font-size: 25pt; font-weight: 500}
+ 
+ p.kod {font-family: 'Cardo', serif;font-size: 12pt;} 
+ p.poznamka {font-family: 'Cardo', serif;font-size: 10pt; } 
+ p.klucove_slovo {font-family: 'Cardo', serif; font-size: 16pt; font-weight: 200} 
+
+
+ body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+ 
+
+ 
+</style>   
+
+
+
+
+
+
+</head>
+
+
+ <body>
+
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Slovenské príslovia</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Home</a></li>
+            <li class="active"><a href="#about" >Po kapitolách</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+
+<div class="container">
+<div class="row">
+  <div class="col-md-2">Ľavé menu</div>
+  <div id="hlavny_obsah" class="col-md-7">
+  
+<div class="page-header">
+  <h1>Človek, jeho vek, pohlavie, rodina a domovina <small>Radí ľud slovenský</small></h1>
+</div>
+  
+
+<div class="row">
+<div class="col-md-1"></div>
+<div class="col-md-11"><p class="klucove_slovo">HROB</p></div>
+</div>
+
+
+<div class="row riadok">
+ <div id="cislo" class="col-md-1 cislo"><p class="kod">5</p></div>
+ <div id="prislovie" class="col-md-10 prislovie"><p>	Brucho mu k chrbtovej kosti prirastá. – Brucho mu k patrovej kosti prirastá. – Žalúdok mu k chrbtovej kosti prischol.</p></div>
+  <div class="col-md-1"><a rel="popover" class="popup" data-content="<p class='poznamka'>Zdieľaj: <a href=>na Twitteri</a> alebo <a href=''>na Facebooku</a></p>"><span class="glyphicon icon-large btn-lg glyphicon-arrow-right"></span></a></div>
+</div>
+
+
+<div class="row riadok">
+ <div id="cislo" class="col-md-1 cislo"><p class="kod">1</p></div>
+ <div id="prislovie" class="col-md-10 prislovie"><p>Psa dosť, ale sadla málo.
+</p></div>
+ <div class="col-md-1"><a rel="popover" class="popup" data-content="<p class='poznamka'>Zdieľaj: <a href=>na Twitteri</a> alebo <a href=''>na Facebooku</a></p>"><span class="glyphicon icon-large btn-lg glyphicon-arrow-right"></span></a></div>
+</div>
+
+
+
+<div class="page-header">
+  <h2>Človek, jeho vek, pohlavie, rodina a domovina <small>Radí ľud slovenský</small></h2>
+</div>
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+  <div class="col-md-3">.col-md-1</div>
+</div>
+
+
+
+
+
+
+
+
+</div><!-- /.container -->
+
+
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	var sep_height = '';
+	$('.popup').popover({ html: 'true', trigger: 'click'});
+	$(window).on("load resize", function(e) {
+	    var seperatorHeight = $('.prislovie').height();
+	    sep_height = seperatorHeight;
+	    var titleHeight = $('.cislo').height();
+	    var difference = ((seperatorHeight - titleHeight) / 2) + 5;
+	    $('#cislo').css('margin-top', difference + 'px');
+	});
+</script>
+
+</body>
+</html>

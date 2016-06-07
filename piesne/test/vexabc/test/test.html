@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>VexABC test suite</title>
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js">
+
+
+
+
+
+    <link rel="stylesheet" href="../lib/managed/qunit/qunit/qunit.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="test.css">
+
+
+    <script type="text/javascript" src="../lib/managed/jquery/jquery.js"></script>
+
+    <script type="text/javascript" src="../dist/underscore.js"></script>
+    <script type="text/javascript" src="../dist/vexflow.js"></script>
+
+    <script type="text/javascript" src="../dist/vexabc-pegjs-parser.js"></script>
+    <script type="text/javascript" src="../dist/vexabc.js"></script>
+
+    <script type="text/javascript" src="test.js"></script>
+  </head>
+
+  <body>
+    <div id="error"></div>
+    <div id="qunit"></div>
+    <div id="vexabc-test-output"></div>
+
+    <script src="../lib/managed/qunit/qunit/qunit.js"></script>
+
+    <script src="test-data.js"></script>
+
+    <script>
+      function runTests() {
+        var i;
+        var testSuite = new VexAbcTestSuite("#vexabc-test-output");
+
+        for (i = 0; i < testDefinitions.length; i++) {
+          testSuite.registerTest(testDefinitions[i]);
+        }
+        for (i = 0; i < moduleDefinitions.length; i++) {
+          testSuite.registerModule(moduleDefinitions[i]);
+        }
+        testSuite.run();
+      }
+
+      $(document).ready(function() { 
+        runTests();
+      });
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,110 @@
+<html>
+<head>
+  <title>VexFlow MusicXML Demo</title>
+  <meta name="viewport" content="initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+
+  <!-- VexFlow Compiled Source -->
+  <!--<script src="../node_modules/vexflow/releases/vexflow-min.js"></script>-->
+  <script src="../vexflow.musicxml.js"></script>
+
+  <!-- Support Sources -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!--<script src="../support/jquery.js"></script>-->
+  <!--<script src="../support/raphael.js"></script>-->
+
+  <style type="text/css">
+    div.content {
+      overflow: hidden;
+      width: 100%;
+      padding: 0; margin: 0;
+    }
+  </style>
+  
+  
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+ 
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+
+  <script>
+    var VexDocument = null;
+    var VexFormatter = null;
+
+    $.ajax({
+      url: "../../1_spievaj-si-dievcatko.xml",
+      success: function(data) {
+        var start = new Date().getTime(); // time execution
+
+        VexDocument = new Vex.Flow.Document(data);
+        //console.log(VexDocument);
+        var content = $(".content")[0];
+        if (VexDocument) {
+          VexFormatter = VexDocument.getFormatter();
+          VexFormatter.draw(content);
+        }
+        var elapsed = (new Date().getTime() - start)/1000;
+        var debouncedResize = null;
+        $(window).resize(function() {
+          if (! debouncedResize)
+            debouncedResize = setTimeout(function() {
+              VexFormatter.draw(content);
+              debouncedResize = null;
+            }, 500);
+        });
+      }
+    });
+    
+ 
+  </script>
+
+
+
+</head>
+
+<body>
+	
+	
+<button id="idj-play-button" class="btn btn-lg"><i class="glyphicon glyphicon-play"></i>
+</button>
+<button id="idj-pause-button" class="btn btn-lg hide"><i class="glyphicon glyphicon-pause"></i>
+</button>
+  <div class="content" id="viewer" style="padding-bottom: 5pt">
+</div>
+  
+  <audio id="peaks-audio" preload="auto">
+    <source src="../../1_spievaj-si-dievcatko.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+  
+  
+</body>
+
+<script>
+
+    $('#idj-play-button').click(function () {
+    document.getElementById('peaks-audio').play();
+    $('#idj-play-button').addClass('hide');
+    $('#idj-pause-button').removeClass('hide');
+
+});
+
+$('#idj-pause-button').click(function () {
+    document.getElementById('peaks-audio').pause();
+    $('#idj-pause-button').addClass('hide');
+    $('#idj-play-button').removeClass('hide');
+});
+
+$('#peaks-audio').on('ended', function() {
+  $('#idj-pause-button').addClass('hide');
+  $('#idj-play-button').removeClass('hide');
+  $('#peaks-audio').load();
+});
+    
+   	
+	
+</script>
+
+
+</html>
