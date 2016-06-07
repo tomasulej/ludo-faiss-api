@@ -1,1 +1,5 @@
-<?php  header( 'Location: /prislovia/' ) ;  ?>
+<?php  header( 'Location: /prislovia/' ) ;  
+	
+	//ssss
+	
+?>
