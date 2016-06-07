@@ -4,6 +4,7 @@
       $databaza="prislovia";
       $host="localhost";
       
+      // romanova db
       if ($_SERVER['APP_ENV'] == "roman") {
 	      $pmeno="root";
 		  $heslo="root";
