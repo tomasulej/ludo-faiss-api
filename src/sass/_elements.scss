@@ -49,7 +49,7 @@ h1{
 h2, h3, h4{
   font-family: 'Qanelas-Soft Semibold', "Helvetica Neue", sans-serif;
   letter-spacing: 0.03rem;
-  line-height: 1.5em;
+  line-height: 1.3em;
 }
 
 a{
@@ -60,6 +60,7 @@ a{
   display: inline-block;
   vertical-align: middle;
   font-family: 'Qanelas-Soft Semibold', sans-serif;
+  border: 0;
 }
 
 .l-btn:hover{
@@ -136,6 +137,12 @@ a{
   .l-btn--primary:hover{
     background: $color-yellow-light;
   }
+}
+
+.l-well{
+  background: $color-grey-light;
+  padding: 1rem;
+  border-radius: 0.4rem;
 }
 
 @media screen and (max-width: $screen-sm-max) {
