@@ -1,128 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c693f58f-2ae0-4202-9bbd-c8d6012dd361" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sass/components/_page.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/bootstrap/css/bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/bootstrap/css/bootstrap.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/bootstrap/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/bootstrap/css/bootstrap.min.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/bootstrap/js/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/bootstrap/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/bootstrap/js/npm.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/bootstrap/js/umd/alert.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/bootstrap/js/umd/button.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/bootstrap/js/umd/carousel.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/bootstrap/js/umd/collapse.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/bootstrap/js/umd/dropdown.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/bootstrap/js/umd/modal.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/bootstrap/js/umd/popover.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/bootstrap/js/umd/scrollspy.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/bootstrap/js/umd/tab.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/bootstrap/js/umd/tooltip.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/bootstrap/js/umd/util.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/css/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/css/style.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/fonts/Font-Awesome/FontAwesome.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/fonts/Font-Awesome/fontawesome-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/fonts/Font-Awesome/fontawesome-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/fonts/Font-Awesome/fontawesome-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/fonts/Font-Awesome/fontawesome-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/fonts/Font-Awesome/fontawesome-webfont.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/fonts/Qanelas-Soft/qanelassoft-heavy-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/fonts/Qanelas-Soft/qanelassoft-heavy-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/fonts/Qanelas-Soft/qanelassoft-heavy-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/fonts/Qanelas-Soft/qanelassoft-heavy-webfont.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/fonts/Qanelas-Soft/qanelassoft-semibold-demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/fonts/Qanelas-Soft/qanelassoft-semibold-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/fonts/Qanelas-Soft/qanelassoft-semibold-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/fonts/Qanelas-Soft/qanelassoft-semibold-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/fonts/Qanelas-Soft/qanelassoft-semibold-webfont.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/fonts/Yrsa/yrsa-bold-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/fonts/Yrsa/yrsa-bold-webfont.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/fonts/Yrsa/yrsa-regular-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/fonts/Yrsa/yrsa-regular-webfont.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/img/headphones.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/img/logo-inverse.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/img/logo-piesne-inverse.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/img/logo-small-dark.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/img/ludo-grey.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/img/ludo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/ludo.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/sass/_elements.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/sass/_imports.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/sass/_variables.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/sass/components/_articles.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/sass/components/_footer.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/sass/components/_header.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/sass/components/_navbar.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/sass/components/_promo.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/sass/fonts/_font-awesome.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/sass/fonts/_qanelas-soft.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/sass/fonts/_yrsa.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/2.0/sass/style.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/bootstrap/css/bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/bootstrap/css/bootstrap.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/bootstrap/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/bootstrap/css/bootstrap.min.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/bootstrap/js/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/bootstrap/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/bootstrap/js/npm.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/bootstrap/js/umd/alert.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/bootstrap/js/umd/button.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/bootstrap/js/umd/carousel.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/bootstrap/js/umd/collapse.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/bootstrap/js/umd/dropdown.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/bootstrap/js/umd/modal.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/bootstrap/js/umd/popover.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/bootstrap/js/umd/scrollspy.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/bootstrap/js/umd/tab.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/bootstrap/js/umd/tooltip.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/bootstrap/js/umd/util.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/css/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/css/style.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/fonts/Font-Awesome/FontAwesome.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/fonts/Font-Awesome/fontawesome-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/fonts/Font-Awesome/fontawesome-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/fonts/Font-Awesome/fontawesome-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/fonts/Font-Awesome/fontawesome-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/fonts/Font-Awesome/fontawesome-webfont.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/fonts/Qanelas-Soft/qanelassoft-heavy-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/fonts/Qanelas-Soft/qanelassoft-heavy-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/fonts/Qanelas-Soft/qanelassoft-heavy-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/fonts/Qanelas-Soft/qanelassoft-heavy-webfont.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/fonts/Qanelas-Soft/qanelassoft-semibold-demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/fonts/Qanelas-Soft/qanelassoft-semibold-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/fonts/Qanelas-Soft/qanelassoft-semibold-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/fonts/Qanelas-Soft/qanelassoft-semibold-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/fonts/Qanelas-Soft/qanelassoft-semibold-webfont.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/fonts/Yrsa/yrsa-bold-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/fonts/Yrsa/yrsa-bold-webfont.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/fonts/Yrsa/yrsa-regular-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/fonts/Yrsa/yrsa-regular-webfont.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/img/headphones.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/img/logo-inverse.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/img/logo-piesne-inverse.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/img/logo-small-dark.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/img/ludo-grey.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/img/ludo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/sass/_elements.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/sass/_imports.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/sass/_variables.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/sass/components/_articles.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/sass/components/_footer.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/sass/components/_header.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/sass/components/_navbar.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/sass/components/_promo.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/sass/fonts/_font-awesome.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/sass/fonts/_qanelas-soft.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/sass/fonts/_yrsa.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-2/sass/style.scss" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/2.0/index.html" afterPath="$PROJECT_DIR$/templates/2.0/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-2/index.html" afterPath="$PROJECT_DIR$/web-2/index.html" />
-    </list>
+    <list default="true" id="c693f58f-2ae0-4202-9bbd-c8d6012dd361" name="Default" comment="" />
     <ignored path="ludo.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -156,8 +35,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web-2/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36310396">
-              <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.2635432">
+              <caret line="12" column="56" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -716,8 +595,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-2/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36310396">
-          <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.2635432">
+          <caret line="12" column="56" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
           <folding />
         </state>
       </provider>
