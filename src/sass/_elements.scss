@@ -39,18 +39,17 @@
 
 body{
   font-family: 'Yrsa Regular', serif;
-  font-size: 1.125rem;
+  font-size: 1.3rem;
 }
 
 h1{
   font-family: 'Qanelas-Soft Heavy', "Helvetica Neue", sans-serif;
-  letter-spacing: 0.1rem;
-  line-height: 3.5rem;
 }
 
 h2, h3, h4{
   font-family: 'Qanelas-Soft Semibold', "Helvetica Neue", sans-serif;
   letter-spacing: 0.03rem;
+  line-height: 1.5em;
 }
 
 a{
@@ -139,11 +138,10 @@ a{
   }
 }
 
-@media screen and (max-width: $screen-sm-max){
+@media screen and (max-width: $screen-sm-max) {
 
-  h1{
-    letter-spacing: 0rem;
-    line-height: 2.5rem;
+  html{
+    font-size: 14px;
   }
 
 }

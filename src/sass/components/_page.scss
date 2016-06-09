@@ -1,0 +1,50 @@
+.l-theme-green{
+
+  .l-page{
+
+    h1, h2{
+      color: $color-green;
+    }
+  }
+}
+
+.l-theme-blue{
+
+  .l-page{
+
+    h1, h2{
+      color: $color-blue;
+    }
+  }
+}
+
+.l-theme-red{
+
+  .l-page{
+
+    h1, h2{
+      color: $color-red;
+    }
+  }
+}
+
+.l-theme-yellow{
+
+  .l-page{
+
+    h1, h2{
+      color: $color-yellow;
+    }
+  }
+}
+
+.l-page{
+
+  padding: 2rem 0;
+
+  h2,h3{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+}

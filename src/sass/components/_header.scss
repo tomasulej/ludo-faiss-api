@@ -32,7 +32,7 @@
 
 .l-header{
 
-  padding: 3em 0;
+  padding: 2rem 0;
 
   .l-header__logo{
 
@@ -80,6 +80,8 @@
       color: #fff;
       font-size: 3rem;
       margin-bottom: 2rem;
+      letter-spacing: 0.1rem;
+      line-height: 3.5rem;
     }
 
     p{
@@ -103,6 +105,7 @@
   .l-header{
 
     text-align: center;
+    padding: 1.5rem 0;
 
     .l-header__logo{
       display: inline-block;
@@ -113,7 +116,10 @@
 
       h1{
         font-size: 2rem;
+        letter-spacing: 0rem;
+        line-height: 2.5rem;
       }
+      
     }
   }
 }
