@@ -1,0 +1,149 @@
+.switch {
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 1.3rem;
+  left: 1rem;
+
+  li {
+
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+
+    a {
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+
+  .switch-blue{
+    background: $color-blue;
+  }
+
+  .switch-green{
+    background: $color-green;
+  }
+
+  .switch-red{
+    background: $color-red;
+  }
+
+  .switch-yellow{
+    background: $color-yellow;
+  }
+}
+
+body{
+  font-family: 'Yrsa Regular', serif;
+  font-size: 1.125rem;
+}
+
+h1{
+  font-family: 'Qanelas-Soft Heavy', "Helvetica Neue", sans-serif;
+  letter-spacing: 0.1rem;
+  line-height: 3.5rem;
+}
+
+h2, h3, h4{
+  font-family: 'Qanelas-Soft Semibold', "Helvetica Neue", sans-serif;
+  letter-spacing: 0.03rem;
+}
+
+a{
+  cursor: pointer;
+}
+
+.l-btn{
+  display: inline-block;
+  vertical-align: middle;
+  font-family: 'Qanelas-Soft Semibold', sans-serif;
+}
+
+.l-btn:hover{
+  text-decoration: none;
+}
+
+.l-btn--small{
+  @extend .l-btn;
+  border-radius: 0.2rem;
+  border-corner-shape: notch;
+  padding: 0.2em 0.6rem;
+}
+
+.l-btn--large{
+  @extend .l-btn;
+  border-radius: 0.2rem;
+  border-corner-shape: notch;
+  padding: 0.8em 1rem;
+  font-size: 1.125rem;
+}
+
+.l-btn--inverse{
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff !important;
+}
+
+.l-btn--inverse:hover{
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.l-theme-green{
+
+  .l-btn--primary{
+    background: $color-green;
+    color: #fff !important;
+  }
+
+  .l-btn--primary:hover{
+    background: $color-green-light;
+  }
+}
+
+.l-theme-blue{
+
+  .l-btn--primary{
+    background: $color-blue;
+    color: #fff !important;
+  }
+
+  .l-btn--primary:hover{
+    background: $color-blue-light;
+  }
+}
+
+.l-theme-red{
+
+  .l-btn--primary{
+    background: $color-red;
+    color: #fff !important;
+  }
+
+  .l-btn--primary:hover{
+    background: $color-red-light;
+  }
+}
+
+.l-theme-yellow{
+
+  .l-btn--primary{
+    background: $color-yellow;
+    color: #fff !important;
+  }
+
+  .l-btn--primary:hover{
+    background: $color-yellow-light;
+  }
+}
+
+@media screen and (max-width: $screen-sm-max){
+
+  h1{
+    letter-spacing: 0rem;
+    line-height: 2.5rem;
+  }
+
+}
