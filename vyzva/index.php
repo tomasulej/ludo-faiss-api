@@ -1,7 +1,7 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+//error_reporting(E_ALL);
+//ini_set('display_errors', '1');
 
 ?>
 
@@ -206,17 +206,17 @@ ini_set('display_errors', '1');
                 <form class="l-form l-well" method="post">
 
                     <fieldset class="form-group">
-                        <label for="meno">Tvoje meno:</label>
+                        <label for="meno"><strong>Tvoje meno:</strong></label>
                         <input id="meno" name="meno" type="text" placeholder="Napr. Janko Hraško" class="form-control input-md" required="">
                     </fieldset>
 
                     <fieldset class="form-group">
-                        <label for="email">Tvoj e-mail:</label>
+                        <label for="email"><strong>Tvoj e-mail:</strong></label>
                         <input id="email" name="email" type="text" placeholder="Napr. ludovit@stur.sk" class="form-control input-md" required="">
                     </fieldset>
 
                     <fieldset class="form-group">
-                        <label for="mesto">Mesto:</label>
+                        <label for="mesto"><strong>Mesto:</strong></label>
                         <input id="mesto" name="mesto" type="text" placeholder="Napr. Kocúrkovo" class="form-control input-md" required="">
                         <small class="text-muted">Odkiaľ si? Údaj nám pomôže pri prípadnom plánovaní stretnutí</small>
                     </fieldset>
@@ -225,7 +225,7 @@ ini_set('display_errors', '1');
                         <label><strong>Tvoje skúsenosti s prácou na počítači:</strong></label>
                         <div class="radio">
                             <label for="pocitac-skusenosti-0">
-                                <input type="radio" name="pocitac" id="pocitac-skusenosti-0" value="zaciatocnik" checked="checked">
+                                <input type="radio" name="pocitac" id="pocitac-skusenosti-0" value="zaciatocnik" >
                                 začiatočník
                             </label>
                         </div>
@@ -244,26 +244,26 @@ ini_set('display_errors', '1');
                     </fieldset>
 
                     <fieldset class="form-group">
-                        <label>Poznáš noty?</label>
+                        <label><strong>Poznáš noty?</strong></label>
                         <div class="radio">
                             <label for="noty-0">
-                                <input type="radio" name="noty" id="noty-0" value="ano" checked="checked">
+                                <input type="radio" name="noty" id="noty-0" value="ano" >
                                 Áno
                             </label>
                         </div>
                         <div class="radio">
                             <label for="noty-1">
-                                <input type="radio" name="noty" id="noty-1" value="nie" checked="checked">
+                                <input type="radio" name="noty" id="noty-1" value="nie" >
                                 Nie
                             </label>
                         </div>
                     </fieldset>
 
                     <fieldset class="form-group">
-                        <label>Hráš na nejaký hudobný nástroj?</label>
+                        <label><strong>Hráš na nejaký hudobný nástroj?</strong></label>
                         <div class="radio">
                             <label for="nastroj-0">
-                                <input type="radio" name="nastroj" id="nastroj-0" value="Ano" checked="checked">
+                                <input type="radio" name="nastroj" id="nastroj-0" value="Ano" >
                                 Áno
                             </label>
                         </div>
@@ -276,10 +276,10 @@ ini_set('display_errors', '1');
                     </fieldset>
 
                     <fieldset class="form-group">
-                        <label>Operačný systém, ktorý používaš</label>
+                        <label><strong>Operačný systém, ktorý používaš</strong></label>
                         <div class="radio">
                             <label for="radios-0">
-                                <input type="radio" name="os" id="radios-0" value="windows" checked="checked">
+                                <input type="radio" name="os" id="radios-0" value="windows" >
                                 Windows
                             </label>
                         </div>
@@ -310,7 +310,7 @@ ini_set('display_errors', '1');
                     </fieldset>
 
                     <fieldset class="form-group">
-                        <label for="viac">Niečo viac o Tebe? Alebo nám chceš niečo odkázať?</label>
+                        <label for="viac"><strong>Niečo viac o Tebe? Alebo nám chceš niečo odkázať?</strong></label>
                         <textarea class="form-control" id="viac" name="viac"></textarea>
                     </fieldset>
 
