@@ -183,11 +183,7 @@ ini_set('display_errors', '1');
 	
 	$mail=mail("ludo@ludoslovensky.sk","Nový človek: $meno",$mysql_query);
 
-if($mail){
-  echo "Odišiel e-mail";
-}else{
-  echo "Neodišiel e-mail"; 
-}
+
 	
 	
 ?>
