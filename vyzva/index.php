@@ -1,7 +1,7 @@
 <?php
 
-//error_reporting(E_ALL);
-//ini_set('display_errors', '1');
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 
 ?>
 
@@ -179,6 +179,10 @@
 	$mysql_query=sprintf("INSERT INTO prihlaska (meno, email, mesto, pocitac, noty, nastroj, os, viac, cas, stav) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s',%s,0)", $meno, $email, $mesto, $pocitac, $noty, $nastroj, $os, $viac, time());
 
 	$q=mysql_query($mysql_query);
+	
+	
+	mail("ludo@ludoslovensky.sk","Nový človek: $meno",$mysql_query);
+
 	
 	
 ?>
