@@ -181,8 +181,13 @@ ini_set('display_errors', '1');
 	$q=mysql_query($mysql_query);
 	
 	
-	mail("ludo@ludoslovensky.sk","Nový človek: $meno",$mysql_query);
+	$mail=mail("ludo@ludoslovensky.sk","Nový človek: $meno",$mysql_query);
 
+if($mail){
+  echo "Odišiel e-mail";
+}else{
+  echo "Neodišiel e-mail"; 
+}
 	
 	
 ?>
