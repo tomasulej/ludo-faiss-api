@@ -2218,8 +2218,8 @@
     background: #f5ab32; }
 
 body {
-  font-family: 'Yrsa Regular', serif;
-  font-size: 1.3rem; }
+  font-family: 'Source Serif Pro', serif;
+  font-size: 1.125rem; }
 
 h1 {
   font-family: 'Qanelas-Soft Heavy', "Helvetica Neue", sans-serif; }
@@ -2401,7 +2401,6 @@ a {
       letter-spacing: 0.1rem;
       line-height: 3.5rem; }
     .l-header .l-header__info p {
-      font-size: 1.3rem;
       color: #fff; }
   .l-header .l-header__img {
     text-align: center; }
@@ -2502,8 +2501,5 @@ a {
   .l-page h2, .l-page h3 {
     margin-top: 2rem;
     margin-bottom: 1rem; }
-
-.l-form {
-  font-size: 1.125rem; }
 
 /*# sourceMappingURL=style.css.map */
