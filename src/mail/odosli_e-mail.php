@@ -1,6 +1,9 @@
 <?php
 
-require 'Mailgun.php';
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
+include 'Mailgun.php';
 
 # Instantiate the client.
 $mgClient = new Mailgun('key-4c498788dbbce6979a5225f131cea166');
