@@ -253,7 +253,7 @@ ini_set('display_errors', '1');
                         </div>
                         <div class="radio">
                             <label for="noty-1">
-                                <input type="radio" name="noty" id="noty-1" value="ano" checked="checked">
+                                <input type="radio" name="noty" id="noty-1" value="nie" checked="checked">
                                 Nie
                             </label>
                         </div>
@@ -291,19 +291,19 @@ ini_set('display_errors', '1');
                         </div>
                         <div class="radio">
                             <label for="radios-2">
-                                <input type="radio" name="os" id="radios-2" value="neviem">
+                                <input type="radio" name="os" id="radios-2" value="linux">
                                 Linux
                             </label>
                         </div>
                         <div class="radio">
                             <label for="radios-3">
-                                <input type="radio" name="os" id="radios-3" value="ine">
+                                <input type="radio" name="os" id="radios-3" value="neviem">
                                 Neviem
                             </label>
                         </div>
                         <div class="radio">
                             <label for="radios-4">
-                                <input type="radio" name="os" id="radios-4" value="">
+                                <input type="radio" name="os" id="radios-4" value="iny">
                                 Iný
                             </label>
                         </div>
