@@ -3,6 +3,10 @@
   .l-header{
 
     background: $color-green;
+
+    a{
+      color: $color-green-lighter;
+    }
   }
 }
 
@@ -11,6 +15,10 @@
   .l-header{
 
     background: $color-blue;
+
+    a{
+      color: $color-blue-lighter;
+    }
   }
 }
 
@@ -19,6 +27,10 @@
   .l-header{
 
     background: $color-red;
+
+    a{
+      color: $color-red-lighter;
+    }
   }
 }
 
@@ -27,6 +39,10 @@
   .l-header{
 
     background: $color-yellow;
+
+    a{
+      color: $color-yellow-lighter;
+    }
   }
 }
 
@@ -118,6 +134,11 @@
 @media (max-width: $screen-sm-max) {
 
   .l-header{
+
+    .addthis_native_toolbox{
+      width: 160px;
+      margin: 0 auto;
+    }
 
     text-align: center;
     padding: 1.5rem 0 0 0;

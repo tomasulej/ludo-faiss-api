@@ -4,6 +4,10 @@
   color: #fff;
   padding: 3rem 0;
 
+  a{
+    color: $color-grey2;
+  }
+
   .l-footer__signature{
 
     text-align: center;
@@ -17,6 +21,35 @@
 
       img{
         width: 7rem;
+      }
+    }
+  }
+
+  .l-footer__partners{
+
+    margin-top: 2rem;
+
+    h2{
+      font-size: 1.125rem;
+    }
+
+    a{
+      img{
+        width: 10rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $screen-sm-max){
+
+  .l-footer{
+
+    .l-footer__partners{
+      a{
+        img{
+          width: 6rem;
+        }
       }
     }
   }
