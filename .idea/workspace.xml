@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c693f58f-2ae0-4202-9bbd-c8d6012dd361" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/2.0/index.html" afterPath="$PROJECT_DIR$/templates/2.0/index.html" />
-    </list>
+    <list default="true" id="c693f58f-2ae0-4202-9bbd-c8d6012dd361" name="Default" comment="" />
     <ignored path="ludo.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
