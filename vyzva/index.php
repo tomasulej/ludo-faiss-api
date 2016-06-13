@@ -286,7 +286,7 @@
                     </fieldset>
 
                     <fieldset class="form-group">
-                        <label for="viac"><strong>Niečo viac o Tebe? Alebo nám chceš niečo odkázať?</strong></label>
+                        <label for="viac"><strong>Niečo viac o Tebe? Alebo nám chceš niečo odkázať?</strong></label> 
                         <textarea class="form-control" id="viac" name="viac"></textarea>
                     </fieldset> 
 
