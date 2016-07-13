@@ -8,4 +8,6 @@
                                        //Konstanty
       mysql_connect($host,$pmeno,$heslo);
       mysql_select_db($databaza) or die($konstDie);
+
+
 ?>

@@ -8,7 +8,7 @@ $q=mysql_query("SELECT * FROM piesne WHERE id_piesen=$id");
 
 $piesen=mysql_fetch_object($q);
 
-	
+//echo "<b>".$id."</b>";	
 	
 ?>
 

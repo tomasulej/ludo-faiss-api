@@ -55,7 +55,7 @@ $datum_zbieranie=$_POST['datum_zbieranie']; printf(" %s:%s","datum_zbieranie",$d
 $datum_digitalizacia=$_POST['datum_digitalizacia']; printf(" %s:%s","datum_digitalizacia",$datum_digitalizacia);
 $id_digitalizator=$_POST['id_digitalizator']; printf(" %s:%s","id_digitalizator",$id_digitalizator);
 $id_hudba=$_POST['id_hudba']; printf(" %s:%s","id_hudba",$id_hudba);
-$tempo=$_POST['tempo']; printf(" %s:%s","tempo",$tempo);
+$id_tempo=$_POST['tempo']; printf(" %s:%s","id_tempo",$id_tempo);
 $id_incipit=$_POST['id_incipit']; $id_incipit=0;printf(" %s:%s","id_incipit",$id_incipit);
 
 $lyrics=$_POST['lyrics']; printf(" %s:%s","lyrics",$lyrics);
@@ -68,31 +68,33 @@ $file_html=$_POST['file_html']; printf(" %s:%s","file_html",$file_html);
 $file_pdf=$_POST['file_pdf']; printf(" %s:%s","file_pdf",$file_pdf);
 
 
-$query_pridat=sprintf("INSERT INTO `piesne` (`id_zbierka`, `identifikator`, `nazov_dlhy`, `nazov_kratky`, `id_zberatel`, `id_zberatel_miesto`, `id_zberatel_vyskyt`, `datum_zbieranie`, `datum_digitalizacia`, `id_digitalizator`, `id_hudba`, `tempo`, `id_incipit`, `lyrics`, `abc_notes`, `abc_settings`, `abc_times_arr`, `file_xml`, `file_mp3`, `file_html`, `file_pdf`) VALUES
-(%s, '%s', '%s', '%s', %s, %s, %s, %s, '%s', %s, %s, '%s', %s, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');",
-$id_zbierka,
-$identifikator,
-$nazov_dlhy,
-$nazov_kratky,
-$id_zberatel,
-$id_zberatel_miesto,
-$id_zberatel_vyskyt,
-$datum_zbieranie,
-$datum_digitalizacia,
-$id_digitalizator,
-$id_hudba,
-$tempo,
-$id_incipit,
-$lyrics,
-$abc_notes,
-$abc_settings,
-$abc_times_arr,
-$file_xml,
-$file_mp3,
-$file_html,
-$file_pdf);
+$query_pridat=sprintf("INSERT INTO `piesne` (`id_zbierka`, `identifikator`, `nazov_dlhy`, `nazov_kratky`, `id_zberatel`, `id_zberatel_miesto`, `id_zberatel_vyskyt`, `datum_zbieranie`, `datum_digitalizacia`, `id_digitalizator`, `id_hudba`, id_tempo, `id_incipit`, `lyrics`, `abc_notes`, `abc_settings`, `abc_times_arr`, `file_xml`, `file_mp3`, `file_html`, `file_pdf`) VALUES
+(%s, '%s', '%s', '%s', %s, %s, %s, '%s', '%s', %s, %s, '%s', %s, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');",
+mysql_real_escape_string($id_zbierka),
+mysql_real_escape_string($identifikator),
+mysql_real_escape_string($nazov_dlhy),
+mysql_real_escape_string($nazov_kratky),
+mysql_real_escape_string($id_zberatel),
+mysql_real_escape_string($id_zberatel_miesto),
+mysql_real_escape_string($id_zberatel_vyskyt),
+mysql_real_escape_string($datum_zbieranie),
+mysql_real_escape_string($datum_digitalizacia),
+mysql_real_escape_string($id_digitalizator),
+mysql_real_escape_string($id_hudba),
+mysql_real_escape_string($id_tempo),
+mysql_real_escape_string($id_incipit),
+mysql_real_escape_string($lyrics),
+mysql_real_escape_string($abc_notes),
+mysql_real_escape_string($abc_settings),
+mysql_real_escape_string($abc_times_arr),
+mysql_real_escape_string($file_xml),
+mysql_real_escape_string($file_mp3),
+mysql_real_escape_string($file_html),
+mysql_real_escape_string($file_pdf));
 
 //echo $query_pridat;
+
+echo "<b>".$query_pridat."</b>";
 
 $q=mysql_query($query_pridat);
 
@@ -238,7 +240,7 @@ $q=mysql_query($query_pridat);
 		<?php
 			$q=mysql_query("SELECT * FROM hudobnici;");
 			while ($hudobnici=mysql_fetch_object($q)) {
-			  printf("<option value='%s'>%s</option>",$hudobnici->id_hudobnik,$hudobnici->meno);	
+			  printf("<option value='%s'>%s</option>",$hudobnici->id_hudba,$hudobnici->meno);	
 			}
 			
 		?>
@@ -248,12 +250,24 @@ $q=mysql_query($query_pridat);
   </div>
 
 
-    <div class="form-group row">
-    <label for="tempo" class="col-sm-2 form-control-label">Tempo:</label>
+ 
+    <div class="form-group row">	  
+  <fieldset class="form-group">
+    <label for="id_tempo" class="col-sm-2 form-control-label">Tempo:</label>
     <div class="col-sm-10">
-      <input type="input" class="form-control" id="tempo" name="tempo" placeholder="Tempo piesne">
+    <select class="form-control" id="id_tempo" name="id_tempo">
+		<?php
+			$q=mysql_query("SELECT * FROM tempo;");
+			while ($tempo=mysql_fetch_object($q)) {
+			  printf("<option value='%s'>%s (%s bpm)</option>",$tempo->id_tempo,$tempo->tempo, $tempo->bpm);	
+			}
+			
+		?>
+    </select>
     </div>
+  </fieldset>
   </div>
+
 
 
     <div class="form-group row">	  
@@ -324,7 +338,8 @@ $q=mysql_query($query_pridat);
   
     <fieldset class="form-group">
     <label for="abc_settings">Nastavenia piesne:</label>
-    <textarea class="form-control" id="abc_settings"  name="abc_settings" rows="3"></textarea>
+    <textarea class="form-control" id="abc_settings"  name="abc_settings" rows="3">opt = {"jump":0,"no_menu":0,"repufld":0,"noplyr":0,"nocsr":0,"media_height":"","btns":1,"ipadr":"","mstr":0,"autscl":true,"ctrmed":0,"ctrnot":0,"lncsr":0,"opacity":0.2,"synbox":0,"speed":1,"top_margin":0,"yubvid":"","nomed":0,"delay":0,"repskip":0,"spdctl":0,"lopctl":0,"metro":0};
+</textarea>
   </fieldset>
   
 </div> 

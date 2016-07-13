@@ -1,53 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
+    <!-- Required meta tags always come first -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>ľudo slovenský - Najväčšia digitalizovaná zbierka slovenskej ľudovej slovesnosti</title>
 
-<link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" integrity="sha384-XXXXXXXX" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/public/css/style.css">
+
 
 <style>
-body {
-    padding: 2rem;
-    
+#lyrics  {
+   -webkit-column-count: 3;
+      -moz-column-count: 3;
+           column-count: 3;
+
+   -webkit-column-gap: 2px;
+      -moz-column-gap: 2px;
+           column-gap: 2px;
+
+  -webkit-column-width: 350px;
+     -moz-column-width: 350px;
+          column-width: 350px;
+
+   
+  margin: 50px         
 }
 
-body {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  color: #555;
-}
+ li.sloha {
+    -webkit-column-break-inside:avoid; -moz-column-break-inside:avoid; -o-column-break-inside:avoid; -ms-column-break-inside:avoid; column-break-inside:avoid;}
 
-
-.sloha {margin: 0 0 15px 0;
-		padding-left:2em;
-}
-
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: normal;
-  color: #333;
-}
-	
-	
-</style>	
+</style>
 
  <script>
 function show_lyrics2(cas) 
 {
 	  
-  var counter=0;
+  var counter=1;
 	for (var i = 0, len = times_arr.length; i < len; i++) {
 			
 		for (var j = 0, len2 = times_arr[i].length; j < len2-1; j++) {
@@ -84,51 +78,147 @@ function show_lyrics2(cas)
 
   <body onload="javascript:abc2svg();">
 
+<body class="l-theme-green">
 
+<div class="l-navbar">
 
     <div class="container">
 
 
 
-<div class="row">
-<div class="col-md-9">	
-	        <h3>%s</h3>
+        <div class="row">
 
-	
+            <div class="col-xl-1 col-lg-2 col-xs-4">
+                <a class="l-navbar__logo">
+                    <img src="/public/img/logo-small-dark.png" height="28">
+                </a>
+            </div>
+
+            <div class="col-xl-8 col-lg-7 hidden-md-down">
+                <menu class="l-navbar__menu">
+                    <li><a>Príslovia a porekadlá</a></li>
+                    <li><a>Nadávky</a></li>
+                    <li class="active"><a>Piesne</a></li>
+                    <li><a>Ľudo Labs</a></li>
+                </menu>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-xs-8">
+                <div class="l-navbar__user">
+                    <a>O ľudovi</a>
+                    <a class="l-btn l-btn--small l-btn--primary">Pridaj sa</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="l-header">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-6">
+
+                <h2><a class="l-header__logo"><img src="/public/img/logo-piesne-inverse.png"></a></h2>
+       <small> <a href="">Domov</a> - <a href="">Všetky piesne</a></small>
+               
+
+
+
+            </div>
+            <div class="col-lg-6">
+           
+          
+        <input type="text" class="form-control" placeholder="Hľadať v piesňach: "><BR>
+
+    
+</form>
+           
+           
+            </div>    
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+    <div class="container">
+<BR><BR>
+
+
+<div class="row"><div class="col-md-8 col-md-offset-1">	
+
+		<H1>%s <img src="/public/img/rate.png" width="200px"></H1>  
+<p>
+</div>
+
+<div class="col-md-2"></div>	
+
+<div class="fb-like" data-href="http://www.ludoslovensky.sk" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-10 col-md-offset-1">	
+
+
 <div id="buttons">
-    <div id="meddiv">
+
+    <div id="meddiv" style="display:none">
         <audio id="aud" controls="controls" ontimeupdate="show_lyrics2(this.currentTime)" autoplay>Your browser does not support the audio element.</audio>
-        <video id="vid" controls="controls" autoplay>Your browser does not support the video element.</video>
+        <video id="vid" controls="controls" autoplay style="display:none">Your browser does not support the video element.</video>
         <div id="vidyub"></div>
     </div>
 </div>
+
+
 <div id="streep"></div>
-<div id="notation"></div>
+<div id="notation">
+
+
+
+    
+</div>
+
+</div>
+
+</div>
+
+<div class="row"><div class="col-md-10 col-md-offset-2">	
+
 
 <div id="lyrics">
-<p>%s</p>	
+%s	
 </div>
+
+  Podobné piesne: %s.
 
 <div id="poznamky">
 <hr>
 <strong>Poznámky</strong>:<BR>
 %s	
-
-
-
 </div>	
 
 
-</div>
-	
+%s
 
 
 
-<div class="col-md-3">
-	<div class="well"><strong>O piesni</strong><BR>
+<HR>
+
+	<div><h2>O piesni</h2>
 	%s
 
-</div>
+	</div>
 
 
 
@@ -150,29 +240,29 @@ function show_lyrics2(cas)
 	<script src="http://wim.vree.org/js/xml2abc-min.js"></script>
 	<script src="http://wim.vree.org/js/xml2abc-min.js"></script>
 	<script src="abcjs_basic_2.3-min.js"></script>	
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.4/mapbox.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.4/mapbox.css' rel='stylesheet' />
 
 <script>
 
 function abc2svg() {
-
-
-$('.abc').each(function(i, obj) {
-  ABCJS.renderAbc(obj, $(obj).text()); 	
+	$('.abc').each(function(i, obj) {
+		ABCJS.renderAbc(obj, $(obj).text()); 	
  
-});
-	
-	
-
-
-
-	
-	
+	});
 }
 
 	
 </script>		
 	
-
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/sk_SK/sdk.js#xfbml=1&version=v2.6&appId=619723681422597";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
     </body>
 </html>

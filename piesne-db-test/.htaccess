@@ -1,4 +1,5 @@
 RewriteEngine On
 RewriteBase /
-RewriteRule  ^([0-9])/$ piesne-db-test/abc.php?id=$1
-RewriteRule  ^([0-9])$ piesne-db-test/abc.php?id=$1	
+RewriteRule  ^([0-9]{1,5})/$ piesne-db-test/abc.php?id=$1
+RewriteRule  ^([0-9]{1,5})$ piesne-db-test/abc.php?id=$1	
+
