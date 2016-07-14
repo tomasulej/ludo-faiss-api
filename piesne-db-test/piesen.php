@@ -57,9 +57,10 @@ include "../databaza_piesne.php";
 $q=mysql_query("SELECT piesne.id_piesen, piesne.id_zbierka, piesne.nazov_variant, piesne.id_nadriadeny, piesne.identifikator, piesne.nazov_dlhy, piesne.nazov_kratky, piesne.id_zberatel, piesne.id_zberatel_miesto, piesne.id_zberatel_vyskyt, piesne.datum_zbieranie, piesne.datum_digitalizacia, piesne.datum_digitalizacia, piesne.id_digitalizator, piesne.id_hudba,piesne.id_tempo, piesne.id_incipit, piesne.lyrics, zbierky.nazov as zbierky_nazov, zberatelia.meno as zberatelia_meno, digitalizatori.meno as digitalizatori_meno, hudobnici.meno as hudobnici_meno, lokality.meno as lokality_meno, lokality.meno_original as lokality_meno_original, lokality.area as lokality_area, lokality.typ_id as lokality_typ_id FROM piesne, zbierky, zberatelia, digitalizatori, hudobnici, lokality WHERE (id_piesen=$id AND piesne.id_zbierka=zbierky.id_zbierka AND piesne.id_zberatel=zberatelia.id_zberatel AND piesne.id_digitalizator=digitalizatori.id_digitalizator AND piesne.id_hudba=hudobnici.id_hudba AND piesne.id_zberatel_miesto=lokality.id_lokalita AND piesne.id_zberatel_vyskyt=lokality.id_lokalita)");
 $piesen=mysql_fetch_object($q);
 
-
+//templates load
  $tmpl_piesen=implode('', file('tmpl_piesen.html'));
-
+ $tmpl_mapa=implode('',file('tmpl_mapa.html'));
+ $tmpl_mapa_point=implode('',file('tmpl_mapa_point.html'));
 
 
 
@@ -74,10 +75,10 @@ $piesen_info=sprintf('
 <strong>Tempo</strong>: %s<BR>
 <strong>Dátum zozbierania</strong>: %s<BR>
 <strong>Dátum digitalizácie</strong>: %s<BR>
-<strong>Lokality:</strong>: %s (%s) -> %s<BR>
+<strong>Lokality:</strong>: %s (%s)<BR>
 
 
-', $piesen->nazov_dlhy, $piesen->nazov_kratky, $piesen->zbierky_nazov, $piesen->identifikator, $piesen->zberatelia_meno, $piesen->digitalizatori_meno, $piesen->hudobnici->meno, $piesen->tempo, $piesen->datum_zbieranie, $piesen->datum_digitalizacia, $piesen->lokality_meno,$piesen->lokality_meno_original,$piesen->lokality_area);
+', $piesen->nazov_dlhy, $piesen->nazov_kratky, $piesen->zbierky_nazov, $piesen->identifikator, $piesen->zberatelia_meno, $piesen->digitalizatori_meno, $piesen->hudobnici->meno, $piesen->tempo, $piesen->datum_zbieranie, $piesen->datum_digitalizacia, $piesen->lokality_meno,$piesen->lokality_meno_original);
 
 
 
@@ -95,60 +96,79 @@ $poznamky.="</ol>";
 
 
 // podobne piesne
-$q_podobne=mysql_query(sprintf('SELECT id_vztahy_piesne, id_piesen1,id_piesen2, txt_piesen2, piesne.nazov_dlhy, piesne.id_piesen FROM vztahy_piesne, piesne WHERE (id_piesen1=%s OR id_piesen2=%s) AND (piesne.id_piesen=id_piesen1 OR piesne.id_piesen=id_piesen2);',(int)$id,(int)$id));
+$tmpl_podobne='<div class="row">
+<h4>Podobné piesne:</h4>
+%s
+</div>';
+$tmpl_podobne_card='  <div class="col-sm-4">
+    <div class="card">
+
+
+  <div class="card-block">
+
+    <h4 class="card-title"><a href="piesen.php?%s">%s</a></h4>
+  <div style="height:120px;width:120px"><a href="piesen.php?%s" class="btn btn-sm btn-primary">&#9654;
+<img src="%s/%s" class="img-fluid" style="position:absolute;"></a></div>
+
+  </div>
+</div>
+  </div>';
+
+
+
+$q_podobne=mysql_query(sprintf('SELECT file_mp3, id_vztahy_piesne, id_piesen1,id_piesen2, txt_piesen2, piesne.nazov_dlhy, piesne.id_piesen FROM vztahy_piesne, piesne WHERE (id_piesen1=%s OR id_piesen2=%s) AND (piesne.id_piesen=id_piesen1 OR piesne.id_piesen=id_piesen2);',(int)$id,(int)$id));
 
 while ($o_podobne=mysql_fetch_object($q_podobne)) {
 	
 	if ($o_podobne->txt_piesen2=="")  {
-		if ($o_podobne->id_piesen<>(int)$id) { $podobne.=sprintf("<a href='piesen.php?%s'>%s</a>, ",$o_podobne->id_piesen,$o_podobne->nazov_dlhy);}
+		if ($o_podobne->id_piesen<>(int)$id) { 
+			//$podobne.=sprintf("<a href='piesen.php?%s'>%s</a>, ",$o_podobne->id_piesen,$o_podobne->nazov_dlhy);
+			$podobne.=sprintf($tmpl_podobne_card,$o_podobne->id_piesen, $o_podobne->nazov_dlhy,$o_podobne->id_piesen, $o_podobne->id_piesen, str_replace("mp3", "png",$o_podobne->file_mp3)); 
+		}
 
 	} else {
-		$podobne.=sprintf("<a href='#'>%s</a>, ",$o_podobne->txt_piesen2);
+		//$podobne.=sprintf("<a href='#'>%s</a>, ",$o_podobne->txt_piesen2);
 		
 	}
 
 }
 
-$subject = 'bourbon, scotch, beer';
-$search = ',';
-$replace = ' a';
+//$search = ',';
+//$replace = ' a';
+//$podobne=substr($podobne, 0, strlen($podobne) - 2);
+//$podobne=strrev(implode(strrev($replace), explode(strrev($search), strrev($podobne), 2))); //output: bourbon, scotch, and beer
 
-$podobne=substr($podobne, 0, strlen($podobne) - 2);
-$podobne=strrev(implode(strrev($replace), explode(strrev($search), strrev($podobne), 2))); //output: bourbon, scotch, and beer
+$podobne=sprintf($tmpl_podobne,$podobne);
+
+
 
 
 
 //mapa
 
-$mapa='<div id="map-four" style="width:100%;height:200px;color:blue" class="map"> </div>
-<script>
-L.mapbox.accessToken = "pk.eyJ1IjoiamVsdXNhbW90IiwiYSI6ImNpZnN0NGM2MjAxd2N1NGx6OWk2Y3BjOGsifQ.aFGe3wpK5fbZbrpefXxDNA";
-var geojson = [
-  {
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -77.0366048812866,
-          38.89784666877921
-        ]
-      },
-      "properties": {}
-    }
-  ]
+$q_mapa=mysql_query(sprintf("SELECT * FROM lokality,lokality_piesne where lokality.id_lokalita=lokality_piesne.id_lokalita AND lokality_piesne.id_piesen=%s",(int)$id));
+
+while ($lokality=mysql_fetch_object($q_mapa)) {
+	$c++;
+	$txt_lok.=sprintf("<a href='lok.php?id=%s'>%s</a>, ",$lokality->id_lokalita,$lokality->meno);
+	if ($lokality->area<>""){
+		$js_add_point.=sprintf($tmpl_mapa_point,"p_".$c,$lokality->area,"p_".$c,"p_".$c);
+	}
 }
 
-];
-var map = L.mapbox.map("map-four", "mapbox.dark", {
-    scrollWheelZoom: false
-}).setView([38.8929,-77.0252], 14);
 
-var myLayer = L.mapbox.featureLayer().addTo(map);
-myLayer.setGeoJSON(geojson);
-</script>';
+
+$txt_lok=substr($txt_lok, 0, strlen($txt_lok) - 2);
+
+$txt_lok=strrev(implode(strrev($replace), explode(strrev($search), strrev($txt_lok), 2))); //output: bourbon, scotch, and beer
+$zbieranie=sprintf("<a href='lok.php?id=%s'>%s</a>",$piesen->lokalita_id,$piesen->lokality_meno);
+
+
+if (($piesen->lokality_area<>"") OR ($txt_lok<>"")) {
+	$mapa=sprintf($tmpl_mapa,$zbieranie,$txt_lok, $piesen->lokality_area,$js_add_point);
+	//echo $mapa;
+}
+
 
 
 
@@ -158,7 +178,7 @@ myLayer.setGeoJSON(geojson);
 
 
 //vypis
-$vypis=sprintf($tmpl_piesen,  $piesen->nazov_dlhy, lyrics2html($piesen->lyrics), $podobne, $poznamky, $mapa,  $piesen_info);
+$vypis=sprintf($tmpl_piesen,  $piesen->nazov_dlhy, $piesen->zberatel_id, $piesen->zberatelia_meno, $piesen->id_digitalizator, $piesen->digitalizatori_meno, lyrics2html($piesen->lyrics), $podobne, $poznamky, $piesen_info, $mapa);
 
 echo $vypis;
 
