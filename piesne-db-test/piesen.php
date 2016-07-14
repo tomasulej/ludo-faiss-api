@@ -54,7 +54,7 @@ $id=(int)array_keys($_GET)[0];
 
 include "../databaza_piesne.php";
 
-$q=mysql_query("SELECT piesne.id_piesen, piesne.id_zbierka, piesne.nazov_variant, piesne.id_nadriadeny, piesne.identifikator, piesne.nazov_dlhy, piesne.nazov_kratky, piesne.id_zberatel, piesne.id_zberatel_miesto, piesne.id_zberatel_vyskyt, piesne.datum_zbieranie, piesne.datum_digitalizacia, piesne.datum_digitalizacia, piesne.id_digitalizator, piesne.id_hudba,piesne.id_tempo, piesne.id_incipit, piesne.lyrics, zbierky.nazov as zbierky_nazov, zberatelia.meno as zberatelia_meno, digitalizatori.meno as digitalizatori_meno, hudobnici.meno as hudobnici_meno, lokality.meno as lokality_meno, lokality.meno_original as lokality_meno_original, lokality.area as lokality_area, lokality.typ_id as lokality_typ_id FROM piesne, zbierky, zberatelia, digitalizatori, hudobnici, lokality WHERE (id_piesen=$id AND piesne.id_zbierka=zbierky.id_zbierka AND piesne.id_zberatel=zberatelia.id_zberatel AND piesne.id_digitalizator=digitalizatori.id_digitalizator AND piesne.id_hudba=hudobnici.id_hudba AND piesne.id_zberatel_miesto=lokality.id_lokalita AND piesne.id_zberatel_vyskyt=lokality.id_lokalita)");
+$q=mysql_query("SELECT piesne.id_piesen, piesne.id_zbierka, piesne.nazov_variant, piesne.id_nadriadeny, piesne.identifikator, piesne.nazov_dlhy, piesne.nazov_kratky, piesne.id_zberatel, piesne.id_zberatel_miesto, piesne.id_zberatel_vyskyt, piesne.datum_zbieranie, piesne.datum_digitalizacia, piesne.datum_digitalizacia, piesne.id_digitalizator, piesne.id_hudba,piesne.id_tempo, piesne.id_incipit, piesne.lyrics, zbierky.nazov as zbierky_nazov, zberatelia.meno as zberatelia_meno, digitalizatori.meno as digitalizatori_meno, hudobnici.meno as hudobnici_meno, lokality.meno as lokality_meno, lokality.meno_original as lokality_meno_original, lokality.area as lokality_area, lokality.typ_id as lokality_typ_id, tempo.tempo, tempo.bpm  FROM piesne, zbierky, zberatelia, digitalizatori, hudobnici, lokality, tempo WHERE (id_piesen=$id AND piesne.id_zbierka=zbierky.id_zbierka AND piesne.id_zberatel=zberatelia.id_zberatel AND piesne.id_digitalizator=digitalizatori.id_digitalizator AND piesne.id_hudba=hudobnici.id_hudba AND piesne.id_zberatel_miesto=lokality.id_lokalita AND piesne.id_zberatel_vyskyt=lokality.id_lokalita AND piesne.id_tempo=tempo.id_tempo)");
 $piesen=mysql_fetch_object($q);
 
 //templates load
@@ -64,21 +64,22 @@ $piesen=mysql_fetch_object($q);
 
 
 
+//detaily o piesni
+
 $piesen_info=sprintf('
-<strong>Dlhý názov</strong>: %s<BR>
-<strong>Krátky názov</strong>: %s<BR>
-<strong>Zbierka</strong>: %s <BR>
+<strong>Názov</strong>: %s<BR>
+<strong>Pôvodná zbierka</strong>: <a href="#">%s</a><BR>
 <strong>Identifikátor</strong>: %s <BR>
-<strong>Zberateľ</strong>: %s<BR>
-<strong>Digitalizátor</strong>: %s<BR>
-<strong>Hudba</strong>: %s<BR>
-<strong>Tempo</strong>: %s<BR>
+<strong>Zberateľ</strong>: <a href="#">%s</a><BR>
+<strong>Digitalizátor</strong>: <a href="#">%s</a><BR>
+<strong>Hudba</strong>: <a href="#">%s</a><BR>
+<strong>Tempo</strong>: <a href="#">%s</a><BR>
 <strong>Dátum zozbierania</strong>: %s<BR>
 <strong>Dátum digitalizácie</strong>: %s<BR>
-<strong>Lokality:</strong>: %s (%s)<BR>
 
 
-', $piesen->nazov_dlhy, $piesen->nazov_kratky, $piesen->zbierky_nazov, $piesen->identifikator, $piesen->zberatelia_meno, $piesen->digitalizatori_meno, $piesen->hudobnici->meno, $piesen->tempo, $piesen->datum_zbieranie, $piesen->datum_digitalizacia, $piesen->lokality_meno,$piesen->lokality_meno_original);
+', $piesen->nazov_dlhy, $piesen->zbierky_nazov, $piesen->identifikator, $piesen->zberatelia_meno, $piesen->digitalizatori_meno, $piesen->hudobnici->meno, $piesen->tempo, $piesen->datum_zbieranie, $piesen->datum_digitalizacia);
+
 
 
 
@@ -133,8 +134,8 @@ while ($o_podobne=mysql_fetch_object($q_podobne)) {
 
 }
 
-//$search = ',';
-//$replace = ' a';
+$search = ',';
+$replace = ' a';
 //$podobne=substr($podobne, 0, strlen($podobne) - 2);
 //$podobne=strrev(implode(strrev($replace), explode(strrev($search), strrev($podobne), 2))); //output: bourbon, scotch, and beer
 
@@ -150,7 +151,7 @@ $q_mapa=mysql_query(sprintf("SELECT * FROM lokality,lokality_piesne where lokali
 
 while ($lokality=mysql_fetch_object($q_mapa)) {
 	$c++;
-	$txt_lok.=sprintf("<a href='lok.php?id=%s'>%s</a>, ",$lokality->id_lokalita,$lokality->meno);
+	$txt_lok.=sprintf("<span style='color:%s;'><big>&#9679;</big></span> <a href='lok.php?id=%s'>%s</a>, ", "#66CC00", $lokality->id_lokalita,$lokality->meno);
 	if ($lokality->area<>""){
 		$js_add_point.=sprintf($tmpl_mapa_point,"p_".$c,$lokality->area,"p_".$c,"p_".$c);
 	}
@@ -161,8 +162,7 @@ while ($lokality=mysql_fetch_object($q_mapa)) {
 $txt_lok=substr($txt_lok, 0, strlen($txt_lok) - 2);
 
 $txt_lok=strrev(implode(strrev($replace), explode(strrev($search), strrev($txt_lok), 2))); //output: bourbon, scotch, and beer
-$zbieranie=sprintf("<a href='lok.php?id=%s'>%s</a>",$piesen->lokalita_id,$piesen->lokality_meno);
-
+$zbieranie=sprintf("<big>&#9639;</big> <a href='lok.php?id=%s'>%s</a>",$piesen->lokalita_id,$piesen->lokality_meno);
 
 if (($piesen->lokality_area<>"") OR ($txt_lok<>"")) {
 	$mapa=sprintf($tmpl_mapa,$zbieranie,$txt_lok, $piesen->lokality_area,$js_add_point);
@@ -170,15 +170,35 @@ if (($piesen->lokality_area<>"") OR ($txt_lok<>"")) {
 }
 
 
+//mena
+$q_mena=mysql_query(sprintf("SELECT mena.id_meno,mena.meno,mena.pohlavie FROM mena, mena_piesne WHERE mena.id_meno=mena_piesne.id_meno AND mena_piesne.id_piesen=%s",(int)$id));
 
 
+while ($o_mena=mysql_fetch_object($q_mena)) {
+   $mena.=sprintf("<a href='osoby.php?id=%s'><big>%s %s</big></a>,",$o_mena->id_meno, ($o_mena->pohlavie==1) ? "&#9794;":"&#9792;",$o_mena->meno);
+
+}
+
+$mena=substr($mena, 0, strlen($mena) - 1);
+
+$mena=strrev(implode(strrev($replace), explode(strrev($search), strrev($mena), 2))); //output: bourbon, scotch, and beer
+
+if ($mena<>"") {
+	$obsadenie=sprintf('<div><h4>Osoby a obsadenie</h4></div><div>%s</div>', $mena, $txt_lok);
+}
 
 
+//klucove slova
+$klucove_slova='<h4>Kľúčové slová</h4> <div><a href="sss"><big>Žilina</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>Žilina</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>mesto</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>umoknúť</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>milá</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>víno</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>víno</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>víno</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>víno</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>víno</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>víno</big></a> &nbsp;&nbsp;&nbsp;<a href="sss"><big>víno</big></a> </div>';
+
+
+//stiahnut
+$stiahnut='<big><strong>Stiahnuť:</strong></big> <a href="sss"><big>noty (MusicXml)</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>noty (pdf)</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>hudbu (mp3)</big></a>';
 
 
 
 //vypis
-$vypis=sprintf($tmpl_piesen,  $piesen->nazov_dlhy, $piesen->zberatel_id, $piesen->zberatelia_meno, $piesen->id_digitalizator, $piesen->digitalizatori_meno, lyrics2html($piesen->lyrics), $podobne, $poznamky, $piesen_info, $mapa);
+$vypis=sprintf($tmpl_piesen,  $piesen->nazov_dlhy, $piesen->zberatel_id, $piesen->zberatelia_meno, $piesen->datum_zbieranie, $piesen->id_digitalizator, $piesen->digitalizatori_meno, $piesen->datum_digitalizacia, $piesen->zbierky_id, $piesen->zbierky_nazov, lyrics2html($piesen->lyrics), $stiahnut, $podobne, $piesen_info, $obsadenie, $mapa, $klucove_slova, $poznamky);
 
 echo $vypis;
 

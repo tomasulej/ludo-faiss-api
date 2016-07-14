@@ -156,9 +156,9 @@ function show_lyrics2(cas)
 <BR><BR>
 
 
-<div class="row"><div class="col-md-7 col-md-offset-2">	
+<div class="row"><div class="col-md-8 col-md-offset-2">	
 		<H1>%s </H1>  
-<p style="color:gray"><small>Zozbieral(a): <a href="zberatel.php?id=%s">%s</a> ● Zdigitalizoval(a): <a href="digitalizator.php?id=%s">%s</a></small></p>
+<p style="color:gray"><small>Zozbieral(a): <a href="zberatel.php?id=%s">%s</a> (%s) ● Zdigitalizoval(a): <a href="digitalizator.php?id=%s">%s</a> (%s) ● Pôvodná zbierka <a href="zbierky.php?id=%s">%s</a></small></p>
 
 <p>
 </div>
@@ -201,16 +201,17 @@ function show_lyrics2(cas)
 %s	
 </div>
 
+<HR>
+<div class="row"><div class="col-md-1O col-md-offset-2">%s</div></div>
+<HR>
+
+
 %s
 
 
 
 
-<div id="poznamky">
-<hr>
-<strong>Poznámky</strong>:<BR>
-%s	
-</div>	
+
 
 
 
@@ -220,22 +221,40 @@ function show_lyrics2(cas)
 <HR>
 
 	<div class="well">
+
+
+
 <div class="row">
-<div class="col-md-4">
+<div class="col-md-5">
+
+    
+
 <h4>Podrobnosti</h4>
 
 	%s
+<HR>
+    %s
 </div>
-<div class="col-md-8">
+<div class="col-md-7">
 %s
 
 </div>    
 
 </div>
+
+<div class="row">
+<div class="col-md-11">%s</div>
+</div>
+
 	</div>
 
+<HR>
 
+<div id="poznamky">
 
+<strong>Poznámky</strong>:<BR>
+%s	
+</div>	
 
     </div><!-- /.container -->
 
