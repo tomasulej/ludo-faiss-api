@@ -1,5 +1,5 @@
 <?php
-      $pmeno="root";
+      $pmeno="slova";
       $heslo="LudoLudoVedMaNeser";
       $databaza="slova";
       $host="localhost";
