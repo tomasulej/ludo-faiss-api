@@ -1,0 +1,66 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Knihy a články</title>
+  <meta name="description" content="Šťastie v knihách">
+  <meta name="author" content="Tomáš Ulej">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script> 
+
+  <script type="text/javascript" src="jquery.graphup.pack.js"></script>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+
+</head>
+
+<body>
+
+<table id="data">
+	<tr><td>Kniha</td><td>Pozitívnych slov</td><td>Negatívnych slov</td></tr>
+	<tr><td>Letmý sneh (Pavel Vilikovský)</td><td class="val">20000</td><td>40000</td></tr>
+	<tr><td>Krvavé územie (Timothy Snyder)</td><td class="val">30000</td><td>50000</td></tr>
+	
+	
+	
+</table>	
+
+
+
+	<script type="text/javascript">
+	
+	
+	$(document).ready(function() {
+		alert("kokot");
+		// First table
+		$('#data td .val').graphup({
+			painter: 'bubbles',
+			colorMap: 'heatmap',
+			bubblesDiameter: 50, // px
+			callBeforePaint: function() {
+
+			}
+		
+	});
+	
+	});
+	
+	</script>
+
+
+
+
+
+
+</body>
+</html>
