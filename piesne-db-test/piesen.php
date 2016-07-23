@@ -189,7 +189,38 @@ if ($mena<>"") {
 
 
 //klucove slova
-$klucove_slova='<h4>Kľúčové slová</h4> <div><a href="sss"><big>Žilina</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>Žilina</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>mesto</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>umoknúť</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>milá</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>víno</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>víno</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>víno</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>víno</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>víno</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>víno</big></a> &nbsp;&nbsp;&nbsp;<a href="sss"><big>víno</big></a> </div>';
+$klucove_slova='<h4>Kľúčové slová</h4>'; 
+//<div><a href="sss"><big>Žilina</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>Žilina</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>mesto</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>umoknúť</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>milá</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>víno</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>víno</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>víno</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>víno</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>víno</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>víno</big></a> &nbsp;&nbsp;&nbsp;<a href="sss"><big>víno</big></a> </div>';
+
+include "../databaza_slova.php";
+$a_co=explode(" ", $piesen->lyrics);
+
+foreach ($a_co as &$word) {
+	$word=str_replace(".","",$word);
+	$word=str_replace(":","",$word);
+	$word=str_replace("?","",$word);
+	$word=str_replace("!","",$word);
+	$word=str_replace(",","",$word);
+	$word=str_replace(";","",$word);
+	$word=str_replace("|","",$word);
+	$word=str_replace("{","",$word);
+	$word=str_replace("}","",$word);
+
+
+	$word=strtolower($word);
+
+	echo $word."-";
+
+	$q=mysql_query("SELECT * FROM ma WHERE word='$word' order by parent_freq LIMIT 1");
+
+	$o_slovo=mysql_fetch_object($q);
+
+	if (strpos($o_slovo->form, 'SS') !== false) {
+
+		$klucove_slova.=sprintf('<a href=""><big>%s (%s) - %s </big></a>&nbsp;&nbsp;&nbsp;',$o_slovo->word,$o_slovo->parent, $o_slovo->form);
+	}
+
+}
 
 
 //stiahnut
