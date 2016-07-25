@@ -172,7 +172,7 @@ ini_set('display_errors', '1');
 
     
     //include "../src/mail/MailGun.php";
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 
 $mgClient = new Mailgun('key-4c498788dbbce6979a5225f131cea166');
 $domain = "ludoslovensky.sk";
