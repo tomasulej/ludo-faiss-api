@@ -171,14 +171,26 @@ ini_set('display_errors', '1');
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
     
-    
+    //include "../src/mail/MailGun.php";
+require 'vendor/autoload.php';
+
+$mgClient = new Mailgun('key-4c498788dbbce6979a5225f131cea166');
+$domain = "ludoslovensky.sk";
+
+# Make the call to the client.
+$result = $mgClient->sendMessage($domain, array(
+    'from'    => 'Excited User <ludo@ludoslovensky.sk>',
+    'to'      => 'tomas@ludoslovensky.sk',
+    'subject' => 'Hello',
+    'text'    => 'Testing some Mailgun awesomness!'
+));
 
     //$message=sprintf($tmpl_email, "Vitaj v komunite digitalizátovov Ľuda Slovenského!", "Vitaj v komunite digitalizátovov Ľuda Slovenského!", $tmpl_email_welcome);
     
     //echo $message;
 
-    mail($to, $subject, $tmpl_email_welcome, $headers);
-    mail("ludo@ludoslovensky.sk","Nový človek: $meno",$mysql_query,$headers);
+    //mail($to, $subject, $tmpl_email_welcome, $headers);
+    //mail("ludo@ludoslovensky.sk","Nový človek: $meno",$mysql_query,$headers);
 
 	
 	
