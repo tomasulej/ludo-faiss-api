@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,7 +138,7 @@
 <?php if ($_POST['odoslane']==1) {
 	
 	include "../databaza_piesne.php";
-
+    include "../src/mailgun.php";
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 	
@@ -164,27 +168,12 @@ ini_set('display_errors', '1');
 
     $subject = 'Vitajte v Ľudovi Slovenskom!';
 
-    $headers = "From: Tomáš Ulej <tomas@ludoslovensky.sk>\r\n";
-    $headers .= "Reply-To: Tomáš Ulej <tomas@ludoslovensky.sk>\r\n";
-    //$headers .= "CC: tomas@ludoslovensky.sk\r\n";
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-
     
-    //include "../src/mail/MailGun.php";
-require '../vendor/autoload.php';
-use Mailgun/Mailgun;
 
-$mgClient = new Mailgun('key-4c498788dbbce6979a5225f131cea166');
-$domain = "ludoslovensky.sk";
 
-# Make the call to the client.
-$result = $mgClient->sendMessage($domain, array(
-    'from'    => 'Excited User <ludo@ludoslovensky.sk>',
-    'to'      => 'tomas@ludoslovensky.sk',
-    'subject' => 'Hello',
-    'text'    => 'Testing some Mailgun awesomness!'
-));
+
+
+    send_mailgun($to,"Vitaj v komunite digitalizátovov Ľuda Slovenského!",$tmpl_email_welcome);
 
     //$message=sprintf($tmpl_email, "Vitaj v komunite digitalizátovov Ľuda Slovenského!", "Vitaj v komunite digitalizátovov Ľuda Slovenského!", $tmpl_email_welcome);
     
