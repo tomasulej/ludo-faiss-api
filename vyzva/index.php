@@ -42,11 +42,11 @@
                 </a>
             </div>
 
-            <div class="col-xl-8 col-lg-7">
+    <!--        <div class="col-xl-8 col-lg-7">
                 <div class="l-navbar__menu">
                     <small class="label label-warning">!Ešte nedokončený web, prosím, nešír!</small>
                 </div>
-            </div>
+            </div>-->
 
         </div>
 
@@ -135,6 +135,8 @@
 	
 	include "../databaza_piesne.php";
 
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 	
 	$meno=$_POST['meno'];
 	$email=$_POST['email'];
@@ -152,8 +154,31 @@
 	$q=mysql_query($mysql_query);
 	
 	
-	$mail=mail("ludo@ludoslovensky.sk","Nový človek: $meno",$mysql_query);
+	//$mail=mail("ludo@ludoslovensky.sk","Nový človek: $meno",$mysql_query);
 
+     $tmpl_email=implode('', file('../templates/tmpl_email.html'));
+     $tmpl_email_welcome=implode('', file('../templates/tmpl_email_welcome.html'));
+
+
+    $to = $email;
+
+    $subject = 'Vitajte v Ľudovi Slovenskom!';
+
+    $headers = "From: Tomáš Ulej <tomas@ludoslovensky.sk>\r\n";
+    $headers .= "Reply-To: Tomáš Ulej <tomas@ludoslovensky.sk>\r\n";
+    //$headers .= "CC: tomas@ludoslovensky.sk\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+
+    
+    
+
+    //$message=sprintf($tmpl_email, "Vitaj v komunite digitalizátovov Ľuda Slovenského!", "Vitaj v komunite digitalizátovov Ľuda Slovenského!", $tmpl_email_welcome);
+    
+    //echo $message;
+
+    mail($to, $subject, $tmpl_email_welcome, $headers);
+    mail("ludo@ludoslovensky.sk","Nový človek: $meno",$mysql_query,$headers);
 
 	
 	
@@ -325,13 +350,29 @@
 
             <p>(c) Ľudo Slovenský 2013-2016. Web: <a href="http://www.facebook.com/tomas.ulej.pise">Tomáš Ulej</a> a <a href="http://romanklco.com">Roman Klčo</a></p>
             
+
+            <div class="row"><div class="col-md-9">
             <div class="l-footer__partners">
 
-                <h2>Partneri:</h2>
-
-                <a href="http://www.websupport.sk"><img src="/public/img/websupport-inverse.png"></a>
+                <h2>Partneri a sponzori:</h2>
+                <a href="http://www.martinus.sk"><img src="/public/img/martinus-inverse.png"></a>
+                <a href="http://www.websupport.sk"><img src="/public/img/websupport-inverse.png" ></a>
                 <a href="http://www.mestskakniznica.sk"><img src="/public/img/kniznica-inverse.png"></a>
                 <a href="http://www.jankohrasko.sk"><img src="/public/img/janko-hrasko-inverse.png"></a>
+
+            </div>
+            </div>
+
+            <div class="col-md-3">
+            <div class="l-footer__partners">
+
+                <h2>Odborný garant:</h2>
+
+                <a href="http://www.ketnoffukf.sk"><img src="/public/img/ukf.png" height="150px"><br>Katedra etnológie a folkloristiky UKF v Nitre</a>
+
+
+            </div>
+
 
             </div>
 
