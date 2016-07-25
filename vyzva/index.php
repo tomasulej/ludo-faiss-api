@@ -174,13 +174,8 @@ ini_set('display_errors', '1');
 
 
     send_mailgun($to,"Vitaj v komunite digitalizátovov Ľuda Slovenského!",$tmpl_email_welcome);
+    send_mailgun("tomas@ludoslovensky.sk","Nový človek pribudol, aleluja, aleluja!",$mysql_query);
 
-    //$message=sprintf($tmpl_email, "Vitaj v komunite digitalizátovov Ľuda Slovenského!", "Vitaj v komunite digitalizátovov Ľuda Slovenského!", $tmpl_email_welcome);
-    
-    //echo $message;
-
-    //mail($to, $subject, $tmpl_email_welcome, $headers);
-    //mail("ludo@ludoslovensky.sk","Nový človek: $meno",$mysql_query,$headers);
 
 	
 	
