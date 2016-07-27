@@ -34,8 +34,12 @@
     }
 
     a{
+      margin-right: 0.5rem;
+      margin-top: 0.5rem;
+      display: inline-block;
+
       img{
-        width: 10rem;
+        height: 5rem;
       }
     }
   }
@@ -48,7 +52,7 @@
     .l-footer__partners{
       a{
         img{
-          width: 6rem;
+
         }
       }
     }

@@ -2500,12 +2500,13 @@ a {
     margin-top: 2rem; }
     .l-footer .l-footer__partners h2 {
       font-size: 1.125rem; }
-    .l-footer .l-footer__partners a img {
-      width: 10rem; }
+    .l-footer .l-footer__partners a {
+      margin-right: 0.5rem;
+      margin-top: 0.5rem;
+      display: inline-block; }
+      .l-footer .l-footer__partners a img {
+        height: 5rem; }
 
-@media screen and (max-width: 47.9rem) {
-  .l-footer .l-footer__partners a img {
-    width: 6rem; } }
 .l-theme-green .l-page h1, .l-theme-green .l-page h2 {
   color: #49a983; }
 
