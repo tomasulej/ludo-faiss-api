@@ -209,7 +209,7 @@ foreach ($a_co as &$word) {
 
 	$word=strtolower($word);
 
-	echo $word."-";
+	//echo $word."-";
 
 	$q=mysql_query("SELECT * FROM ma WHERE word='$word' order by parent_freq LIMIT 1");
 
