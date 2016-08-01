@@ -101,6 +101,10 @@ a{
   .l-btn--primary:hover{
     background: $color-green-light;
   }
+
+  .l-num{
+    background: $color-green;
+  }
 }
 
 .l-theme-blue{
@@ -112,6 +116,10 @@ a{
 
   .l-btn--primary:hover{
     background: $color-blue-light;
+  }
+
+  .l-num{
+    background: $color-blue;
   }
 }
 
@@ -125,6 +133,10 @@ a{
   .l-btn--primary:hover{
     background: $color-red-light;
   }
+
+  .l-num{
+    background: $color-red;
+  }
 }
 
 .l-theme-yellow{
@@ -137,12 +149,28 @@ a{
   .l-btn--primary:hover{
     background: $color-yellow-light;
   }
+
+  .l-num{
+    background: $color-yellow;
+  }
 }
 
 .l-well{
   background: $color-grey-light;
   padding: 1rem;
   border-radius: 0.4rem;
+}
+
+.l-num{
+  color: #fff;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 1rem;
+  display: inline-block;
+  line-height: 2rem;
+  vertical-align: middle;
+  font-size: 1.25rem;
+  text-align: center;
 }
 
 @media screen and (max-width: $screen-sm-max) {

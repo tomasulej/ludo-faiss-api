@@ -2264,29 +2264,48 @@ a {
   color: #fff !important; }
 .l-theme-green .l-btn--primary:hover {
   background: #92cbb5; }
+.l-theme-green .l-num {
+  background: #49a983; }
 
 .l-theme-blue .l-btn--primary {
   background: #24499b;
   color: #fff !important; }
 .l-theme-blue .l-btn--primary:hover {
   background: #536daa; }
+.l-theme-blue .l-num {
+  background: #24499b; }
 
 .l-theme-red .l-btn--primary {
   background: #d6232e;
   color: #fff !important; }
 .l-theme-red .l-btn--primary:hover {
   background: #d64652; }
+.l-theme-red .l-num {
+  background: #d6232e; }
 
 .l-theme-yellow .l-btn--primary {
   background: #f5ab32;
   color: #fff !important; }
 .l-theme-yellow .l-btn--primary:hover {
   background: #f5c664; }
+.l-theme-yellow .l-num {
+  background: #f5ab32; }
 
 .l-well {
   background: #eef1f5;
   padding: 1rem;
   border-radius: 0.4rem; }
+
+.l-num {
+  color: #fff;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 1rem;
+  display: inline-block;
+  line-height: 2rem;
+  vertical-align: middle;
+  font-size: 1.25rem;
+  text-align: center; }
 
 @media screen and (max-width: 47.9rem) {
   html {
@@ -2358,21 +2377,29 @@ a {
   background: #49a983; }
   .l-theme-green .l-header a {
     color: #c9ffe3; }
+.l-theme-green .l-header-breadcrumbs {
+  color: #c9ffe3; }
 
 .l-theme-blue .l-header {
   background: #24499b; }
   .l-theme-blue .l-header a {
     color: #badcff; }
+.l-theme-blue .l-header-breadcrumbs {
+  color: #badcff; }
 
 .l-theme-red .l-header {
   background: #d6232e; }
   .l-theme-red .l-header a {
     color: #ffc2d3; }
+.l-theme-red .l-header-breadcrumbs {
+  color: #ffc2d3; }
 
 .l-theme-yellow .l-header {
   background: #f5ab32; }
   .l-theme-yellow .l-header a {
     color: #fff1b4; }
+.l-theme-yellow .l-header-breadcrumbs {
+  color: #fff1b4; }
 
 .l-header {
   padding: 2rem 0 0 0; }
@@ -2423,6 +2450,19 @@ a {
     display: block;
     padding-top: 100%; }
 
+.l-header-breadcrumbs {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem; }
+  .l-header-breadcrumbs a .fa {
+    margin-right: 0.2rem; }
+
+.l-header-search {
+  background: #fff;
+  border: 0;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.2rem; }
+
 @media (max-width: 47.9rem) {
   .l-header {
     text-align: center;
@@ -2439,7 +2479,10 @@ a {
       line-height: 2.5rem; } }
 @media (max-width: 61.9rem) {
   .l-header .l-header__img img {
-    width: 80%; } }
+    width: 80%; }
+
+  .l-header-search {
+    margin-bottom: 1rem; } }
 .l-promo {
   padding-top: 3rem;
   background: #333845;
@@ -2470,16 +2513,17 @@ a {
   .l-articles h2 {
     font-size: 2.25rem;
     margin-bottom: 2rem; }
-  .l-articles .l-article {
-    margin-bottom: 2rem; }
-    .l-articles .l-article .l-article__img img {
-      width: 100%; }
-    .l-articles .l-article .l-article__content h3 {
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-      margin-top: 1rem; }
-      .l-articles .l-article .l-article__content h3 a {
-        color: #333845; }
+
+.l-article {
+  margin-bottom: 2rem; }
+  .l-article .l-article__img img {
+    width: 100%; }
+  .l-article .l-article__content h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem; }
+    .l-article .l-article__content h3 a {
+      color: #333845; }
 
 .l-footer {
   background: #333845;
@@ -2524,5 +2568,53 @@ a {
   .l-page h2, .l-page h3 {
     margin-top: 2rem;
     margin-bottom: 1rem; }
+
+.l-song-subh {
+  border-top: 2px solid #eef1f5;
+  padding: 1rem 0; }
+
+.l-song {
+  padding-bottom: 2rem; }
+
+.l-song-lyrics {
+  margin-top: 2rem;
+  column-count: 2; }
+  .l-song-lyrics ul {
+    list-style: none; }
+    .l-song-lyrics ul li {
+      position: relative;
+      padding-left: 3rem; }
+      .l-song-lyrics ul li .l-num {
+        position: absolute;
+        left: 0; }
+
+.l-song-download {
+  margin-top: 2rem;
+  text-align: center; }
+  .l-song-download__btns {
+    border-top: 2px solid #eef1f5;
+    border-bottom: 2px solid #eef1f5;
+    padding: 1rem 0; }
+
+.l-song-similar {
+  margin-top: 2rem; }
+  .l-song-similar__item {
+    padding: 1rem; }
+    .l-song-similar__item h3 {
+      margin-top: 0;
+      padding-right: 3rem; }
+    .l-song-similar__item .l-btn, .l-song-similar__item .l-btn--small, .l-song-similar__item .l-btn--large {
+      position: absolute;
+      top: 1rem;
+      right: 2rem; }
+    .l-song-similar__item img {
+      width: 100%; }
+
+@media (max-width: 33.9rem) {
+  .l-song-lyrics {
+    column-count: 1; }
+
+  .l-song-similar__item {
+    margin-top: 1rem; } }
 
 /*# sourceMappingURL=style.css.map */

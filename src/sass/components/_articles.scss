@@ -48,29 +48,29 @@
     margin-bottom: 2rem;
   }
 
- .l-article{
+}
 
-   margin-bottom: 2rem;
+.l-article{
 
-   .l-article__img{
+  margin-bottom: 2rem;
 
-     img{
-       width: 100%;
-     }
-   }
+  .l-article__img{
 
-   .l-article__content{
+    img{
+      width: 100%;
+    }
+  }
 
-     h3{
-       font-size: 1.75rem;
-       margin-bottom: 1rem;
-       margin-top: 1rem;
+  .l-article__content{
 
-       a{
-         color: $color-dark;
-       }
-     }
-   }
- }
+    h3{
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
 
+      a{
+        color: $color-dark;
+      }
+    }
+  }
 }

@@ -1,13 +1,16 @@
 <?php
 
 if ($_SERVER['APP_ENV']=='tomas') {
+      $pmeno = "root";
+      $heslo = "LudoLudoVedMaNeser";
+      $databaza = "piesne";
+      $host = "localhost";
+// romanova db
+}else if ($_SERVER['APP_ENV'] == "roman") {
       $pmeno="root";
-      $heslo="LudoLudoVedMaNeser";
+      $heslo="root";
       $databaza="piesne";
       $host="localhost";
-
-
-
 } else {
       $pmeno="piesne";
       $heslo="LudoLudoVedMaNeser";
