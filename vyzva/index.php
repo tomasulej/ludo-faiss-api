@@ -365,7 +365,8 @@ ini_set('display_errors', '1');
 
                 <h2>Odborný garant:</h2>
 
-                <a href="http://www.ketnoffukf.sk"><img src="/public/img/ukf.png"><br>Katedra etnológie a folkloristiky UKF v Nitre</a>
+                <a href="http://www.ketnoffukf.sk"><img src="/public/img/ukf.png"></a>
+               <a href="http://www.ketnoffukf.sk"><img src="/public/img/katedra.jpeg"></a>
 
 
             </div>
