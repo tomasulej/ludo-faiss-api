@@ -10,6 +10,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
+   <meta property="og:title" content="Celoslovenská výzva: pomôž nám dostať na internet ľudové piesne"/>
+   <meta property="og:site_name" content="ludoslovensky.sk"/>
+   <meta property="og:type" content="article"/>
+   <meta property="og:image" content="http://www.ludoslovensky.sk/public/img/ludo-music.png"/>
+   <meta property="og:url" content="http://www.ludoslovensky.sk/vyzva/"/>
+   <meta property="fb:admins" content="686226655"/>
+   <meta property="og:description" content="V projekte Ľudo Slovenský chceme dostať na web všetko o kultúre ľudí, ktorí žili na tomto území. Pomôž nám! Nechceme tvoje peniaze, chceme tvoj čas a tvoje ruky. Ak nám veľa ľudí venuje hoci aj len pár minút, podarí sa veľká vec."/>
+
+
+    
+
+
 
     <title>Celoslovenská výzva: pomôž nám dostať na internet ľudové piesne </title>
 
@@ -182,7 +194,7 @@ ini_set('display_errors', '1');
 ?>
 
 <div class="alert alert-success" role="alert">
-  <strong>Výborne!</strong> Ďakujeme veľmi pekne za vyplnenie nášho formulára. <strong>Do 24 hodín sa Ti ozveme e-mailom</strong> a vysvetlíme všetko potrebné.
+  <strong>Výborne!</strong> Ďakujeme veľmi pekne za vyplnenie nášho formulára. <strong>E-mailom sme Ti poslali ďalšie inštrukcie</strong>. Ak by neprišiel hneď, pozri, prosím, aj v spamovom priečinku a v prípade problémov <a href="mailto:ludo@ludoslovensky.sk">nám napíš</a> :).
 </div>
 
 <?php 
