@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-   <meta property="og:title" content="Celoslovenská výzva: pomôž nám dostať na internet ľudové piesne"/>
+   <meta property="og:title" content="Pomôž dostať na web všetky ľudové piesne!"/>
    <meta property="og:site_name" content="ludoslovensky.sk"/>
    <meta property="og:type" content="article"/>
    <meta property="og:image" content="http://www.ludoslovensky.sk/public/img/ludo-music.png"/>
@@ -118,7 +118,7 @@
                <h3>Ehm, a kto vy vlastne ste?</h3>
                
 
-                <p>Projekt <a href="http://www.ludoslovensky.sk">Ľudo Slovenský</a> je združenie dobrovoľníkov, ktorí sa <strong>snažia dostať na internet naše kultúrne dedičstvo</strong> a zábavnou formou priblížiť všetko, čo vytvoril ľud(o) slovenský - náš anonymný John Doe, Janko Hraško - človek milión. Už sme na internet dostali kompletné <a href="http://www.ludoslovensky.sk/prislovia">príslovia, porekadlá</a> a <a href="http://www.ludoslovensky.sk/nadavky/">nadávky</a> a teraz chceme piesne. Projekt založil aforista a novinár Tomáš Ulej, a je logickým pokračovaním jeho projektu <a href="http://zlatyfond.sme.sk">Zlatý fond denníka SME</a>, vďaka ktorému sú na internete voľne dostupné všetky najvýznamnejšie slovenské literárne diela.</p>
+                <p>Projekt <a href="http://www.ludoslovensky.sk">Ľudo Slovenský</a> je združenie dobrovoľníkov, ktorí sa <strong>snažia dostať na internet naše kultúrne dedičstvo</strong> a zábavnou formou priblížiť všetko, čo vytvoril ľud(o) slovenský - náš anonymný John Doe, Janko Hraško - človek milión. Už sme na internet dostali kompletné <a href="http://www.ludoslovensky.sk/prislovia">príslovia, porekadlá</a> a <a href="http://www.ludoslovensky.sk/nadavky/">nadávky</a> a teraz chceme piesne. Projekt založil aforista a novinár Tomáš Ulej, a je logickým pokračovaním jeho projektu <a href="http://zlatyfond.sme.sk">Zlatý fond denníka SME</a>, vďaka ktorému sú na internete voľne dostupné všetky najvýznamnejšie slovenské literárne diela. Odborným konzultantom Ľuda Slovenského je Katedry etnológie a folkloristiky Filozofickej fakulty Univerzity Konštantína Filozofa v Nitre.</p>
                 
                  
 
