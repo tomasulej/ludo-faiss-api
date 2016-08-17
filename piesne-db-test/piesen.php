@@ -217,7 +217,7 @@ foreach ($a_co as &$word) {
 
 	if (strpos($o_slovo->form, 'SS') !== false) {
 
-		$klucove_slova.=sprintf('<a href=""><big>%s (%s) - %s </big></a>&nbsp;&nbsp;&nbsp;',$o_slovo->word,$o_slovo->parent, $o_slovo->form);
+		$klucove_slova.=sprintf('<a href=""><big>%s</big></a>&nbsp;&nbsp;&nbsp;',$o_slovo->parent);
 	}
 
 }
