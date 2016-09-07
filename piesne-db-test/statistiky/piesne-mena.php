@@ -1,3 +1,28 @@
+<?php
+
+//error_reporting(E_ALL);
+//ini_set('display_errors', '1');
+
+include "../../databaza_piesne.php";
+
+$q=mysql_query("SELECT mena_piesne.id_piesen, mena.meno FROM mena,mena_piesne WHERE mena.id_meno=mena_piesne.id_meno");
+
+$a_piesen=array();
+$a_meno=array();
+while ($o_mena=mysql_fetch_object($q)) {
+    //echo $o_mena->id_piesen.";".$o_mena->meno."<BR>";
+    $a_piesen[$o_mena->id_piesen].=$o_mena->meno.";";
+    $a_meno[$o_mena->meno][]=$o_mena->id_piesen.";";
+
+}
+
+//print_r($a_meno);
+//print_r($a_piesen);
+print_r(array_count_values($a_piesen));
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,6 +117,10 @@
             <h2>Muži vs. ženy</h2>
 
             <h2>Najpopulárnejšie mená</h2>
+
+
+
+            
  
             <h2>Aničky, Jankovia</h2>
                 
