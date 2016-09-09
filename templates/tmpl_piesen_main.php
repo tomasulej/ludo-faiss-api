@@ -239,11 +239,14 @@ include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
                     <div><a href="osoby.php?id=<?php echo $meno['meno_id']; ?>">
                     
                     <?php echo 
-                     ($meno["pohlavie"]==1 ? "♂ ":"♀ ").$meno["meno"];?></a></div>
+                     ($meno["pohlavie"]==1 ? "♂ ":"♀ ").$meno["meno"];?></a>
                     <?php } ?>
     </div>
 
 <?php }?>
+
+
+</div>
 <?php if (!empty($p_mapa) OR !empty($p_mapa_point)) { ?>
                 <div class="col-md-8">
 
@@ -435,7 +438,7 @@ function abc2svg() {
         var headerScroll = false;
         var offsetTop = $(_d('header')).offset().top;
 
-        $(window).scroll(function(){
+/*        $(window).scroll(function(){
 
             var scroll = $(window).scrollTop();
             if (scroll > offsetTop) {
@@ -457,7 +460,7 @@ function abc2svg() {
                     headerScroll = false;
                 }
             }
-        });
+        }); */
     
 
     
