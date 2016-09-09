@@ -71,19 +71,19 @@ include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
 
         <div class="row">
 
-            <div class="col-lg-7">
+            <div class="col-lg-3">
 
                 <a class="l-header__logo"><img src="/public/img/logo-piesne-inverse.png"></a>
+</div>
 
+<div class="col-lg-5"><a href="">Všetky piesne (3400)</a> - <a href="">Mapa výskytu</a> - <a href="">Digitalizátori</a></div>
 
-<div><BR></div>
-
-            </div>
+            
 
 
  
 
-            <div class="col-lg-5">
+            <div class="col-lg-4">
 
 
 
