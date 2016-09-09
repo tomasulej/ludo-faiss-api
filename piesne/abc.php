@@ -1,6 +1,6 @@
 <?php
 
-include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
+include "../databaza_piesne.php";
 
 $id=$_GET['id'];
 
@@ -20,7 +20,7 @@ $piesen=mysql_fetch_object($q);
 //# **** You have to correct the path to the media file below! (media_file="...";) ****
 //########################################
 //#
-media_file = "<?php printf("%s/%s",$piesen->id_piesen,$piesen->file_mp3)?>";
+media_file = "<?php printf("data/%s/%s",$piesen->id_piesen,$piesen->file_mp3)?>";
 offset_js = 0.00;
 
 <?php printf($piesen->abc_settings); ?>

@@ -3,7 +3,7 @@
 //error_reporting(E_ALL);
 //ini_set('display_errors', '1');
 
-include "../databaza_slova.php";
+include "../../databaza_slova.php";
 
 
 function sklonovanie($slovo) {

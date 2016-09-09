@@ -12,6 +12,8 @@ $typ = $_POST['ako'];
 
 
 if ($mod=="hokej") {$tabulka="vogon_hokej";$max_id=57827;$podnadpis="<p><i>(hokej edition)</i></p>";}
+if ($mod=="martinus") {$tabulka="vogon_martinus";$max_id=490485;$podnadpis="<p><i>(martinus edition)</i></p>";}
+
 if ($mod=="tehulka") {$tabulka="vogon_tehulka";$max_id=9709;$podnadpis="<p><i>(tehuľka edition)</p></i>";}
 if ($mod=="slovencina") {$tabulka="ma";$max_id=3294152;$podnadpis="";}
 

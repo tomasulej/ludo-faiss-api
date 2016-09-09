@@ -51,6 +51,7 @@ function lyrics2html($lyrics)
 
 
 $id=(int)array_keys($_GET)[0];
+//echo "<H1>".$id."</H1>";
 
 include "../databaza_piesne.php";
 
@@ -226,7 +227,8 @@ foreach ($a_co as &$word) {
 //stiahnut
 $stiahnut='<big><strong>Stiahnuť:</strong></big> <a href="sss"><big>noty (MusicXml)</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>noty (pdf)</big></a>&nbsp;&nbsp;&nbsp;<a href="sss"><big>hudbu (mp3)</big></a>';
 
-
+//$test="kokot";
+//require "tmpl_test.php";
 
 //vypis
 $vypis=sprintf($tmpl_piesen,  $piesen->nazov_dlhy, $piesen->zberatel_id, $piesen->zberatelia_meno, $piesen->datum_zbieranie, $piesen->id_digitalizator, $piesen->digitalizatori_meno, $piesen->datum_digitalizacia, $piesen->zbierky_id, $piesen->zbierky_nazov, lyrics2html($piesen->lyrics), $stiahnut, $podobne, $piesen_info, $obsadenie, $mapa, $klucove_slova, $poznamky);

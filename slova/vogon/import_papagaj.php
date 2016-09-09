@@ -14,7 +14,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 include "../kniznica.php";
-include "../../databaza_slova.php";
+include "../../../databaza_slova.php";
 
 
 
@@ -23,8 +23,8 @@ include "../../databaza_slova.php";
 
 
 
-$tabulka='vogon_tehulka';
-$txt= implode('', file("vogon_tehulka.txt"));
+$tabulka='vogon_martinus';
+$txt= implode('', file("vogon_martinus.txt"));
 
 $a_co=explode(" ", $txt);	
 
