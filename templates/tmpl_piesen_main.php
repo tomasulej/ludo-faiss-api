@@ -122,15 +122,15 @@ include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
                 </div>
                 <div class="col-md-5 col-xs-12 l-song-download">
                     Stiahnuť:
-                    <a class="l-btn l-btn--primary l-btn--small" href="<? echo $xml_link; ?>">noty</a>
-                    <a class="l-btn l-btn--primary l-btn--small" href="<? echo $mp3_link; ?>">hudbu</a>
-                    <a class="l-btn l-btn--primary l-btn--small" href="<? echo $pdf_link; ?>">vytlačiť (pdf)</a>
+                    <a class="l-btn l-btn--primary l-btn--small" href="<?php echo $xml_link; ?>">noty</a>
+                    <a class="l-btn l-btn--primary l-btn--small" href="<?php echo $mp3_link; ?>">hudbu</a>
+                    <a class="l-btn l-btn--primary l-btn--small" href="<?php echo $pdf_link; ?>">vytlačiť (pdf)</a>
 
                 </div>
 
             </div>
         <p class="l-song-subh">
-            <small>Zozbieral(a): <a href="zberatel.php?id=<? echo $piesen->id_zberatel; ?>"><? echo $piesen->zberatelia_meno; ?></a> (<? echo $piesen->datum_zbieranie; ?>) ● Zdigitalizoval(a): <a href="digitalizator.php?id=<? echo $piesen->id_digitalizator; ?>"><? echo $piesen->digitalizatori_meno; ?></a> (<? echo $piesen->datum_digitalizacia; ?>) ● Pôvodná zbierka <a href="zbierky.php?id=<? echo $piesen->id_zbierka ?>"><? echo $piesen->zbierky_nazov ?></a></small>
+            <small>Zozbieral(a): <a href="zberatel.php?id=<?php echo $piesen->id_zberatel; ?>"><?php echo $piesen->zberatelia_meno; ?></a> (<?php echo $piesen->datum_zbieranie; ?>) ● Zdigitalizoval(a): <a href="digitalizator.php?id=<?php echo $piesen->id_digitalizator; ?>"><?php echo $piesen->digitalizatori_meno; ?></a> (<?php echo $piesen->datum_digitalizacia; ?>) ● Pôvodná zbierka <a href="zbierky.php?id=<?php echo $piesen->id_zbierka ?>"><?php echo $piesen->zbierky_nazov ?></a></small>
         </p>
         </div>
 
