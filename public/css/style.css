@@ -2374,28 +2374,32 @@ a {
       margin-left: 0.3rem; }
 
 .l-theme-green .l-header {
-  background: #49a983; }
+  background: #49a983;
+  color: #c9ffe3; }
   .l-theme-green .l-header a {
     color: #c9ffe3; }
 .l-theme-green .l-header-breadcrumbs {
   color: #c9ffe3; }
 
 .l-theme-blue .l-header {
-  background: #24499b; }
+  background: #24499b;
+  color: #badcff; }
   .l-theme-blue .l-header a {
     color: #badcff; }
 .l-theme-blue .l-header-breadcrumbs {
   color: #badcff; }
 
 .l-theme-red .l-header {
-  background: #d6232e; }
+  background: #d6232e;
+  color: #ffc2d3; }
   .l-theme-red .l-header a {
     color: #ffc2d3; }
 .l-theme-red .l-header-breadcrumbs {
   color: #ffc2d3; }
 
 .l-theme-yellow .l-header {
-  background: #f5ab32; }
+  background: #f5ab32;
+  color: #fff1b4; }
   .l-theme-yellow .l-header a {
     color: #fff1b4; }
 .l-theme-yellow .l-header-breadcrumbs {
@@ -2425,6 +2429,12 @@ a {
       border-radius: 0.2rem; }
     .l-header .l-header__tabs a.active:hover {
       text-decoration: none; }
+  .l-header .l-header__links {
+    margin-bottom: 2.4rem;
+    padding-top: 0.6rem;
+    font-family: 'Qanelas Soft', sans-serif;
+    text-transform: uppercase;
+    font-size: 1rem; }
   .l-header .l-header__info {
     padding-right: 1rem;
     margin: 2em 0; }
@@ -2592,13 +2602,14 @@ a {
 
 .l-song-subh {
   border-top: 2px solid #eef1f5;
-  padding: 1rem 0; }
+  padding: 1rem 0 0 0;
+  margin: 0; }
 
 .l-song {
-  padding-bottom: 0rem; }
+  margin-top: -3rem; }
 
 .l-song-lyrics {
-  margin-top: 2rem;
+  margin-top: 4rem;
   column-count: 2; }
   .l-song-lyrics ul {
     list-style: none;

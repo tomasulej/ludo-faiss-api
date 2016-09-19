@@ -76,7 +76,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
                 <a class="l-header__logo"><img src="/public/img/logo-piesne-inverse.png"></a>
 </div>
 
-<div class="col-lg-5"><a href="">Všetky piesne (3400)</a> - <a href="">Mapa výskytu</a> - <a href="">Digitalizátori</a></div>
+<div class="col-lg-5 l-header__links"><a href="">Všetky piesne (3400)</a> - <a href="">Mapa výskytu</a> - <a href="">Digitalizátori</a></div>
 
             
 
@@ -90,7 +90,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
                 <div class="input-group">
                 <input type="text" class="form-control" placeholder="Hľadať v piesňach (máme ich už 3440)!">
                 <span class="input-group-btn">
-                    <button class="btn btn-secondary" type="button">Hľadať!</button>
+                    <button class="btn btn-secondary l-btn l-btn--inverse" type="button">Hľadať!</button>
                 </span>
                 </div>
 
@@ -432,7 +432,8 @@ function abc2svg() {
 
     $(document).ready(function(){
         abc2svg();
-        var headerScroll = false;
+        
+        /*var headerScroll = false;
         var offsetTop = $(_d('header')).offset().top;
 
         $(window).scroll(function(){
@@ -457,10 +458,7 @@ function abc2svg() {
                     headerScroll = false;
                 }
             }
-        });
-    
-
-    
+        });*/
     
     });
 
