@@ -2,107 +2,9 @@
 
 include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
 
+require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Required meta tags always come first -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>ľudo slovenský - Najväčšia digitalizovaná zbierka slovenskej ľudovej slovesnosti</title>
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
-    <link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/public/css/style.css">
-
-    <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
-    <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
-
-</head>
-<body class="l-theme-green">
-
-<div class="l-navbar">
-
-    <div class="container">
-
-        <menu class="switch hidden-md-down">
-            <li><a class="switch-blue"></a></li>
-            <li><a class="switch-green"></a></li>
-            <li><a class="switch-red"></a></li>
-            <li><a class="switch-yellow"></a></li>
-        </menu>
-
-        <div class="row">
-
-            <div class="col-xl-1 col-lg-2 col-xs-4">
-                <a class="l-navbar__logo">
-                    <img src="/public/img/logo-small-dark.png" height="28">
-                </a>
-            </div>
-
-            <div class="col-xl-8 col-lg-7 hidden-md-down">
-                <menu class="l-navbar__menu">
-                    <li><a>Príslovia a porekadlá</a></li>
-                    <li><a>Nadávky</a></li>
-                    <li class="active"><a>Piesne</a></li>
-                    <li><a>Ľudo Labs</a></li>
-                </menu>
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-xs-8">
-                <div class="l-navbar__user">
-                    <a>O ľudovi</a>
-                    <a class="l-btn l-btn--small l-btn--primary">Pridaj sa</a>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-<div class="l-header">
-
-    <div class="container">
-
-        <div class="row">
-
-            <div class="col-lg-3">
-
-                <a class="l-header__logo"><img src="/public/img/logo-piesne-inverse.png"></a>
-</div>
-
-<div class="col-lg-5"><a href="">Všetky piesne (3400)</a> - <a href="">Mapa výskytu</a> - <a href="">Digitalizátori</a></div>
-
-            
-
-
- 
-
-            <div class="col-lg-4">
-
-
-
-                <div class="input-group">
-                <input type="text" class="form-control" placeholder="Hľadať v piesňach (máme ich už 3440)!">
-                <span class="input-group-btn">
-                    <button class="btn btn-secondary" type="button">Hľadať!</button>
-                </span>
-                </div>
-
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
 
 <div class="l-page">
 
@@ -247,15 +149,17 @@ include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
 
 
 </div>
-<?php if (!empty($p_mapa) OR !empty($p_mapa_point)) { ?>
+<?php if (!empty($p_mapa) OR !empty($p_mapa_point) OR !empty($zberatel_miesto) OR !empty($zberatel_vyskyt)) { ?>
                 <div class="col-md-8">
 
                     <h3>Mapa piesne <a href="/piesne/mapa/"><small><i class="fa fa-map-o"></i> Pozrieť mapu všetkých piesní</small></a></h3>
 
-                   <?php if (!empty($piesen->lokality_area)) { ?>
-                        <p><strong>Kde sa spieva:</strong> <i class="fa fa-map-signs"></i> <a href="lok.php?id="><?php echo $piesen->lokality_meno; ?></a><br>
+                   <?php if (!empty($zberatel_vyskyt->id_lokalita)) { ?>
+                        <p><strong>Kde sa spieva:</strong> <i class="fa fa-map-signs"></i> <a href="lok.php?id="><?php echo $zberatel_vyskyt->meno; ?></a><br>
                     <?php } ?>
-                    
+                    <?php if (!empty($zberatel_miesto->id_lokalita)) { ?>
+                        <p><strong>Kde bola zozbieraná:</strong> <i class="fa fa-map-signs"></i> <a href="lok.php?id="><?php echo $zberatel_miesto->meno; ?></a><br>
+                    <?php } ?>
                     <?php if (!empty($p_mapa_point)) { ?>
                         <strong>Miesta spomenuté piesni</strong>:  
                         
@@ -270,16 +174,32 @@ include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
                         
                         <?php } ?>
 
+
+                    <?php } ?>
+
+                    <?php if (!empty($p_mapa_point) OR !(empty($zberatel_miesto)) OR !empty($zberatel_vyskyt)) { ?>
+
+
                     <div id='mapa' class='map' Style="height:300px"> </div>
 
                     <script>
                         L.mapbox.accessToken = 'pk.eyJ1IjoiamVsdXNhbW90IiwiYSI6ImNpZnN0NGM2MjAxd2N1NGx6OWk2Y3BjOGsifQ.aFGe3wpK5fbZbrpefXxDNA';
-                        var geojson_vyskyt = [<?php echo $piesen->lokality_area; ?>];
-
+                        var geojson_vyskyt = [<?php echo $zberatel_vyskyt->area; ?>];
+                        var geojson_miesto = [<?php echo $zberatel_miesto->area; ?>];
 
                         var map = L.mapbox.map('mapa', 'mapbox.streets', {
                             scrollWheelZoom: false
                         }).setView([48.812,19.473], 6);
+
+                        var myLayer = L.mapbox.featureLayer(geojson_miesto, {
+                            pointToLayer: function(feature, latlon) {
+                                return L.circleMarker(latlon, {
+                                    fillColor:  '#66CC00',
+                                    fillOpacity: 0.8,
+                                    stroke: false
+                                });
+                            }
+                        }).addTo(map);
 
                         var myLayer = L.mapbox.featureLayer(geojson_vyskyt, {
                             pointToLayer: function(feature, latlon) {
@@ -290,6 +210,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
                                 });
                             }
                         }).addTo(map);
+
 
                         <?php foreach ($p_mapa_point as $key=>$point) { ?>
                                     var p_<?php echo $point["c"]; ?> = [
