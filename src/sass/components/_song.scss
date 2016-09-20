@@ -26,15 +26,16 @@
 .l-song-subh{
 
   border-top: 2px solid $color-grey-light;
-  padding: 1rem 0;
+  padding: 1rem 0 0 0;
+  margin: 0;
 }
 
 .l-song{
-  padding-bottom: 2rem;
+  margin-top: -3rem;
 }
 
 .l-song-lyrics{
-  margin-top: 2rem;
+  margin-top: 4rem;
   column-count: 2;
 
   ul{

@@ -9,7 +9,7 @@ if ($_SERVER['APP_ENV']=='tomas') {
 }else if ($_SERVER['APP_ENV'] == "roman") {
       $pmeno="root";
       $heslo="root";
-      $databaza="piesne";
+      $databaza="piesne_20160919";
       $host="localhost";
 } else {
       $pmeno="piesne";

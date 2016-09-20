@@ -3,6 +3,7 @@
   .l-header{
 
     background: $color-green;
+    color: $color-green-lighter;
 
     a{
       color: $color-green-lighter;
@@ -19,6 +20,7 @@
   .l-header{
 
     background: $color-blue;
+    color: $color-blue-lighter;
 
     a{
       color: $color-blue-lighter;
@@ -35,6 +37,7 @@
   .l-header{
 
     background: $color-red;
+    color: $color-red-lighter;
 
     a{
       color: $color-red-lighter;
@@ -51,6 +54,7 @@
   .l-header{
 
     background: $color-yellow;
+    color: $color-yellow-lighter;
 
     a{
       color: $color-yellow-lighter;
@@ -104,6 +108,14 @@
 
       text-decoration: none;
     }
+  }
+
+  .l-header__links{
+    margin-bottom: 2.4rem;
+    padding-top: 0.6rem;
+    font-family: 'Qanelas Soft', sans-serif;
+    text-transform: uppercase;
+    font-size: 1rem;
   }
 
   .l-header__info{
