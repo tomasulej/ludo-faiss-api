@@ -2,11 +2,16 @@
 
 include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
 
-require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
+//require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-<<<<<<< HEAD
-=======
     <title>ľudo slovenský - Najväčšia digitalizovaná zbierka slovenskej ľudovej slovesnosti</title>
 
     <!-- Bootstrap CSS -->
@@ -72,7 +77,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                 <a class="l-header__logo"><img src="/public/img/logo-piesne-inverse.png"></a>
 </div>
 
-<div class="col-lg-5 l-header__links"><a href="">Všetky piesne (3400)</a> - <a href="">Mapa výskytu</a> - <a href="">Digitalizátori</a></div>
+<div class="col-lg-5 l-header__links"><a href="">Všetky piesne</a> - <a href="">Mapa výskytu</a> - <a href="">Digitalizátori</a></div>
 
             
 
@@ -84,7 +89,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 
 
                 <div class="input-group">
-                <input type="text" class="form-control" placeholder="Hľadať v piesňach (máme ich už 3440)!">
+                <input type="text" class="form-control" placeholder="Hľadať v piesňach">
                 <span class="input-group-btn">
                     <button class="btn btn-secondary l-btn l-btn--inverse" type="button">Hľadať!</button>
                 </span>
@@ -99,7 +104,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
     </div>
 
 </div>
->>>>>>> 0a94cd88508a6f317ef892f72d84233b1eacd4d7
+
 
 <div class="l-page">
 
@@ -108,27 +113,27 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
         <div class="l-song-header" data-role="header">
             <div class="row">
                 <div class="col-md-1 col-xs-2">
-                    <a id="playpause_main" class="l-btn l-btn--primary l-btn--small l-btn--play" onclick="playpause('#aud','#playpause_main');"><i class="fa fa-play"></i></a>
+                    <a id="playpause_main" class="l-btn l-btn--primary l-btn--small l-btn--play" onclick="playpause('#aud','#playpause_main');"><i class="fa fa-play"></i>  Prehrať</a>
                 </div>
-                <div class="col-md-6 col-xs-10">
+                <div class="col-md-11 col-xs-10">
                     <h1>
                         <?php echo $piesen->nazov_dlhy;?>
                     </h1>
 
 
                 </div>
-                <div class="col-md-5 col-xs-12 l-song-download">
+               <!-- <div class="col-md-5 col-xs-12 l-song-download">
                     Stiahnuť:
                     <a class="l-btn l-btn--primary l-btn--small" href="<?php echo $xml_link; ?>">noty</a>
                     <a class="l-btn l-btn--primary l-btn--small" href="<?php echo $mp3_link; ?>">hudbu</a>
                     <a class="l-btn l-btn--primary l-btn--small" href="<?php echo $pdf_link; ?>">vytlačiť (pdf)</a>
 
-                </div>
+                </div>-->
 
             </div>
-        <p class="l-song-subh">
+     <!--   <p class="l-song-subh">
             <small>Zozbieral(a): <a href="zberatel.php?id=<?php echo $piesen->id_zberatel; ?>"><?php echo $piesen->zberatelia_meno; ?></a> (<?php echo $piesen->datum_zbieranie; ?>) ● Zdigitalizoval(a): <a href="digitalizator.php?id=<?php echo $piesen->id_digitalizator; ?>"><?php echo $piesen->digitalizatori_meno; ?></a> (<?php echo $piesen->datum_digitalizacia; ?>) ● Pôvodná zbierka <a href="zbierky.php?id=<?php echo $piesen->id_zbierka ?>"><?php echo $piesen->zbierky_nazov ?></a></small>
-        </p>
+        </p>-->
         </div>
 
 
@@ -227,6 +232,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                 <strong>Tempo</strong>: <a href="#"><?php echo $piesen->tempo?></a><BR>
                 <strong>Dátum zozbierania</strong>: <?php echo $piesen->datum_zbieranie?><BR>
                 <strong>Dátum digitalizácie</strong>: <?php echo $piesen->datum_digitalizacia?><BR>
+                <strong>Stiahnuť:</strong>: <a href="">noty</a>, <a href="">hudbu</a> alebo <a href="">vytlačiť</a>.
 
 
 <?php if (!empty($p_mena)) { ?>
@@ -345,7 +351,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 
     </div>
 
-</div>
+</div></div>
 
 
 <?php require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_footer.php"?>
@@ -404,7 +410,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 <script src="http://wim.vree.org/js/xml2abc-min.js"></script>
 <script src="http://wim.vree.org/js/xml2abc-min.js"></script>
 <script src="/public/js/abcjs_basic_2.3-min.js"></script>
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-575ac8e6862d0152"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-575ac8e6862d0152"></script>
 
 
 <script>
@@ -482,11 +488,10 @@ function abc2svg() {
     
 
     
-=======
-        });*/
->>>>>>> 0a94cd88508a6f317ef892f72d84233b1eacd4d7
+
+        });
+
     
-    });
 
 </script>
 

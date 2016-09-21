@@ -189,9 +189,6 @@ function sendText(mod,mod2){
   <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="slovencina" onclick="sendText($('input[name=inlineRadioOptions]:checked').val(),$('input[name=inlineRadioOptions1]:checked').val());"> celej slovenčiny (trochu pomalé)
 </label>
 
-<label class="radio-inline">
-  <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="martinus" onclick="sendText($('input[name=inlineRadioOptions]:checked').val(),$('input[name=inlineRadioOptions1]:checked').val());"> martinus
-</label>
 
 </p>
     </div>

@@ -1,10 +1,10 @@
 <?php 
-$nadpis="Pridávanie piesne: nahranie súborov (krok 3/5)";
+$nadpis="Pridávanie piesne: nahranie súborov (krok 2/5)";
 require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_administracia_header.php";
 include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
 
-	//error_reporting(E_ALL);
-	//ini_set('display_errors', '1');
+	error_reporting(E_ALL);
+	ini_set('display_errors', '1');
 
 ?>
 
@@ -94,10 +94,7 @@ id_tempo=%s,
 `source_zberatel_miesto`='%s',
 `source_zberatel_vyskyt`='%s',
 `source_datum_zbieranie`='%s',
-`source_tempo`='%s'
-
-
-WHERE id_piesen=%s;",
+`source_tempo`='%s' WHERE id_piesen=%s;",
 
 mysql_real_escape_string($id_zbierka),
 mysql_real_escape_string($identifikator),
@@ -118,11 +115,11 @@ mysql_real_escape_string($source_zberatel_miesto),
 mysql_real_escape_string($source_zberatel_vyskyt),
 mysql_real_escape_string($source_datum_zbieranie),
 mysql_real_escape_string($source_tempo),
-$id_piesen
+(int)$id_piesen
 );
 
 
-//echo $query_pridat;
+echo $query_update;
 
 $q=mysql_query($query_update);
 

@@ -1,5 +1,5 @@
 <?php 
-$nadpis="Pridávanie piesne: obsah piesne (krok 4/5)";
+$nadpis="Pridávanie piesne: obsah piesne (krok 3/5)";
 require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_administracia_header.php";
 include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
 
@@ -15,6 +15,8 @@ $id_piesen=(int)$_POST['id_piesen'];
 
 if ($_POST['odoslane']=='true') {
 
+
+    mkdir($_SERVER["DOCUMENT_ROOT"]."/piesne/data/".(int)$_POST['id_piesen']);
     //xml upload
     $upl_xml_target = $_SERVER["DOCUMENT_ROOT"]."/piesne/data/".(int)$_POST['id_piesen']."/".basename($_FILES["upl_xml"]["name"]);
     $upl_xml_temp=$_FILES["upl_xml"]["tmp_name"];
@@ -58,7 +60,7 @@ if ($id_piesen<>0) {
 
 <p><a href="gen/abcweb.html?http://<?php echo  $_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'];?>/piesne/data/<?php echo (int)$_POST['id_piesen'].'/'.basename($_FILES["upl_xml"]["name"])?>" target="_blank">Choď na adresu </a> a skopíruj údaje sem:</p>
 
-<form action="04_prepojenia.php" method="post" class="l-form l-well">
+<form action="04_crop.php" method="post" class="l-form l-well">
 
 
   
@@ -66,7 +68,7 @@ if ($id_piesen<>0) {
 
     <fieldset class="form-group">
     <label for="abc_notes">Noty piesne:</label>
-    <textarea class="form-control" id="abc_notes" name="abc_notes" rows="15"><? echo $p_edit->abc_notes; ?>"</textarea>
+    <textarea class="form-control" id="abc_notes" name="abc_notes" rows="15"><?php echo $p_edit->abc_notes; ?></textarea>
   </fieldset>
   </div>
 
@@ -87,7 +89,7 @@ if ($id_piesen<>0) {
   
     <fieldset class="form-group">
     <label for="abc_times_arr">Načasovanie piesne:</label>
-    <textarea class="form-control" id="abc_times_arr"  name="abc_times_arr" rows="5"><? echo $p_edit->abc_times_arr; ?></textarea>
+    <textarea class="form-control" id="abc_times_arr"  name="abc_times_arr" rows="5"><?php echo $p_edit->abc_times_arr; ?></textarea>
   </fieldset>
   
 </div> 
@@ -96,13 +98,13 @@ if ($id_piesen<>0) {
 <div class="form-group row">	  
   <fieldset class="form-group">
     <label for="lyrics"><strong>Slová piesne:</strong></label>
-    <textarea class="form-control" id="lyrics" name="lyrics" rows="15"><? echo $p_edit->lyrics; ?>"</textarea>
+    <textarea class="form-control" id="lyrics" name="lyrics" rows="15"><?php echo $p_edit->lyrics; ?></textarea>
   </fieldset>
 </div>  
 
 <input type="hidden" name="odoslane" value="true">
 
-<input type="hidden" name="update" value="true"><input type="hidden" name="id_piesen" value='<? echo $id_piesen;?>'> 
+<input type="hidden" name="update" value="true"><input type="hidden" name="id_piesen" value='<?php echo $id_piesen;?>'> 
 
 
 

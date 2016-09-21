@@ -1,5 +1,5 @@
 <?php 
-$nadpis="Pridávanie piesne: výber (krok 1/5)";
+$nadpis="Pridávanie piesne: výber";
 require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_administracia_header.php";
 ?>
 

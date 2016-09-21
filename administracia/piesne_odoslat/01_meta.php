@@ -1,5 +1,5 @@
 <?php 
-$nadpis="Pridávanie piesne: meta informácie (krok 2/5)";
+$nadpis="Pridávanie piesne: meta informácie (krok 1/5)";
 require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_administracia_header.php";
 ?>
 
