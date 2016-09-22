@@ -414,7 +414,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
     <?php foreach ($poznamky as $key=>$poznamka) { ?>
     <tr>
       <th colspan="2">
-      <b>Poznámka č. <?php echo $i;?></b><BR>
+      <b>Poznámka č. <?php echo $i;$i++;?></b><BR>
       <small><?php echo substr($poznamka["txt"],0,40); ?>…</small></th>
           <td><small>
           <?php 
