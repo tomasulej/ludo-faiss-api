@@ -153,7 +153,7 @@ if ((int)$_GET['id_piesen']<>0) {
       <option value='2' <?php if ($p_edit->source_zberatel==2) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v okrúhlych zátvorkách</option>
       <option value='3' <?php if ($p_edit->source_zberatel==3) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v okrúhlych aj hranatých zátvorkách</option>
       <option value='4' <?php if ($p_edit->source_zberatel==4) {echo 'selected';} else { echo '';} ?>>kurzíva bez zátvoriek</option>
-      <option value='5' <?php if ($p_edit->source_zberatel==5) {echo 'selected';} else { echo '';} ?>>kurzíva v klasických zátvorkách</option>
+      <option value='5' <?php if ($p_edit->source_zberatel==5) {echo 'selected';} else { echo '';} ?>>kurzíva v okrúhlych zátvorkách</option>
       <option value='6' <?php if ($p_edit->source_zberatel==6) {echo 'selected';} else { echo '';} ?>>kurzíva v hranatých zátvorkách</option>
       <option value='7' <?php if ($p_edit->source_zberatel==7) {echo 'selected';} else { echo '';} ?>>kurzíva v klasických aj hranatých zátvorkých</option>
 
