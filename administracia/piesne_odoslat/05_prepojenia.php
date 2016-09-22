@@ -68,6 +68,7 @@ if ($_POST['odoslane']=='true') {
     <select class="form-control" id="id_druh" name="id_druh">
 		<option value='0'>Je priamo pod piesňou a je označená hviezdičkou (*)</option>
         <option value='1' selected>Je pod čiarou a je označená krížikom (&#10013;)</option>
+        <option value='2' selected>Poznámka pridaná nami (Ľudo Slovenský)</option>
 
     </select>
     </div>

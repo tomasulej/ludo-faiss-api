@@ -50,7 +50,9 @@ while ($o_podobne=mysql_fetch_object($q_podobne)) {
 //poznamky
 $q_poznamky=mysql_query("SELECT * FROM poznamky WHERE id_piesen=$id");
 while ($o_poznamky=mysql_fetch_object($q_poznamky)) {
-    $poznamky[] .= $o_poznamky->txt;
+    $poznamky[] = array(
+        "id_druh"=>$o_poznamky->id_druh,
+        "txt"=>$o_poznamky->txt);
 }
 
 

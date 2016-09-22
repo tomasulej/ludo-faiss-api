@@ -176,7 +176,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
 
     <ul>
     <?php foreach ($poznamky as $key=>$poznamka) { ?>
-        <li><?php echo $poznamka; ?></li>
+        <li><?php echo $poznamka["txt"]; ?></li>
     <?php } ?>
     </ul>
 
@@ -233,9 +233,9 @@ include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
                 <strong>Tempo</strong>: <a href="#"><?php echo $piesen->tempo?></a><BR>
                 <strong>Dátum zozbierania</strong>: <?php echo $piesen->datum_zbieranie?><BR>
                 <strong>Dátum digitalizácie</strong>: <?php echo $piesen->datum_digitalizacia?><BR>
-                <strong>Stiahnuť:</strong>: <a href="">noty</a>, <a href="">hudbu</a> alebo <a href="">vytlačiť</a>.
-                <HR>
-                <p><a href="" data-toggle="modal" data-target=".bd-example-modal-lg">Všetky informácie o piesni</a></p>
+                <strong>Stiahnuť</strong>: <a href="">noty</a>, <a href="">hudbu</a> alebo <a href="">vytlačiť</a>.
+                <HR>    
+                <p><a href="" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-info"></i> Všetky informácie o piesni</a></p>
 
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
@@ -289,7 +289,39 @@ include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
         <tr>
       <th>Zberateľ</th>
       <td><?php echo $piesen->zberatelia_meno ?></td>
-      <td><small><?php echo $piesen->source_zberatel;?> - tu doplniť vysvetlivku</small></td>
+      <td><small>
+      <?php
+      
+      switch ($piesen->source_zberatel) {
+            case 0:
+                echo "Údaj pochádza z prvého vydania a má podklad v rukopisoch zberateľa";
+            break;
+            case 1:
+                echo "Údaj bol doplnený do druhého vydania na základe druhotných dokumentov";
+            break;
+            case 2:
+                echo "Údaj nemá podklad v rukopisoch zberateľa, no bol uvedený v prvom vydaní";
+            break;
+            case 3:
+                echo "";
+            break;
+            case 4:
+                echo "Údaj má podklad v rukopisoch zberateľa, no nebol uvedený v prvom vydaní";
+            break;
+            case 5:
+                echo "";
+            break;
+            case 6:
+                echo "";
+            break;
+            case 7:
+                echo "";
+            break;
+       }
+
+
+       ?>
+       </small></td>
     </tr>
 
         <tr>
@@ -301,19 +333,79 @@ include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
         <tr>
       <th>Tempo</th>
       <td><?php echo $piesen->tempo ?></td>
-      <td><small><?php echo $piesen->source_tempo;?> - tu bude vysvetlivka</small></td>
+      <td><small><?php
+      
+      switch ($piesen->source_tempo) {
+            case 0:
+                echo "Údaj pochádza z prvého vydania a má podklad v rukopisoch zberateľa";
+            break;
+            case 1:
+                echo "Údaj bol doplnený do druhého vydania na základe druhotných dokumentov";
+            break;
+            case 2:
+                echo "Údaj nemá podklad v rukopisoch zberateľa, no bol uvedený v prvom vydaní";
+            break;
+            case 3:
+                echo "";
+            break;
+            case 4:
+                echo "Údaj má podklad v rukopisoch zberateľa, no nebol uvedený v prvom vydaní";
+            break;
+            case 5:
+                echo "";
+            break;
+            case 6:
+                echo "";
+            break;
+            case 7:
+                echo "";
+            break;
+       }
+
+
+       ?></small></td>
 
     </tr>
 
         <tr>
       <th>Dátum zozbierania</th>
       <td><?php echo $piesen->datum_zbieranie ?></td>
-      <td><small><?php echo $piesen->source_datum_zbieranie;?>- tu bude vysvetlivka</small></td>
+      <td><small><?php
+      
+      switch ($piesen->source_datum_zbieranie) {
+            case 0:
+                echo "Údaj pochádza z prvého vydania a má podklad v rukopisoch zberateľa";
+            break;
+            case 1:
+                echo "Údaj bol doplnený do druhého vydania na základe druhotných dokumentov";
+            break;
+            case 2:
+                echo "Údaj nemá podklad v rukopisoch zberateľa, no bol uvedený v prvom vydaní";
+            break;
+            case 3:
+                echo "";
+            break;
+            case 4:
+                echo "Údaj má podklad v rukopisoch zberateľa, no nebol uvedený v prvom vydaní";
+            break;
+            case 5:
+                echo "";
+            break;
+            case 6:
+                echo "";
+            break;
+            case 7:
+                echo "";
+            break;
+       }
+
+
+       ?></small></td>
     </tr>
 
     <tr>
       <th>Dátum digitalizácie</th>
-      <td><?php $piesen->datum_digitalizacia ?></td>
+      <td><?php echo $piesen->datum_digitalizacia ?></td>
       <td><small>Údaj pridávame pre potreby tohto vydania.</small></td>
     </tr>
 
@@ -323,8 +415,23 @@ include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
     <tr>
       <th colspan="2">
       <b>Poznámka č. <?php echo $i;?></b><BR>
-      <small><?php echo $poznamka; ?></small></th>
-          <td><small>tu zdroj (galko/originál)</small></td>
+      <small><?php echo substr($poznamka["txt"],0,40); ?>…</small></th>
+          <td><small>
+          <?php 
+          switch ($poznamky["id_druh"]) {
+            case 0:
+                echo "Ide o poznámku, ktorú pridal k piesni prispievateľ resp. prvá redakcia";
+            break;
+            case 1:
+                echo "Ide o poznámku spracovávateľa druhého vydania.";
+            break;  
+            case 2:
+                echo "Poznámka bola pridaná digitalizátormi Ľuda Slovenského";
+            break;  
+
+          }
+          ?>
+          </small></td>
     </tr>
     <?php } ?>
 <?php } ?>
@@ -335,7 +442,20 @@ include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
      <tr>
       <th>Prepojenie č. <?php echo $i;$i++; ?></th>
       <td><?php echo ($p_piesen["nazov_kratky"]==""?"(ešte nezdigitalizované)":$p_piesen["nazov_kratky"]."…");?></td>
-      <td><small><?php echo $p_piesen["id_vztah"];?> - tu bude vysvetlivka</small></td>
+      <td><small> <?php 
+          switch ($p_piesen["id_vztah"]) {
+            case 1:
+                echo "Prepojenie pribudlo v druhom vydaní. Ide o <i>totožný nápev</i>.";
+            break;
+            case 2:
+                echo "Prepojenie pribudlo v druhom vydaní. K tejto piesni má <i>bližšiu príbuznosť</i>.";
+            break;  
+            case 3:
+                echo "Prepojenie pribudlo v druhom vydaní. K tejto piesni má <i>vzdialenejšiu príbuznosť</i>.";
+            break;  
+ 
+          }
+          ?></small></td>
     </tr>
     <?php } ?>
 <?php } ?>
