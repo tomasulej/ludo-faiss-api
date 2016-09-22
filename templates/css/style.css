@@ -1,3 +1,8 @@
+div.abc img {max-width: 100%;width:100%}
+div.abc {max-width: 100%;width:100%}
+.abc img {max-width: 100%;width:100%}
+svg {max-width: 100%;width:100%}
+
 body{
 	font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
 }

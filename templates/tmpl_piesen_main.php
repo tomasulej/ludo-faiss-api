@@ -321,9 +321,10 @@ include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
 <?php if (!empty($poznamky)) { $i=1?>
     <?php foreach ($poznamky as $key=>$poznamka) { ?>
     <tr>
-      <th>Poznámka č. <?php echo $i;$i++; ?></th>
-      <td><small><?php echo $poznamka; ?></small></td>
-      <td><small>tu bude vysvetlivka</small></td>
+      <th colspan="2">
+      <b>Poznámka č. <?php echo $i;?></b><BR>
+      <small><?php echo $poznamka; ?></small></th>
+          <td><small>tu zdroj (galko/originál)</small></td>
     </tr>
     <?php } ?>
 <?php } ?>

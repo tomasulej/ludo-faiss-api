@@ -71,7 +71,7 @@ if ((int)$_GET['id_piesen']<>0) {
   <div class="form-group row">
     <label for="identifikator" class="col-sm-2 form-control-label"><strong>Interný identifikátor:</strong></label>
     <div class="col-sm-10">
-      <input type="input" class="form-control" id="identifikator" name="identifikator" placeholder="Identifikátor (napr. '231., '232b' a podobne." value="<?  echo $p_edit->identifikator ?>"
+      <input type="input" class="form-control" id="identifikator" name="identifikator" placeholder="Identifikátor (napr. '231., '232b' a podobne." value="<?php  echo $p_edit->identifikator ?>"
     </div>
     <p class="form-text text-muted"></p>
   </div>
@@ -81,14 +81,14 @@ if ((int)$_GET['id_piesen']<>0) {
   <div class="form-group row">
     <label for="nazov_dlhy" class="col-sm-2 form-control-label"><strong>Dlhý názov:</strong></label>
     <div class="col-sm-10">
-      <input type="input" class="form-control" id="nazov_dlhy" name="nazov_dlhy" placeholder="Dlhý názov piesne (napr. 'Na Kráľovej holi stojí strom zelený')" value="<?  echo $p_edit->nazov_dlhy ?>">
+      <input type="input" class="form-control" id="nazov_dlhy" name="nazov_dlhy" placeholder="Dlhý názov piesne (napr. 'Na Kráľovej holi stojí strom zelený')" value="<?php  echo $p_edit->nazov_dlhy ?>">
     </div>
   </div>
   
     <div class="form-group row">
     <label for="nazov_kratky" class="col-sm-2 form-control-label"><strong>Krátky názov:</strong></label>
     <div class="col-sm-10">
-      <input type="input" class="form-control" id="nazov_kratky" name="nazov_kratky" placeholder="Skrátený názov piesne (napr. 'Na Kráľovej holi...')" value="<?  echo $p_edit->nazov_kratky ?>">
+      <input type="input" class="form-control" id="nazov_kratky" name="nazov_kratky" placeholder="Skrátený názov piesne (napr. 'Na Kráľovej holi...')" value="<?php  echo $p_edit->nazov_kratky ?>">
     </div>
   </div>	  
 
@@ -96,7 +96,7 @@ if ((int)$_GET['id_piesen']<>0) {
     <div class="form-group row">
     <label for="strana" class="col-sm-2 form-control-label"><strong>Strana:</strong></label>
     <div class="col-sm-10">
-      <input type="input" class="form-control" id="strana" name="strana" placeholder="Strana, na ktorej sa nachádza pieseň" value="<?  echo $p_edit->strana ?>">
+      <input type="input" class="form-control" id="strana" name="strana" placeholder="Strana, na ktorej sa nachádza pieseň" value="<?php  echo $p_edit->strana ?>">
     </div>
   </div>
 
@@ -277,7 +277,7 @@ if ((int)$_GET['id_piesen']<>0) {
     <div class="form-group row">
     <label for="datum_zbieranie" class="col-sm-2 form-control-label"><strong>Dátum zozbierania:</strong></label>
     <div class="col-sm-10">
-      <input type="input" class="form-control" id="datum_zbieranie" name="datum_zbieranie" placeholder="Dátum, kedy bola zbierka pôvodne zozbieraná" value="<? echo $p_edit->datum_zbieranie; ?>">
+      <input type="input" class="form-control" id="datum_zbieranie" name="datum_zbieranie" placeholder="Dátum, kedy bola zbierka pôvodne zozbieraná" value="<?php echo $p_edit->datum_zbieranie; ?>">
     </div>
   </div>
 
@@ -305,7 +305,7 @@ if ((int)$_GET['id_piesen']<>0) {
       <div class="form-group row">
     <label for="datum_digitalizacia" class="col-sm-2 form-control-label"><strong>Dátum digitalizácie:</strong></label>
     <div class="col-sm-10">
-      <input type="input" class="form-control" id="datum_digitalizacia" name="datum_digitalizacia" value="<? if ($_GET['id_piesen']<>0) {echo $p_edit->datum_digitalizacia;} else {echo date("Y-m-d");} ?>">
+      <input type="input" class="form-control" id="datum_digitalizacia" name="datum_digitalizacia" value="<?php if ($_GET['id_piesen']<>0) {echo $p_edit->datum_digitalizacia;} else {echo date("Y-m-d");} ?>">
     </div>
   </div>
 
