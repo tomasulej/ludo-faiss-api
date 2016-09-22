@@ -28,14 +28,14 @@ include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
 <div class="l-navbar">
 
     <div class="container">
-
+<!--
         <menu class="switch hidden-md-down">
             <li><a class="switch-blue"></a></li>
             <li><a class="switch-green"></a></li>
             <li><a class="switch-red"></a></li>
             <li><a class="switch-yellow"></a></li>
         </menu>
-
+-->
         <div class="row">
 
             <div class="col-xl-1 col-lg-2 col-xs-4">
@@ -131,9 +131,9 @@ include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
                 </div>-->
 
             </div>
-     <!--   <p class="l-song-subh">
+     <p class="l-song-subh">
             <small>Zozbieral(a): <a href="zberatel.php?id=<?php echo $piesen->id_zberatel; ?>"><?php echo $piesen->zberatelia_meno; ?></a> (<?php echo $piesen->datum_zbieranie; ?>) ● Zdigitalizoval(a): <a href="digitalizator.php?id=<?php echo $piesen->id_digitalizator; ?>"><?php echo $piesen->digitalizatori_meno; ?></a> (<?php echo $piesen->datum_digitalizacia; ?>) ● Pôvodná zbierka <a href="zbierky.php?id=<?php echo $piesen->id_zbierka ?>"><?php echo $piesen->zbierky_nazov ?></a></small>
-        </p>-->
+        </p><BR>
         </div>
 
 
@@ -187,7 +187,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
 <?php if (!empty($podobne)) {  ?>
 
     <div class="l-song-similar">
-    <h2>Podobné piesne</h2>
+    <h2>Ďalšie piesne s rovnakým alebo príbuzným nápevom</h2>
 
     <div class="row">
     <?php foreach ($podobne as $key=>$p_piesen) { ?>
@@ -225,26 +225,157 @@ include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
 
                 <strong>Názov</strong>: <?php echo $piesen->nazov_dlhy ?><BR>
                 <strong>Pôvodná zbierka</strong>: <a href="#"><?php echo $piesen->zbierky_nazov?></a><BR>
+                <strong>Strana:</strong> <?php echo $piesen->strana; ?><BR>
                 <strong>Identifikátor</strong>: <?php echo $piesen->identifikator?> <BR>
                 <strong>Zberateľ</strong>: <a href="#"><?php echo $piesen->zberatelia_meno?></a><BR>
                 <strong>Digitalizátor</strong>: <a href="#"><?php echo $piesen->digitalizatori_meno?></a><BR>
-                <strong>Hudba</strong>: <a href="#"><?php echo $piesen->hudobnici_meno?></a><BR>
+                <!--<strong>Hudba</strong>: <a href="#"><?php echo $piesen->hudobnici_meno?></a><BR>-->
                 <strong>Tempo</strong>: <a href="#"><?php echo $piesen->tempo?></a><BR>
                 <strong>Dátum zozbierania</strong>: <?php echo $piesen->datum_zbieranie?><BR>
                 <strong>Dátum digitalizácie</strong>: <?php echo $piesen->datum_digitalizacia?><BR>
                 <strong>Stiahnuť:</strong>: <a href="">noty</a>, <a href="">hudbu</a> alebo <a href="">vytlačiť</a>.
+                <HR>
+                <p><a href="" data-toggle="modal" data-target=".bd-example-modal-lg">Všetky informácie o piesni</a></p>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="modal-title" id="myModalLabel"><?php echo $piesen->nazov_dlhy; ?> (všetky informácie o piesni)</h3>
+      </div>
+      <div class="modal-body">
+
+      <H4>Zdroje informácii o tejto piesni</H4>
+      <p>Noty, texty, poznámky a ďalšie informácie o piesni, ktoré uvádzame na týchto webových stránkach vychádzajú z viacerých zdrojov - 1. z rukopisných informácii zberateľov a prispievateľov zbierky Slovenské Spevy; 2. z pera redakcie prvého knižného vydania Slovenských spevov; 3. od zostavovateľa druhého vydania Spevov Ladislava Galka (<a href="">pozri viac</a> o tom ako vznikala zbierka Slovenské spevy), alebo 4. tak, že ich na tento web z iných zdrojov pridali spolupracovníci webu Ľudo Slovenský. Aby sme záujemcom uľahčili orientáciu, uvádzame na tomto mieste pôvod informácií týkajúcich sa tejto piesne:</p>
+
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th>Údaj</th>
+      <th>Hodnota</th>
+      <th>Ako bol získaný</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Názov</th>
+      <td><?php echo $piesen->nazov_dlhy ?></td>
+      <td><small>Prvé ani druhé vydanie neobsahovalo názvy piesní. Dopĺňame z prvých slov piesne.</small></td>
+    </tr>
+
+
+        <tr>
+      <th>Pôvodná zbierka</th>
+      <td><?php echo $piesen->zbierky_nazov?></td>
+      <td><small>Údaj preberáme z druhého vydania</small></td>
+    </tr>
+
+        <tr>
+      <th>Strana</th>
+      <td><?php echo $piesen->strana ?></td>
+      <td><small>Údaj preberáme z druhého vydania.</small></td>
+    </tr>
+
+        <tr>
+      <th>Identifikátor</th>
+      <td><?php echo $piesen->identifikator ?></td>
+      <td><small>Údaj preberáme z druhého vydania.</small></td>
+    </tr>
+
+        <tr>
+      <th>Zberateľ</th>
+      <td><?php echo $piesen->zberatelia_meno ?></td>
+      <td><small><?php echo $piesen->source_zberatel;?> - tu doplniť vysvetlivku</small></td>
+    </tr>
+
+        <tr>
+      <th>Digitalizátor(ka)</th>
+      <td><?php echo $piesen->digitalizatori_meno ?></td>
+      <td><small>Údaj pridávame pre potreby tohto vydania.</small></td>
+    </tr>
+
+        <tr>
+      <th>Tempo</th>
+      <td><?php echo $piesen->tempo ?></td>
+      <td><small><?php echo $piesen->source_tempo;?> - tu bude vysvetlivka</small></td>
+
+    </tr>
+
+        <tr>
+      <th>Dátum zozbierania</th>
+      <td><?php echo $piesen->datum_zbieranie ?></td>
+      <td><small><?php echo $piesen->source_datum_zbieranie;?>- tu bude vysvetlivka</small></td>
+    </tr>
+
+    <tr>
+      <th>Dátum digitalizácie</th>
+      <td><?php $piesen->datum_digitalizacia ?></td>
+      <td><small>Údaj pridávame pre potreby tohto vydania.</small></td>
+    </tr>
+
+
+<?php if (!empty($poznamky)) { $i=1?>
+    <?php foreach ($poznamky as $key=>$poznamka) { ?>
+    <tr>
+      <th>Poznámka č. <?php echo $i;$i++; ?></th>
+      <td><small><?php echo $poznamka; ?></small></td>
+      <td><small>tu bude vysvetlivka</small></td>
+    </tr>
+    <?php } ?>
+<?php } ?>
+
+
+<?php if (!empty($podobne)) { $i=1; ?>
+    <?php foreach ($podobne as $key=>$p_piesen) { ?>
+     <tr>
+      <th>Prepojenie č. <?php echo $i;$i++; ?></th>
+      <td><?php echo ($p_piesen["nazov_kratky"]==""?"(ešte nezdigitalizované)":$p_piesen["nazov_kratky"]."…");?></td>
+      <td><small><?php echo $p_piesen["id_vztah"];?> - tu bude vysvetlivka</small></td>
+    </tr>
+    <?php } ?>
+<?php } ?>
+
+
+   
+  </tbody>
+</table>
+
+      <h4>Ako citovať toto dielo</h4>
+      <strong>Pôvodná zbierka, z ktorej sme vychádzali</strong><BR>
+      <blockquote><code>GALKO, L.: Slovenské spevy 1. diel (2. dopl. krit. a dokumentované vyd.). Bratislava : Opus, 1972. 599 s.</code></blockquote>
+      <strong>Táto webová stránka:</strong><BR>
+      <blockquote><code>GALKO, Ladislav: Slovenské spevy 1. diel (2. dopl. krit. a dokumentované vyd.). Ľudo Slovenský 2016, [cit. 22. 9. 2016]. Dostupné na webovskej stránke (world wide web): http://www.ludoslovensky.sk/piesne/piesen.php?<?php echo $piesen->id_piesen;?></code></blockquote>
+
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Zatvoriť</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 <?php if (!empty($p_mena)) { ?>
-                    <h3>Osoby a obsadenie</h3>
+                    <h3>Osoby spomenúte v piesni</h3>
 
                     <?php foreach ($p_mena as $key=>$meno) { ?>
                     <div><a href="osoby.php?id=<?php echo $meno['meno_id']; ?>">
                     
                     <?php echo 
                      ($meno["pohlavie"]==1 ? "♂ ":"♀ ").$meno["meno"];?></a>
+                     </div>
                     <?php } ?>
-    </div>
+                    
 
 <?php }?>
 
@@ -447,11 +578,11 @@ function abc2svg() {
 
     $("#aud").on("pause", function (e) {
        if(duration<=ctime) {alert('kokot!');};
-       alert(ctime+"xxx"+duration);
+       //alert(ctime+"xxx"+duration);
     });
 
   $("#aud").bind('ended', function(){
-    alert("kokot");
+    //alert("kokot");
   });
 
 

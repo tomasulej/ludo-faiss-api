@@ -11,8 +11,24 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
     <div class="container">
 
  <div class="row">   
-    <h1>Vyhľadávanie</h1>
-<div class="col-md-3">TU BUDE FILTER</div>
+<div class="col-md-3">
+<h4>Filtrovať vyhľadávanie</h4>
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action active">
+    <h5 class="list-group-item-heading">List group item heading</h5>
+    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <h5 class="list-group-item-heading">List group item heading</h5>
+    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <h5 class="list-group-item-heading">List group item heading</h5>
+    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+  </a>
+</div>
+
+</div>
 <?php if (!empty($piesne)) {  ?>
 
     <div class="l-song-similar col-md-9">
@@ -142,11 +158,11 @@ function abc2svg() {
 
     $("#aud").on("pause", function (e) {
        if(duration<=ctime) {alert('kokot!');};
-       alert(ctime+"xxx"+duration);
+       //alert(ctime+"xxx"+duration);
     });
 
   $("#aud").bind('ended', function(){
-    alert("kokot");
+    //alert("kokot");
   });
 
 

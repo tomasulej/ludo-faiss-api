@@ -48,6 +48,18 @@
   <div class="l-header__info">
 
         <h1><?php echo $nadpis ?></h1>
+<p>
+  <a href="index.php">Výber piesne</a> ->
+  <a href="01_meta.php?id_piesen=<?php echo $id_piesen;?>">1. Základné informácie</a> ->
+  <a href="02_subory.php?id_piesen=<?php echo $id_piesen;?>">2. Súbory</a> ->
+  <a href="03_abc.php?id_piesen=<?php echo $id_piesen;?>">3. Texty a noty</a> ->
+  <a href="04_crop.php?id_piesen=<?php echo $id_piesen;?>">4. Náhľad</a> 
+  <a href="05_prepojenia.php?id_piesen=<?php echo $id_piesen;?>">4. Prepojenia a poznámky</a> 
+  
+</p>  
+
+
+
 </div>
 </div>
 </div>

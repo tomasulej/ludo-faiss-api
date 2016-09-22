@@ -1,10 +1,14 @@
 <?php 
+
+$id_piesen=(int)$_POST['id_piesen'];
+if ($id_piesen==0) {$id_piesen=$_GET['id_piesen'];}
+
 $nadpis="Pridávanie piesne: nahranie súborov (krok 2/5)";
 require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_administracia_header.php";
 include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
 
-	error_reporting(E_ALL);
-	ini_set('display_errors', '1');
+	//error_reporting(E_ALL);
+	//ini_set('display_errors', '1');
 
 ?>
 
