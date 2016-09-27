@@ -10,29 +10,91 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 
     <div class="container">
 
+    <div class="row">
+<div class="col-md-12">
+
+<H1>Vyhľadávanie v piesňach <span>3.400 piesni!</span></h1>
+                <div class="input-group">
+                <input type="text" class="form-control-lg form-control" placeholder="Hľadať v piesňach">
+                <span class="input-group-btn">
+                    <button class="btn btn-lg l-btn " type="button">Hľadať!</button>
+                </span>
+                </div>
+                <HR>
+</div>
+
+
+    </div>
+
  <div class="row">   
 <div class="col-md-3">
-<h4>Filtrovať vyhľadávanie</h4>
+<h4>Filtrovať:</h4>
 <div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action active">
-    <h5 class="list-group-item-heading">List group item heading</h5>
-    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+  <a href="#" class="list-group-item list-group-item-action ">
+    <h4 class="list-group-item-heading">Tempo </h4>
+    <p class="list-group-item-text">
+
+<div class="form-check">
+  <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" value="">
+    Pomalé (+4)
+  </label>
+</div>
+
+<div class="form-check">
+  <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" value="">
+    Stredne rýchle (+10)
+  </label>
+</div>
+
+<div class="form-check">
+  <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" value="">
+    Rýchle (+20)
+  </label>
+</div>
+
+
+    
+    </p>
   </a>
   <a href="#" class="list-group-item list-group-item-action">
-    <h5 class="list-group-item-heading">List group item heading</h5>
-    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+    <h4 class="list-group-item-heading">Región</h4>
+    <p class="list-group-item-text">
+    
+ <div class="form-check">
+  <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" value="">
+    Západné Slovensko
+  </label>
+</div>
+
+<div class="form-check">
+  <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" value="">
+    Stredné Slovensko
+  </label>
+</div>
+
+<div class="form-check">
+  <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" value="">
+    Východné Slovensko
+  </label>
+</div>   
+    
+    
+    </p>
   </a>
-  <a href="#" class="list-group-item list-group-item-action">
-    <h5 class="list-group-item-heading">List group item heading</h5>
-    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-  </a>
+
 </div>
 
 </div>
 <?php if (!empty($piesne)) {  ?>
 
     <div class="l-song-similar col-md-9">
-
+<p><strong>Filtre:</strong> Región: Stredné Slovensko; Tempo: Rychlé <a href="">Zrušiť filtre</a>
 
     <div class="row">
     <?php foreach ($piesne as $key=>$piesen) { ?>
@@ -61,6 +123,8 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
     </div>
 <?php } ?>
 
+
+<button class="btn-lg">Načítať ďalšie</button>
 
 </div></div>
 

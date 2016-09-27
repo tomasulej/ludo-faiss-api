@@ -58,6 +58,16 @@ if ($_POST['odoslane']=='true') {
     <div class="container">
 
 <div><h2>Pridať poznámku</div>
+<p>Už existujúce poznámky:</p>
+<ul><small>
+<?php
+    $q=mysql_query(sprintf("SELECT * FROM poznamky WHERE id_piesen=%s",(int)$id_piesen));
+
+    while ($poznamka=mysql_fetch_object($q)) {
+        printf("<li>%s <a class='btn btn-sm' onclick='vymaz_poznamku(%s)'> vymaž poznámku</a></li>", $poznamka->txt,$poznamka->id_poznamka);
+    }
+?>
+</small></ul>
 
 <form action="ajax_poznamky.php" method="post" class="l-form l-well" id="odosli_poznamku">
 
@@ -124,12 +134,57 @@ if ($_POST['odoslane']=='true') {
            }
          });
 }
+
+function vymaz_poznamku(id) {
+        $.ajax({
+           type: "POST",
+           url: "ajax_vymaz_poznamku.php",
+           data: 'id_poznamka='+id, // serializes the form's elements.
+           success: function(data)
+           {
+               alert(data); // show response from the php script.
+
+           }
+         });
+
+
+
+}
  
+function vymaz_prepojenie(id) {
+        $.ajax({
+           type: "POST",
+           url: "ajax_vymaz_prepojenie.php",
+           data: 'id_vztahy_piesne='+id, // serializes the form's elements.
+           success: function(data)
+           {
+               alert(data); // show response from the php script.
+
+           }
+         });
+
+
+
+}
+
+
 
  </script>
 
 
 <div><h2>Vytvoriť prepojenie medzi piesňami</div>
+
+
+<ul><small>
+<?php
+    $q=mysql_query(sprintf("SELECT * FROM vztahy_piesne WHERE id_piesen1=%s OR id_piesen2=%s",(int)$id_piesen,(int)$id_piesen));
+
+    while ($prepojenie=mysql_fetch_object($q)) {
+        printf("<li>%s --> %s (%s) <a class='btn btn-sm' onclick='vymaz_prepojenie(%s)'> vymaž prepojenie</a></li>", $prepojenie->id_piesen1, $prepojenie->id_piesen2, $prepojenie->txt_piesen2, $prepojenie->id_vztahy_piesne);
+    }
+?>
+</small></ul>
+
 
 <form action="ajax_prepojenia.php" method="post" class="l-form l-well" id="odosli_prepojenie">
 
