@@ -56,7 +56,7 @@ if ($id_piesen<>0) {
 
     <form action="05_prepojenia.php" method="post" class="l-form l-well">
 
-<p><strong>Nastav ukazovateľ tak, aby ukazoval prvé dva takty.</strong></p>
+<p><strong>Nastav ukazovateľ tak, aby ukazoval prvé dva takty.</strong>(nevieš ako na vec - <a href="/public/img/navod_nahlad.gif" target="_blank">klikni sem pre video</a>)</p>
 <img id="image" style="max-width: 100%;" src="<?php echo "http://".$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT']."/piesne/data/".$p_edit->id_piesen."/".$p_edit->file_png?>">
 <input type="input" class="form-control" id="img_width" name="img_width" placeholder="">
 <input type="input" class="form-control" id="img_height" name="img_height" placeholder="">

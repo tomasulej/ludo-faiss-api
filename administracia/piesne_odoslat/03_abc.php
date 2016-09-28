@@ -64,8 +64,15 @@ if ($_POST['odoslane']=='true') {
 
 <div class="l-page">
     <div class="container">
+<p>Toto bude trošku náročnejšie, ale zvládneme to:</p>
 
-<p><a href="gen/abcweb.html?http://<?php echo  $_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'];?>/piesne/data/<?php echo (int)$_POST['id_piesen'].'/'.basename($_FILES["upl_xml"]["name"])?>" target="_blank">Choď na adresu </a> a skopíruj údaje sem:</p>
+<ol>
+<li><a href="gen/abcweb.html?http://<?php echo  $_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'];?>/piesne/data/<?php echo (int)$_POST['id_piesen'].'/'.basename($_FILES["upl_xml"]["name"])?>" target="_blank">Klikni sem</a> - do nového okna sa ti otvorila stránka, kde by si mal(a) vidieť noty. </li>
+<li>Na tejto stránke klikni v pravo na "Menu" a zaškrtni "Enable sync". Následne úplne dole klikni na "Save".<BR><img src="/public/img/navod_save_notes.gif"></li>
+<li>Otvoril sa teraz textový súbor, z neho do koloniek nižšie vykopírujte údaje podľa naznačenej schémy.<BR><img img src="/public/img/navod_save_notes2.png"><br>
+<font color="green">Zelenou</font> sú noty piesne, <font color="yellow">žltou</font>časovanie piesne a <font color="blue">modrou</font> nastavenia piesne.
+</li>
+</ol>
 
 <form action="04_crop.php" method="post" class="l-form l-well">
 
@@ -100,6 +107,28 @@ if ($_POST['odoslane']=='true') {
   </fieldset>
   
 </div> 
+
+<HR>
+
+<p>Slová piesne pridávame <strong>pomocou špeciálnych značiek</strong>, ktoré nám umožnia synchronizovať ich s hudbou.</p>
+<img src="/public/img/navod_lyrics.png">
+<ol>
+<li>Každú jednu slohu obalíme do "{}"</li>
+<li>Pomocou znaku "<strong>|</strong>" určíme kde sa začínajú a končia takty.</li>
+<li>V prvej slohe opakovania "/::/" zrušíme a všetko vypisujeme.</li>
+<li>Takto pod seba vypíšeme všetky slohy piesne</li>
+</ol>
+Uvedený príklad teda zapíšeme takto:<BR>
+<blockquote><code>
+{Sekerenka| pántok|<BR> 
+nechce rúbat| ruby;|<BR>
+sekerenka| pántok|<BR>
+nechce rúbat| duby;|<BR>
+takžo je| milovat,|<BR>
+kdo koho ne|lúbi.|}<BR>
+</code></blockquote>
+
+
 
 
 <div class="form-group row">	  

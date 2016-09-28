@@ -56,7 +56,7 @@ if ($_POST['odoslane']=='true') {
 <div class="l-page">
 
     <div class="container">
-
+<p class="lead">Posledný krok je popridávať všetky poznámky a prepojenia, ktoré sú pri piesni a pod ňou. Po každom pridaní môžeš pridávať tým istým formulárom znova. Keď skončíš <big><a href="mailto:tomas@ludoslovensky.sk">napíš e-mail, že si pieseň dokončil(a)</a></big>, nech sa na to môžeme pozrieť.</p>
 <div><h2>Pridať poznámku</div>
 <p>Už existujúce poznámky:</p>
 <ul><small>
