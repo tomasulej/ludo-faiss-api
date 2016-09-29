@@ -46,7 +46,8 @@ if ($_POST['odoslane']=='true') {
     $height=(float)$_POST['img_height'];
     $fileSrc=$_SERVER["DOCUMENT_ROOT"].'/piesne/data/'.$p_edit->id_piesen."/".$p_edit->file_png;
     $fileDst=$_SERVER["DOCUMENT_ROOT"]."/piesne/data/".$p_edit->id_piesen ."/".$p_edit->file_png;
-    //echo $fileSrc."-".$fileDst;
+    
+    echo $fileSrc."-".$fileDst;
     copy($fileSrc,$_SERVER["DOCUMENT_ROOT"]."/piesne/data/".$p_edit->id_piesen."/cela-piesen.png");
     $obrazok=cropImage($fileSrc,$x,$y,$width,$height,$fileDst);
 }

@@ -91,7 +91,7 @@ if ($_POST['odoslane']=='true') {
     <fieldset class="form-group">
     <label for="abc_settings">Nastavenia piesne:</label>
 
-    <textarea class="form-control" id="abc_settings"  name="abc_settings" rows="5"><?php if ((int)$_GET['id_piesen']<>0) {echo $p_edit->abc_settings;} else { echo 'opt = {"jump":0,"no_menu":0,"repufld":0,"noplyr":0,"nocsr":0,"media_height":"","btns":1,"ipadr":"","mstr":0,"autscl":true,"ctrmed":0,"ctrnot":0,"lncsr":0,"opacity":0.2,"synbox":0,"speed":1,"top_margin":0,"yubvid":"","nomed":0,"delay":0,"repskip":0,"spdctl":0,"lopctl":0,"metro":0};';} ?>
+    <textarea class="form-control" id="abc_settings"  name="abc_settings" rows="5"><?php if ((int)$_GET['id_piesen']<>0 OR (int)$_POST['id_piesen']<>0) {echo $p_edit->abc_settings;} else { echo 'opt = {"jump":0,"no_menu":0,"repufld":0,"noplyr":0,"nocsr":0,"media_height":"","btns":1,"ipadr":"","mstr":0,"autscl":true,"ctrmed":0,"ctrnot":0,"lncsr":0,"opacity":0.2,"synbox":0,"speed":1,"top_margin":0,"yubvid":"","nomed":0,"delay":0,"repskip":0,"spdctl":0,"lopctl":0,"metro":0};';} ?>
 
 </textarea>
   </fieldset>
