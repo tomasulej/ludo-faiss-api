@@ -9,10 +9,10 @@
     include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
 
     if ((int)$_POST['id_vztah']==0) {
-            $q=sprintf("INSERT into VZTAHY_PIESNE (ID_PIESEN1, TXT_PIESEN2, ID_VZTAH) VALUES (%s,'%s',%s);",
+            $q=sprintf("INSERT into vztahy_piesen (id_piesen1, txt_piesen2, id_vztah) VALUES (%s,'%s',%s);",
                     (int)$id_piesen,mysql_real_escape_string($_POST['txt_piesen2']),(int)$_POST['id_vztah']);
     } else {
-            $q=sprintf("INSERT into VZTAHY_PIESNE (ID_PIESEN1, ID_PIESEN2, ID_VZTAH) VALUES (%s,%s,%s);",
+            $q=sprintf("INSERT into vztahy_piesne (id_piesen1, id_piesen2, id_vztah) VALUES (%s,%s,%s);",
                     (int)$id_piesen,(int)$_POST['id_piesen2'],(int)$_POST['id_vztah']);
    }
 
