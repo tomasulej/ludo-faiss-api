@@ -21,8 +21,8 @@ function cropImage($imagePath, $startX, $startY, $width, $height, $dest)
     include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
 
     
-    $id_piesen=$_POST['id_piesen'];
-    if ($id_piesen==0) {$id_piesen=$_GET['id_piesen'];}
+    $id_piesen=(int)$_POST['id_piesen'];
+    if ((int)$id_piesen==0) {$id_piesen=(int)$_GET['id_piesen'];}
 
 
 if ($id_piesen<>0) {
