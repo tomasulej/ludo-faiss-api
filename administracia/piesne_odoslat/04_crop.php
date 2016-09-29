@@ -97,7 +97,7 @@ if ($id_piesen<>0) {
 
 <input type="hidden" name="odoslane" value="true">
 
-<input type="hidden" name="update" value="true"><input type="hidden" name="id_piesen" value='<? echo $id_piesen;?>'> 
+<input type="hidden" name="update" value="true"><input type="hidden" name="id_piesen" value='<?php echo $id_piesen;?>'> 
 
   <div class="form-group row">
     <div class="col-sm-offset-2 col-sm-10">
