@@ -14,8 +14,8 @@ function cropImage($imagePath, $startX, $startY, $width, $height, $dest)
 }
 
 
-	error_reporting(E_ALL);
-	ini_set('display_errors', '1');
+	//error_reporting(E_ALL);
+	//ini_set('display_errors', '1');
 
     echo "<H1>".$_POST['id_piesen']."</H1>";
 
@@ -61,7 +61,7 @@ if ($_POST['odoslane']=='true') {
 <div class="l-page">
 
     <div class="container">
-<p class="lead">Posledný krok je popridávať všetky poznámky a prepojenia, ktoré sú pri piesni a pod ňou. Po každom pridaní môžeš pridávať tým istým formulárom znova. Keď skončíš <big><a href="mailto:tomas@ludoslovensky.sk">napíš e-mail, že si pieseň dokončil(a)</a></big>, nech sa na to môžeme pozrieť.</p>
+<p class="lead">Posledný krok je popridávať všetky poznámky a prepojenia, ktoré sú pri piesni a pod ňou. Po každom pridaní môžeš pridávať tým istým formulárom znova. Keď skončíš <big><a href="mailto:tomas@ludoslovensky.sk">napíš e-mail, že si pieseň dokončil(a)</a></big>, nech sa na to môžeme pozrieť. samotnú pieseň si <a href="http://www.ludoslovensky.sk/piesne/piesen.php?<?php echo $id_piesen;  ?>" target="_blank">môžeš pozrieť tu</a>.</p>
 <div><h2>Pridať poznámku</div>
 <p>Už existujúce poznámky:</p>
 <ul><small>

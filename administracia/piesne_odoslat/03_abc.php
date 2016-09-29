@@ -14,8 +14,8 @@ if ($id_piesen<>0) {
 };
 
 
-	error_reporting(E_ALL);
-	ini_set('display_errors', '1');
+	//error_reporting(E_ALL);
+	//ini_set('display_errors', '1');
 
 $id_piesen=(int)$_POST['id_piesen'];
 if ($id_piesen==0) {$id_piesen=$_GET['id_piesen'];}

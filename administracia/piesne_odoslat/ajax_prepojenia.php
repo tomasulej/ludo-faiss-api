@@ -2,8 +2,8 @@
 
 
 
-	error_reporting(E_ALL);
-	ini_set('display_errors', '1');
+	//error_reporting(E_ALL);
+	//ini_set('display_errors', '1');
     
     $id_piesen=$_POST['id_piesen'];
     include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
