@@ -17,7 +17,7 @@ function cropImage($imagePath, $startX, $startY, $width, $height, $dest)
 	error_reporting(E_ALL);
 	ini_set('display_errors', '1');
 
-    echo "<H1>".$_POST['id_piesen']."</H1";
+    echo "<H1>".$_POST['id_piesen']."</H1>";
 
     $nadpis="Pridávanie piesne: prepojenia a poznámky (krok 5/5)";
     require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_administracia_header.php";
