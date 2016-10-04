@@ -47,11 +47,21 @@ if ($_POST['odoslane']=='true') {
     $y=$_POST['img_y'];
     $width=(float)$_POST['img_width'];
     $height=(float)$_POST['img_height'];
+
+    $x_full=$_POST['img_full_x'];
+    $y_full=$_POST['img_full_y'];
+    $width_full=(float)$_POST['img_full_width'];
+    $height_full=(float)$_POST['img_full_height'];
+
+
     $fileSrc=$_SERVER["DOCUMENT_ROOT"].'/piesne/data/'.$p_edit->id_piesen."/".$p_edit->file_png;
     $fileDst=$_SERVER["DOCUMENT_ROOT"]."/piesne/data/".$p_edit->id_piesen ."/".$p_edit->file_png;
     
     //echo $fileSrc."-".$fileDst;
-    copy($fileSrc,$_SERVER["DOCUMENT_ROOT"]."/piesne/data/".$p_edit->id_piesen."/cela-piesen.png");
+    copy($fileSrc,$_SERVER["DOCUMENT_ROOT"]."/piesne/data/".$p_edit->id_piesen."/original.png");
+    copy($fileSrc,$_SERVER["DOCUMENT_ROOT"]."/piesne/data/".$p_edit->id_piesen."/noty.png");
+
+    $obrazok2=cropImage($fileSrc,$x_full,$y_full,$width_full,$height_full,$_SERVER["DOCUMENT_ROOT"]."/piesne/data/".$p_edit->id_piesen."/noty.png");
     $obrazok=cropImage($fileSrc,$x,$y,$width,$height,$fileDst);
 }
 
