@@ -16,20 +16,20 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                 <div class="col-md-1 col-xs-2">
                     <a id="playpause_main" class="l-btn l-btn--primary l-btn--small l-btn--play" onclick="playpause('#aud','#playpause_main');"><i class="fa fa-play"></i>  Prehrať</a>
                 </div>
-                <div class="col-md-11 col-xs-10">
+                <div class="col-md-8 col-xs-10">
+
                     <h1>
                         <?php echo $piesen->nazov_dlhy;?>
                     </h1>
 
 
                 </div>
-               <!-- <div class="col-md-5 col-xs-12 l-song-download">
-                    Stiahnuť:
-                    <a class="l-btn l-btn--primary l-btn--small" href="<?php echo $xml_link; ?>">noty</a>
-                    <a class="l-btn l-btn--primary l-btn--small" href="<?php echo $mp3_link; ?>">hudbu</a>
-                    <a class="l-btn l-btn--primary l-btn--small" href="<?php echo $pdf_link; ?>">vytlačiť (pdf)</a>
+               <div class="col-md-3 col-xs-12 l-song-download">
 
-                </div>-->
+                    <a class="l-btn l-btn--primary l-btn--small" href="<?php echo $xml_link; ?>">Túto pieseň poznám!</a>
+
+
+                </div>
 
             </div>
      <p class="l-song-subh">
@@ -389,16 +389,16 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 
 <?php if (!empty($p_mena)) { ?>
                     <h3>Osoby spomenúte v piesni</h3>
-
+<div>
                     <?php foreach ($p_mena as $key=>$meno) { ?>
-                    <div><a href="osoby.php?id=<?php echo $meno['meno_id']; ?>">
+                    <a href="osoby.php?id=<?php echo $meno['meno_id']; ?>">
                     
                     <?php echo 
                      ($meno["pohlavie"]==1 ? "♂ ":"♀ ").$meno["meno"];?></a>
-                     </div>
+                     
                     <?php } ?>
                     
-
+</div>
 <?php }?>
 
 
@@ -441,10 +441,14 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                         var geojson_vyskyt = [<?php echo $zberatel_vyskyt->area; ?>];
                         var geojson_miesto = [<?php echo $zberatel_miesto->area; ?>];
 
-                        var map = L.mapbox.map('mapa', 'mapbox.streets', {
-                            scrollWheelZoom: false
-                        }).setView([48.812,19.473], 6);
 
+                        var map = L.map('mapa').setView([48.812,19.473], 7);
+                        L.tileLayer(
+                            'https://api.mapbox.com/styles/v1/jelusamot/citx7z0my00aj2irqjs36mmeh/tiles/256/{z}/{x}/{y}?access_token=' + L.mapbox.accessToken, {
+                            tileSize: 512,
+                            zoomOffset: -1,
+                         }).addTo(map);
+          
                         var myLayer = L.mapbox.featureLayer(geojson_miesto, {
                             pointToLayer: function(feature, latlon) {
                                 return L.circleMarker(latlon, {
@@ -455,7 +459,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                             }
                         }).addTo(map);
 
-                        var myLayer = L.mapbox.featureLayer(geojson_vyskyt, {
+                        var myLayer_vyskyt = L.mapbox.featureLayer(geojson_vyskyt, {
                             pointToLayer: function(feature, latlon) {
                                 return L.circleMarker(latlon, {
                                     fillColor:  '#66CC00',

@@ -12,10 +12,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/public/css/style.css">
+    <script src='/public/js/leaflet-heatmap.js'></script>
 
     <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
-    <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
 
+    <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+    
 </head>
 <body class="l-theme-green">
 
@@ -71,7 +73,7 @@
                 <a class="l-header__logo"><img src="/public/img/logo-piesne-inverse.png"></a>
 </div>
 
-<div class="col-lg-5 l-header__links"><a href="">Všetky piesne</a> - <a href="">Mapa výskytu</a> - <a href="">Digitalizátori</a></div>
+<div class="col-lg-5 l-header__links"><a href="hladat.php">Všetky piesne</a> - <a href="mapa.php">Mapa výskytu</a> - <a href="">Digitalizátori</a></div>
 
             
 

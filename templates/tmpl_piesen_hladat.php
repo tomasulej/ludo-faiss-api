@@ -13,6 +13,9 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
     <div class="row">
 <div class="col-md-12">
 
+
+
+
 <H1>Vyhľadávanie v piesňach <span>3.400 piesni!</span></h1>
                 <div class="input-group">
                 <input type="text" class="form-control-lg form-control" placeholder="Hľadať v piesňach">
@@ -22,6 +25,9 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                 </div>
                 <HR>
 </div>
+
+<div>
+
 
 
     </div>
@@ -100,7 +106,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
     <?php foreach ($piesne as $key=>$piesen) { ?>
         <div class="col-md-12">
         <div class="l-song-item l-well">
-        <h2><a href="piesen.php?<?php echo $piesen['id_piesen'];?>"><?php echo ($piesen["nazov_dlhy"]==""?"(ešte nezdigitalizované)":$piesen["nazov_dlhy"]."…");?></a></h2>
+        <h3><a href="piesen.php?<?php echo $piesen['id_piesen'];?>"><?php echo ($piesen["nazov_kratky"]==""?"(ešte nezdigitalizované)":$piesen["nazov_dlhy"]."…");?></a></h3>
         <?php if ($piesen['file_mp3']<>"") { 
             $p_button="playpause_p_".$piesen['id_piesen'];
             $p_audio="aud_".$piesen['id_piesen'];
@@ -113,9 +119,9 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
         <?php }?>
 
         <a href="piesen.php?<?php echo $piesen['id_piesen'];?>"><img src='data/<?php echo $piesen['id_piesen']; ?>/<?php echo $piesen["file_png"];?>'></a>
-        <p class="l-song-subh">
+        <!--<p class="l-song-subh">
             <small>Zozbieral(a): <a href="zberatel.php?id=<?php echo $piesen['id_zberatel']; ?>"><?php echo $piesen['zberatelia_meno']; ?></a> (<?php echo $piesen['datum_zbieranie']; ?>) ● Zdigitalizoval(a): <a href="digitalizator.php?id=<?php echo $piesen['id_digitalizator']; ?>"><?php echo $piesen['digitalizatori_meno']; ?></a> (<?php echo $piesen['datum_digitalizacia']; ?>) ● Pôvodná zbierka <a href="zbierky.php?id=<?php echo $piesen['id_zbierka'] ?>"><?php echo $piesen['zbierky_nazov'] ?></a></small>
-        </p>
+        </p>-->
         </div><BR>
 
         </div><div></div>
