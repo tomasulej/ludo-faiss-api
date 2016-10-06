@@ -26,8 +26,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                 </div>
                <div class="col-md-3 col-xs-12 l-song-download">
 
-                    <a class="l-btn l-btn--primary l-btn--small" href="<?php echo $xml_link; ?>">Túto pieseň poznám!</a>
-
+                    <button class="l-btn l-btn--primary l-btn--small" data-toggle="popover" id="tuto-poznam" data-placement="bottom">Juj, túto pieseň poznám!</button>
 
                 </div>
 
@@ -73,13 +72,13 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 
 <?php if (!empty($poznamky)) { ?>
     <div class="l-song-notes">
-    <H2>Poznámky</H2>
+    <H3>Poznámky</H3>
 
-    <ul>
+    <ul><small>
     <?php foreach ($poznamky as $key=>$poznamka) { ?>
         <li><?php echo $poznamka["txt"]; ?></li>
     <?php } ?>
-    </ul>
+    </ul></small>
 
     </div>
 <?php } ?>
@@ -567,10 +566,36 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 <script src="http://wim.vree.org/js/xml2abc-min.js"></script>
 <script src="http://wim.vree.org/js/xml2abc-min.js"></script>
 <script src="/public/js/abcjs_basic_2.3-min.js"></script>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-575ac8e6862d0152"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-575ac8e6862d0152"></script> 
 
 
 <script>
+
+//tuto poznam!
+$('[data-toggle="popover"]').popover({
+    html: true,
+    trigger: 'manual',
+    content: function() {
+      return $.ajax({url: 'piesen.tuto-poznam.php',
+                     dataType: 'html',
+                     async: false}).responseText;
+    }
+  }).click(function(e) {
+    $(this).popover('toggle');
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     function _d(role) {
         return '[data-role="' + role + '"]';
@@ -591,6 +616,7 @@ ctime=this.currentTime;
 
 
 
+
 function abc2svg() {
 	$('.abc').each(function(i, obj) {
 		ABCJS.renderAbc(obj, $(obj).text()); 	
@@ -603,13 +629,18 @@ function abc2svg() {
 
 
     $("#aud").on("pause", function (e) {
-       if(duration<=ctime) {alert('kokot!');};
+       if(duration<=ctime) {alert('Hurá!');};
        //alert(ctime+"xxx"+duration);
     });
 
   $("#aud").bind('ended', function(){
     //alert("kokot");
   });
+
+
+
+
+
 
 
     $(document).ready(function(){

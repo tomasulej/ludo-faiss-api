@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/public/css/style.css">
-    <script src='/public/js/leaflet-heatmap.js'></script>
+     <!--  <script src='/public/js/leaflet-heatmap.js'></script> -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js"></script>
+    <!-- <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
 
-    <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
-
-    <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' /> -->
     
 </head>
 <body class="l-theme-green">
