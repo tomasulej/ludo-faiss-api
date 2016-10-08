@@ -26,7 +26,8 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                 </div>
                <div class="col-md-3 col-xs-12 l-song-download">
 
-                    <button class="l-btn l-btn--primary l-btn--small" data-toggle="popover" id="tuto-poznam" data-placement="bottom">Juj, túto pieseň poznám!</button>
+                    <button class="l-btn l-btn--primary l-btn--small" data-toggle="popover" id="tuto-poznam" data-placement="bottom"><i class="fa fa-star"></i> Túto pieseň poznám!</button><BR>
+                    
 
                 </div>
 
@@ -71,10 +72,10 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 
 
 <?php if (!empty($poznamky)) { ?>
+<HR width="10%" align="left">
     <div class="l-song-notes">
-    <H3>Poznámky</H3>
 
-    <ul><small>
+    <ol><small>
     <?php foreach ($poznamky as $key=>$poznamka) { ?>
         <li><?php echo $poznamka["txt"]; ?></li>
     <?php } ?>
@@ -514,9 +515,6 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 
 
 
-<!-- jQuery first, then Bootstrap JS. -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js" integrity="sha384-ux8v3A6CPtOTqOzMKiuo3d/DomGaaClxFYdCu2HPMBEkf6x2xiDyJ7gkXU0MWwaD" crossorigin="anonymous"></script>
 
 <script>
     $('.switch li a').click(function(){
