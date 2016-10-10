@@ -23,10 +23,11 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js" integrity="sha384-ux8v3A6CPtOTqOzMKiuo3d/DomGaaClxFYdCu2HPMBEkf6x2xiDyJ7gkXU0MWwaD" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
-
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-575ac8e6862d0152"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-575ac8e6862d0152"></script>
     
 </head>
-<body class="l-theme-green">
+<body class="<?php echo $theme;?>">
 
 <div class="l-navbar">
 
@@ -49,17 +50,17 @@
 
             <div class="col-xl-8 col-lg-7 hidden-md-down">
                 <menu class="l-navbar__menu">
-                    <li><a>Príslovia a porekadlá</a></li>
-                    <li><a>Nadávky</a></li>
-                    <li class="active"><a>Piesne</a></li>
-                    <li><a>Ľudo Labs</a></li>
+                    <li <?php echo $prislovia_tab;?>><a href="/prislovia">Príslovia a porekadlá</a></li>
+                    <li <?php echo $nadavky_tab;  ?>><a href="/nadavky" >Nadávky</a></li>
+                    <li <?php echo $piesne_tab;?>><a href="/piesne/hladat.php">Piesne</a></li>
+                    <li><a href="/labs" <?php echo $labs_tab;  ?>>Ľudo Labs</a></li>
                 </menu>
             </div>
 
             <div class="col-lg-3 col-md-6 col-xs-8">
                 <div class="l-navbar__user">
-                    <a>O ľudovi</a>
-                    <a class="l-btn l-btn--small l-btn--primary">Pridaj sa</a>
+                    <a href="/o-ludovi.php">O Ľudovi</a>
+                    <a class="l-btn l-btn--small l-btn--primary" href="/vyzva">Pridaj sa</a>
                 </div>
             </div>
 
@@ -69,41 +70,3 @@
 
 </div>
 
-<div class="l-header">
-
-    <div class="container">
-
-        <div class="row">
-
-            <div class="col-lg-3">
-
-                <a class="l-header__logo"><img src="/public/img/logo-piesne-inverse.png"></a>
-</div>
-
-<div class="col-lg-5 l-header__links"><a href="hladat.php">Všetky piesne</a> - <a href="mapa.php">Mapa výskytu</a> - <a href="">Digitalizátori</a></div>
-
-            
-
-
- 
-
-            <div class="col-lg-4">
-
-
-
-                <div class="input-group">
-                <input type="text" class="form-control" placeholder="Hľadať v piesňach">
-                <span class="input-group-btn">
-                    <button class="btn btn-secondary l-btn l-btn--inverse" type="button">Hľadať!</button>
-                </span>
-                </div>
-
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>

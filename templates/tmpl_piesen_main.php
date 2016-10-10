@@ -1,7 +1,9 @@
 <?php
-
-include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
+    $theme="l-theme-green";
+    $piesne_tab='class="active"';
+    include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
 require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
+require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
 ?>
 
@@ -26,8 +28,8 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                 </div>
                <div class="col-md-3 col-xs-12 l-song-download">
 
-                    <button class="l-btn l-btn--primary l-btn--small" data-toggle="popover" id="tuto-poznam" data-placement="bottom"><i class="fa fa-star"></i> Túto pieseň poznám!</button><BR>
-                    
+                    <button class="l-btn l-btn--primary l-btn--small" data-toggle="popover" id="tuto-poznam" data-placement="bottom"><i class="fa fa-star"></i> Poznáte túto pieseň? Kliknite!</button><BR>
+
 
                 </div>
 
@@ -574,12 +576,16 @@ $('[data-toggle="popover"]').popover({
     html: true,
     trigger: 'manual',
     content: function() {
-      return $.ajax({url: 'piesen.tuto-poznam.php',
+        //e.preventDefault();
+    alert("ahoj");  
+      return $.ajax({url: 'piesen.tuto-poznam.php?id_piesen=<?php echo $piesen->id_piesen; ?>',
                      dataType: 'html',
                      async: false}).responseText;
     }
   }).click(function(e) {
     $(this).popover('toggle');
+    e.preventDefault();
+    e.stopImmediatePropagation();
   });
 
 

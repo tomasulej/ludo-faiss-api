@@ -1,7 +1,13 @@
 <?php
 
+    $theme="l-theme-green";
+    $piesne_tab='class="active"';
+
+
     include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
     require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
+    require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
+
 ?>
 
 <div class="l-page">

@@ -1,5 +1,45 @@
 
+<div id="vnutro_tutopoznam">
+<?php 
 
+include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
+
+$id_piesen=(int)$_GET['id_piesen']; 
+
+
+
+
+
+if ($_POST['odoslane_tutopoznam']=="true") {
+  //echo $_POST['lokalita'].$_POST['rok_narodenia'];
+  $q=mysql_query(sprintf("UPDATE user_vyskyt SET rok_narodenia=%s, lokalita='%s', lat=%s, lng=%s WHERE id_user_vyskyt=%s;",
+    (int)$_POST['rok_narodenia'],
+    $_POST['lokalita'],
+    floatval($_POST['lat']),
+    floatval($_POST['lng']),
+    (int)$_POST['id_user_vyskyt']
+  ));
+  
+?>
+<div class="alert alert-success" role="alert">
+  <p><strong>Perfektné</strong>, ďakujeme za pomoc, teraz už vieme všetko potrebné. Ak by ste mali chuť dostávať od nás občasný newsletter s novými pesničkami, <a href="http://www.ludoslovensky.sk/newsletter.html">kliknite sem</a>.  </p>
+</div>
+
+
+
+<?php
+
+ 
+
+} else {
+  $id_piesen=(int)$_GET['id_piesen']; 
+  $q=mysql_query(sprintf("INSERT INTO user_vyskyt (id_piesen) VALUES (%s);",$id_piesen));
+
+  $q2=mysql_query("SELECT * FROM user_vyskyt ORDER BY id_user_vyskyt DESC LIMIT 1");
+  $user_vyskyt=mysql_fetch_object($q2);
+  $id_user_vyskyt=(int)$user_vyskyt->id_user_vyskyt;
+
+?>
 <div class="alert alert-success" role="alert">
   <p><strong>Ďakujeme za informáciu!</strong> Povedzte nám viac o tom, odkiaľ ste a kedy ste sa narodili a pomôžte nám tak <strong>mapovať ľudovú kultúru na Slovensku</strong>.</b></p>
 </div>
@@ -18,6 +58,8 @@
     
 </script>
 
+
+<form id="form_tutopoznam" method="post">
   <fieldset class="form-group">
     <label for="rok_narodenia" class="form-control-label"><strong>Rok vášho narodenia:</strong></label>
     <select class="form-control" id="rok_narodenia" name="rok_narodenia">
@@ -33,10 +75,12 @@
 
 <fieldset class="form-group">
                         <label for="autocomplete"><strong>Odkiaľ ste (mesto/obec):</strong></label>
-                        <input id="autocomplete" onFocus="geolocate()" type="text" placeholder="Napr. Kocúrkovo" class="form-control input-lg">
+                        <input id="autocomplete" name="lokalita" onFocus="geolocate()" type="text" placeholder="Napr. Kocúrkovo" class="form-control input-lg">
                         <small class="text-muted">Resp. kde si bývali, keď si pieseň počuli prvýkrát?</small>
                         <input type="hidden" name="lat" id="lat" value="">
                         <input type="hidden" name="lng" id="lng" value="">
+                        <input type="hidden" name="odoslane_tutopoznam" id="odoslane_tutopoznam" value="true">
+                        <input type="hidden" name="id_user_vyskyt" id="id_user_vyskyt" value="<?php echo $id_user_vyskyt; ?>">
 
 </fieldset>
 
@@ -73,27 +117,12 @@ function fillInAddress() {
         var place = autocomplete.getPlace();
         $("#lat").val(place.geometry.location.lat());
         $("#lng").val(place.geometry.location.lng());
-        //for (var component in componentForm) {
-        //  document.getElementById(component).value = '';
-        //  document.getElementById(component).disabled = false;
-       // }
 
-        // Get each component of the address from the place details
-        // and fill the corresponding field on the form.
-        //for (var i = 0; i < place.address_components.length; i++) {
-          //var addressType = place.address_components[i].types[0];
-         // alert(addressType);
-         // if (componentForm[addressType]) {
-          //  var val = place.address_components[i][componentForm[addressType]];
-           // alert(val);
-            //document.getElementById(addressType).value = val;
-          //}
-        //}
-      }
+}
 
       // Bias the autocomplete object to the user's geographical location,
       // as supplied by the browser's 'navigator.geolocation' object.
-      function geolocate() {
+function geolocate() {
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
             var geolocation = {
@@ -107,21 +136,36 @@ function fillInAddress() {
             autocomplete.setBounds(circle.getBounds());
           });
         }
-      }
+}
 
-//$.get('/public/json/obce.json', function(data){
-//  $("#mesto").typeahead({ 
-//    source:data,
-//    displayText: function(item){ return item.value;}
-//  
-//   });
+function odosli_formular(){
 
-// },'json');
+    $.ajax({
+           type: "POST",
+           url: "piesen.tuto-poznam.php",
+           data: $("#form_tutopoznam").serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+               $('#vnutro_tutopoznam').html(data); // show response from the php script.
+               //$('#vnutro_tutopoznam').val("");
+
+           }
+         });
+
+
+}
+
+
 
 </script>
 
 
-<button type="submit" class="l-btn l-btn--large l-btn--primary">Odoslať informáciu</button>
+<button type="button" onclick="odosli_formular()" class="l-btn l-btn--large l-btn--primary">Odoslať informáciu</button>
 
+</form>   
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgWx_CoLTLpPxc2bop5M8sE92k0UEFPTk&libraries=places&callback=initAutocomplete&language=sk">
+<?php } ?>
+
+
+</div>
