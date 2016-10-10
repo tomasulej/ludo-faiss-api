@@ -10,10 +10,16 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_ludo_header.php";
 
         <div class="row">
 
-            <div class="col-md-12">
+            <div class="col-md-7">
 
  <?php echo $telo;?>
                 
+
+            </div>
+
+            <div class="col-md-5">
+
+<?php echo $pravy_stlpec;?>
 
             </div>
 
@@ -29,7 +35,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_ludo_header.php";
 
 
 
-<php
+<?php
 
 require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_footer.php";
 

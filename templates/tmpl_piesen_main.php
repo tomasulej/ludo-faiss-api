@@ -28,7 +28,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                 </div>
                <div class="col-md-3 col-xs-12 l-song-download">
 
-                    <button class="l-btn l-btn--primary l-btn--small" data-toggle="popover" id="tuto-poznam" data-placement="bottom"><i class="fa fa-star"></i> Poznáte túto pieseň? Kliknite!</button><BR>
+                    <button class="l-btn l-btn--primary l-btn--small" data-toggle="popover" id="tuto-poznam" data-placement="bottom"><i class="fa fa-star"></i>Túto pieseň už poznám!</button><BR>
 
 
                 </div>
@@ -577,7 +577,7 @@ $('[data-toggle="popover"]').popover({
     trigger: 'manual',
     content: function() {
         //e.preventDefault();
-    alert("ahoj");  
+        //alert("ahoj");  
       return $.ajax({url: 'piesen.tuto-poznam.php?id_piesen=<?php echo $piesen->id_piesen; ?>',
                      dataType: 'html',
                      async: false}).responseText;

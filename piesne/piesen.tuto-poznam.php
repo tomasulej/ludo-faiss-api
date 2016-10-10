@@ -22,7 +22,7 @@ if ($_POST['odoslane_tutopoznam']=="true") {
   
 ?>
 <div class="alert alert-success" role="alert">
-  <p><strong>Perfektné</strong>, ďakujeme za pomoc, teraz už vieme všetko potrebné. Ak by ste mali chuť dostávať od nás občasný newsletter s novými pesničkami, <a href="http://www.ludoslovensky.sk/newsletter.html">kliknite sem</a>.  </p>
+  <p><strong>Perfektné</strong>, ďakujeme za pomoc, teraz už vieme všetko potrebné. Ak by ste mali chuť dostávať od nás občasný newsletter s novými piesňami a ďalšími informáciami o projekte, <a href="http://www.ludoslovensky.sk/newsletter.html">kliknite sem</a>.  </p>
 </div>
 
 
