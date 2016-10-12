@@ -6,7 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>ľudo slovenský - Najväčšia digitalizovaná zbierka slovenskej ľudovej slovesnosti</title>
+    <title><?php  echo $meta_title;   ?> </title>
+
+   <meta property="og:title" content="<?php echo $meta_title;  ?>"/>
+   <meta property="og:site_name" content="ludoslovensky.sk"/>
+   <meta property="og:type" content="article"/>
+   <meta property="og:image" content="<?php  echo $meta_image;   ?>"/>
+   <meta property="og:url" content="<?php  echo $meta_url;   ?>"/>
+   <meta property="fb:admins" content="686226655"/>
+   <meta property="og:description" content="<?php  echo $meta_desc;   ?>"/>
+
+
+
+
+
+
+
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">

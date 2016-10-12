@@ -42,6 +42,7 @@ $telo='
 '; 
 
 $pravy_stlpec='
+ <div id="manifest-luda">
   <H3>Manifest Ľuda</H3><i>
 <h4>Prečo</h4>
 
@@ -67,7 +68,7 @@ $pravy_stlpec='
 <li><p>Žiaden jazyk ani kultúra nie sú hodnotnejšie ako iné jazyky a kultúry a Ľudo to vie</p></li>
 <li><p>Ľudo nestavia mohyly a podstavce, neglorifikuje, neprikrášľuje, nevyvyšuje sa nad ostatných</p></li>
 <li><p>Cieľom Ľuda nie je vrátiť históriu, nostalgicky sa obzerať vzad, ale naopak poznaním nás a našich koreňov lepšie spoznať kto sme a kam smerujeme.</p></li>
-</ul> </i>
+</ul> </i></div>
 ';
 
 

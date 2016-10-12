@@ -1,7 +1,7 @@
 <?php
     $theme="l-theme-green";
     $piesne_tab='class="active"';
-    include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
+include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
 require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
@@ -90,7 +90,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 <?php if (!empty($podobne)) {  ?>
 
     <div class="l-song-similar">
-    <h2>Ďalšie piesne s rovnakým alebo príbuzným nápevom</h2>
+    <h2>Podobné piesne</h2>
 
     <div class="row">
     <?php foreach ($podobne as $key=>$p_piesen) { ?>
