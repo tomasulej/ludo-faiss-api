@@ -6,10 +6,16 @@
 
             <div class="col-lg-3">
 
-                <a class="l-header__logo"><img src="/public/img/logo-piesne-inverse.png"></a>
+                <a class="l-header__logo" href="/piesne"><img src="/public/img/logo-piesne-inverse.png"></a>
 </div>
 
-<div class="col-lg-5 l-header__links"><a href="hladat.php">Všetky piesne</a> - <a href="mapa.php">Mapa výskytu</a> - <a href="">Digitalizátori</a></div>
+<div class="col-lg-5 l-header__links"><a href="hladat.php">Všetky piesne</a> - <a href="mapa.php">Mapa výskytu</a> - <a href="">Digitalizátori</a>
+
+
+
+
+
+</div>
 
             
 

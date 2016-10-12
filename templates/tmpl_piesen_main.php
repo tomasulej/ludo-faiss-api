@@ -28,7 +28,12 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                 </div>
                <div class="col-md-3 col-xs-12 l-song-download">
 
-                    <button class="l-btn l-btn--primary l-btn--small" data-toggle="popover" id="tuto-poznam" data-placement="bottom"><i class="fa fa-star"></i>Túto pieseň už poznám!</button><span class="glyphicon glyphicon-question-sign pull-right"></span><BR>
+                    <button class="l-btn l-btn--primary l-btn--small" data-toggle="popover" id="tuto-poznam" data-placement="bottom">
+                    <i class="fa fa-star"></i>Túto pieseň už poznám!</button> 
+                    <a data-toggle="popover" 
+                    data-content="Nie všetky staré piesne ešte niekto pozná a nie všetky sa dnes spievajú tam, kde boli pred stovkami rokov zozbierané. Snažíme sa preto <strong>mapovať, kde všade sa ešte dnes spievajú jednotlivé piesne</strong>. Dajte nám vedieť, či pieseň poznáte a <strong>pomôžte nám v našom úsilí!</strong> Ďakujeme :)" data-placement="bottom"><i class="fa fa-question-circle"> </i></a>
+                    
+                    <BR>
 
 
                 </div>

@@ -71,7 +71,7 @@
                 <menu class="l-navbar__menu">
                     <li <?php echo $prislovia_tab;?>><a href="/prislovia">Príslovia a porekadlá</a></li>
                     <li <?php echo $nadavky_tab;  ?>><a href="/nadavky" >Nadávky</a></li>
-                    <li <?php echo $piesne_tab;?>><a href="/piesne/hladat.php">Piesne</a></li>
+                    <li <?php echo $piesne_tab;?>><a href="/piesne/">Piesne</a></li>
                     <li><a href="/labs" <?php echo $labs_tab;  ?>>Ľudo Labs</a></li>
                 </menu>
             </div>
