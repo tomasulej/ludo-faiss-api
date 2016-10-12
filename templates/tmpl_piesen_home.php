@@ -90,6 +90,9 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header_home.php";
 
 <div align="center"><button type="submit" class="l-btn l-btn--large l-btn--primary">Viac populárnych piesni (<?php echo $pocet_piesni;?>)</button></div>
 
+<h2>Pridaj sa do nášho newslettera</H2>
+<p>Chceš najnovšie piesne a novinky, správy a zaujímavosti o ľudovej slovesnosti priamo do svojej schránky? <a href="x">Klikni sem</a>.
+
 
 </div>
 
