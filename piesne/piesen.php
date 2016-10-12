@@ -24,8 +24,8 @@ $piesen=mysql_fetch_object($q);
 
 //META
 $meta_title=$piesen->nazov_dlhy;
-$meta_audio="http://".$_SERVER['SERVER_NAME']."/piesne/data/".
-$meta_image="http://".$_SERVER['SERVER_NAME']."/piesne/data/".$piesen->id_piesen."/".$piesen->file_mp3;
+$meta_audio="http://".$_SERVER['SERVER_NAME']."/piesne/data/".$piesen->id_piesen."/".$piesen->file_mp3;
+$meta_image="http://".$_SERVER['SERVER_NAME']."/piesne/data/".$piesen->id_piesen."/".$piesen->file_png;
 $meta_url="http://".$_SERVER['SERVER_NAME']."/piesne/piesen.php?".$piesen->id_piesen;
 $meta_desc="Táto pieseň pochádza z Ľuda Slovenského, najväčšej zbierky ľudovej hudby na Slovensku. Pozri si melódiu, noty a všetky informácie o nej. ";
 
