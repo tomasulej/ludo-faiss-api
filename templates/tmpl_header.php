@@ -8,14 +8,18 @@
 
     <title><?php  echo $meta_title;   ?> </title>
 
+
+
    <meta property="og:title" content="<?php echo $meta_title;  ?>"/>
+  <?php if ($meta_audio<>"") { ?> <meta property="og:audio" content="<?php echo $meta_audio;  ?>"/> <?php } ?>
+
    <meta property="og:site_name" content="ludoslovensky.sk"/>
-   <meta property="og:type" content="article"/>
+   <meta property="og:type" content="<?php echo $meta_type ?>" />
    <meta property="og:image" content="<?php  echo $meta_image;   ?>"/>
    <meta property="og:url" content="<?php  echo $meta_url;   ?>"/>
    <meta property="fb:admins" content="686226655"/>
    <meta property="og:description" content="<?php  echo $meta_desc;   ?>"/>
-
+   <meta property="fb:app_id" content="619723681422597"/>
 
 
 

@@ -28,7 +28,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                 </div>
                <div class="col-md-3 col-xs-12 l-song-download">
 
-                    <button class="l-btn l-btn--primary l-btn--small" data-toggle="popover" id="tuto-poznam" data-placement="bottom"><i class="fa fa-star"></i>Túto pieseň už poznám!</button><BR>
+                    <button class="l-btn l-btn--primary l-btn--small" data-toggle="popover" id="tuto-poznam" data-placement="bottom"><i class="fa fa-star"></i>Túto pieseň už poznám!</button><span class="glyphicon glyphicon-question-sign pull-right"></span><BR>
 
 
                 </div>
