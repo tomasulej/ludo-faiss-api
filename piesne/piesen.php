@@ -23,6 +23,7 @@ $piesen=mysql_fetch_object($q);
 
 
 //META
+$meta_type="music.song";
 $meta_title=$piesen->nazov_dlhy;
 $meta_audio="http://".$_SERVER['SERVER_NAME']."/piesne/data/".$piesen->id_piesen."/".$piesen->file_mp3;
 $meta_image="http://".$_SERVER['SERVER_NAME']."/piesne/data/".$piesen->id_piesen."/".$piesen->file_png;
