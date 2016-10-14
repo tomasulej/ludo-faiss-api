@@ -17,7 +17,7 @@
             <div class="row">
             <div class="col-md-12">
 
-            <h2>Ľudové piesne na mape</h2>
+          
 
             </div>
             </div>
@@ -27,6 +27,8 @@
 <div class="l-song">
 <div class="row">
 <div class="col-md-12">
+  <h2>Ľudové piesne na mape</h2>
+  <p>Na jednu mapu sme lorem ipsum.
 <div id="mapa" class="map" style="height:450px"></div>
 
 
