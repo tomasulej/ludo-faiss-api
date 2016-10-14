@@ -47,7 +47,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
 
 
-        <div class="l-song">
+        <div class="l-song vytlac">
 
             <div class="row">
 
@@ -131,7 +131,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                 <div class="col-md-4">
                     <h3>Podrobnosti</h3>
 
-                <strong>Názov</strong>: <?php echo $piesen->nazov_dlhy ?><BR>
+                <strong><a onclick="vytlac();">Názov</strong>: <?php echo $piesen->nazov_dlhy ?><BR>
                 <strong>Pôvodná zbierka</strong>: <a href="#"><?php echo $piesen->zbierky_nazov?></a><BR>
                 <strong>Strana:</strong> <?php echo $piesen->strana; ?><BR>
                 <strong>Identifikátor</strong>: <?php echo $piesen->identifikator?> <BR>
@@ -524,6 +524,12 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
 
 <script>
+
+        var v = $('.l-page'),
+    cache_width = v.width(),
+    a4  =[ 595.28,  841.89];
+
+
     $('.switch li a').click(function(){
         var color = $(this).attr('class').split('-')[1];
         $('body').removeClass().addClass('l-theme-' + color);
@@ -633,7 +639,8 @@ function abc2svg() {
 	});
 }
 
-	
+
+
 
 
 

@@ -31,10 +31,11 @@
 
 
 <script>
-                        L.mapbox.accessToken = 'pk.eyJ1IjoiamVsdXNhbW90IiwiYSI6ImNpZnN0NGM2MjAxd2N1NGx6OWk2Y3BjOGsifQ.aFGe3wpK5fbZbrpefXxDNA';
+                        //L.mapbox.accessToken = 'pk.eyJ1IjoiamVsdXNhbW90IiwiYSI6ImNpZnN0NGM2MjAxd2N1NGx6OWk2Y3BjOGsifQ.aFGe3wpK5fbZbrpefXxDNA';
+                        
                         var map = L.map('mapa').setView([48.812,19.473], 7);
                         var baseLayer=L.tileLayer(
-                            'https://api.mapbox.com/styles/v1/jelusamot/citx7z0my00aj2irqjs36mmeh/tiles/256/{z}/{x}/{y}?access_token=' + L.mapbox.accessToken, {
+                            'https://api.mapbox.com/styles/v1/jelusamot/citx7z0my00aj2irqjs36mmeh/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiamVsdXNhbW90IiwiYSI6ImNpZnN0NGM2MjAxd2N1NGx6OWk2Y3BjOGsifQ.aFGe3wpK5fbZbrpefXxDNA', {
                             tileSize: 512,
                             zoomOffset: -1,
                          }).addTo(map);
@@ -48,7 +49,7 @@
                                     ];
 
 
-                                    var myLayer_p_<?php echo $point["c"] ?> = L.mapbox.featureLayer(p_<?php echo $point["c"] ?>, {
+                                    var myLayer_p_<?php echo $point["c"] ?> = L.geoJSON(p_<?php echo $point["c"] ?>, {
                                         pointToLayer: function(feature, latlon) {
                                            
   
@@ -62,16 +63,34 @@
                                                 stroke: true
                                             });
                                         }
-                                    }).addTo(map);
+                                    }).addTo(map).bindPopup("Načítavam");
+                                    
 
+
+                                    myLayer_p_<?php echo $point["c"] ?>.on('click', function(e) {
+                                        //alert("čau!");
+                                        //var popup = new L.Popup();
+                                        var popup = myLayer_p_<?php echo $point["c"] ?>.getPopup();
+
+                                        var url="piesne.mapa.popup.php?id_lokalita=<?php  echo $point["id_lokalita"];?>";
+                                        $.get(url).done(function(data) {
+                                             popup.setContent(data);
+                                             popup.update();
+                                             //alert(data);
+                                        });
+                                    });  
 
 
 
                         <?php } ?>
 
+function ajaxLokalita(id_lokalita) {
+    return id_lokalita;
 
+}
 
 // don't forget to include leaflet-heatmap.js
+/*
 var testData = {
   max: 8,
   data: [{lat: 24.6408, lng:46.7728, count: 300},{lat: 50.75, lng:-1.55, count: 19}]
@@ -109,7 +128,7 @@ var map = new L.Map('mapa', {
 
 heatmapLayer.setData(testData);
 
-
+*/
 
 
 </script>
