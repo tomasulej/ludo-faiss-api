@@ -59,7 +59,7 @@
                                                     'fill-color': 'blue',
                                                     'fill-opacity': 0.8,
                                                 },
-                                                fillOpacity: 1.0,
+                                                fillOpacity: 0.3,
                                                 stroke: true
                                             });
                                         }

@@ -23,7 +23,7 @@
 
 
 
-     <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+    <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
     <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' /> 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.0.0/dist/leaflet-src.js"></script>
