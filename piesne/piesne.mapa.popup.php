@@ -8,7 +8,7 @@ $id_lokalita= (int)$_GET['id_lokalita'];
 
 
 //piesne
-$query="SELECT piesne.id_piesen, piesne.nazov_dlhy FROM piesne WHERE ((id_zberatel_miesto=$id_lokalita OR id_zberatel_vyskyt=$id_lokalita) AND stav<>0) GROUP BY piesne.id_piesen";
+$query="SELECT piesne.id_piesen, piesne.nazov_dlhy FROM piesne WHERE ((id_zberatel_miesto=$id_lokalita OR id_zberatel_vyskyt=$id_lokalita)) GROUP BY piesne.id_piesen";
 //echo $query;
 $q_query=mysql_query($query);
 
