@@ -444,19 +444,16 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                     <div id='mapa' class='map' Style="height:300px"> </div>
 
                     <script>
-                        L.mapbox.accessToken = 'pk.eyJ1IjoiamVsdXNhbW90IiwiYSI6ImNpZnN0NGM2MjAxd2N1NGx6OWk2Y3BjOGsifQ.aFGe3wpK5fbZbrpefXxDNA';
+                        
+                        var map = L.map('mapa').setView([48.812,19.473], 7);
+                        var baseLayer=L.tileLayer(
+                            'https://api.mapbox.com/styles/v1/jelusamot/ciucsw0fj007e2is1xs9pzkcj/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiamVsdXNhbW90IiwiYSI6ImNpZnN0NGM2MjAxd2N1NGx6OWk2Y3BjOGsifQ.aFGe3wpK5fbZbrpefXxDNA').addTo(map);
+
+                        
                         var geojson_vyskyt = [<?php echo $zberatel_vyskyt->area; ?>];
                         var geojson_miesto = [<?php echo $zberatel_miesto->area; ?>];
-
-
-                        var map = L.map('mapa').setView([48.812,19.473], 7);
-                        L.tileLayer(
-                            'https://api.mapbox.com/styles/v1/jelusamot/citx7z0my00aj2irqjs36mmeh/tiles/256/{z}/{x}/{y}?access_token=' + L.mapbox.accessToken, {
-                            tileSize: 512,
-                            zoomOffset: -1,
-                         }).addTo(map);
           
-                        var myLayer = L.mapbox.featureLayer(geojson_miesto, {
+                        var myLayer = L.geoJSON(geojson_miesto, {
                             pointToLayer: function(feature, latlon) {
                                 return L.circleMarker(latlon, {
                                     fillColor:  '#66CC00',
@@ -466,7 +463,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                             }
                         }).addTo(map);
 
-                        var myLayer_vyskyt = L.mapbox.featureLayer(geojson_vyskyt, {
+                        var myLayer_vyskyt = L.geoJSON(geojson_vyskyt, {
                             pointToLayer: function(feature, latlon) {
                                 return L.circleMarker(latlon, {
                                     fillColor:  '#66CC00',

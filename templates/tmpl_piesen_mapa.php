@@ -28,23 +28,27 @@
 <div class="row">
 <div class="col-md-12">
   <h2>Ľudové piesne na mape</h2>
-  <p>Na jednu mapu sme lorem ipsum.
+  <p>Mapa obsahuje údaje zaznačené zberateľmi piesne, či už <strong>miesto kde bola pieseň zozbieraná</strong>, alebo región, ktorý zberateľ uviedol ako ten, <strong>kde sa pieseň spieva</strong>. 
+  Údaje už nemusia byť aktuálne. Do mapy sme tiež vyznačili lokality, ktoré sa spomínajú <strong>v samotnom texte piesne</strong>. Po kliknutí na bod získate zoznam piesni.</p>
 <div id="mapa" class="map" style="height:450px"></div>
 
 
 <script>
                         //L.mapbox.accessToken = 'pk.eyJ1IjoiamVsdXNhbW90IiwiYSI6ImNpZnN0NGM2MjAxd2N1NGx6OWk2Y3BjOGsifQ.aFGe3wpK5fbZbrpefXxDNA';
                         
-                        var map = L.map('mapa').setView([48.812,19.473], 7);
+                        var map = L.map('mapa').setView([48.812,19.473], 8);
+                        var markers = L.markerClusterGroup({    
+                            spiderfyOnMaxZoom: false,
+                            showCoverageOnHover: false,
+                            zoomToBoundsOnClick: false});
                         var baseLayer=L.tileLayer(
-                            'https://api.mapbox.com/styles/v1/jelusamot/citx7z0my00aj2irqjs36mmeh/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiamVsdXNhbW90IiwiYSI6ImNpZnN0NGM2MjAxd2N1NGx6OWk2Y3BjOGsifQ.aFGe3wpK5fbZbrpefXxDNA', {
-                            tileSize: 512,
-                            zoomOffset: -1,
-                         }).addTo(map);
+                            'https://api.mapbox.com/styles/v1/jelusamot/ciucsw0fj007e2is1xs9pzkcj/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiamVsdXNhbW90IiwiYSI6ImNpZnN0NGM2MjAxd2N1NGx6OWk2Y3BjOGsifQ.aFGe3wpK5fbZbrpefXxDNA').addTo(map);
+
 
 
 
                         <?php foreach ($p_mapa_point as $key=>$point) { ?>
+                           
                                     var p_<?php echo $point["c"]; ?> = [
                                         <?php echo $point["area"]; ?>
 
@@ -82,9 +86,9 @@
                                         });
                                     });  
 
-
-
                         <?php } ?>
+map.addLayer(maps);
+map.fitBounds(markers.getBounds());
 
 function ajaxLokalita(id_lokalita) {
     return id_lokalita;
