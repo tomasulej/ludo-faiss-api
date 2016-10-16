@@ -61,6 +61,9 @@ if ((int)$_GET['id_piesen']<>0) {
 			
 		?>
     </select>
+
+
+
     </div>
   </fieldset>
   </div>	  
@@ -72,8 +75,8 @@ if ((int)$_GET['id_piesen']<>0) {
     <label for="identifikator" class="col-sm-2 form-control-label"><strong>Interný identifikátor:</strong></label>
     <div class="col-sm-10">
       <input type="input" class="form-control" id="identifikator" name="identifikator" placeholder="Identifikátor (napr. '231., '232b' a podobne." value="<?php  echo $p_edit->identifikator ?>"
-    </div>
-    <p class="form-text text-muted"></p>
+      <p class="form-text text-muted">(nemusíte meniť)</p>
+ </div>
   </div>
 	</fieldset>
 
@@ -82,6 +85,8 @@ if ((int)$_GET['id_piesen']<>0) {
     <label for="nazov_dlhy" class="col-sm-2 form-control-label"><strong>Dlhý názov:</strong></label>
     <div class="col-sm-10">
       <input type="input" class="form-control" id="nazov_dlhy" name="nazov_dlhy" placeholder="Dlhý názov piesne (napr. 'Na Kráľovej holi stojí strom zelený')" value="<?php  echo $p_edit->nazov_dlhy ?>">
+    <p class="form-text text-muted">Začiatočné slová piesne (dlhšia verzia)- bude sa zobrazovať ako nadpis piesne</p>
+
     </div>
   </div>
   
@@ -89,6 +94,8 @@ if ((int)$_GET['id_piesen']<>0) {
     <label for="nazov_kratky" class="col-sm-2 form-control-label"><strong>Krátky názov:</strong></label>
     <div class="col-sm-10">
       <input type="input" class="form-control" id="nazov_kratky" name="nazov_kratky" placeholder="Skrátený názov piesne (napr. 'Na Kráľovej holi...')" value="<?php  echo $p_edit->nazov_kratky ?>">
+        <p class="form-text text-muted">Začiatočné slová piesne (kratšia verzia) - bude sa zobrazovať v podobných piesňach a iných miestach, kde nie je priestor zobraziť celý názov</p>
+
     </div>
   </div>	  
 
@@ -96,7 +103,9 @@ if ((int)$_GET['id_piesen']<>0) {
     <div class="form-group row">
     <label for="strana" class="col-sm-2 form-control-label"><strong>Strana:</strong></label>
     <div class="col-sm-10">
-      <input type="input" class="form-control" id="strana" name="strana" placeholder="Strana, na ktorej sa nachádza pieseň" value="<?php  echo $p_edit->strana ?>">
+      <input type="input" class="form-control" id="strana" name="strana" placeholder="Strana, resp. na ktorej sa nachádza pieseň" value="<?php  echo $p_edit->strana ?>">
+              <p class="form-text text-muted">Pozrite v PDF súbore na ktorých stranách sa v origináli nachádzala pieseň. Napr. "54", "55-56".</p>
+
     </div>
   </div>
 
@@ -158,8 +167,15 @@ if ((int)$_GET['id_piesen']<>0) {
       <option value='7' <?php if ($p_edit->source_zberatel==7) {echo 'selected';} else { echo '';} ?>>kurzíva v klasických aj hranatých zátvorkých</option>
 
     </select>
+            <p class="form-text text-muted">Pozrite ako je v origináli napísané. Údaj môže byť napísaný normálnym písmom, kurzívou a môže byť a nemusí byť vo vnútri okrúhlych alebo hranatých zátvoriek. Napríklad:<BR> <code>"(J. Rotarides, [1800], Príbelce [<i>Hontianska</i>])"</code><BR>
+            Meno zberateľa (J. Rotarides) je normálnym písmom a okrúhlej zátvorke, rok zbierania (1880) je v okrúhlej aj hranatej, Miesto zozbierania (Príbelce) je v okrúhlej zátvorke a Miesto výskytu je v okrúhlej, hranatej zátvorke a je kurzívou (Hontianska). Obdobne uveďte aj ďalšie údaje, ktoré nasledujú nižšie.
+            
+            </p>
+
 
 </div>
+
+
     </div>  
 
 
@@ -306,6 +322,7 @@ if ((int)$_GET['id_piesen']<>0) {
     <label for="datum_digitalizacia" class="col-sm-2 form-control-label"><strong>Dátum digitalizácie:</strong></label>
     <div class="col-sm-10">
       <input type="input" class="form-control" id="datum_digitalizacia" name="datum_digitalizacia" value="<?php if ($_GET['id_piesen']<>0) {echo $p_edit->datum_digitalizacia;} else {echo date("Y-m-d");} ?>">
+      <p class="form-text text-muted">Uveďte dnešný dátum v tvare YYYY-MM-DD, napr. "2016-07-23"</p>
     </div>
   </div>
 
@@ -335,6 +352,7 @@ if ((int)$_GET['id_piesen']<>0) {
 			
 		?>
     </select>
+    <p class="form-text text-muted">Vaše meno, alebo meno digitalizátora. Ak chýba v zozname, vyberte možnosť "(chýba v zozname)" a doplňte.</p>
     </div>
   </fieldset>
   </div>

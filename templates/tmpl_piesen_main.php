@@ -1,7 +1,9 @@
 <?php
-
+    $theme="l-theme-green";
+    $piesne_tab='class="active"';
 include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
 require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
+require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
 ?>
 
@@ -16,20 +18,25 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                 <div class="col-md-1 col-xs-2">
                     <a id="playpause_main" class="l-btn l-btn--primary l-btn--small l-btn--play" onclick="playpause('#aud','#playpause_main');"><i class="fa fa-play"></i>  Prehrať</a>
                 </div>
-                <div class="col-md-11 col-xs-10">
+                <div class="col-md-8 col-xs-10">
+
                     <h1>
                         <?php echo $piesen->nazov_dlhy;?>
                     </h1>
 
 
                 </div>
-               <!-- <div class="col-md-5 col-xs-12 l-song-download">
-                    Stiahnuť:
-                    <a class="l-btn l-btn--primary l-btn--small" href="<?php echo $xml_link; ?>">noty</a>
-                    <a class="l-btn l-btn--primary l-btn--small" href="<?php echo $mp3_link; ?>">hudbu</a>
-                    <a class="l-btn l-btn--primary l-btn--small" href="<?php echo $pdf_link; ?>">vytlačiť (pdf)</a>
+               <div class="col-md-3 col-xs-12 l-song-download">
 
-                </div>-->
+                    <button class="l-btn l-btn--primary l-btn--small" data-toggle="popover" id="tuto-poznam" data-placement="bottom">
+                    <i class="fa fa-star"></i>Túto pieseň už poznám!</button> 
+                    <a data-toggle="popover" 
+                    data-content="Nie všetky staré piesne ešte niekto pozná a nie všetky sa dnes spievajú tam, kde boli pred stovkami rokov zozbierané. Snažíme sa preto <strong>mapovať, kde všade sa ešte dnes spievajú jednotlivé piesne</strong>. Dajte nám vedieť, či pieseň poznáte a <strong>pomôžte nám v našom úsilí!</strong> Ďakujeme :)" data-placement="bottom"><i class="fa fa-question-circle"> </i></a>
+                    
+                    <BR>
+
+
+                </div>
 
             </div>
      <p class="l-song-subh">
@@ -40,7 +47,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 
 
 
-        <div class="l-song">
+        <div class="l-song vytlac">
 
             <div class="row">
 
@@ -72,14 +79,14 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 
 
 <?php if (!empty($poznamky)) { ?>
+<HR width="10%" align="left">
     <div class="l-song-notes">
-    <H2>Poznámky</H2>
 
-    <ul>
+    <ol><small>
     <?php foreach ($poznamky as $key=>$poznamka) { ?>
         <li><?php echo $poznamka["txt"]; ?></li>
     <?php } ?>
-    </ul>
+    </ul></small>
 
     </div>
 <?php } ?>
@@ -88,7 +95,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 <?php if (!empty($podobne)) {  ?>
 
     <div class="l-song-similar">
-    <h2>Ďalšie piesne s rovnakým alebo príbuzným nápevom</h2>
+    <h2>Podobné piesne</h2>
 
     <div class="row">
     <?php foreach ($podobne as $key=>$p_piesen) { ?>
@@ -124,7 +131,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                 <div class="col-md-4">
                     <h3>Podrobnosti</h3>
 
-                <strong>Názov</strong>: <?php echo $piesen->nazov_dlhy ?><BR>
+                <strong><a onclick="vytlac();">Názov</strong>: <?php echo $piesen->nazov_dlhy ?><BR>
                 <strong>Pôvodná zbierka</strong>: <a href="#"><?php echo $piesen->zbierky_nazov?></a><BR>
                 <strong>Strana:</strong> <?php echo $piesen->strana; ?><BR>
                 <strong>Identifikátor</strong>: <?php echo $piesen->identifikator?> <BR>
@@ -389,16 +396,16 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 
 <?php if (!empty($p_mena)) { ?>
                     <h3>Osoby spomenúte v piesni</h3>
-
+<div>
                     <?php foreach ($p_mena as $key=>$meno) { ?>
-                    <div><a href="osoby.php?id=<?php echo $meno['meno_id']; ?>">
+                    <a href="osoby.php?id=<?php echo $meno['meno_id']; ?>">
                     
                     <?php echo 
                      ($meno["pohlavie"]==1 ? "♂ ":"♀ ").$meno["meno"];?></a>
-                     </div>
+                     
                     <?php } ?>
                     
-
+</div>
 <?php }?>
 
 
@@ -441,10 +448,14 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                         var geojson_vyskyt = [<?php echo $zberatel_vyskyt->area; ?>];
                         var geojson_miesto = [<?php echo $zberatel_miesto->area; ?>];
 
-                        var map = L.mapbox.map('mapa', 'mapbox.streets', {
-                            scrollWheelZoom: false
-                        }).setView([48.812,19.473], 6);
 
+                        var map = L.map('mapa').setView([48.812,19.473], 7);
+                        L.tileLayer(
+                            'https://api.mapbox.com/styles/v1/jelusamot/citx7z0my00aj2irqjs36mmeh/tiles/256/{z}/{x}/{y}?access_token=' + L.mapbox.accessToken, {
+                            tileSize: 512,
+                            zoomOffset: -1,
+                         }).addTo(map);
+          
                         var myLayer = L.mapbox.featureLayer(geojson_miesto, {
                             pointToLayer: function(feature, latlon) {
                                 return L.circleMarker(latlon, {
@@ -455,7 +466,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                             }
                         }).addTo(map);
 
-                        var myLayer = L.mapbox.featureLayer(geojson_vyskyt, {
+                        var myLayer_vyskyt = L.mapbox.featureLayer(geojson_vyskyt, {
                             pointToLayer: function(feature, latlon) {
                                 return L.circleMarker(latlon, {
                                     fillColor:  '#66CC00',
@@ -511,11 +522,14 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 
 
 
-<!-- jQuery first, then Bootstrap JS. -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js" integrity="sha384-ux8v3A6CPtOTqOzMKiuo3d/DomGaaClxFYdCu2HPMBEkf6x2xiDyJ7gkXU0MWwaD" crossorigin="anonymous"></script>
 
 <script>
+
+        var v = $('.l-page'),
+    cache_width = v.width(),
+    a4  =[ 595.28,  841.89];
+
+
     $('.switch li a').click(function(){
         var color = $(this).attr('class').split('-')[1];
         $('body').removeClass().addClass('l-theme-' + color);
@@ -563,10 +577,40 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 <script src="http://wim.vree.org/js/xml2abc-min.js"></script>
 <script src="http://wim.vree.org/js/xml2abc-min.js"></script>
 <script src="/public/js/abcjs_basic_2.3-min.js"></script>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-575ac8e6862d0152"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-575ac8e6862d0152"></script> 
 
 
 <script>
+
+//tuto poznam!
+$('[data-toggle="popover"]').popover({
+    html: true,
+    trigger: 'manual',
+    content: function() {
+        //e.preventDefault();
+        //alert("ahoj");  
+      return $.ajax({url: 'piesen.tuto-poznam.php?id_piesen=<?php echo $piesen->id_piesen; ?>',
+                     dataType: 'html',
+                     async: false}).responseText;
+    }
+  }).click(function(e) {
+    $(this).popover('toggle');
+    e.preventDefault();
+    e.stopImmediatePropagation();
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     function _d(role) {
         return '[data-role="' + role + '"]';
@@ -587,6 +631,7 @@ ctime=this.currentTime;
 
 
 
+
 function abc2svg() {
 	$('.abc').each(function(i, obj) {
 		ABCJS.renderAbc(obj, $(obj).text()); 	
@@ -594,18 +639,24 @@ function abc2svg() {
 	});
 }
 
-	
+
+
 
 
 
     $("#aud").on("pause", function (e) {
-       if(duration<=ctime) {alert('kokot!');};
+       if(duration<=ctime) {alert('Hurá!');};
        //alert(ctime+"xxx"+duration);
     });
 
   $("#aud").bind('ended', function(){
     //alert("kokot");
   });
+
+
+
+
+
 
 
     $(document).ready(function(){

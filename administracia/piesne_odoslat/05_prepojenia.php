@@ -1,6 +1,7 @@
 <?php
 
 
+
 function cropImage($imagePath, $startX, $startY, $width, $height, $dest)
 {
     $imagick = new \Imagick(realpath($imagePath));
@@ -13,15 +14,18 @@ function cropImage($imagePath, $startX, $startY, $width, $height, $dest)
 }
 
 
+	//error_reporting(E_ALL);
+	//ini_set('display_errors', '1');
+
+    //echo "<H1>".$_POST['id_piesen']."</H1>";
+
     $nadpis="Pridávanie piesne: prepojenia a poznámky (krok 5/5)";
     require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_administracia_header.php";
     include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
 
-	//error_reporting(E_ALL);
-	//ini_set('display_errors', '1');
     
-    $id_piesen=$_POST['id_piesen'];
-    if ($id_piesen==0) {$id_piesen=$_GET['id_piesen'];}
+    $id_piesen=(int)$_POST['id_piesen'];
+    if ((int)$id_piesen==0) {$id_piesen=(int)$_GET['id_piesen'];}
 
 
 if ($id_piesen<>0) {
@@ -43,10 +47,21 @@ if ($_POST['odoslane']=='true') {
     $y=$_POST['img_y'];
     $width=(float)$_POST['img_width'];
     $height=(float)$_POST['img_height'];
+
+    $x_full=$_POST['img_full_x'];
+    $y_full=$_POST['img_full_y'];
+    $width_full=(float)$_POST['img_full_width'];
+    $height_full=(float)$_POST['img_full_height'];
+
+
     $fileSrc=$_SERVER["DOCUMENT_ROOT"].'/piesne/data/'.$p_edit->id_piesen."/".$p_edit->file_png;
     $fileDst=$_SERVER["DOCUMENT_ROOT"]."/piesne/data/".$p_edit->id_piesen ."/".$p_edit->file_png;
+    
     //echo $fileSrc."-".$fileDst;
-    copy($fileSrc,$_SERVER["DOCUMENT_ROOT"]."/piesne/data/".$p_edit->id_piesen."/cela-piesen.png");
+    copy($fileSrc,$_SERVER["DOCUMENT_ROOT"]."/piesne/data/".$p_edit->id_piesen."/original.png");
+    copy($fileSrc,$_SERVER["DOCUMENT_ROOT"]."/piesne/data/".$p_edit->id_piesen."/noty.png");
+
+    $obrazok2=cropImage($fileSrc,$x_full,$y_full,$width_full,$height_full,$_SERVER["DOCUMENT_ROOT"]."/piesne/data/".$p_edit->id_piesen."/noty.png");
     $obrazok=cropImage($fileSrc,$x,$y,$width,$height,$fileDst);
 }
 
@@ -56,7 +71,7 @@ if ($_POST['odoslane']=='true') {
 <div class="l-page">
 
     <div class="container">
-
+<p class="lead">Posledný krok je popridávať všetky poznámky a prepojenia, ktoré sú pri piesni a pod ňou. Po každom pridaní môžeš pridávať tým istým formulárom znova. Keď skončíš <big><a href="mailto:tomas@ludoslovensky.sk?subject=Dokoncil(a) som piesen http://www.ludoslovensky.sk/piesne/piesen.php?<?php echo $id_piesen;  ?>">napíš e-mail, že si pieseň dokončil(a)</a></big>, nech sa na to môžeme pozrieť. samotnú pieseň si <a href="http://www.ludoslovensky.sk/piesne/piesen.php?<?php echo $id_piesen;  ?>" target="_blank">môžeš pozrieť tu</a>.</p>
 <div><h2>Pridať poznámku</div>
 <p>Už existujúce poznámky:</p>
 <ul><small>

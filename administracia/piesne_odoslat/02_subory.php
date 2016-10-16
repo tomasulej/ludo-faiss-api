@@ -123,7 +123,7 @@ mysql_real_escape_string($source_tempo),
 );
 
 
-echo $query_update;
+//echo $query_update;
 
 $q=mysql_query($query_update);
 
@@ -146,7 +146,7 @@ if ($id_piesen<>0) {
 
 
 <form action="03_abc.php" method="post" class="l-form l-well" enctype="multipart/form-data">
-
+<p class="lead">Nahrajte z počítača súbory XML, MP3 a PNG - všetky získate tak, že v programe MuseScore zvolíte "Export".</p>
 
  <div class="form-group row">
     <label for="file_xml" class="col-sm-2 form-control-label">Súbor MusicXML:</label>

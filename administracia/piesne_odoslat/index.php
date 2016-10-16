@@ -25,7 +25,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
     <div class="col-sm-10">
     <select class="form-control" id="id_piesen" name="id_piesen">
 		<?php
-			$q=mysql_query("SELECT * FROM piesne ORDER BY id_piesen;");
+			$q=mysql_query("SELECT * FROM piesne WHERE stav<>1 ORDER BY id_piesen;");
 			while ($piesne=mysql_fetch_object($q)) {
           			    printf("<option value='%s'>%s</option>",$piesne->id_piesen,
                           ($piesne->nazov_dlhy<>"") ? $piesne->identifikator." (".$piesne->nazov_dlhy.")":$piesne->identifikator);	
