@@ -1,16 +1,3 @@
-nobr {
-   white-space: nowrap;
-}
-.supsub {
-   display: inline-block;
-   margin: -9em 0;
-   vertical-align: -0.55em;
-   line-height: 1.35em;
-   font-size: 70%;
-   text-align: left;
-}
-
-
 @font-face {
   font-family: 'Qanelas-Soft Semibold';
   src: url("../fonts/Qanelas-Soft/qanelassoft-semibold-webfont.eot");
@@ -2245,6 +2232,9 @@ h2, h3, h4 {
 a {
   cursor: pointer; }
 
+.btn {
+  font-family: 'Qanelas-Soft Semibold', sans-serif; }
+
 .l-btn, .l-btn--small, .l-btn--large {
   display: inline-block;
   vertical-align: middle;
@@ -2318,6 +2308,9 @@ a {
   line-height: 2rem;
   vertical-align: middle;
   font-size: 1.25rem;
+  text-align: center; }
+
+.l-center {
   text-align: center; }
 
 @media screen and (max-width: 47.9rem) {
@@ -2503,6 +2496,8 @@ a {
 @media (max-width: 61.9rem) {
   .l-header .l-header__img img {
     width: 80%; }
+  .l-header .input-group {
+    margin-bottom: 1rem; }
 
   .l-header-search {
     margin-bottom: 1rem; } }
@@ -2643,7 +2638,8 @@ a {
   margin-top: 2rem; }
 
 .l-song-item {
-  padding: 1rem; }
+  padding: 1rem;
+  position: relative; }
   .l-song-item h3 {
     margin-top: 0;
     padding-right: 3rem;
@@ -2651,7 +2647,7 @@ a {
   .l-song-item .l-btn, .l-song-item .l-btn--small, .l-song-item .l-btn--large {
     position: absolute;
     top: 1rem;
-    right: 2rem; }
+    right: 1rem; }
   .l-song-item img {
     width: 100%; }
 
@@ -2671,5 +2667,26 @@ a {
     margin-top: 1rem;
     margin-bottom: 1rem;
     border-top: 2px solid #eef1f5; } }
+.l-search .l-search-header {
+  margin-bottom: 3rem; }
+
+.l-search-header h1 span {
+  color: #717887;
+  font-size: 1rem; }
+
+.l-list .l-center {
+  margin-top: 2rem; }
+
+.l-list-items .row {
+  margin-top: 1rem; }
+
+.l-list-filter {
+  margin-bottom: 1rem; }
+  .l-list-filter h2 {
+    font-size: 1.5rem;
+    margin-top: 0; }
+  .l-list-filter h3 {
+    font-size: 1.25rem;
+    margin-top: 0; }
 
 /*# sourceMappingURL=style.css.map */

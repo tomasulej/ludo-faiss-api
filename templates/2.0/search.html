@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>ľudo slovenský - Najväčšia digitalizovaná zbierka slovenskej ľudovej slovesnosti</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/public/css/style.css">
+
+    <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+
+</head>
+<body class="l-theme-green">
+
+<div class="l-navbar">
+
+    <div class="container">
+
+        <menu class="switch hidden-md-down">
+            <li><a class="switch-blue"></a></li>
+            <li><a class="switch-green"></a></li>
+            <li><a class="switch-red"></a></li>
+            <li><a class="switch-yellow"></a></li>
+        </menu>
+
+        <div class="row">
+
+            <div class="col-xl-1 col-lg-2 col-xs-4">
+                <a class="l-navbar__logo">
+                    <img src="/public/img/logo-small-dark.png" height="28">
+                </a>
+            </div>
+
+            <div class="col-xl-8 col-lg-7 hidden-md-down">
+                <menu class="l-navbar__menu">
+                    <li><a>Príslovia a porekadlá</a></li>
+                    <li><a>Nadávky</a></li>
+                    <li class="active"><a>Piesne</a></li>
+                    <li><a>Ľudo Labs</a></li>
+                </menu>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-xs-8">
+                <div class="l-navbar__user">
+                    <a>O ľudovi</a>
+                    <a class="l-btn l-btn--small l-btn--primary">Pridaj sa</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="l-header">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-3">
+
+                <a class="l-header__logo"><img src="/public/img/logo-piesne-inverse.png"></a>
+
+                <!--<div class="l-header-breadcrumbs">-->
+                    <!--<a><i class="fa fa-home"></i>Domov</a> > <a>Všetky piesne</a>-->
+                <!--</div>-->
+
+            </div>
+
+            <div class="col-lg-5 l-header__links">
+                <a href="">Všetky piesne (3400)</a> •
+                <a href="">Mapa výskytu</a> •
+                <a href="">Digitalizátori</a>
+            </div>
+
+            <div class="col-lg-4">
+
+                <div class="input-group">
+                    <input type="text" class="form-control l-header-search" placeholder="Hľadať v piesňach (máme ich už 3440)!">
+                    <span class="input-group-btn">
+                        <button class="btn btn-secondary l-btn l-btn--inverse" type="button">Hľadať!</button>
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="l-page l-search l-list">
+
+    <div class="container">
+
+        <div class="l-search-header">
+            <h1>Vyhľadávanie v piesňach <span>3.400 piesní!</span></h1>
+            <div class="input-group">
+                <input type="text" class="form-control-lg form-control" placeholder="Hľadať v piesňach">
+                <span class="input-group-btn">
+                    <button class="btn btn-lg l-btn--primary" type="button">Hľadať!</button>
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3 l-list-filter">
+
+                <h2>Filtrovať:</h2>
+
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action ">
+                        <h3 class="list-group-item-heading">Tempo </h3>
+                        <p class="list-group-item-text">
+
+                        </p><div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Pomalé (+4)
+                        </label>
+                    </div>
+
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" value="">
+                                Stredne rýchle (+10)
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" value="">
+                                Rýchle (+20)
+                            </label>
+                        </div>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <h3 class="list-group-item-heading">Región</h3>
+                        <p class="list-group-item-text">
+
+                        </p><div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Západné Slovensko
+                        </label>
+                    </div>
+
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" value="">
+                                Stredné Slovensko
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" value="">
+                                Východné Slovensko
+                            </label>
+                        </div>
+
+
+                        <p></p>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-9">
+
+                <div class="l-list-header">
+                    <strong>Filtre:</strong>
+                    <span class="tag tag-default"> Región: Stredné Slovensko <a><i class="fa fa-close"></i></a></span>
+                    <span class="tag tag-default">Tempo: Rychlé <a><i class="fa fa-close"></i></a></span>
+                </div>
+
+                <div class="l-list-items">
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="l-song-item l-well">
+                                <h3><a href="piesen.php?20">Spievaj si, dievčatko, netrať veselosti…</a></h3>
+
+
+                                <a class="l-btn l-btn--primary l-btn--small" id="playpause_p_20" onclick="playpause('#aud_20','#playpause_p_20');"><i class="fa fa-play"></i></a>
+                                <audio id="aud_20" controls="controls" src="data/20/spevy-i_001-spievaj-si-dievcatko.mp3" style="display:none">Your browser does not support the audio element.</audio>
+
+
+                                <a href="piesen.php?20"><img src="http://ludoslovensky.sk/piesne/data/20/spevy-i_001-spievaj-si-dievcatko-1.png"></a>
+                                <p class="l-song-subh">
+                                    <small>Zozbieral(a): <a href="zberatel.php?id=1">A. Bulla</a> (1873) ● Zdigitalizoval(a): <a href="digitalizator.php?id=2">Tomáš Ulej</a> (2016-09-18) ● Pôvodná zbierka <a href="zbierky.php?id=2">Slovenské spevy I.</a></small>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="l-song-item l-well">
+                                <h3><a href="piesen.php?20">Spievaj si, dievčatko, netrať veselosti…</a></h3>
+
+
+                                <a class="l-btn l-btn--primary l-btn--small" id="playpause_p_20" onclick="playpause('#aud_20','#playpause_p_20');"><i class="fa fa-play"></i></a>
+                                <audio id="aud_20" controls="controls" src="data/20/spevy-i_001-spievaj-si-dievcatko.mp3" style="display:none">Your browser does not support the audio element.</audio>
+
+
+                                <a href="piesen.php?20"><img src="http://ludoslovensky.sk/piesne/data/20/spevy-i_001-spievaj-si-dievcatko-1.png"></a>
+                                <p class="l-song-subh">
+                                    <small>Zozbieral(a): <a href="zberatel.php?id=1">A. Bulla</a> (1873) ● Zdigitalizoval(a): <a href="digitalizator.php?id=2">Tomáš Ulej</a> (2016-09-18) ● Pôvodná zbierka <a href="zbierky.php?id=2">Slovenské spevy I.</a></small>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="l-song-item l-well">
+                                <h3><a href="piesen.php?20">Spievaj si, dievčatko, netrať veselosti…</a></h3>
+
+
+                                <a class="l-btn l-btn--primary l-btn--small" id="playpause_p_20" onclick="playpause('#aud_20','#playpause_p_20');"><i class="fa fa-play"></i></a>
+                                <audio id="aud_20" controls="controls" src="data/20/spevy-i_001-spievaj-si-dievcatko.mp3" style="display:none">Your browser does not support the audio element.</audio>
+
+
+                                <a href="piesen.php?20"><img src="http://ludoslovensky.sk/piesne/data/20/spevy-i_001-spievaj-si-dievcatko-1.png"></a>
+                                <p class="l-song-subh">
+                                    <small>Zozbieral(a): <a href="zberatel.php?id=1">A. Bulla</a> (1873) ● Zdigitalizoval(a): <a href="digitalizator.php?id=2">Tomáš Ulej</a> (2016-09-18) ● Pôvodná zbierka <a href="zbierky.php?id=2">Slovenské spevy I.</a></small>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="l-song-item l-well">
+                                <h3><a href="piesen.php?20">Spievaj si, dievčatko, netrať veselosti…</a></h3>
+
+
+                                <a class="l-btn l-btn--primary l-btn--small" id="playpause_p_20" onclick="playpause('#aud_20','#playpause_p_20');"><i class="fa fa-play"></i></a>
+                                <audio id="aud_20" controls="controls" src="data/20/spevy-i_001-spievaj-si-dievcatko.mp3" style="display:none">Your browser does not support the audio element.</audio>
+
+
+                                <a href="piesen.php?20"><img src="http://ludoslovensky.sk/piesne/data/20/spevy-i_001-spievaj-si-dievcatko-1.png"></a>
+                                <p class="l-song-subh">
+                                    <small>Zozbieral(a): <a href="zberatel.php?id=1">A. Bulla</a> (1873) ● Zdigitalizoval(a): <a href="digitalizator.php?id=2">Tomáš Ulej</a> (2016-09-18) ● Pôvodná zbierka <a href="zbierky.php?id=2">Slovenské spevy I.</a></small>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="l-song-item l-well">
+                                <h3><a href="piesen.php?20">Spievaj si, dievčatko, netrať veselosti…</a></h3>
+
+
+                                <a class="l-btn l-btn--primary l-btn--small" id="playpause_p_20" onclick="playpause('#aud_20','#playpause_p_20');"><i class="fa fa-play"></i></a>
+                                <audio id="aud_20" controls="controls" src="data/20/spevy-i_001-spievaj-si-dievcatko.mp3" style="display:none">Your browser does not support the audio element.</audio>
+
+
+                                <a href="piesen.php?20"><img src="http://ludoslovensky.sk/piesne/data/20/spevy-i_001-spievaj-si-dievcatko-1.png"></a>
+                                <p class="l-song-subh">
+                                    <small>Zozbieral(a): <a href="zberatel.php?id=1">A. Bulla</a> (1873) ● Zdigitalizoval(a): <a href="digitalizator.php?id=2">Tomáš Ulej</a> (2016-09-18) ● Pôvodná zbierka <a href="zbierky.php?id=2">Slovenské spevy I.</a></small>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="l-song-item l-well">
+                                <h3><a href="piesen.php?20">Spievaj si, dievčatko, netrať veselosti…</a></h3>
+
+
+                                <a class="l-btn l-btn--primary l-btn--small" id="playpause_p_20" onclick="playpause('#aud_20','#playpause_p_20');"><i class="fa fa-play"></i></a>
+                                <audio id="aud_20" controls="controls" src="data/20/spevy-i_001-spievaj-si-dievcatko.mp3" style="display:none">Your browser does not support the audio element.</audio>
+
+
+                                <a href="piesen.php?20"><img src="http://ludoslovensky.sk/piesne/data/20/spevy-i_001-spievaj-si-dievcatko-1.png"></a>
+                                <p class="l-song-subh">
+                                    <small>Zozbieral(a): <a href="zberatel.php?id=1">A. Bulla</a> (1873) ● Zdigitalizoval(a): <a href="digitalizator.php?id=2">Tomáš Ulej</a> (2016-09-18) ● Pôvodná zbierka <a href="zbierky.php?id=2">Slovenské spevy I.</a></small>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="l-center">
+
+                    <a class="l-btn l-btn--large l-btn--primary"><i class="fa fa-chevron-down"></i> Načítať ďalšie</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer class="l-footer">
+
+    <div class="container">
+
+        <div class="l-footer__signature">
+
+            <a class="l-footer__logo">
+                <img src="/public/img/logo-inverse.png">
+            </a>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- jQuery first, then Bootstrap JS. -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js" integrity="sha384-ux8v3A6CPtOTqOzMKiuo3d/DomGaaClxFYdCu2HPMBEkf6x2xiDyJ7gkXU0MWwaD" crossorigin="anonymous"></script>
+
+<script>
+    $('.switch li a').click(function(){
+        var color = $(this).attr('class').split('-')[1];
+        $('body').removeClass().addClass('l-theme-' + color);
+    });
+</script>
+
+</body>
+</html>
