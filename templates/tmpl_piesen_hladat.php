@@ -36,7 +36,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
     </div>
 
  <div class="row">   
-<div class="col-md-3">
+<!--<div class="col-md-3">
 <h4>Filtrovať:</h4>
 <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action ">
@@ -99,10 +99,10 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
 </div>
 
-</div>
+</div>-->
 <?php if (!empty($piesne)) {  ?>
 
-    <div class="l-song-similar col-md-9">
+    <div class="l-song-similar col-md-12">
 <p><strong>Filtre:</strong> Región: Stredné Slovensko; Tempo: Rychlé <a href="">Zrušiť filtre</a>
 
     <div class="row">
@@ -121,10 +121,20 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
         <?php }?>
 
-        <a href="piesen.php?<?php echo $piesen['id_piesen'];?>"><img src='data/<?php echo $piesen['id_piesen']; ?>/<?php echo $piesen["file_png"];?>'></a>
-        <!--<p class="l-song-subh">
+        <!-- <a href="piesen.php?<?php echo $piesen['id_piesen'];?>"><img src='data/<?php echo $piesen['id_piesen']; ?>/<?php echo $piesen["file_png"];?>'></a> -->
+        
+        <div class="row">
+        <div class="col-md-3"><img src="data/<?php echo $piesen['id_piesen']; ?>/noty.png" class="t" style:"max-width:5%"></div>
+        <div class="col-md-7"><p><i><?php echo cleanlyrics($piesen['lyrics']); ?></i><BR></p></div>
+        <div class="col-md-2"><button type="submit" class="l-btn l-btn--primary">Zobraziť celú pieseň</button></div>
+        </div>
+
+
+        <!-- <p class="l-song-subh">
             <small>Zozbieral(a): <a href="zberatel.php?id=<?php echo $piesen['id_zberatel']; ?>"><?php echo $piesen['zberatelia_meno']; ?></a> (<?php echo $piesen['datum_zbieranie']; ?>) ● Zdigitalizoval(a): <a href="digitalizator.php?id=<?php echo $piesen['id_digitalizator']; ?>"><?php echo $piesen['digitalizatori_meno']; ?></a> (<?php echo $piesen['datum_digitalizacia']; ?>) ● Pôvodná zbierka <a href="zbierky.php?id=<?php echo $piesen['id_zbierka'] ?>"><?php echo $piesen['zbierky_nazov'] ?></a></small>
         </p>-->
+                            
+
         </div><BR>
 
         </div><div></div>

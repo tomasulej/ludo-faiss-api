@@ -67,4 +67,21 @@ function lyrics2html($lyrics)
 	return $nove_lyrics2;
 }
 
+function cleanlyrics($lyrics) {
+
+	$array = explode('}',$lyrics);
+	$nove_lyrics = $array[0];
+
+		$nove_lyrics=str_replace("{", "", $nove_lyrics);
+		//$nove_lyrics=str_replace("}", "", $nove_lyrics);
+		$nove_lyrics=str_replace("|", "", $nove_lyrics);
+		$nove_lyrics=str_replace("\n", "/", $nove_lyrics);
+
+		
+
+		return $nove_lyrics;
+
+}
+
+
 ?>
