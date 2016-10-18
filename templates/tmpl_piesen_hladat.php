@@ -9,33 +9,27 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 ?>
 
 
-<div class="l-page">
+<div class="l-page l-search l-list">
 
     <div class="container">
 
-    <div class="row">
-<div class="col-md-12">
-
-
-
-
-<H1>Vyhľadávanie v piesňach <span>3.400 piesni!</span></h1>
-                <div class="input-group">
+        <div class="l-search-header">
+            <h1>Vyhľadávanie v piesňach <span>3.400 piesní!</span></h1>
+            <div class="input-group">
                 <input type="text" class="form-control-lg form-control" placeholder="Hľadať v piesňach">
                 <span class="input-group-btn">
-                    <button class="btn btn-lg l-btn " type="button">Hľadať!</button>
+                    <button class="btn btn-lg l-btn--primary" type="button">Hľadať!</button>
                 </span>
-                </div>
-                <HR>
-</div>
-
-<div>
-
-
+            </div>
+        </div>
 
     </div>
 
- <div class="row">   
+
+
+    <div class="container">
+
+        <div class="row">  
 <!--<div class="col-md-3">
 <h4>Filtrovať:</h4>
 <div class="list-group">
@@ -100,16 +94,20 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 </div>
 
 </div>-->
+
+<div class="col-md-1"></div>
+
 <?php if (!empty($piesne)) {  ?>
 
-    <div class="l-song-similar col-md-12">
-<p><strong>Filtre:</strong> Región: Stredné Slovensko; Tempo: Rychlé <a href="">Zrušiť filtre</a>
+<div class="col-md-9">
+<div class="l-list-items">
+
 
     <div class="row">
     <?php foreach ($piesne as $key=>$piesen) { ?>
         <div class="col-md-12">
         <div class="l-song-item l-well"> 
-        <h3><a href="piesen.php?<?php echo $piesen['id_piesen'];?>"><?php echo ($piesen["nazov_kratky"]==""?"(ešte nezdigitalizované)":$piesen["nazov_dlhy"]."…");?></a></h3>
+        <h3><a href="piesen.php?<?php echo $piesen['id_piesen'];?>"><?php echo ($piesen["nazov_dlhy"]==""?"(ešte nezdigitalizované)":$piesen["nazov_dlhy"]);?> (1880)</a></h3>
         <?php if ($piesen['file_mp3']<>"") { 
             $p_button="playpause_p_".$piesen['id_piesen'];
             $p_audio="aud_".$piesen['id_piesen'];
@@ -124,8 +122,8 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
         <!-- <a href="piesen.php?<?php echo $piesen['id_piesen'];?>"><img src='data/<?php echo $piesen['id_piesen']; ?>/<?php echo $piesen["file_png"];?>'></a> -->
         
         <div class="row">
-        <div class="col-md-3"><img src="data/<?php echo $piesen['id_piesen']; ?>/noty.png" class="t" style:"max-width:5%"></div>
-        <div class="col-md-7"><p><i><?php echo cleanlyrics($piesen['lyrics']); ?></i><BR></p></div>
+        <div class="col-md-4"><img src="data/<?php echo $piesen['id_piesen']; ?>/noty.png" class="t" style:"max-width:5%"></div>
+        <div class="col-md-6"><p><i><?php echo cleanlyrics($piesen['lyrics']); ?></i><BR></p></div>
         <div class="col-md-2"><button type="submit" class="l-btn l-btn--primary">Zobraziť celú pieseň</button></div>
         </div>
 
@@ -141,7 +139,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
     <?php } ?>
     </div>
 <?php } ?>
-
+</div>
 
 <button class="btn-lg">Načítať ďalšie</button>
 
