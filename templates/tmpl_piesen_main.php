@@ -18,7 +18,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                 <div class="col-md-1 col-xs-2">
                     <a id="playpause_main" class="l-btn l-btn--primary l-btn--small l-btn--play" onclick="playpause('#aud','#playpause_main');"><i class="fa fa-play"></i>  Prehrať</a>
                 </div>
-                <div class="col-md-8 col-xs-10">
+                <div class="col-md-11 col-xs-10">
 
                     <h1>
                         <?php echo $piesen->nazov_dlhy;?>
@@ -26,17 +26,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
 
                 </div>
-               <div class="col-md-3 col-xs-12 l-song-download">
 
-                    <button class="l-btn l-btn--primary l-btn--small" data-toggle="popover" id="tuto-poznam" data-placement="bottom">
-                    <i class="fa fa-star"></i>Túto pieseň už poznám!</button> 
-                    <a data-toggle="popover" 
-                    data-content="Nie všetky staré piesne ešte niekto pozná a nie všetky sa dnes spievajú tam, kde boli pred stovkami rokov zozbierané. Snažíme sa preto <strong>mapovať, kde všade sa ešte dnes spievajú jednotlivé piesne</strong>. Dajte nám vedieť, či pieseň poznáte a <strong>pomôžte nám v našom úsilí!</strong> Ďakujeme :)" data-placement="bottom"><i class="fa fa-question-circle"> </i></a>
-                    
-                    <BR>
-
-
-                </div>
 
             </div>
      <p class="l-song-subh">
@@ -78,6 +68,8 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
         </div>
 
 
+
+
 <?php if (!empty($poznamky)) { ?>
 <HR width="10%" align="left">
     <div class="l-song-notes">
@@ -90,6 +82,17 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
     </div>
 <?php } ?>
+
+
+        <BR>
+        <div id="tuto-poznam_div" >
+            <p><strong>Poznáte túto pieseň?</strong> Dajte nám vedieť! Pomôžete tým mapovať rozšírenie piesni na Slovensku:                 
+                            <button class="l-btn l-btn--primary l-btn--small" data-toggle="popover" id="tuto-poznam" data-placement="top">
+                    <i class="fa fa-star"></i>Túto pieseň poznám!</button> 
+                    <a data-toggle="popover" 
+                    data-content="Nie všetky staré piesne ešte niekto pozná a nie všetky sa dnes spievajú tam, kde boli pred stovkami rokov zozbierané. Snažíme sa preto <strong>mapovať, kde všade sa ešte dnes spievajú jednotlivé piesne</strong>. Dajte nám vedieť, či pieseň poznáte a <strong>pomôžte nám v našom úsilí!</strong> Ďakujeme :)" data-placement="bottom"><i class="fa fa-question-circle"> </i></a>
+                    
+        </div>
 
 
 <?php if (!empty($podobne)) {  ?>
@@ -623,10 +626,24 @@ $("#aud").on("canplaythrough", function(e){
 });    
 
 $("#aud").on("timeupdate", function(event){
-ctime=this.currentTime;
+    ctime=this.currentTime;
 });
 
 
+
+/* var audio = document.getElementById('aud');
+
+var events = 'abort,canplay,canplaythrough,durationchange,emptied,ended,error,loadeddata,loadedmetadata,loadstart,pause,play,playing,progress,ratechange,seeked,seeking,stalled,suspend,timeupdate,volumechange,waiting'.split(',');
+
+var onEvent = function(e) {
+    console.log("xxx"+e.type); // mark event fired in table
+    this.removeEventListener(e.type, onEvent, false); // remove event listener
+};
+
+for (var i = 0, len = events.length; i < len; i++) {
+    audio.addEventListener(events[i], onEvent, false);
+}
+*/
 
 
 function abc2svg() {
@@ -642,8 +659,10 @@ function abc2svg() {
 
 
     $("#aud").on("pause", function (e) {
-       if(duration<=ctime) {alert('Hurá!');};
-       //alert(ctime+"xxx"+duration);
+        this.currentTime = 0;
+        //playpause('#aud','#playpause_main'); 
+        $('#playpause_main i').attr('class', "fa fa-play");
+
     });
 
   $("#aud").bind('ended', function(){
