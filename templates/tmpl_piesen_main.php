@@ -416,7 +416,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 <?php if (!empty($p_mapa) OR !empty($p_mapa_point) OR !empty($zberatel_miesto) OR !empty($zberatel_vyskyt)) { ?>
                 <div class="col-md-8">
 
-                    <h3>Mapa piesne <a href="/piesne/mapa/"><small><i class="fa fa-map-o"></i> Pozrieť mapu všetkých piesní</small></a></h3>
+                    <h3>Mapa piesne <a href="/piesne/mapa.php"><small><i class="fa fa-map-o"></i> Pozrieť mapu všetkých piesní</small></a></h3>
 
                    <?php if (!empty($zberatel_vyskyt->id_lokalita)) { ?>
                         <p><strong>Kde sa spieva:</strong> <i class="fa fa-map-signs"></i> <a href="lok.php?id="><?php echo $zberatel_vyskyt->meno; ?></a><br>
