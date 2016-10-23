@@ -13,9 +13,9 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header_home.php";
 
         <div class="row">
 
-            <div class="col-lg-10 col-lg-push-4 col-xl-9 col-xl-push-3">
+            <div class="col-lg-9 col-lg-push-4 col-xl-7 col-xl-push-3">
 
-                <H2>Nájdi pieseň, ktorá ti po mysli chodí</H2>
+                <H2>Nájdi pieseň, ktorá Ti chodí po rozume</H2>
 
 <div class="input-group">
                 <input type="text" class="form-control form-control-lg" placeholder="Nože, zadaj názov svojej piesne, či ju nájdeme">
@@ -30,11 +30,63 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header_home.php";
 
 </div>
 
-  <!--        <div class="col-lg-2 col-lg-pull-8 col-xl-3 col-xl-pull-9">
+       <div class="col-lg-3 col-lg-pull-8 col-xl-5 col-xl-pull-9">
+<h3>Mapa</h3>
+<div id="mapa_pokrytie" style="height:150px"></div>
+<BR>
+<script>
+var map = L.map('mapa_pokrytie').setView([48.812,19.473], 6);
+                        var markers = L.markerClusterGroup({    
+                            spiderfyOnMaxZoom: false,
+                            showCoverageOnHover: false,
+                            zoomToBoundsOnClick: false});
+                        var baseLayer=L.tileLayer(
+                            'https://api.mapbox.com/styles/v1/jelusamot/citx7z0my00aj2irqjs36mmeh/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiamVsdXNhbW90IiwiYSI6ImNpZnN0NGM2MjAxd2N1NGx6OWk2Y3BjOGsifQ.aFGe3wpK5fbZbrpefXxDNA').addTo(map);
 
-                <img src="/public/img/ludo-grey.png" width="70%">
+                        <?php foreach ($p_mapa_point as $key=>$point) { ?>
+                           
+                                    var p_<?php echo $point["c"]; ?> = [
+                                        <?php echo $point["area"]; ?>
 
-            </div> -->
+                                    ];
+
+
+                                    var myLayer_p_<?php echo $point["c"] ?> = L.geoJSON(p_<?php echo $point["c"] ?>, {
+                                        pointToLayer: function(feature, latlon) {
+                                           
+  
+                                            return L.marker(latlon, {
+                                                fillColor:  '#66CC00',
+                                                'paint': {
+                                                    'fill-color': 'blue',
+                                                    'fill-opacity': 0.8,
+                                                },
+                                                fillOpacity: 0.3,
+                                                stroke: true
+                                            });
+                                        }
+                                    }).addTo(map);
+                                    
+
+
+                                    myLayer_p_<?php echo $point["c"] ?>.on('click', function(e) {
+                                        window.location.href="mapa.php";
+
+                                    });
+
+                                       
+                                   
+                        <?php } ?>
+
+
+
+map.addLayer(map);
+</script>
+</div>
+
+
+
+            </div> 
 
         </div>
 
@@ -99,54 +151,6 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header_home.php";
 
 </div>
 
-<div class="row">
-<div class="col-md-12">
-<H2>Mapa pokrytia regiónov (odkiaľ všade už máme piesne)? <a href="/piesne/mapa.php">Pozrieť celú mapu</a></H2>
-<div id="mapa" class="map" style="height:450px"></div>
-<script>
-                        L.mapbox.accessToken = 'pk.eyJ1IjoiamVsdXNhbW90IiwiYSI6ImNpZnN0NGM2MjAxd2N1NGx6OWk2Y3BjOGsifQ.aFGe3wpK5fbZbrpefXxDNA';
-                        var map = L.map('mapa').setView([48.812,19.473], 8);
-                        var baseLayer=L.tileLayer(
-                            'https://api.mapbox.com/styles/v1/jelusamot/citx7z0my00aj2irqjs36mmeh/tiles/256/{z}/{x}/{y}?access_token=' + L.mapbox.accessToken, {
-                            tileSize: 512,
-                            zoomOffset: -1,
-                         }).addTo(map);
-
-
-
-                        <?php foreach ($p_mapa_point as $key=>$point) { ?>
-                                    var p_<?php echo $point["c"]; ?> = [
-                                        <?php echo $point["area"]; ?>
-
-                                    ];
-
-
-                                    var myLayer_p_<?php echo $point["c"] ?> = L.mapbox.featureLayer(p_<?php echo $point["c"] ?>, {
-                                        pointToLayer: function(feature, latlon) {
-                                           
-  
-                                            return L.marker(latlon, {
-                                                fillColor:  '#66CC00',
-                                                'paint': {
-                                                    'fill-color': 'blue',
-                                                    'fill-opacity': 0.8,
-                                                },
-                                                fillOpacity: 1.0,
-                                                stroke: true
-                                            });
-                                        }
-                                    }).addTo(map);
-
-
-
-
-                        <?php } ?>
-</script>
-
-
-</div>
-</div>
-<BR>
 
 
 

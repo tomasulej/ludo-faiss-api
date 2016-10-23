@@ -115,7 +115,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
         <a class="l-btn l-btn--primary l-btn--small" id="<?php echo $p_button;?>" 
             onclick="playpause('<?php echo "#".$p_audio;?>','<?php echo "#".$p_button;?>');" ><i class="fa fa-play"></i></a>
-        <audio id="<?php echo $p_audio; ?>" controls="controls" src="data/<?php echo $piesen['id_piesen']; ?>/<?php echo $piesen['file_mp3']; ?>" style="display:none">Your browser does not support the audio element.</audio>
+        <audio id="<?php echo $p_audio; ?>" controls="controls" src="data/<?php echo $piesen['id_piesen']; ?>/<?php echo $piesen['file_mp3']; ?>" style="display:none" onended="alert('j');">Your browser does not support the audio element.</audio>
 
         <?php }?>
 
@@ -216,15 +216,23 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
     });
 
  
-$("#aud").on("canplaythrough", function(e){
-    duration=e.currentTarget.duration;
-});    
+    $("#aud").on("canplaythrough", function(e){
+        duration=e.currentTarget.duration;
+    });    
 
 $("#aud").on("timeupdate", function(event){
-ctime=this.currentTime;
+    ctime=this.currentTime;
 });
 
+    $("#aud").on("pause", function (e) {
+       if(duration<=ctime) {alert('kokot!');};
+       alert(ctime+"xxx"+duration);
+    });
 
+
+  $("#aud").bind('seeked', function(){
+    alert("kokot");
+  });
 
 function abc2svg() {
 	$('.abc').each(function(i, obj) {
@@ -237,14 +245,11 @@ function abc2svg() {
 
 
 
-    $("#aud").on("pause", function (e) {
-       if(duration<=ctime) {alert('kokot!');};
-       //alert(ctime+"xxx"+duration);
-    });
 
-  $("#aud").bind('ended', function(){
-    //alert("kokot");
-  });
+
+
+
+
 
 
     $(document).ready(function(){

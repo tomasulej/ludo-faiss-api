@@ -28,10 +28,10 @@
 <div class="row">
 <div class="col-md-12">
   <h2>Ľudové piesne na mape</h2>
-  <p>Mapa obsahuje údaje zaznačené zberateľmi piesne, či už <strong>miesto kde bola pieseň zozbieraná</strong>, alebo región, ktorý zberateľ uviedol ako ten, <strong>kde sa pieseň spieva</strong>. 
-  Údaje už nemusia byť aktuálne. Do mapy sme tiež vyznačili lokality, ktoré sa spomínajú <strong>v samotnom texte piesne</strong>. Po kliknutí na bod získate zoznam piesni.</p>
-<div id="mapa" class="map" style="height:450px"></div>
 
+<div id="mapa" class="map" style="height:450px"></div>
+  <p><small>Mapa obsahuje údaje zaznačené zberateľmi piesne, či už <strong>miesto kde bola pieseň zozbieraná</strong>, alebo región, ktorý zberateľ uviedol ako ten, <strong>kde sa pieseň spieva</strong>. 
+  Údaje už nemusia byť aktuálne. Do mapy sme tiež vyznačili lokality, ktoré sa spomínajú <strong>v samotnom texte piesne</strong>. Po kliknutí na bod získate zoznam piesni.</small></p>
 
 <script>
                         //L.mapbox.accessToken = 'pk.eyJ1IjoiamVsdXNhbW90IiwiYSI6ImNpZnN0NGM2MjAxd2N1NGx6OWk2Y3BjOGsifQ.aFGe3wpK5fbZbrpefXxDNA';
@@ -74,8 +74,6 @@
 
 
                                     myLayer_p_<?php echo $point["c"] ?>.on('click', function(e) {
-                                        //alert("čau!");
-                                        //var popup = new L.Popup();
                                         var popup = myLayer_p_<?php echo $point["c"] ?>.getPopup();
 
                                         var url="piesne.mapa.popup.php?id_lokalita=<?php  echo $point["id_lokalita"];?>";
