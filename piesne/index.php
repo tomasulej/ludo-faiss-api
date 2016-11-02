@@ -18,7 +18,7 @@ $query2=mysql_query("SELECT * FROM piesne WHERE piesne.stav<>0");
 $pocet_piesni=mysql_num_rows($query2);
 
 //piesne najpopularnejsie
-$query3=mysql_query("SELECT log.id_piesen, piesne.nazov_dlhy, sum(log.pocet) as videnia FROM log LEFT JOIN piesne ON piesne.id_piesen=log.id_piesen GROUP BY id_piesen ORDER BY videnia DESC LIMIT 10");
+$query3=mysql_query("SELECT log.id_piesen, piesne.nazov_dlhy, sum(log.pocet) as videnia FROM log LEFT JOIN piesne ON piesne.id_piesen=log.id_piesen GROUP BY id_piesen ORDER BY videnia DESC LIMIT 20");
 $piesne_top=array();
 while ( $riadok = mysql_fetch_array($query3)) {
   array_push($piesne_top, $riadok);

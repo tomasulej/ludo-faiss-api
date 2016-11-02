@@ -97,7 +97,7 @@ map.addLayer(map);
 
 
 <div class="container"><div class="row l-page">
-<div class="col-md-8">
+<div class="col-md-7">
 <h2>Najnovšie pridané piesne</h2>
 
 <?php foreach ($piesne as $key=>$piesen) { ?>
@@ -131,11 +131,11 @@ map.addLayer(map);
 </div>
 
 
-<div class="col-md-4">
-<H2>Najpopulárnejšie piesne</H2>
+<div class="col-md-5">
+<H2>Najpopulárnejšie</H2>
 <ol>
 <?php foreach ($piesne_top as $key=>$piesen) { ?>
-    <li><a href="piesen.php?<?php echo $piesen['id_piesen'];?>"><?php echo $piesen["nazov_dlhy"]?></a></li>
+    <li><a href="piesen.php?<?php echo $piesen['id_piesen'];?>"><?php echo $piesen["nazov_dlhy"]?></a> <small><i class="fa fa-eye" aria-hidden="true"></i><?php echo $piesen['videnia'] ?></small></li>
 
 <?php } ?> 
 </ol>
