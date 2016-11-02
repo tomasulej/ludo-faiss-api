@@ -140,11 +140,13 @@ map.addLayer(map);
 <?php } ?> 
 </ol>
 
-<div align="center"><button type="submit" class="l-btn l-btn--large l-btn--primary">Viac populárnych piesni (<?php echo $pocet_piesni;?>)</button></div>
 
 <h2>Pridaj sa do nášho newslettera</H2>
-<p>Chceš najnovšie piesne a novinky, správy a zaujímavosti o ľudovej slovesnosti priamo do svojej schránky? <a href="x">Klikni sem</a>.
+<p>Chceš <strong>najnovšie piesne a novinky</strong>, správy a zaujímavosti o ľudovej slovesnosti <strong>priamo do svojej schránky</strong>? Daj nám svoj e-mail.
+<iframe width="100%" height="195" src="https://my.sendinblue.com/users/subscribe/js_id/2c7dt/id/3" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;"></iframe>
 
+
+<h2>Miluj Ľuda na Facebooku</h2>
 <div class="fb-like-box" data-href="https://www.facebook.com/ludo.slovensky" data-height="50px" data-colorscheme="dark" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div></div>
 
 
