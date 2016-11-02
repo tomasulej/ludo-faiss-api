@@ -645,7 +645,9 @@ function abc2svg() {
 
 
 
-
+$("#aud").on("canplay", function (e) {
+      playpause("#aud","#playpause_main");
+});
 
 
     $("#aud").on("pause", function (e) {
@@ -656,21 +658,17 @@ function abc2svg() {
     });
 
   $("#aud").bind('ended', function(){
-    //alert("kokot");
+    
   });
 
 
 
 
 
-$(document).load(function () {
-        playpause("#aud","#playpause_main");
-
-});    
+   
 
     $(document).ready(function(){
         abc2svg();
-        
         /*var headerScroll = false;
         var offsetTop = $(_d('header')).offset().top;
 
@@ -703,6 +701,9 @@ $(document).load(function () {
     
 
         });
+
+
+
 
     
 

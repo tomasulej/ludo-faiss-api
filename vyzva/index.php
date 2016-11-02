@@ -1,74 +1,22 @@
 
+<?php
+    $theme="l-theme-blue";
+
+
+    $meta_type="article";
+    $meta_title="Pomôž dostať na web všetky ľudové piesne!";
+    $meta_image="http://www.ludoslovensky.sk/public/img/ludo-music.png";
+    $meta_url="http://www.ludoslovensky.sk/vyzva/";
+    $meta_desc="V projekte Ľudo Slovenský chceme dostať na web všetko o kultúre ľudí, ktorí žili na tomto území. Pomôž nám! Nechceme tvoje peniaze, chceme tvoj čas a tvoje ruky. Ak nám veľa ľudí venuje hoci aj len pár minút, podarí sa veľká vec.";
+
+
+    require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
+//require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
+
+?>
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Required meta tags always come first -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-   <meta property="og:title" content="Pomôž dostať na web všetky ľudové piesne!"/>
-   <meta property="og:site_name" content="ludoslovensky.sk"/>
-   <meta property="og:type" content="article"/>
-   <meta property="og:image" content="http://www.ludoslovensky.sk/public/img/ludo-music.png"/>
-   <meta property="og:url" content="http://www.ludoslovensky.sk/vyzva/"/>
-   <meta property="fb:admins" content="686226655"/>
-   <meta property="og:description" content="V projekte Ľudo Slovenský chceme dostať na web všetko o kultúre ľudí, ktorí žili na tomto území. Pomôž nám! Nechceme tvoje peniaze, chceme tvoj čas a tvoje ruky. Ak nám veľa ľudí venuje hoci aj len pár minút, podarí sa veľká vec."/>
-
-
-    
-
-
-
-    <title>Celoslovenská výzva: pomôž nám dostať na internet ľudové piesne </title>
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-    <link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/public/css/style.css">
-
-
-
-
-
-</head>
-<body class="l-theme-blue">
-
-<div class="l-navbar">
-
-    <div class="container">
-
-<!--
-        <menu class="switch hidden-md-down">
-            <li><a class="switch-blue"></a></li>
-            <li><a class="switch-green"></a></li>
-            <li><a class="switch-red"></a></li>
-            <li><a class="switch-yellow"></a></li>
-        </menu>
--->
-
-        <div class="row">
-
-            <div class="col-xl-1 col-lg-2 col-xs-4">
-                <a class="l-navbar__logo">
-                    <img src="/public/img/logo-small-dark.png" height="28">
-                </a>
-            </div>
-
-    <!--        <div class="col-xl-8 col-lg-7">
-                <div class="l-navbar__menu">
-                    <small class="label label-warning">!Ešte nedokončený web, prosím, nešír!</small>
-                </div>
-            </div>-->
-
-        </div>
-
-    </div>
-
-</div>
 
 <div class="l-header">
 
