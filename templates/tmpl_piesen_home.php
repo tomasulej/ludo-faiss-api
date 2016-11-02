@@ -31,7 +31,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header_home.php";
 </div>
 
        <div class="col-lg-3 col-lg-pull-8 col-xl-5 col-xl-pull-9">
-<h3>Mapa</h3>
+<h3>Skade už piesne máme (<?php echo $pocet_piesni;?>)</h3>
 <div id="mapa_pokrytie" style="height:150px"></div>
 <BR>
 <script>
@@ -97,7 +97,7 @@ map.addLayer(map);
 
 
 <div class="container"><div class="row l-page">
-<div class="col-md-8">
+<div class="col-md-7">
 <h2>Najnovšie pridané piesne</h2>
 
 <?php foreach ($piesne as $key=>$piesen) { ?>
@@ -126,24 +126,29 @@ map.addLayer(map);
         </div><div></div>
     <?php } ?>
 
-<div align="center"><button type="submit" class="l-btn l-btn--large l-btn--primary">Všetky piesne (<?php echo $pocet_piesni;?>)</button></div>
+<div align="center"><button type="button" class="l-btn l-btn--large l-btn--primary" onclick="window.location.href='/piesne/hladat.php'">Všetky piesne (<?php echo $pocet_piesni;?>)</button></div>
 
 </div>
 
 
-<div class="col-md-4">
-<H2>Najpopulárnejšie piesne</H2>
+<div class="col-md-5">
+<H2>Najpopulárnejšie</H2>
 <ol>
 <?php foreach ($piesne_top as $key=>$piesen) { ?>
-    <li><a href="piesen.php?<?php echo $piesen['id_piesen'];?>"><?php echo $piesen["nazov_dlhy"]?></a></li>
+    <li><a href="piesen.php?<?php echo $piesen['id_piesen'];?>"><?php echo $piesen["nazov_dlhy"]?></a> <small><i class="fa fa-eye" aria-hidden="true"></i><?php echo $piesen['videnia'] ?></small></li>
 
 <?php } ?> 
 </ol>
 
-<div align="center"><button type="submit" class="l-btn l-btn--large l-btn--primary">Viac populárnych piesni (<?php echo $pocet_piesni;?>)</button></div>
 
 <h2>Pridaj sa do nášho newslettera</H2>
-<p>Chceš najnovšie piesne a novinky, správy a zaujímavosti o ľudovej slovesnosti priamo do svojej schránky? <a href="x">Klikni sem</a>.
+<p>Chceš <strong>najnovšie piesne a novinky</strong>, správy a zaujímavosti o ľudovej slovesnosti <strong>priamo do svojej schránky</strong>? Daj nám svoj e-mail.
+<iframe width="100%" height="195" src="https://my.sendinblue.com/users/subscribe/js_id/2c7dt/id/3" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;"></iframe>
+
+
+<h2>Miluj Ľuda na Facebooku</h2>
+<div class="fb-like-box" data-href="https://www.facebook.com/ludo.slovensky" data-height="50px" data-colorscheme="dark" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div></div>
+
 
 
 </div>

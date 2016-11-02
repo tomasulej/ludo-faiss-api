@@ -102,8 +102,9 @@ while ($o_mena=mysql_fetch_object($q_mena)) {
 
 
 
-
-
+//log reading
+$datumcas = date('Y-m-d H:00:00');
+$q_log=mysql_query("INSERT INTO log SET id_piesen = $piesen->id_piesen, datumcas = '$datumcas', pocet = 1 ON DUPLICATE KEY UPDATE pocet = pocet + 1");
 
 
 

@@ -9,7 +9,7 @@
                 <a class="l-header__logo" href="/piesne"><img src="/public/img/logo-piesne-inverse.png"></a>
 </div>
 
-<div class="col-lg-5 l-header__links"><a href="hladat.php">Všetky piesne</a> - <a href="mapa.php">Mapa výskytu</a> - <a href="">Digitalizátori</a>
+<div class="col-lg-5 l-header__links"><a href="hladat.php">Všetky piesne</a> - <a href="mapa.php">Mapa</a> 
 
 
 

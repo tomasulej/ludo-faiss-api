@@ -107,7 +107,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
     <?php foreach ($piesne as $key=>$piesen) { ?>
         <div class="col-md-12">
         <div class="l-song-item l-well"> 
-        <h3><a href="piesen.php?<?php echo $piesen['id_piesen'];?>"><?php echo ($piesen["nazov_dlhy"]==""?"(ešte nezdigitalizované)":$piesen["nazov_dlhy"]);?> (1880)</a></h3>
+        <h3><a href="piesen.php?<?php echo $piesen['id_piesen'];?>"><?php echo ($piesen["nazov_dlhy"]==""?"(ešte nezdigitalizované)":$piesen["nazov_dlhy"]);?></a></h3>
         <?php if ($piesen['file_mp3']<>"") { 
             $p_button="playpause_p_".$piesen['id_piesen'];
             $p_audio="aud_".$piesen['id_piesen'];

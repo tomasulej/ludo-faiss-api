@@ -8,7 +8,6 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 ?>
 
 
-
 <div class="l-page">
 
     <div class="container">
@@ -16,7 +15,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
         <div class="l-song-header" data-role="header">
             <div class="row">
                 <div class="col-md-1 col-xs-2">
-                    <a id="playpause_main" class="l-btn l-btn--primary l-btn--small l-btn--play" onclick="playpause('#aud','#playpause_main');"><i class="fa fa-play"></i>  Prehrať</a>
+                    <a id="playpause_main" class="l-btn l-btn--primary l-btn--small l-btn--play" onclick="playpause('#aud','#playpause_main');"><i class="fa fa-play"></i></a>
                 </div>
                 <div class="col-md-11 col-xs-10">
 
@@ -29,11 +28,8 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
 
             </div>
-     <p class="l-song-subh">
-            <small>Zozbieral(a): <a href="zberatel.php?id=<?php echo $piesen->id_zberatel; ?>"><?php echo $piesen->zberatelia_meno; ?></a> (<?php echo $piesen->datum_zbieranie; ?>) ● Zdigitalizoval(a): <a href="digitalizator.php?id=<?php echo $piesen->id_digitalizator; ?>"><?php echo $piesen->digitalizatori_meno; ?></a> (<?php echo $piesen->datum_digitalizacia; ?>) ● Pôvodná zbierka <a href="zbierky.php?id=<?php echo $piesen->id_zbierka ?>"><?php echo $piesen->zbierky_nazov ?></a></small>
-        </p><BR>
-        </div>
 
+        </div>
 
 
 
@@ -68,6 +64,12 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
         </div>
 
 
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_relatedposts_inline"></div>
+
+     <p class="l-song-subh">
+            <small>Zozbieral(a): <a href="zberatel.php?id=<?php echo $piesen->id_zberatel; ?>"><?php echo $piesen->zberatelia_meno; ?></a> (<?php echo $piesen->datum_zbieranie; ?>) ● Zdigitalizoval(a): <a href="digitalizator.php?id=<?php echo $piesen->id_digitalizator; ?>"><?php echo $piesen->digitalizatori_meno; ?></a> (<?php echo $piesen->datum_digitalizacia; ?>) ● Pôvodná zbierka <a href="zbierky.php?id=<?php echo $piesen->id_zbierka ?>"><?php echo $piesen->zbierky_nazov ?></a></small>
+        </p>
 
 
 <?php if (!empty($poznamky)) { ?>
@@ -484,7 +486,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                                     ];
 
 
-                                    var myLayer_p_<?php echo $point["c"] ?> = L.mapbox.featureLayer(p_<?php echo $point["c"] ?>, {
+                                    var myLayer_p_<?php echo $point["c"] ?> = L.geoJSON(p_<?php echo $point["c"] ?>, {
                                         pointToLayer: function(feature, latlon) {
                                             return L.circleMarker(latlon, {
                                                 fillColor:  '#66CC00',
@@ -631,19 +633,7 @@ $("#aud").on("timeupdate", function(event){
 
 
 
-/* var audio = document.getElementById('aud');
 
-var events = 'abort,canplay,canplaythrough,durationchange,emptied,ended,error,loadeddata,loadedmetadata,loadstart,pause,play,playing,progress,ratechange,seeked,seeking,stalled,suspend,timeupdate,volumechange,waiting'.split(',');
-
-var onEvent = function(e) {
-    console.log("xxx"+e.type); // mark event fired in table
-    this.removeEventListener(e.type, onEvent, false); // remove event listener
-};
-
-for (var i = 0, len = events.length; i < len; i++) {
-    audio.addEventListener(events[i], onEvent, false);
-}
-*/
 
 
 function abc2svg() {
@@ -655,7 +645,9 @@ function abc2svg() {
 
 
 
-
+$("#aud").on("canplay", function (e) {
+      playpause("#aud","#playpause_main");
+});
 
 
     $("#aud").on("pause", function (e) {
@@ -666,18 +658,17 @@ function abc2svg() {
     });
 
   $("#aud").bind('ended', function(){
-    //alert("kokot");
+    
   });
 
 
 
 
 
-
+   
 
     $(document).ready(function(){
         abc2svg();
-        
         /*var headerScroll = false;
         var offsetTop = $(_d('header')).offset().top;
 
@@ -710,6 +701,9 @@ function abc2svg() {
     
 
         });
+
+
+
 
     
 
