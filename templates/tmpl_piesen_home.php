@@ -145,6 +145,9 @@ map.addLayer(map);
 <h2>Pridaj sa do nášho newslettera</H2>
 <p>Chceš najnovšie piesne a novinky, správy a zaujímavosti o ľudovej slovesnosti priamo do svojej schránky? <a href="x">Klikni sem</a>.
 
+<div class="fb-like-box" data-href="https://www.facebook.com/ludo.slovensky" data-height="50px" data-colorscheme="dark" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div></div>
+
+
 
 </div>
 
