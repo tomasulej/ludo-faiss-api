@@ -486,7 +486,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                                     ];
 
 
-                                    var myLayer_p_<?php echo $point["c"] ?> = L.mapbox.featureLayer(p_<?php echo $point["c"] ?>, {
+                                    var myLayer_p_<?php echo $point["c"] ?> = L.geoJSON(p_<?php echo $point["c"] ?>, {
                                         pointToLayer: function(feature, latlon) {
                                             return L.circleMarker(latlon, {
                                                 fillColor:  '#66CC00',
@@ -666,7 +666,7 @@ function abc2svg() {
 $(document).load(function () {
         playpause("#aud","#playpause_main");
 
-}    
+});    
 
     $(document).ready(function(){
         abc2svg();
