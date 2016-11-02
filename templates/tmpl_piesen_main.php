@@ -663,7 +663,10 @@ function abc2svg() {
 
 
 
+$(document).load(function () {
+        playpause("#aud","#playpause_main");
 
+}    
 
     $(document).ready(function(){
         abc2svg();
