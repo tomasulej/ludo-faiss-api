@@ -7,10 +7,11 @@ $piesne_txt="";
 $id_lokalita= (int)$_GET['id_lokalita'];
 
 
-//piesne
+//piesne info
 $query="SELECT piesne.id_piesen, piesne.nazov_dlhy FROM piesne WHERE ((id_zberatel_miesto=$id_lokalita OR id_zberatel_vyskyt=$id_lokalita) AND stav>0) GROUP BY piesne.id_piesen";
 //echo $query;
 $q_query=mysql_query($query);
+
 
 
 
@@ -18,6 +19,16 @@ while ($piesne=mysql_fetch_object($q_query)) {
     $i++;
    $piesne_txt.=sprintf("<a href='piesen.php?%s'>%s</a><BR>",$piesne->id_piesen, $piesne->nazov_dlhy); 
    //echo $piesne_txt;
+}
+
+//prepojenia s lokalitami
+
+$q_lokality=mysql_query("SELECT lokality_piesne.id_piesen, lokality_piesne.id_lokalita, piesne.nazov_dlhy FROM lokality_piesne LEFT JOIN piesne ON lokality_piesne.id_piesen=piesne.id_piesen WHERE lokality_piesne.id_lokalita=$id_lokalita");
+
+while ($lokality=mysql_fetch_object($q_lokality)) {
+    $i++;
+    $piesne_txt.=sprintf("<a href='piesen.php?%s'>%s</a><BR>",$lokality->id_piesen, $lokality->nazov_dlhy); 
+
 }
 
 
