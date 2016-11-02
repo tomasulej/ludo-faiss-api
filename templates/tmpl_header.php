@@ -89,10 +89,10 @@
 
             <div class="col-xl-8 col-lg-7 hidden-md-down">
                 <menu class="l-navbar__menu">
-                    <li <?php echo $prislovia_tab;?>><a href="/prislovia">Príslovia a porekadlá</a></li>
-                    <li <?php echo $nadavky_tab;  ?>><a href="/nadavky" >Nadávky</a></li>
-                    <li <?php echo $piesne_tab;?>><a href="/piesne/">Piesne</a></li>
-                    <li><a href="/labs" <?php echo $labs_tab;  ?>>Ľudo Labs</a></li>
+                    <li <?php echo $prislovia_tab;?>><a href="/prislovia" target="_parent">Príslovia a porekadlá</a></li>
+                    <li <?php echo $nadavky_tab;  ?>><a href="/nadavky" target="_parent">Nadávky</a></li>
+                    <li <?php echo $piesne_tab;?>><a href="/piesne/" target="_parent">Piesne</a></li>
+                    <li><a href="/labs" <?php echo $labs_tab;  ?> target="_parent">Ľudo Labs</a></li>
                 </menu>
             </div>
 
