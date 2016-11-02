@@ -15,7 +15,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
         <div class="l-song-header" data-role="header">
             <div class="row">
                 <div class="col-md-1 col-xs-2">
-                    <a id="playpause_main" class="l-btn l-btn--primary l-btn--small l-btn--play" onclick="playpause('#aud','#playpause_main');"><i class="fa fa-play"></i>  Prehrať</a>
+                    <a id="playpause_main" class="l-btn l-btn--primary l-btn--small l-btn--play" onclick="playpause('#aud','#playpause_main');"><i class="fa fa-play"></i></a>
                 </div>
                 <div class="col-md-11 col-xs-10">
 
