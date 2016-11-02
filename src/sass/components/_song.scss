@@ -1,3 +1,11 @@
+.l-layout-song{
+
+  .modal-header, .modal-body, .modal-footer{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
 .l-song-header{
   background: #fff;
   width: 100%;
@@ -36,22 +44,31 @@
 
 .l-song-lyrics{
   margin-top: 4rem;
-  column-count: 2;
+  position: relative;
 
-  ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-        
-    li{
-      position: relative;
-      padding-left: 3rem;
+  .row{
+    margin-bottom: 2rem;
+  }
 
-      .l-num{
-        position: absolute;
-        left: 0;
-      }
+  [class*="col-"] {
+    position: relative;
+    padding-left: 4rem;
+
+    .l-num{
+      position: absolute;
+      left: 1rem;
     }
+  }
+
+  .l-btn-reveal{
+    background: url("../img/bg-reveal.png") repeat-x top;
+    display: block;
+    text-align: center;
+    padding-top: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0
   }
 }
 
@@ -61,6 +78,45 @@
 }
 
 .l-song-similar{
+  margin-top: 2rem;
+  position: relative;
+
+  .btn-left, .btn-right{
+    background: #fff;
+    -webkit-box-shadow: 0 0 10px 0 #ccc;
+    box-shadow: 0 0 10px 0 #ccc;
+    position: absolute;
+    top: 50%;
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    border-radius: 1.5rem;
+    font-size: 1.5rem;
+
+    .fa{
+      position: relative;
+    }
+  }
+
+  .btn-left{
+    left: -1rem;
+    .fa{
+      left: -2px;
+      top: 2px;
+    }
+  }
+
+  .btn-right{
+    right: -1rem;
+    .fa{
+      left: 2px;
+      top: 2px;
+    }
+  }
+}
+
+.l-know{
   margin-top: 2rem;
 }
 
@@ -75,7 +131,7 @@
       font-size: 1.5rem;
     }
 
-    .l-btn{
+    .l-btn--play{
       position: absolute;
       top: 1rem;
       right: 1rem;
@@ -90,7 +146,9 @@
 
   .l-song-lyrics{
 
-    column-count: 1;
+    [class*="col-"] {
+      margin-bottom: 2rem;
+    }
   }
 
   .l-song-similar{
@@ -110,6 +168,14 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
     border-top: 2px solid $color-grey-light;
+  }
+
+  .l-layout-song{
+
+    .modal-header, .modal-body, .modal-footer{
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
   }
 
 }

@@ -17,7 +17,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_ludo_header.php";
 
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-5 l-well">
 
 <?php echo $pravy_stlpec;?>
 

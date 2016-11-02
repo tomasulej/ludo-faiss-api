@@ -2587,6 +2587,10 @@ a {
     margin-top: 2rem;
     margin-bottom: 1rem; }
 
+.l-layout-song .modal-header, .l-layout-song .modal-body, .l-layout-song .modal-footer {
+  padding-left: 2rem;
+  padding-right: 2rem; }
+
 .l-song-header {
   background: #fff;
   width: 100%;
@@ -2618,23 +2622,58 @@ a {
 
 .l-song-lyrics {
   margin-top: 4rem;
-  column-count: 3; }
-  .l-song-lyrics ul {
-    list-style: none;
-    margin: 0;
-    padding: 0; }
-    .l-song-lyrics ul li {
-      position: relative;
-      padding-left: 3rem; }
-      .l-song-lyrics ul li .l-num {
-        position: absolute;
-        left: 0; }
+  position: relative; }
+  .l-song-lyrics .row {
+    margin-bottom: 2rem; }
+  .l-song-lyrics [class*="col-"] {
+    position: relative;
+    padding-left: 4rem; }
+    .l-song-lyrics [class*="col-"] .l-num {
+      position: absolute;
+      left: 1rem; }
+  .l-song-lyrics .l-btn-reveal {
+    background: url("../img/bg-reveal.png") repeat-x top;
+    display: block;
+    text-align: center;
+    padding-top: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0; }
 
 .l-song-download {
   text-align: right;
   padding-top: 0.5rem; }
 
 .l-song-similar {
+  margin-top: 2rem;
+  position: relative; }
+  .l-song-similar .btn-left, .l-song-similar .btn-right {
+    background: #fff;
+    -webkit-box-shadow: 0 0 10px 0 #ccc;
+    box-shadow: 0 0 10px 0 #ccc;
+    position: absolute;
+    top: 50%;
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    border-radius: 1.5rem;
+    font-size: 1.5rem; }
+    .l-song-similar .btn-left .fa, .l-song-similar .btn-right .fa {
+      position: relative; }
+  .l-song-similar .btn-left {
+    left: -1rem; }
+    .l-song-similar .btn-left .fa {
+      left: -2px;
+      top: 2px; }
+  .l-song-similar .btn-right {
+    right: -1rem; }
+    .l-song-similar .btn-right .fa {
+      left: 2px;
+      top: 2px; }
+
+.l-know {
   margin-top: 2rem; }
 
 .l-song-item {
@@ -2644,7 +2683,7 @@ a {
     margin-top: 0;
     padding-right: 3rem;
     font-size: 1.5rem; }
-  .l-song-item .l-btn, .l-song-item .l-btn--small, .l-song-item .l-btn--large {
+  .l-song-item .l-btn--play {
     position: absolute;
     top: 1rem;
     right: 1rem; }
@@ -2652,8 +2691,8 @@ a {
     width: 100%; }
 
 @media (max-width: 33.9rem) {
-  .l-song-lyrics {
-    column-count: 1; }
+  .l-song-lyrics [class*="col-"] {
+    margin-bottom: 2rem; }
 
   .l-song-similar__item {
     margin-top: 1rem; }
@@ -2666,7 +2705,11 @@ a {
     padding-top: 1rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    border-top: 2px solid #eef1f5; } }
+    border-top: 2px solid #eef1f5; }
+
+  .l-layout-song .modal-header, .l-layout-song .modal-body, .l-layout-song .modal-footer {
+    padding-left: 1rem;
+    padding-right: 1rem; } }
 .l-search .l-search-header {
   margin-bottom: 3rem; }
 
@@ -2677,6 +2720,8 @@ a {
 .l-list .l-center {
   margin-top: 2rem; }
 
+.l-list-items .l-song-item {
+  margin-top: 1rem; }
 .l-list-items .row {
   margin-top: 1rem; }
 
