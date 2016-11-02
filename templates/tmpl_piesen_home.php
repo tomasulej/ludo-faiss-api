@@ -31,7 +31,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header_home.php";
 </div>
 
        <div class="col-lg-3 col-lg-pull-8 col-xl-5 col-xl-pull-9">
-<h3>Mapa</h3>
+<h3>Skade už piesne máme (<?php echo $pocet_piesni;?>)</h3>
 <div id="mapa_pokrytie" style="height:150px"></div>
 <BR>
 <script>
