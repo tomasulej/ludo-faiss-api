@@ -24,15 +24,16 @@
 
             <div class="col-lg-4">
 
-
+                <form action="hladat.php" method="get" id="hladat">
 
                 <div class="input-group">
-                <input type="text" class="form-control" placeholder="Hľadať v piesňach">
+                <input type="text" class="form-control" name="q" placeholder="Hľadať v piesňach" >
                 <span class="input-group-btn">
-                    <button class="btn btn-secondary l-btn l-btn--inverse" type="button">Hľadať!</button>
+                    <button class="btn btn-secondary l-btn l-btn--inverse" type="button" onclick="$( '#hladat' ).submit();">Hľadať!</button>
                 </span>
                 </div>
 
+                    </form>
 
 
             </div>

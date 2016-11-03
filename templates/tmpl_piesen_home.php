@@ -16,15 +16,15 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header_home.php";
             <div class="col-lg-9 col-lg-push-4 col-xl-7 col-xl-push-3">
 
                 <H2>Nájdi pieseň, ktorá Ti chodí po rozume</H2>
-
+                <form action="hladat.php" method="get" id="hladat">
 <div class="input-group">
-                <input type="text" class="form-control form-control-lg" placeholder="Nože, zadaj názov svojej piesne, či ju nájdeme">
+                <input type="text" class="form-control form-control-lg" name="q" placeholder="Nože, zadaj názov svojej piesne, či ju nájdeme">
 
                 <span class="input-group-btn">
-                    <button class="btn btn-secondary l-btn btn-lg l-btn--inverse form-control-lg" type="button">Hľadať!</button>
+                    <button class="btn btn-secondary l-btn btn-lg l-btn--inverse form-control-lg" type="button" onclick="$( '#hladat' ).submit();">Hľadať!</button>
                 </span>
 
-
+</form>
                 </div>
                 <p class="text-muted-inverse"><small>Upozornenie: Náš projekt nachodí sa len na počiatku, z plánovaných 50-tisíc piesni dosiaľ len <?php echo $pocet_piesni; ?> je zdigitalizovaných. Nech ťa teda smútok nepremkýna, ak nenájdeš, čo si chcel(a). Vyčkaj času, ako husa klasu. Alebo tiež  môžeš <a href="/vyzva/">priložiť ruku k dielu a pomôcť nám</a>.</small></p>
 

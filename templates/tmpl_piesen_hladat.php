@@ -15,10 +15,11 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
         <div class="l-search-header">
             <h1>Vyhľadávanie v piesňach <span>3.400 piesní!</span></h1>
+            <form action="hladat.php" method="get" id="hladat">
             <div class="input-group">
-                <input type="text" class="form-control-lg form-control" placeholder="Hľadať v piesňach">
+                <input type="text" class="form-control-lg form-control" id="q" name="q" placeholder="Hľadať v piesňach" <?php if ($hladane<>"") {echo "value='".$hladane."'";} ?>>
                 <span class="input-group-btn">
-                    <button class="btn btn-lg l-btn--primary" type="button">Hľadať!</button>
+                    <button class="btn btn-lg l-btn--primary" type="button" onclick="$( '#hladat' ).submit();">Hľadať!</button>
                 </span>
             </div>
         </div>
@@ -56,15 +57,15 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
         
         <div class="row">
         <div class="col-md-4"><img src="data/<?php echo $piesen['id_piesen']; ?>/noty.png" class="t"></div>
-        <div class="col-md-8"><p><i><?php echo cleanlyrics($piesen['lyrics']); ?></i></p>
-            <a class="l-btn l-btn--primary l-btn--small"><i class="fa fa-music"></i> Zobraziť celú pieseň</a>
+        <div class="col-md-8 hidden-sm-down"><p><i><?php echo cleanlyrics($piesen['lyrics']); ?></i></p>
+            <a  href="piesen.php?<?php echo $piesen['id_piesen'];?>" class="l-btn l-btn--primary l-btn--small"><i class="fa fa-music"></i> Zobraziť celú pieseň</a>
         </div>
         </div>
         </div>
 
     <?php } ?>
     </div>
-<?php } ?>
+<?php } else { ?> <div class="l-well"><strong>Juj, nebite ma, pán kapelník!</strong> Nič som nenašiel, ale keď tu toho bude viac - tak nájdem, to môžem sľúbiť. Dovtedy dačo iné pomrkaj. </div>   <?php } ?>
 </div> </div></div>
 
 
