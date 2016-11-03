@@ -1,5 +1,5 @@
 <?php
-    $theme="l-theme-green";
+    $theme="l-theme-green l-layout-song";
     $piesne_tab='class="active"';
 include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
 require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
@@ -56,20 +56,19 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
         </div>
 
-        <div id="lyrics" class="l-song-lyrics">
+<div id="lyrics" class="l-song-lyrics" data-reveal-id="lyrics" data-height="200">
             
         <?php echo lyrics2html($piesen->lyrics) ?>
+</div></div>
+
+<a href="#" data-reveal="lyrics" class="l-btn-reveal">Zobraziť viac <i class="fa fa-chevron-down"></i></a>
+
+</div>
 
 
-        </div>
-
-
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_relatedposts_inline"></div>
-
-     <p class="l-song-subh">
+ <!--    <p class="l-song-subh">
             <small>Zozbieral(a): <a href="zberatel.php?id=<?php echo $piesen->id_zberatel; ?>"><?php echo $piesen->zberatelia_meno; ?></a> (<?php echo $piesen->datum_zbieranie; ?>) ● Zdigitalizoval(a): <a href="digitalizator.php?id=<?php echo $piesen->id_digitalizator; ?>"><?php echo $piesen->digitalizatori_meno; ?></a> (<?php echo $piesen->datum_digitalizacia; ?>) ● Pôvodná zbierka <a href="zbierky.php?id=<?php echo $piesen->id_zbierka ?>"><?php echo $piesen->zbierky_nazov ?></a></small>
-        </p>
+        </p> -->
 
 
 <?php if (!empty($poznamky)) { ?>
@@ -86,15 +85,18 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 <?php } ?>
 
 
-        <BR>
-        <div id="tuto-poznam_div" >
-            <p><strong>Poznáte túto pieseň?</strong> Dajte nám vedieť! Pomôžete tým mapovať rozšírenie piesni na Slovensku:                 
-                            <button class="l-btn l-btn--primary l-btn--small" data-toggle="popover" id="tuto-poznam" data-placement="top">
-                    <i class="fa fa-star"></i>Túto pieseň poznám!</button> 
-                    <a data-toggle="popover" 
-                    data-content="Nie všetky staré piesne ešte niekto pozná a nie všetky sa dnes spievajú tam, kde boli pred stovkami rokov zozbierané. Snažíme sa preto <strong>mapovať, kde všade sa ešte dnes spievajú jednotlivé piesne</strong>. Dajte nám vedieť, či pieseň poznáte a <strong>pomôžte nám v našom úsilí!</strong> Ďakujeme :)" data-placement="bottom"><i class="fa fa-question-circle"> </i></a>
-                    
+<div id="tuto-poznam_div" class="l-well l-know">
+            <strong>Poznáte túto pieseň?</strong>
+            Dajte nám vedieť! Pomôžete tým mapovať rozšírenie piesni na Slovensku:
+            <button class="l-btn l-btn--primary l-btn--small" data-toggle="popover" id="tuto-poznam" data-placement="top" data-original-title="" title="">
+                <i class="fa fa-star"></i> Túto pieseň poznám!</button>
+                <a data-toggle="popover" data-content="Nie všetky staré piesne ešte niekto pozná a nie všetky sa dnes spievajú tam, kde boli pred stovkami rokov zozbierané. Snažíme sa preto &lt;strong&gt;mapovať, kde všade sa ešte dnes spievajú jednotlivé piesne&lt;/strong&gt;. Dajte nám vedieť, či pieseň poznáte a &lt;strong&gt;pomôžte nám v našom úsilí!&lt;/strong&gt; Ďakujeme :)" data-placement="bottom" data-original-title="" title=""><i class="fa fa-question-circle"></i>
+                </a>
         </div>
+
+
+
+
 
 
 <?php if (!empty($podobne)) {  ?>
@@ -602,18 +604,6 @@ $('[data-toggle="popover"]').popover({
   });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     function _d(role) {
         return '[data-role="' + role + '"]';
     }
@@ -625,6 +615,7 @@ $('[data-toggle="popover"]').popover({
  
 $("#aud").on("canplaythrough", function(e){
     duration=e.currentTarget.duration;
+
 });    
 
 $("#aud").on("timeupdate", function(event){
@@ -645,9 +636,6 @@ function abc2svg() {
 
 
 
-$("#aud").on("canplay", function (e) {
-      playpause("#aud","#playpause_main");
-});
 
 
     $("#aud").on("pause", function (e) {
@@ -662,13 +650,17 @@ $("#aud").on("canplay", function (e) {
   });
 
 
-
+var vid = document.getElementById("aud");
+vid.onloadeddata = function() {
+    playpause('#aud','#playpause_main'); 
+};
 
 
    
 
     $(document).ready(function(){
         abc2svg();
+
         /*var headerScroll = false;
         var offsetTop = $(_d('header')).offset().top;
 
@@ -708,6 +700,9 @@ $("#aud").on("canplay", function (e) {
     
 
 </script>
+
+<script src="/public/js/reveal.js"></script>
+
 
 
 </body>
