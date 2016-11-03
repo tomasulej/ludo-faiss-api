@@ -28,7 +28,9 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
 
             </div>
-
+            <div class="hidden-xs"> <!--class="l-song-subh"-->
+                <small>Zozbieral(a): <strong><!--<a href="zberatel.php?id=<?php echo $piesen->id_zberatel; ?>">--><?php echo $piesen->zberatelia_meno; ?><!--</a>--></strong> (<?php echo $piesen->datum_zbieranie; ?>) ● Zdigitalizoval(a): <strong><!--<a href="digitalizator.php?id=<?php echo $piesen->id_digitalizator; ?>">--><?php echo $piesen->digitalizatori_meno; ?><!--</a>--></strong> (<?php echo date("Y",strtotime($piesen->datum_digitalizacia)); ?>) ● Pôvodná zbierka <strong><!--<a href="zbierky.php?id=<?php echo $piesen->id_zbierka ?>">--><?php echo $piesen->zbierky_nazov ?><!--</a>--></strong></small>
+            </div>
         </div>
 
 
@@ -59,30 +61,44 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 <div id="lyrics" class="l-song-lyrics" data-reveal-id="lyrics" data-height="200">
             
         <?php echo lyrics2html($piesen->lyrics) ?>
-</div></div>
+
+
+
+
+</div>
+
+
+
+
+    </div>
+
+    <?php if (!empty($poznamky)) { ?>
+
+        <div class="l-song-notes">
+            <HR width="10%" align="left">
+            <small><strong>Poznámky:</strong>
+            <ol>
+                    <?php foreach ($poznamky as $key=>$poznamka) { ?>
+                        <li><?php echo $poznamka["txt"]; ?></li>
+                    <?php } ?>
+
+                <?php echo ($podobne_cudzie=="" ? "":"<li><strong>Podobné piesne v iných, dosiaľ nezdigitalizovaných zbierkach:</strong> ".$podobne_cudzie ); ?> </li>
+
+                    </ol></small>
+
+        </div>
+    <?php } ?>
+
 
 <a href="#" data-reveal="lyrics" class="l-btn-reveal">Zobraziť viac <i class="fa fa-chevron-down"></i></a>
 
 </div>
 
 
- <!--    <p class="l-song-subh">
-            <small>Zozbieral(a): <a href="zberatel.php?id=<?php echo $piesen->id_zberatel; ?>"><?php echo $piesen->zberatelia_meno; ?></a> (<?php echo $piesen->datum_zbieranie; ?>) ● Zdigitalizoval(a): <a href="digitalizator.php?id=<?php echo $piesen->id_digitalizator; ?>"><?php echo $piesen->digitalizatori_meno; ?></a> (<?php echo $piesen->datum_digitalizacia; ?>) ● Pôvodná zbierka <a href="zbierky.php?id=<?php echo $piesen->id_zbierka ?>"><?php echo $piesen->zbierky_nazov ?></a></small>
-        </p> -->
 
 
-<?php if (!empty($poznamky)) { ?>
-<HR width="10%" align="left">
-    <div class="l-song-notes">
 
-    <ol><small>
-    <?php foreach ($poznamky as $key=>$poznamka) { ?>
-        <li><?php echo $poznamka["txt"]; ?></li>
-    <?php } ?>
-    </ul></small>
 
-    </div>
-<?php } ?>
 
 
 <div id="tuto-poznam_div" class="l-well l-know">
@@ -117,7 +133,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
         <div class="col-md-4">
         <div class="l-song-item l-well">
-        <h3><a href="piesen.php?<?php echo $p_piesen['id_piesen'];?>"><?php echo ($p_piesen["nazov_kratky"]==""?"(ešte nezdigitalizované)":$p_piesen["nazov_kratky"]."…");?></a></h3>
+        <h3><a data-toggle="modal" data-target="#estetunieje"><?php echo ($p_piesen["nazov_kratky"]==""?"(ešte nezdigitalizované)":$p_piesen["nazov_kratky"]."…");?></a></h3>
         <?php if ($p_piesen['file_mp3']<>"") { 
             $p_button="playpause_p_".$p_piesen['id_piesen'];
             $p_audio="aud_".$p_piesen['id_piesen'];
@@ -128,7 +144,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
         <audio id="<?php echo $p_audio; ?>" controls="controls" src="<?php echo $p_piesen['file_mp3']; ?>" style="display:none">Your browser does not support the audio element.</audio>
         <?php }?>
 
-        <a href="piesen.php?<?php echo $p_piesen['id_piesen'];?>"><img src='<?php echo $p_piesen["file_png"];?>'></a>
+        <a <?php if ($p_piesen['file_mp3']<>0) {echo "href=".$p_piesen['id_piesen'].'"';} else {echo 'data-toggle="modal" data-target="#estetunieje"'; }?>"><img src='<?php echo $p_piesen["file_png"];?>'></a>
         </div></div>
 
             <?php
@@ -161,7 +177,34 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
 <?php } } ?>
 
-<?php echo ($podobne_cudzie=="" ? "":"<p><small><strong>Podobné v iných zbierkach:</strong> ".$podobne_cudzie ); ?> </small></p>
+
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="estetunieje" id="estetunieje" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title" id="estetunieje">Ďas to páral! Táto pieseň tu ešte nie je! :(</h3>
+            </div>
+            <div class="modal-body">
+                <p>Desiatky digitalizátorov denne usilovne pracujú na tom, aby sa tisícky piesni dostali na internet - túto však ešte nestihli. Vyčkaj času alebo <a href="/vyzva">pridaj k nám</a> a bude to rýchlejšie :)</p>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Zatvoriť</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 
 
 
@@ -174,21 +217,22 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                     <h3>Podrobnosti</h3>
 
                 <strong><a onclick="vytlac();">Názov</strong>: <?php echo $piesen->nazov_dlhy ?><BR>
-                <strong>Pôvodná zbierka</strong>: <a href="#"><?php echo $piesen->zbierky_nazov?></a><BR>
+                <strong>Pôvodná zbierka</strong>: <?php echo $piesen->zbierky_nazov?><BR>
                 <strong>Strana:</strong> <?php echo $piesen->strana; ?><BR>
                 <strong>Identifikátor</strong>: <?php echo $piesen->identifikator?> <BR>
-                <strong>Zberateľ</strong>: <a href="#"><?php echo $piesen->zberatelia_meno?></a><BR>
-                <strong>Digitalizátor</strong>: <a href="#"><?php echo $piesen->digitalizatori_meno?></a><BR>
+                <strong>Zberateľ</strong>: <?php echo $piesen->zberatelia_meno?><BR>
+                <strong>Digitalizátor(ka)</strong>: <?php echo $piesen->digitalizatori_meno?></a><BR>
                 <!--<strong>Hudba</strong>: <a href="#"><?php echo $piesen->hudobnici_meno?></a><BR>-->
-                <strong>Tempo</strong>: <a href="#"><?php echo $piesen->tempo?></a><BR>
+                <strong>Tempo</strong>: <?php echo $piesen->tempo?></a><BR>
                 <strong>Dátum zozbierania</strong>: <?php echo $piesen->datum_zbieranie?><BR>
-                <strong>Dátum digitalizácie</strong>: <?php echo $piesen->datum_digitalizacia?><BR>
-                <strong>Stiahnuť</strong>: <a href="">noty</a>, <a href="">hudbu</a> alebo <a href="">vytlačiť</a>.
-                <HR>    
-                <p><a href="" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-info"></i> Všetky informácie o piesni</a></p>
+                <strong>Dátum digitalizácie</strong>: <?php echo date("d.m.Y",strtotime($piesen->datum_digitalizacia));?><BR>
+                 <strong>Stiahnuť</strong>: <a href="stiahnut.php?id=<?php echo $piesen->id_piesen ?>&format=xml"><i class="fa fa-music"></i> noty</a>  alebo <a href="stiahnut.php?id=<?php echo $piesen->id_piesen ?>&format=mp3"><i class="fa fa-volume-up"></i> hudbu</a> <!-- <a href=""><i class="fa fa-print"></i> vytlačiť</a> -->
+                    <HR>
+                    <p><a class="l-btn l-btn--primary l-btn--small" data-toggle="modal" data-target="#detaily"><i class="fa fa-info"></i> Všetky informácie o piesni</a></p>
 
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+
+                    <div class="modal fade bd-example-modal-lg" id="detaily" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" id="detaily">
     <div class="modal-content">
 <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -458,10 +502,10 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                     <h3>Mapa piesne <a href="/piesne/mapa.php"><small><i class="fa fa-map-o"></i> Pozrieť mapu všetkých piesní</small></a></h3>
 
                    <?php if (!empty($zberatel_vyskyt->id_lokalita)) { ?>
-                        <p><strong>Kde sa spieva:</strong> <i class="fa fa-map-signs"></i> <a href="lok.php?id="><?php echo $zberatel_vyskyt->meno; ?></a><br>
+                        <p><strong>Kde sa spieva:</strong> <i class="fa fa-map-signs"></i> <?php echo $zberatel_vyskyt->meno; ?><br>
                     <?php } ?>
                     <?php if (!empty($zberatel_miesto->id_lokalita)) { ?>
-                        <p><strong>Kde bola zozbieraná:</strong> <i class="fa fa-map-signs"></i> <a href="lok.php?id="><?php echo $zberatel_miesto->meno; ?></a><br>
+                        <p><strong>Kde bola zozbieraná:</strong> <i class="fa fa-map-signs"></i> <?php echo $zberatel_miesto->meno; ?><br>
                     <?php } ?>
                     <?php if (!empty($p_mapa_point)) { ?>
                         <strong>Miesta spomenuté piesni</strong>:  
@@ -472,7 +516,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                          foreach ($p_mapa as $key=>$point_wording) { ?>
 
                         <span style="color:#66CC00;"><i class="fa fa-map-marker"></i></span>
-                        <a href="lok.php?id=<?php echo $point_wording['id']; ?>"><?php echo $point_wording['meno']; ?></a>
+                        <!--<a href="lok.php?id=<?php echo $point_wording['id']; ?>">--><?php echo $point_wording['meno']; ?><!--</a>-->
                         <?php  //if(++$i === $numItems) { echo "."; } else { echo ","; } ?> 
                         
                         <?php } ?>
