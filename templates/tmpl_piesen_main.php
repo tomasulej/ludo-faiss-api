@@ -101,11 +101,20 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
 <?php if (!empty($podobne)) {  ?>
 
-    <div class="l-song-similar">
+<div id="carousel-similar" class="carousel slide l-song-similar" data-ride="carousel">
     <h2>Podobné piesne</h2>
 
-    <div class="row">
-    <?php foreach ($podobne as $key=>$p_piesen) { ?>
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item row active">
+
+    <?php
+    $pocitadlo=0;
+    foreach ($podobne as $key=>$p_piesen) {
+        $pocitadlo++;
+    ?>
+
+
+
         <div class="col-md-4">
         <div class="l-song-item l-well">
         <h3><a href="piesen.php?<?php echo $p_piesen['id_piesen'];?>"><?php echo ($p_piesen["nazov_kratky"]==""?"(ešte nezdigitalizované)":$p_piesen["nazov_kratky"]."…");?></a></h3>
@@ -120,11 +129,37 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
         <?php }?>
 
         <a href="piesen.php?<?php echo $p_piesen['id_piesen'];?>"><img src='<?php echo $p_piesen["file_png"];?>'></a>
+        </div></div>
+
+            <?php
+           // if ($pocitadlo==3){echo "</div>";} //uzatvorit prve listbox
+            if (($pocitadlo % 3 == 0)) {
+
+            ?>
         </div>
-        </div>
+        <div class="carousel-item row">
+
+            <?php
+            }
+
+            ?>
+
+
     <?php } ?>
+    </div></div>
+
+<?php if ($pocitadlo>3) { ?>
+
+    <a href="#carousel-similar" role="button" data-slide="prev" class="btn-left">
+        <i class="fa fa-chevron-left"></i>
+    </a>
+    <a href="#carousel-similar" role="button" data-slide="next" class="btn-right">
+        <i class="fa fa-chevron-right"></i>
+    </a>
     </div>
-<?php } ?>
+
+
+<?php } } ?>
 
 <?php echo ($podobne_cudzie=="" ? "":"<p><small><strong>Podobné v iných zbierkach:</strong> ".$podobne_cudzie ); ?> </small></p>
 
