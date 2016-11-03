@@ -29,91 +29,24 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
     <div class="container">
 
-        <div class="row">  
-<!--<div class="col-md-3">
-<h4>Filtrovať:</h4>
-<div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action ">
-    <h4 class="list-group-item-heading">Tempo </h4>
-    <p class="list-group-item-text">
-
-<div class="form-check">
-  <label class="form-check-label">
-    <input class="form-check-input" type="checkbox" value="">
-    Pomalé (+4)
-  </label>
-</div>
-
-<div class="form-check">
-  <label class="form-check-label">
-    <input class="form-check-input" type="checkbox" value="">
-    Stredne rýchle (+10)
-  </label>
-</div>
-
-<div class="form-check">
-  <label class="form-check-label">
-    <input class="form-check-input" type="checkbox" value="">
-    Rýchle (+20)
-  </label>
-</div>
+        <div class="l-list-items">
 
 
-    
-    </p>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action">
-    <h4 class="list-group-item-heading">Región</h4>
-    <p class="list-group-item-text">
-    
- <div class="form-check">
-  <label class="form-check-label">
-    <input class="form-check-input" type="checkbox" value="">
-    Západné Slovensko
-  </label>
-</div>
-
-<div class="form-check">
-  <label class="form-check-label">
-    <input class="form-check-input" type="checkbox" value="">
-    Stredné Slovensko
-  </label>
-</div>
-
-<div class="form-check">
-  <label class="form-check-label">
-    <input class="form-check-input" type="checkbox" value="">
-    Východné Slovensko
-  </label>
-</div>   
-    
-    
-    </p>
-  </a>
-
-</div>
-
-</div>-->
-
-<div class="col-md-1"></div>
 
 <?php if (!empty($piesne)) {  ?>
 
-<div class="col-md-9">
 <div class="l-list-items">
 
 
-    <div class="row">
     <?php foreach ($piesne as $key=>$piesen) { ?>
-        <div class="col-md-12">
-        <div class="l-song-item l-well"> 
+        <div class="l-song-item l-well">
         <h3><a href="piesen.php?<?php echo $piesen['id_piesen'];?>"><?php echo ($piesen["nazov_dlhy"]==""?"(ešte nezdigitalizované)":$piesen["nazov_dlhy"]);?></a></h3>
         <?php if ($piesen['file_mp3']<>"") { 
             $p_button="playpause_p_".$piesen['id_piesen'];
             $p_audio="aud_".$piesen['id_piesen'];
             ?> 
 
-        <a class="l-btn l-btn--primary l-btn--small" id="<?php echo $p_button;?>" 
+        <a class="l-btn l-btn--primary l-btn--small l-btn--play" id="<?php echo $p_button;?>"
             onclick="playpause('<?php echo "#".$p_audio;?>','<?php echo "#".$p_button;?>');" ><i class="fa fa-play"></i></a>
         <audio id="<?php echo $p_audio; ?>" controls="controls" src="data/<?php echo $piesen['id_piesen']; ?>/<?php echo $piesen['file_mp3']; ?>" style="display:none" onended="alert('j');">Your browser does not support the audio element.</audio>
 
@@ -122,28 +55,17 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
         <!-- <a href="piesen.php?<?php echo $piesen['id_piesen'];?>"><img src='data/<?php echo $piesen['id_piesen']; ?>/<?php echo $piesen["file_png"];?>'></a> -->
         
         <div class="row">
-        <div class="col-md-4"><img src="data/<?php echo $piesen['id_piesen']; ?>/noty.png" class="t" style:"max-width:5%"></div>
-        <div class="col-md-6"><p><i><?php echo cleanlyrics($piesen['lyrics']); ?></i><BR></p></div>
-        <div class="col-md-2"><button type="submit" class="l-btn l-btn--primary">Zobraziť celú pieseň</button></div>
+        <div class="col-md-4"><img src="data/<?php echo $piesen['id_piesen']; ?>/noty.png" class="t"></div>
+        <div class="col-md-8"><p><i><?php echo cleanlyrics($piesen['lyrics']); ?></i></p>
+            <a class="l-btn l-btn--primary l-btn--small"><i class="fa fa-music"></i> Zobraziť celú pieseň</a>
+        </div>
+        </div>
         </div>
 
-
-        <!-- <p class="l-song-subh">
-            <small>Zozbieral(a): <a href="zberatel.php?id=<?php echo $piesen['id_zberatel']; ?>"><?php echo $piesen['zberatelia_meno']; ?></a> (<?php echo $piesen['datum_zbieranie']; ?>) ● Zdigitalizoval(a): <a href="digitalizator.php?id=<?php echo $piesen['id_digitalizator']; ?>"><?php echo $piesen['digitalizatori_meno']; ?></a> (<?php echo $piesen['datum_digitalizacia']; ?>) ● Pôvodná zbierka <a href="zbierky.php?id=<?php echo $piesen['id_zbierka'] ?>"><?php echo $piesen['zbierky_nazov'] ?></a></small>
-        </p>-->
-                            
-
-        </div><BR>
-
-        </div><div></div>
     <?php } ?>
     </div>
 <?php } ?>
-</div>
-
-<button class="btn-lg">Načítať ďalšie</button>
-
-</div></div>
+</div> </div></div>
 
 
 <?php require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_footer.php"?>
