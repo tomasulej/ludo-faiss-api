@@ -56,7 +56,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
         <!-- <a href="piesen.php?<?php echo $piesen['id_piesen'];?>"><img src='data/<?php echo $piesen['id_piesen']; ?>/<?php echo $piesen["file_png"];?>'></a> -->
         
         <div class="row">
-        <div class="col-md-4"><img src="data/<?php echo $piesen['id_piesen']; ?>/noty.png" class="t"></div>
+        <div class="col-md-4"><img src="data/<?php echo $piesen['id_piesen']; ?>/<?php echo $piesen['file_png'];?>" class="t"></div>
         <div class="col-md-8 hidden-sm-down"><p><i><?php echo cleanlyrics($piesen['lyrics']); ?></i></p>
             <a  href="piesen.php?<?php echo $piesen['id_piesen'];?>" class="l-btn l-btn--primary l-btn--small"><i class="fa fa-music"></i> Zobraziť celú pieseň</a>
         </div>
