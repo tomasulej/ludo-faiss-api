@@ -33,7 +33,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
 
 
-        <div class="l-song vytlac">
+        <div class="l-song">
 
             <div class="row">
 

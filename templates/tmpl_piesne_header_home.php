@@ -8,7 +8,7 @@
 
                 <a class="l-header__logo" href="/piesne"><img src="/public/img/logo-piesne-inverse.png"></a>
 
-<div class="l-header__links"><a href="hladat.php">Všetky piesne</a> - <a href="mapa.php">Mapa</a></div>
+<div class="l-header__links"><a href="hladat.php">Všetky piesne</a> - <a href="mapa.php">Piesne na mape</a></div>
 
 
                 <div class="l-header__info">
