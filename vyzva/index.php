@@ -12,6 +12,8 @@
 
     require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 //require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
+    require "ajax.otestovat-sa.php";
+
 
 ?>
 
@@ -76,7 +78,7 @@
 
                 <h3>Čo na to budem potrebovať? Musím byť hudobník?</h3>
 
-                <p>Nemusíš byť hudobník, ale veľkou pomocou bude, ak ovládaš noty, nie je to však nutnosť. Na prácu pre nás <strong>stačí mať počítač a pripojenie na internet</strong> - všetko ostatné - špeciálne programy, či vedomosti ti posunieme hneď ako sa k nám pripojíš. Zvládneš to, nemusíš sa báť.</p>
+                <p>Nemusíš byť hudobník, ale pre náš prvý projekt je (husľovo) kľúčové, <strong>aby si ovládal(a) noty</strong>. Ak ich však neovládaš, nič sa neboj - vyplň formulár aj tak, a my sa Ti ozveme akonáhle budeme mať pre Teba niečo vhodnejšie (<i>Pýtaš sa, čo je dostatočná znalosť nôt? <a data-toggle="modal" data-target="#otestujsa" href="javascript:void(0)">Tu sa môžeš otestovať</a></i>). Na prácu pre nás <strong>stačí mať počítač a pripojenie na internet</strong> - všetko ostatné - špeciálne programy, či vedomosti ti posunieme hneď ako sa k nám pripojíš. Zvládneš to, nemusíš sa báť.</p>
 
                 <h3>A čo za to? Budete mi platiť?</h3>
 
@@ -128,12 +130,13 @@ ini_set('display_errors', '1');
 
     $subject = 'Vitajte v Ľudovi Slovenskom!';
 
-    
 
 
 
+    if ($noty==1) {
+        send_mailgun($to, "Vitaj v komunite digitalizátovov Ľuda Slovenského!", $tmpl_email_welcome);
+    }
 
-    send_mailgun($to,"Vitaj v komunite digitalizátovov Ľuda Slovenského!",$tmpl_email_welcome);
     send_mailgun("tomas@ludoslovensky.sk","Nový človek pribudol, aleluja, aleluja!",$mysql_query);
 
 
@@ -202,7 +205,7 @@ ini_set('display_errors', '1');
                     </fieldset>
 
                     <fieldset class="form-group">
-                        <label><strong>Poznáš noty?</strong></label>
+                        <label><strong>Poznáš noty?</strong> (<a data-toggle="modal" data-target="#otestujsa" href="javascript:void(0)">Váhaš? Otestuj sa!</a>)</label>
                         <div class="radio">
                             <label for="noty-0">
                                 <input type="radio" name="noty" id="noty-0" value="ano" >
@@ -215,6 +218,21 @@ ini_set('display_errors', '1');
                                 Nie
                             </label>
                         </div>
+                        <small class="text-muted" id="noty-nie"></small>
+                        <script>
+                            $('input[name=noty]').on('change', function() {
+
+                                if (this.value=="nie") {
+                                    $("#noty-nie").html('<div class="alert alert-info" role="alert"><strong>To vôbec neprekáža</strong>. Pridáme si Ťa do nášho zoznamu a ozveme sa hneď ako sa dostaneme k práci na nehudobných projektoch. (Inak, na prácu u nás netreba vedieť z tých nôt zase tak veľa, ak iba váhaš, <a data-toggle="modal" data-target="#otestujsa" href="javascript:void(0)">otestuj sa</a> a pokojne odpoveď zmeň :) </div>');
+
+                                }
+
+                            });
+
+                        </script>
+
+
+
                     </fieldset>
 
                     <fieldset class="form-group">
