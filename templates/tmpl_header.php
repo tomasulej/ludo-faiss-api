@@ -78,6 +78,8 @@
 
 <div class="l-navbar">
 
+
+
     <div class="container">
 <!--
         <menu class="switch hidden-md-down">
@@ -100,7 +102,7 @@
                     <li <?php echo $prislovia_tab;?>><a href="/prislovia" target="_parent">Príslovia a porekadlá</a></li>
                     <li <?php echo $nadavky_tab;  ?>><a href="/nadavky" target="_parent">Nadávky</a></li>
                     <li <?php echo $piesne_tab;?>><a href="/piesne/" target="_parent">Piesne</a></li>
-                    <li><a href="/labs" <?php echo $labs_tab;  ?> target="_parent">Ľudo Labs</a></li>
+                    <li <?php echo $labs_tab;  ?>><a href="/labs" target="_parent">Ľudo Labs</a></li>
                 </menu>
             </div>
 
