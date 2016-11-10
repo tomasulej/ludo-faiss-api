@@ -592,11 +592,84 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
        
             </div>
 
+        <!-- populárne songy -->
+
+
+        <?php if (!empty($odporucane)) {  ?>
+
+            <div id="carousel-recommended" class="carousel slide l-song-similar" data-ride="carousel">
+            <h2>Ďalšie zaujímavé piesne</h2>
+
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item row active">
+
+                    <?php
+                    $pocitadlo=0;
+                    foreach ($odporucane as $key=>$p_piesen) {
+                    $pocitadlo++;
+                    ?>
+
+
+
+                    <div class="col-md-4">
+                        <div class="l-song-item l-well">
+                            <h3><?php echo ($p_piesen["nazov_kratky"]==""?"<a data-toggle=\"modal\" data-target=\"#estetunieje\">(ešte nezdigitalizované)":"<a href=piesen.php?".$p_piesen["id_piesen"].">".$p_piesen["nazov_kratky"]."…");?></a></h3>
+                            <?php if ($p_piesen['file_mp3']<>"") {
+                                $p_button="playpause_p_".$p_piesen['id_piesen'];
+                                $p_audio="aud_".$p_piesen['id_piesen'];
+                                ?>
+
+                                <a class="l-btn l-btn--primary l-btn--small" id="<?php echo $p_button;?>"
+                                   onclick="playpause('<?php echo "#".$p_audio;?>','<?php echo "#".$p_button;?>');" ><i class="fa fa-play"></i></a>
+                                <audio id="<?php echo $p_audio; ?>" controls="controls" src="<?php echo $p_piesen['file_mp3']; ?>" style="display:none">Your browser does not support the audio element.</audio>
+                            <?php }?>
+
+                            <a <?php if ($p_piesen['file_mp3']<>"") {echo "href=piesen.php?".$p_piesen['id_piesen'].'"';} else {echo 'data-toggle="modal" data-target="#estetunieje"'; }?>"><img src='<?php echo $p_piesen["file_png"];?>'></a>
+                        </div></div>
+
+                    <?php
+                    // if ($pocitadlo==3){echo "</div>";} //uzatvorit prve listbox
+                    if (($pocitadlo % 3 == 0)) {
+
+                    ?>
+                </div>
+                <div class="carousel-item row">
+
+                    <?php
+                    }
+
+                    ?>
+
+
+                    <?php } ?>
+                </div></div>
+
+            <?php if ($pocitadlo>3) { ?>
+
+                <a href="#carousel-recommended" role="button" data-slide="prev" class="btn-left">
+                    <i class="fa fa-chevron-left"></i>
+                </a>
+                <a href="#carousel-recommended" role="button" data-slide="next" class="btn-right">
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+                </div>
+
+
+            <?php } } ?>
 
 
         </div>
 
     </div>
+
+
+
+
+
+
+
+
+
 
 </div></div>
 
