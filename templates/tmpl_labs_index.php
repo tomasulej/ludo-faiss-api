@@ -14,7 +14,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_labs_header.php";
 
             <div class="l-article__img col-md-3">
 
-                <a><img src="http://lorempixel.com/500/500/?v=1"></a>
+                <a href="/slova/vogon/"><img src="/public/img/maxresdefault.jpg"></a>
 
             </div>
 
@@ -36,7 +36,7 @@ Z vďaky Douglesovi Adamsovi, ktorý prvý definoval žáner vogónskej poézie,
 
             <div class="l-article__img col-md-3">
 
-                <a><img src="http://lorempixel.com/500/500/?v=1"></a>
+                <a href="/slova/statistiky.php?id=16"><img src="/public/img/labs_slova-statistiky.png"></a>
 
             </div>
 
