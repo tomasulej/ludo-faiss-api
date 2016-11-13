@@ -1,0 +1,2069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>ľudo slovenský - Najväčšia digitalizovaná zbierka slovenskej ľudovej slovesnosti</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/public/css/style.css">
+
+    <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.0/dist/leaflet-src.js"></script>
+
+</head>
+<body class="l-theme-green">
+
+<div class="l-navbar">
+
+    <div class="container">
+
+        <menu class="switch hidden-md-down">
+            <li><a class="switch-blue"></a></li>
+            <li><a class="switch-green"></a></li>
+            <li><a class="switch-red"></a></li>
+            <li><a class="switch-yellow"></a></li>
+        </menu>
+
+        <div class="row">
+
+            <div class="col-xl-1 col-lg-2 col-xs-5">
+                <a class="l-navbar__logo">
+                    <img src="/public/img/logo-small-dark.png" height="28">
+                </a>
+
+                <span class="hidden-sm-up">
+                    <a class="btn-burger" id="burger" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-bars" style=""></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="burger">
+                        <a class="dropdown-item" href="#">Príslovia a porekadlá</a>
+                        <a class="dropdown-item" href="#">Nadávky</a>
+                        <a class="dropdown-item" href="#">Piesne</a>
+                        <a class="dropdown-item" href="#">Ľudo Labs</a>
+                    </div>
+                </span>
+            </div>
+
+            <div class="col-xl-8 col-lg-7 hidden-md-down">
+                <menu class="l-navbar__menu">
+                    <li><a>Príslovia a porekadlá</a></li>
+                    <li><a>Nadávky</a></li>
+                    <li class="active"><a>Piesne</a></li>
+                    <li><a>Ľudo Labs</a></li>
+                </menu>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-xs-7">
+                <div class="l-navbar__user">
+                    <a>O ľudovi</a>
+                    <a class="l-btn l-btn--small l-btn--primary">Pridaj sa</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="l-header">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-8">
+
+                <div class="row">
+                    <div class="col-lg-5">
+                        <a class="l-header__logo" href="/piesne"><img src="/public/img/logo-piesne-inverse.png"></a>
+                    </div>
+
+                    <div class="l-header__links col-lg-7 l-margin-0"><a href="hladat.php">Všetky piesne</a> - <a href="mapa.php">Piesne na mape</a></div>
+                </div>
+
+                <div class="l-header__info">
+
+                    <h1>Najväčšia zbierka ľudových piesní Slovenska!</h1>
+
+                    Tisíce rokov Ľudo Slovenský spieva piesne. Sú našim pokladom. Aby sme ho zachovali, postupne zbierame, digitalizujeme, triedime a sprístupňujeme desaťtisíce piesní, ktoré sa počas tisícok rokov spievali na našom území.  <p></p>
+
+                </div>
+
+            </div>
+
+            <div class="l-header__img col-lg-4 l-header__img--bg" style="background-image: url('/public/img/ludo-music.png');"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="l-promo">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-9 col-lg-push-4 col-xl-7 col-xl-push-3">
+
+                <H2>Nájdi pieseň, ktorá Ti chodí po rozume</H2>
+                <form action="hladat.php" method="get" id="hladat">
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control-lg" name="q" placeholder="Nože, zadaj názov svojej piesne, či ju nájdeme">
+
+                <span class="input-group-btn">
+                    <button class="btn btn-secondary l-btn btn-lg l-btn--inverse form-control-lg" type="button" onclick="$( '#hladat' ).submit();">Hľadať!</button>
+                </span>
+
+                </form>
+            </div>
+            <br>
+            <p class="text-muted-inverse"><i class="fa fa-info-circle"></i> Upozornenie: Náš projekt nachodí sa len na počiatku, z plánovaných 50-tisíc piesni dosiaľ len 0 je zdigitalizovaných. Nech ťa teda smútok nepremkýna, ak nenájdeš, čo si chcel(a). Vyčkaj času, ako husa klasu. Alebo tiež  môžeš <a href="/vyzva/">priložiť ruku k dielu a pomôcť nám</a>.</p>
+
+        </div>
+
+        <div class="col-lg-3 col-lg-pull-8 col-xl-5 col-xl-pull-9">
+            <h2>Skade už piesne máme (0)</h2>
+            <div id="mapa_pokrytie" style="height:150px"></div>
+            <BR>
+            <script>
+                var map = L.map('mapa_pokrytie').setView([48.812,19.473], 6);
+                var markers = L.markerClusterGroup({
+                    spiderfyOnMaxZoom: false,
+                    showCoverageOnHover: false,
+                    zoomToBoundsOnClick: false});
+                var baseLayer=L.tileLayer(
+                        'https://api.mapbox.com/styles/v1/jelusamot/citx7z0my00aj2irqjs36mmeh/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiamVsdXNhbW90IiwiYSI6ImNpZnN0NGM2MjAxd2N1NGx6OWk2Y3BjOGsifQ.aFGe3wpK5fbZbrpefXxDNA').addTo(map);
+
+
+                var p_2 = [
+                    {
+                        "type": "FeatureCollection",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "geometry": {
+                                    "geometries": [
+                                        {
+                                            "type": "Polygon",
+                                            "coordinates": [
+                                                [
+                                                    [
+                                                        18.962702,
+                                                        49.5086749,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.9627065,
+                                                        49.5086703,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.963776,
+                                                        49.508268,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.962702,
+                                                        49.5086749,
+                                                        0
+                                                    ]
+                                                ]
+                                            ]
+                                        },
+                                        {
+                                            "type": "Polygon",
+                                            "coordinates": [
+                                                [
+                                                    [
+                                                        18.951871,
+                                                        49.512777500000006,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.9578781,
+                                                        49.5105023,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.955879,
+                                                        49.511529,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.954635,
+                                                        49.512643000000004,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.951871,
+                                                        49.512777500000006,
+                                                        0
+                                                    ]
+                                                ]
+                                            ]
+                                        },
+                                        {
+                                            "type": "Polygon",
+                                            "coordinates": [
+                                                [
+                                                    [
+                                                        18.947296000000005,
+                                                        49.51451,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.9473639,
+                                                        49.5144403,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.951773600000003,
+                                                        49.5127823,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.951871,
+                                                        49.512777500000006,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.947296000000005,
+                                                        49.51451,
+                                                        0
+                                                    ]
+                                                ]
+                                            ]
+                                        },
+                                        {
+                                            "type": "Polygon",
+                                            "coordinates": [
+                                                [
+                                                    [
+                                                        18.962702,
+                                                        49.5086749,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.962359000000003,
+                                                        49.509021000000004,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.961201,
+                                                        49.50966199999999,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.959293700000003,
+                                                        49.5099661,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.962702,
+                                                        49.5086749,
+                                                        0
+                                                    ]
+                                                ]
+                                            ]
+                                        },
+                                        {
+                                            "type": "Polygon",
+                                            "coordinates": [
+                                                [
+                                                    [
+                                                        18.9578781,
+                                                        49.5105023,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.9579931,
+                                                        49.5104433,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.9592383,
+                                                        49.50997499999999,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.959293700000003,
+                                                        49.5099661,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.9578781,
+                                                        49.5105023,
+                                                        0
+                                                    ]
+                                                ]
+                                            ]
+                                        },
+                                        {
+                                            "type": "Polygon",
+                                            "coordinates": [
+                                                [
+                                                    [
+                                                        18.9627065,
+                                                        49.5086703,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.9592383,
+                                                        49.50997499999999,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.958755000000004,
+                                                        49.510052,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.9579931,
+                                                        49.5104433,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.951773600000003,
+                                                        49.5127823,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.951759,
+                                                        49.512783,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.950386,
+                                                        49.512504,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.949142,
+                                                        49.512615,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.9473639,
+                                                        49.5144403,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.947253,
+                                                        49.514482,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.947296000000005,
+                                                        49.51451,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.930817,
+                                                        49.51986,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.907471,
+                                                        49.515401999999995,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.889617999999995,
+                                                        49.516293,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.864899,
+                                                        49.518968,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.841552999999998,
+                                                        49.517185,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.809967,
+                                                        49.516293,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.800354,
+                                                        49.510052,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.783875000000002,
+                                                        49.50916,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.766022,
+                                                        49.495782999999996,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.753662,
+                                                        49.489538,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.738556,
+                                                        49.488646,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.726196,
+                                                        49.494891,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.711090000000002,
+                                                        49.502025999999994,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.693237,
+                                                        49.49935000000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.683624,
+                                                        49.504701,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.674011,
+                                                        49.506485,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.667145,
+                                                        49.502025999999994,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.649292000000003,
+                                                        49.50113400000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.638306,
+                                                        49.496675,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.630066,
+                                                        49.497566,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.61908,
+                                                        49.495782999999996,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.6026,
+                                                        49.496675,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.601226999999998,
+                                                        49.505593,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.595734,
+                                                        49.50916,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.579254000000002,
+                                                        49.505593,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.568268,
+                                                        49.506485,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.544922,
+                                                        49.49845800000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.535309,
+                                                        49.490431,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.542175,
+                                                        49.474371000000005,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.544922,
+                                                        49.464554,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.525696,
+                                                        49.455628,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.517456000000003,
+                                                        49.44580700000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.49823,
+                                                        49.435092,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.484496999999998,
+                                                        49.425267,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.477631,
+                                                        49.416334,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.477631,
+                                                        49.41008,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.459778,
+                                                        49.402931,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.448792000000005,
+                                                        49.395781,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.444672,
+                                                        49.392205999999995,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.425446000000004,
+                                                        49.394888,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.410339000000004,
+                                                        49.39846300000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.402100000000004,
+                                                        49.395781,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.408965999999996,
+                                                        49.387737,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.40888,
+                                                        49.385753,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.410640000000004,
+                                                        49.382987,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.410038999999998,
+                                                        49.380194,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.411627,
+                                                        49.378573,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.411584,
+                                                        49.377623,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.410769,
+                                                        49.376673000000004,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.41094,
+                                                        49.37586300000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.413301,
+                                                        49.37318,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.414717,
+                                                        49.370581,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.415618,
+                                                        49.36843,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.415532,
+                                                        49.367144,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.413086,
+                                                        49.366082,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.411326,
+                                                        49.36507600000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.410640000000004,
+                                                        49.36312,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.408278999999997,
+                                                        49.36038,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.404202,
+                                                        49.359458,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.398666,
+                                                        49.35683100000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.398108,
+                                                        49.35683100000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.40034,
+                                                        49.353169,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.403988,
+                                                        49.35054100000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.404074,
+                                                        49.35012199999999,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.400383,
+                                                        49.349786,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.399096,
+                                                        49.34900300000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.397636000000002,
+                                                        49.348975,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.397036,
+                                                        49.348752,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.395019,
+                                                        49.348612,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.389053,
+                                                        49.344586,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.385277,
+                                                        49.340112,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.381157000000005,
+                                                        49.334967,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.378754000000004,
+                                                        49.331163,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.378067,
+                                                        49.32915,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.373260000000002,
+                                                        49.328031,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.363304000000003,
+                                                        49.32377900000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.350258,
+                                                        49.321989,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.337555000000002,
+                                                        49.31908,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.329315000000005,
+                                                        49.318856,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.324852,
+                                                        49.317513,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.321762,
+                                                        49.314604,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.324852,
+                                                        49.313037,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.337555,
+                                                        49.315723,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.350945,
+                                                        49.318409,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.359528,
+                                                        49.318632,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.366737,
+                                                        49.319304,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.372917,
+                                                        49.31908,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.375319999999995,
+                                                        49.31437999999999,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.374977,
+                                                        49.308337,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.380127,
+                                                        49.302069,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.38459,
+                                                        49.297143,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.391457000000003,
+                                                        49.296024,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.396263,
+                                                        49.28953,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.397979999999997,
+                                                        49.282588,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.402100000000004,
+                                                        49.282588,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.436775,
+                                                        49.279005,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.466301,
+                                                        49.280236,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.502178,
+                                                        49.301285,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.515739,
+                                                        49.315163,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.516598,
+                                                        49.33038,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.518829,
+                                                        49.340112,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.522263,
+                                                        49.348612,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.55196,
+                                                        49.343802999999994,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.586807,
+                                                        49.344586,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.61084,
+                                                        49.343914999999996,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.657532,
+                                                        49.347494,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.674011,
+                                                        49.320646,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.693237,
+                                                        49.29938200000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.716583,
+                                                        49.279005,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.739243,
+                                                        49.266908,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.771515000000004,
+                                                        49.256154,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.800353999999995,
+                                                        49.250327,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.83606,
+                                                        49.257498,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.856659000000004,
+                                                        49.260187,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.917084,
+                                                        49.262428,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.92807,
+                                                        49.28661900000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.954163,
+                                                        49.310351,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.020080999999998,
+                                                        49.312589,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.096297999999997,
+                                                        49.317066,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.088745,
+                                                        49.35465,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.092177999999997,
+                                                        49.376114,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.106597999999998,
+                                                        49.404271,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.105525,
+                                                        49.406701,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.104624000000005,
+                                                        49.407399,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.103165,
+                                                        49.40865599999999,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.102993000000005,
+                                                        49.408879,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.103036,
+                                                        49.4098,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.101319000000004,
+                                                        49.41008,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.100160999999996,
+                                                        49.411057,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.097457,
+                                                        49.410499,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.094281,
+                                                        49.41030299999999,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.093552,
+                                                        49.410834,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.093895,
+                                                        49.412229999999994,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.093636999999998,
+                                                        49.41281599999999,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.093122,
+                                                        49.413319,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.092307,
+                                                        49.41465899999999,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.091813999999996,
+                                                        49.41581699999999,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.091513,
+                                                        49.415985,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.088702000000005,
+                                                        49.416111,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.086063,
+                                                        49.416013,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.085441,
+                                                        49.416292,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.082737,
+                                                        49.416487,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.081127999999996,
+                                                        49.416669,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.080012,
+                                                        49.416599,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.077673,
+                                                        49.416892,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.074626,
+                                                        49.417381,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.072738,
+                                                        49.417967,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.071021,
+                                                        49.41565,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.070613,
+                                                        49.413723,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.070206,
+                                                        49.412383,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.068553,
+                                                        49.413025,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.066708,
+                                                        49.41352800000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.065228,
+                                                        49.41417,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.064369000000003,
+                                                        49.414477,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.063810999999998,
+                                                        49.41447699999999,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.063082,
+                                                        49.414268,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.062544999999997,
+                                                        49.414003,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.061966,
+                                                        49.413961,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.061215,
+                                                        49.414114,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.059690999999997,
+                                                        49.414282,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.05746,
+                                                        49.414729,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.05673,
+                                                        49.414617,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.05643,
+                                                        49.414715,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.055722,
+                                                        49.414743,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.053918999999997,
+                                                        49.415175,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.052675000000004,
+                                                        49.41319300000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.052396,
+                                                        49.411308,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.050744,
+                                                        49.409256,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.048383,
+                                                        49.407511,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.048146999999997,
+                                                        49.40707799999999,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.045959,
+                                                        49.406017,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.044306000000002,
+                                                        49.404746,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.046066,
+                                                        49.40188400000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.044693,
+                                                        49.400418,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.042525000000005,
+                                                        49.399524,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.040186,
+                                                        49.398323,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.03877,
+                                                        49.397066,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.036387999999995,
+                                                        49.396047,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.035037,
+                                                        49.395711,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.031045,
+                                                        49.395362,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.027011,
+                                                        49.394008,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.025852999999998,
+                                                        49.394022,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.023449,
+                                                        49.39458,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.018793,
+                                                        49.395306,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.016025,
+                                                        49.396214,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.014802,
+                                                        49.396452000000004,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.013321,
+                                                        49.395893,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.012291,
+                                                        49.395669999999996,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.011047000000005,
+                                                        49.395097,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.010037999999998,
+                                                        49.394776,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.009159000000004,
+                                                        49.395209,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.007657,
+                                                        49.395572,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.004524000000004,
+                                                        49.395739000000006,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.003193000000003,
+                                                        49.397192000000004,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.002292000000004,
+                                                        49.397555,
+                                                        0
+                                                    ],
+                                                    [
+                                                        19.000146,
+                                                        49.397876,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.997529,
+                                                        49.397904000000004,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.992356999999995,
+                                                        49.39800199999999,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.989654,
+                                                        49.398379000000006,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.987207,
+                                                        49.396982,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.984847000000002,
+                                                        49.396466,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.979826,
+                                                        49.395195,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.978903,
+                                                        49.396829,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.977959000000002,
+                                                        49.397178,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.974719,
+                                                        49.399398,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.971157,
+                                                        49.402037,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.972638,
+                                                        49.403378,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.973045,
+                                                        49.404341,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.973153,
+                                                        49.406952,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.969634,
+                                                        49.409312,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.968711,
+                                                        49.413347,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.973131,
+                                                        49.415329,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.975491999999996,
+                                                        49.415943,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.978024,
+                                                        49.417227000000004,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.979567999999997,
+                                                        49.418484,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.981198999999997,
+                                                        49.419293,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.982572999999995,
+                                                        49.420689,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.985577,
+                                                        49.421806,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.986863999999997,
+                                                        49.424039,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.987122,
+                                                        49.429007000000006,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.988923999999997,
+                                                        49.43018,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.989096,
+                                                        49.43124,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.988237,
+                                                        49.43185400000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.984203,
+                                                        49.433082000000006,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.983603,
+                                                        49.433529,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.983517,
+                                                        49.434701,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.980255,
+                                                        49.437659,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.97768,
+                                                        49.44061700000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.978968,
+                                                        49.442906,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.976564000000003,
+                                                        49.444859,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.97562,
+                                                        49.445417,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.976221,
+                                                        49.44737,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.975363,
+                                                        49.448542,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.975277,
+                                                        49.449714,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.973732,
+                                                        49.451722,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.971672,
+                                                        49.452782,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.968153000000004,
+                                                        49.452838,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.965406,
+                                                        49.453061,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.963861,
+                                                        49.453564,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.963175,
+                                                        49.45423300000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.960686,
+                                                        49.45473499999999,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.961201,
+                                                        49.455572,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.962917,
+                                                        49.457302000000006,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.96266,
+                                                        49.458418,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.963261,
+                                                        49.459422,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.963132,
+                                                        49.460872,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.964032999999997,
+                                                        49.463187,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.965235,
+                                                        49.465474,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.966264999999996,
+                                                        49.468013,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.965406,
+                                                        49.46985300000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.964677,
+                                                        49.47085700000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.964462,
+                                                        49.472001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.965578,
+                                                        49.47359,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.965793,
+                                                        49.474678,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.97017,
+                                                        49.47682499999999,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.965492,
+                                                        49.479725,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.962874,
+                                                        49.482011,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.960342,
+                                                        49.482792,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.963261,
+                                                        49.48466,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.963518,
+                                                        49.487671,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.965192,
+                                                        49.48951100000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.965063,
+                                                        49.490431,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.966308000000005,
+                                                        49.49318999999999,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.968153000000004,
+                                                        49.494668,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.971801000000003,
+                                                        49.496173,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.973389,
+                                                        49.496814,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.973174,
+                                                        49.498012,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.972702,
+                                                        49.499573,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.971930000000004,
+                                                        49.500186,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.971715000000003,
+                                                        49.50088300000001,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.972487,
+                                                        49.501859,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.972830999999996,
+                                                        49.502638999999995,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.972144,
+                                                        49.503141,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.971672000000005,
+                                                        49.504367,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.969698,
+                                                        49.505064,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.968239000000004,
+                                                        49.50640099999999,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.966522,
+                                                        49.506066999999994,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.965878,
+                                                        49.505621,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.964033,
+                                                        49.506513,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.963132,
+                                                        49.50824099999999,
+                                                        0
+                                                    ],
+                                                    [
+                                                        18.9627065,
+                                                        49.5086703,
+                                                        0
+                                                    ]
+                                                ]
+                                            ]
+                                        }
+                                    ],
+                                    "type": "GeometryCollection"
+                                },
+                                "properties": {
+                                    "name": "Mapa regi�nu Kysuce"
+                                }
+                            }
+                        ]
+                    }
+                ];
+
+
+                var myLayer_p_2 = L.geoJSON(p_2, {
+                    pointToLayer: function(feature, latlon) {
+
+
+                        return L.marker(latlon, {
+                            fillColor:  '#66CC00',
+                            'paint': {
+                                'fill-color': 'blue',
+                                'fill-opacity': 0.8,
+                            },
+                            fillOpacity: 0.3,
+                            stroke: true
+                        });
+                    }
+                }).addTo(map);
+
+
+
+                myLayer_p_2.on('click', function(e) {
+                    window.location.href="mapa.php";
+
+                });
+
+
+
+
+                var p_3 = [
+                    {
+                        "type": "FeatureCollection",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "properties": {},
+                                "geometry": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        18.735122680664062,
+                                        49.22454850051489
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ];
+
+
+                var myLayer_p_3 = L.geoJSON(p_3, {
+                    pointToLayer: function(feature, latlon) {
+
+
+                        return L.marker(latlon, {
+                            fillColor:  '#66CC00',
+                            'paint': {
+                                'fill-color': 'blue',
+                                'fill-opacity': 0.8,
+                            },
+                            fillOpacity: 0.3,
+                            stroke: true
+                        });
+                    }
+                }).addTo(map);
+
+
+
+                myLayer_p_3.on('click', function(e) {
+                    window.location.href="mapa.php";
+
+                });
+
+
+
+
+                var p_4 = [
+                    {
+                        "type": "FeatureCollection",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "properties": {},
+                                "geometry": {
+                                    "type": "Polygon",
+                                    "coordinates": [
+                                        [
+                                            [
+                                                17.039794921874996,
+                                                46.445427497233844
+                                            ],
+                                            [
+                                                17.039794921874996,
+                                                47.44294999517949
+                                            ],
+                                            [
+                                                21.588134765625,
+                                                47.44294999517949
+                                            ],
+                                            [
+                                                21.588134765625,
+                                                46.445427497233844
+                                            ],
+                                            [
+                                                17.039794921874996,
+                                                46.445427497233844
+                                            ]
+                                        ]
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ];
+
+
+                var myLayer_p_4 = L.geoJSON(p_4, {
+                    pointToLayer: function(feature, latlon) {
+
+
+                        return L.marker(latlon, {
+                            fillColor:  '#66CC00',
+                            'paint': {
+                                'fill-color': 'blue',
+                                'fill-opacity': 0.8,
+                            },
+                            fillOpacity: 0.3,
+                            stroke: true
+                        });
+                    }
+                }).addTo(map);
+
+
+
+                myLayer_p_4.on('click', function(e) {
+                    window.location.href="mapa.php";
+
+                });
+
+
+
+
+
+
+                map.addLayer(map);
+            </script>
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="container">
+<div class="row l-page">
+
+    <div class="col-md-7 l-list-items">
+        <h2>Najnovšie pridané piesne</h2>
+
+        <div class="l-song-item l-well">
+            <h3><a href="#">Spievaj si, dievčatko, netrať veselosti…</a></h3>
+            <a href="#"><img src="http://ludoslovensky.sk/piesne/data/20/spevy-i_1-spievaj-si-dievcatko-1.png"></a>
+        </div>
+
+        <div class="l-song-item l-well">
+            <h3><a href="#">Spievaj si, dievčatko, netrať veselosti…</a></h3>
+            <a href="#"><img src="http://ludoslovensky.sk/piesne/data/20/spevy-i_1-spievaj-si-dievcatko-1.png"></a>
+        </div>
+
+        <div class="l-song-item l-well">
+            <h3><a href="#">Spievaj si, dievčatko, netrať veselosti…</a></h3>
+            <a href="#"><img src="http://ludoslovensky.sk/piesne/data/20/spevy-i_1-spievaj-si-dievcatko-1.png"></a>
+        </div>
+
+        <div class="l-song-item l-well">
+            <h3><a href="#">Spievaj si, dievčatko, netrať veselosti…</a></h3>
+            <a href="#"><img src="http://ludoslovensky.sk/piesne/data/20/spevy-i_1-spievaj-si-dievcatko-1.png"></a>
+        </div>
+
+        <div class="l-song-item l-well">
+            <h3><a href="#">Spievaj si, dievčatko, netrať veselosti…</a></h3>
+            <a href="#"><img src="http://ludoslovensky.sk/piesne/data/20/spevy-i_1-spievaj-si-dievcatko-1.png"></a>
+        </div>
+
+        <br>
+
+        <div class="l-center"><button type="button" class="l-btn l-btn--large l-btn--primary">Všetky piesne (29)</button></div>
+
+    </div>
+
+
+    <div class="col-md-5 l-chart">
+        <h2>Najpopulárnejšie</h2>
+        <ol>
+            <li><a href="piesen.php?35">Ja parobek z Kapušan nemam ženy, lem som sam</a> <small><i class="fa fa-eye" aria-hidden="true"></i>43</small></li>
+
+            <li><a href="piesen.php?64">Anička mlynárova, máš-li ty húsky doma</a> <small><i class="fa fa-eye" aria-hidden="true"></i>34</small></li>
+
+            <li><a href="piesen.php?63">Vychodí slniečko spoza lesy</a> <small><i class="fa fa-eye" aria-hidden="true"></i>17</small></li>
+
+            <li><a href="piesen.php?20">Spievaj si, dievčatko, netrať veselosti</a> <small><i class="fa fa-eye" aria-hidden="true"></i>17</small></li>
+
+            <li><a href="piesen.php?36">Bodaj by vás, vy mládenci čerti vzali</a> <small><i class="fa fa-eye" aria-hidden="true"></i>16</small></li>
+
+            <li><a href="piesen.php?38">Láska, bože, láska, kde ťa ľudia berú</a> <small><i class="fa fa-eye" aria-hidden="true"></i>16</small></li>
+
+            <li><a href="piesen.php?55">Nieto, nieto v šírom svete milšieho</a> <small><i class="fa fa-eye" aria-hidden="true"></i>14</small></li>
+
+            <li><a href="piesen.php?34">Nestískaj mi, šuhaj, rúčku</a> <small><i class="fa fa-eye" aria-hidden="true"></i>14</small></li>
+
+            <li><a href="piesen.php?26">Zaspievalo vtáča na kosodrevine</a> <small><i class="fa fa-eye" aria-hidden="true"></i>11</small></li>
+
+            <li><a href="piesen.php?37">Ej, škoda ťa, šuhajko</a> <small><i class="fa fa-eye" aria-hidden="true"></i>10</small></li>
+
+            <li><a href="piesen.php?29">Zapadá slniečko za ďaleké hory</a> <small><i class="fa fa-eye" aria-hidden="true"></i>7</small></li>
+
+            <li><a href="piesen.php?74">Široký jarčok, bystrá vodička</a> <small><i class="fa fa-eye" aria-hidden="true"></i>7</small></li>
+
+            <li><a href="piesen.php?47">Javoru, Javorník, pod Javorník chodník</a> <small><i class="fa fa-eye" aria-hidden="true"></i>7</small></li>
+
+            <li><a href="piesen.php?56">Ej, Janík, Janík, bol bys' zbojník</a> <small><i class="fa fa-eye" aria-hidden="true"></i>7</small></li>
+
+            <li><a href="piesen.php?71">Tečie voda, tečie, ej do potôčka kvapká</a> <small><i class="fa fa-eye" aria-hidden="true"></i>5</small></li>
+
+            <li><a href="piesen.php?45">Pošiel milý, pošiel prečka</a> <small><i class="fa fa-eye" aria-hidden="true"></i>4</small></li>
+
+            <li><a href="piesen.php?50">Hej, Marienča, Marienča</a> <small><i class="fa fa-eye" aria-hidden="true"></i>4</small></li>
+
+            <li><a href="piesen.php?46">Prala som ja na potôčku, prala som</a> <small><i class="fa fa-eye" aria-hidden="true"></i>4</small></li>
+
+            <li><a href="piesen.php?69">V šírom poli strom zelený</a> <small><i class="fa fa-eye" aria-hidden="true"></i>4</small></li>
+
+            <li><a href="piesen.php?49">Mám ja milučkého, mám</a> <small><i class="fa fa-eye" aria-hidden="true"></i>4</small></li>
+
+
+        </ol>
+
+
+        <h2>Pridaj sa do nášho newslettera</h2>
+        <p>Chceš <strong>najnovšie piesne a novinky</strong>, správy a zaujímavosti o ľudovej slovesnosti <strong>priamo do svojej schránky</strong>? Daj nám svoj e-mail.
+            <iframe width="100%" height="195" src="https://my.sendinblue.com/users/subscribe/js_id/2c7dt/id/3" frameborder="0" scrolling="auto" allowfullscreen="" style="display: block;margin-left: auto;margin-right: auto;"></iframe>
+
+
+        </p><h2>Miluj Ľuda na Facebooku</h2>
+        <div class="fb-like-box fb_iframe_widget" data-href="https://www.facebook.com/ludo.slovensky" data-height="50px" data-colorscheme="dark" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=1402931466605062&amp;color_scheme=dark&amp;container_width=445&amp;header=false&amp;height=50&amp;href=https%3A%2F%2Fwww.facebook.com%2Fludo.slovensky&amp;locale=en_US&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=false"><span style="vertical-align: bottom; width: 300px; height: 70px;"><iframe name="f19bf9a1b8" width="1000px" height="50px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like_box Facebook Social Plugin" src="https://www.facebook.com/v2.0/plugins/like_box.php?app_id=1402931466605062&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FfTmIQU3LxvB.js%3Fversion%3D42%23cb%3Df3db561798%26domain%3Dwww.ludoslovensky.sk%26origin%3Dhttp%253A%252F%252Fwww.ludoslovensky.sk%252Ff2645a73c%26relation%3Dparent.parent&amp;color_scheme=dark&amp;container_width=445&amp;header=false&amp;height=50&amp;href=https%3A%2F%2Fwww.facebook.com%2Fludo.slovensky&amp;locale=en_US&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=false" class="" style="border: none; visibility: visible; width: 300px; height: 70px;"></iframe></span></div></div>
+
+</div>
+</div>
+
+<footer class="l-footer">
+
+    <div class="container">
+
+        <div class="l-footer__signature">
+
+            <a class="l-footer__logo">
+                <img src="/public/img/logo-inverse.png">
+            </a>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- jQuery first, then Bootstrap JS. -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+
+<script>
+    $('.switch li a').click(function(){
+        var color = $(this).attr('class').split('-')[1];
+        $('body').removeClass().addClass('l-theme-' + color);
+    });
+</script>
+
+</body>
+</html>

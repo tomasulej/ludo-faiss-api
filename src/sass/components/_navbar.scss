@@ -90,6 +90,12 @@ $navbar-height: 4rem;
 
 .l-navbar{
 
+  .btn-burger{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.5rem;
+  }
+
   height: $navbar-height;
   background: #fff;
   font-family: 'Qanelas-Soft Semibold', sans-serif;
