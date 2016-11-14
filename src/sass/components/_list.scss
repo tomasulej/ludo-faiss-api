@@ -33,3 +33,40 @@
     margin-top: 0;
   }
 }
+
+.l-chart{
+
+  ol{
+
+    li{
+
+      line-height: 1.8rem;
+      border-radius: 5px;
+
+      small{
+        color: $color-grey;
+      }
+
+      .fa{
+        margin-right: 3px;
+      }
+
+      a{
+        display: inline-block;
+        white-space: nowrap;
+        width: 90%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-left: 0.5rem;
+      }
+
+      a:hover{
+        text-decoration: none;
+      }
+    }
+
+    li:hover{
+      background: $color-grey-light;
+    }
+  }
+}

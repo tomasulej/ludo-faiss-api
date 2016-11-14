@@ -2235,19 +2235,24 @@ a {
 .btn {
   font-family: 'Qanelas-Soft Semibold', sans-serif; }
 
-.l-btn, .l-btn--small, .l-btn--large {
+.l-btn, .l-btn--small, .l-btn--medium, .l-btn--large {
   display: inline-block;
   vertical-align: middle;
   font-family: 'Qanelas-Soft Semibold', sans-serif;
   border: 0; }
 
-.l-btn:hover, .l-btn--small:hover, .l-btn--large:hover {
+.l-btn:hover, .l-btn--small:hover, .l-btn--medium:hover, .l-btn--large:hover {
   text-decoration: none; }
 
 .l-btn--small {
   border-radius: 0.2rem;
   border-corner-shape: notch;
   padding: 0.2em 0.6rem; }
+
+.l-btn--medium {
+  border-radius: 0.2rem;
+  border-corner-shape: notch;
+  padding: 0.4em 0.9rem; }
 
 .l-btn--large {
   border-radius: 0.2rem;
@@ -2313,6 +2318,12 @@ a {
 .l-center {
   text-align: center; }
 
+.l-right {
+  text-align: right; }
+
+.l-margin-0 {
+  margin: 0 !important; }
+
 @media screen and (max-width: 47.9rem) {
   html {
     font-size: 14px; } }
@@ -2357,6 +2368,10 @@ a {
   background: #fff;
   font-family: 'Qanelas-Soft Semibold', sans-serif;
   font-size: 1.125rem; }
+  .l-navbar .btn-burger {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.5rem; }
   .l-navbar .l-navbar__logo {
     line-height: 4rem; }
     .l-navbar .l-navbar__logo img {
@@ -2505,6 +2520,10 @@ a {
   padding-top: 3rem;
   background: #333845;
   color: #fff; }
+  .l-promo .text-muted-inverse {
+    font-size: 0.9rem; }
+  .l-promo a {
+    color: #acb5c6; }
 
 @media (max-width: 47.9rem) {
   .l-promo {
@@ -2512,7 +2531,7 @@ a {
     .l-promo .l-promo__btns {
       text-align: center;
       margin-bottom: 2rem; }
-      .l-promo .l-promo__btns .l-btn, .l-promo .l-promo__btns .l-btn--small, .l-promo .l-promo__btns .l-btn--large {
+      .l-promo .l-promo__btns .l-btn, .l-promo .l-promo__btns .l-btn--small, .l-promo .l-promo__btns .l-btn--medium, .l-promo .l-promo__btns .l-btn--large {
         margin-bottom: 1rem; } }
 .l-theme-green .l-articles h2 {
   color: #49a983; }
@@ -2733,5 +2752,24 @@ a {
   .l-list-filter h3 {
     font-size: 1.25rem;
     margin-top: 0; }
+
+.l-chart ol li {
+  line-height: 1.8rem;
+  border-radius: 5px; }
+  .l-chart ol li small {
+    color: #717887; }
+  .l-chart ol li .fa {
+    margin-right: 3px; }
+  .l-chart ol li a {
+    display: inline-block;
+    white-space: nowrap;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 0.5rem; }
+  .l-chart ol li a:hover {
+    text-decoration: none; }
+.l-chart ol li:hover {
+  background: #eef1f5; }
 
 /*# sourceMappingURL=style.css.map */

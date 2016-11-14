@@ -8,6 +8,14 @@
 
   }
 
+  .text-muted-inverse{
+    font-size: 0.9rem;
+  }
+
+  a{
+    color: $color-grey2;
+  }
+
 }
 
 @media (max-width: $screen-sm-max) {

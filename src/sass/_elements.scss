@@ -78,6 +78,13 @@ a{
   padding: 0.2em 0.6rem;
 }
 
+.l-btn--medium{
+  @extend .l-btn;
+  border-radius: 0.2rem;
+  border-corner-shape: notch;
+  padding: 0.4em 0.9rem;
+}
+
 .l-btn--large{
   @extend .l-btn;
   border-radius: 0.2rem;
@@ -179,6 +186,14 @@ a{
 
 .l-center{
   text-align: center;
+}
+
+.l-right{
+  text-align: right;
+}
+
+.l-margin-0{
+  margin: 0 !important;
 }
 
 @media screen and (max-width: $screen-sm-max) {
