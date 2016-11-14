@@ -1,7 +1,7 @@
 <?php
     $theme="l-theme-green l-layout-song";
     $piesne_tab='class="active"';
-include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
+require_once $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
 require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
@@ -12,26 +12,40 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
     <div class="container">
 
+
+
+
+
         <div class="l-song-header" data-role="header">
             <div class="row">
-                <div class="col-md-1 col-xs-2">
-                    <a id="playpause_main" class="l-btn l-btn--primary l-btn--small l-btn--play" onclick="playpause('#aud','#playpause_main');"><i class="fa fa-play"></i></a>
-                </div>
-                <div class="col-md-11 col-xs-10">
+
+                <div class="col-md-7">
 
                     <h1>
                         <?php echo $piesen->nazov_dlhy;?>
                     </h1>
 
-                    <div class="hidden-md-down"> <!--class="l-song-subh"-->
-                        <small>Zozbieral(a): <strong><!--<a href="zberatel.php?id=<?php echo $piesen->id_zberatel; ?>">--><?php echo $piesen->zberatelia_meno; ?><!--</a>--></strong> (<?php echo $piesen->datum_zbieranie; ?>) ● Zdigitalizoval(a): <strong><!--<a href="digitalizator.php?id=<?php echo $piesen->id_digitalizator; ?>">--><?php echo $piesen->digitalizatori_meno; ?><!--</a>--></strong> (<?php echo date("Y",strtotime($piesen->datum_digitalizacia)); ?>) ● Pôvodná zbierka <strong><!--<a href="zbierky.php?id=<?php echo $piesen->id_zbierka ?>">--><?php echo $piesen->zbierky_nazov ?><!--</a>--></strong></small>
-                    </div>
                 </div>
+
+                <div class="col-md-5 l-right">
+                    <a id="playpause_main" class="l-btn l-btn--primary l-btn--medium" onclick="playpause('#aud','#playpause_main');"><i class="fa fa-play"></i> Prehrať melódiu</a>
+                </div>
+
+
+
+
+
 
 
             </div>
 
+            <p class="hidden-md-down"> <!--class="l-song-subh"-->
+                <small>Zozbieral(a): <strong><!--<a href="zberatel.php?id=<?php echo $piesen->id_zberatel; ?>">--><?php echo $piesen->zberatelia_meno; ?><!--</a>--></strong> (<?php echo $piesen->datum_zbieranie; ?>) ● Zdigitalizoval(a): <strong><!--<a href="digitalizator.php?id=<?php echo $piesen->id_digitalizator; ?>">--><?php echo $piesen->digitalizatori_meno; ?><!--</a>--></strong> (<?php echo date("Y",strtotime($piesen->datum_digitalizacia)); ?>) ● Pôvodná zbierka <strong><!--<a href="zbierky.php?id=<?php echo $piesen->id_zbierka ?>">--><?php echo $piesen->zbierky_nazov ?><!--</a>--></strong></small>
+            </p>
+
+
         </div>
+
 
 
 
@@ -42,7 +56,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                 <div class="col-md-12">
 
                     <div id="meddiv" style="display:none"   >
-                            <audio id="aud" controls="controls" ontimeupdate="show_lyrics(this.currentTime)" autoplay>Your browser does not support the audio element.</audio>
+                            <audio id="aud" controls="controls" ontimeupdate="show_lyrics(this.currentTime)">Your browser does not support the audio element.</audio>
                             <video id="vid" controls="controls" autoplay style="display:none">Your browser does not support the video element.</video>
                             <div id="vidyub"></div>
                     </div>
@@ -592,6 +606,23 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
        
             </div>
 
+
+        <!--klucove slova -->
+        <?php if (!empty($klucove_slova)) {  ?>
+        <div class="row">
+
+            <div class="col-md-12">
+                <h3>Kľúčové slová</h3>
+
+                <?php foreach ($klucove_slova as $key=>$klucoveslovo) { ?>
+                    <a href="hladat.php?q=<?php echo $klucoveslovo;?>" class="tag tag-default"><?php echo $klucoveslovo;?></a>
+                <?php } ?>
+
+            </div>
+
+        </div>
+
+        <?php } ?>
         <!-- populárne songy -->
 
 
@@ -801,11 +832,11 @@ function abc2svg() {
     
   });
 
-
+<!--
 var vid = document.getElementById("aud");
 vid.onloadeddata = function() {
     playpause('#aud','#playpause_main'); 
-};
+}; -->
 
 
    
