@@ -7,6 +7,7 @@
 //includes
 include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
 
+
 //prenos informacii
 $id=(int)array_keys($_GET)[0];
 
@@ -54,7 +55,7 @@ while ($o_podobne=mysql_fetch_object($q_podobne)) {
 }
 
 // odporucane piesne
-$query_odporucane=mysql_query("SELECT log.id_piesen, piesne.nazov_dlhy, piesne.file_mp3, piesne.file_png, piesne.nazov_kratky, sum(log.pocet) as videnia FROM log LEFT JOIN piesne ON piesne.id_piesen=log.id_piesen GROUP BY id_piesen ORDER BY videnia DESC LIMIT 10");
+$query_odporucane=mysql_query("SELECT log.id_piesen, piesne.nazov_dlhy, piesne.file_mp3, piesne.file_png, piesne.nazov_kratky, sum(log.pocet) as videnia FROM log LEFT JOIN piesne ON piesne.id_piesen=log.id_piesen GROUP BY id_piesen ORDER BY videnia DESC LIMIT 12");
 while ($o_odporucane=mysql_fetch_object($query_odporucane)) {
             $odporucane[] = array(
                 "id_piesen" => $o_odporucane->id_piesen,
@@ -117,7 +118,23 @@ while ($o_mena=mysql_fetch_object($q_mena)) {
 }
 
 
+//klucove slova
+/*
+require_once $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
+include $_SERVER["DOCUMENT_ROOT"]."/databaza_slova.php";
 
+$slova_sklon=explode(" ", cleanlyrics_words($piesen->lyrics));
+
+print_r($slova_sklon);
+
+//print_r($slova_sklon);
+foreach ($slova_sklon as &$word) {
+    $word_zakl=zakladny_tvar($word);
+    //echo $word."xxx";
+   $klucove_slova[]=$word_zakl."(".zakladny_tvar_form($word).")";
+}
+
+$klucove_slova=array_unique($klucove_slova); */
 
 
 //log reading
