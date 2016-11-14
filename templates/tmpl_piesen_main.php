@@ -833,11 +833,11 @@ function abc2svg() {
     
   });
 
-<!--
+/*
 var vid = document.getElementById("aud");
 vid.onloadeddata = function() {
     playpause('#aud','#playpause_main'); 
-}; -->
+}; */
 
 
    
