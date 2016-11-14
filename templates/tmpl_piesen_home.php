@@ -27,7 +27,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header_home.php";
 </form>
                 </div>
             <BR>
-            <p class="text-muted-inverse"><i class="fa fa-info-circle"></i> Upozornenie: Náš projekt nachodí sa len na počiatku, z plánovaných 50-tisíc piesni dosiaľ len 0 je zdigitalizovaných. Nech ťa teda smútok nepremkýna, ak nenájdeš, čo si chcel(a). Vyčkaj času, ako husa klasu. Alebo tiež  môžeš <a href="/vyzva/">priložiť ruku k dielu a pomôcť nám</a>.</p>
+            <p class="text-muted-inverse"><i class="fa fa-info-circle"></i> Upozornenie: Náš projekt nachodí sa len na počiatku, z plánovaných 50-tisíc piesni dosiaľ len <?php echo $pocet_piesni;?> je zdigitalizovaných. Nech ťa teda smútok nepremkýna, ak nenájdeš, čo si chcel(a). Vyčkaj času, ako husa klasu. Alebo tiež  môžeš <a href="/vyzva/">priložiť ruku k dielu a pomôcť nám</a>.</p>
 
 
         </div>
