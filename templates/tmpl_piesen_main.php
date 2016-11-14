@@ -153,7 +153,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
             $p_audio="aud_".$p_piesen['id_piesen'];
             ?> 
 
-        <a class="l-btn l-btn--primary l-btn--small" id="<?php echo $p_button;?>" 
+        <a class="l-btn l-btn--primary l-btn--small l-btn-play" id="<?php echo $p_button;?>"
             onclick="playpause('<?php echo "#".$p_audio;?>','<?php echo "#".$p_button;?>');" ><i class="fa fa-play"></i></a>
         <audio id="<?php echo $p_audio; ?>" controls="controls" src="<?php echo $p_piesen['file_mp3']; ?>" style="display:none">Your browser does not support the audio element.</audio>
         <?php }?>
@@ -642,6 +642,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
 
 
+
                     <div class="col-md-4">
                         <div class="l-song-item l-well">
                             <h3><?php echo ($p_piesen["nazov_kratky"]==""?"<a data-toggle=\"modal\" data-target=\"#estetunieje\">(ešte nezdigitalizované)":"<a href=piesen.php?".$p_piesen["id_piesen"].">".$p_piesen["nazov_kratky"]."…");?></a></h3>
@@ -650,7 +651,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                                 $p_audio="aud_".$p_piesen['id_piesen'];
                                 ?>
 
-                                <a class="l-btn l-btn--primary l-btn--small" id="<?php echo $p_button;?>"
+                                <a class="l-btn l-btn--primary l-btn--small l-btn--play" id="<?php echo $p_button;?>"
                                    onclick="playpause('<?php echo "#".$p_audio;?>','<?php echo "#".$p_button;?>');" ><i class="fa fa-play"></i></a>
                                 <audio id="<?php echo $p_audio; ?>" controls="controls" src="<?php echo $p_piesen['file_mp3']; ?>" style="display:none">Your browser does not support the audio element.</audio>
                             <?php }?>
