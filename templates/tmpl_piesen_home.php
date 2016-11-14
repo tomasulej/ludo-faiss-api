@@ -26,9 +26,11 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header_home.php";
 
 </form>
                 </div>
-                <p class="text-muted-inverse"><small>Upozornenie: Náš projekt nachodí sa len na počiatku, z plánovaných 50-tisíc piesni dosiaľ len <?php echo $pocet_piesni; ?> je zdigitalizovaných. Nech ťa teda smútok nepremkýna, ak nenájdeš, čo si chcel(a). Vyčkaj času, ako husa klasu. Alebo tiež  môžeš <a href="/vyzva/">priložiť ruku k dielu a pomôcť nám</a>.</small></p>
+            <BR>
+            <p class="text-muted-inverse"><i class="fa fa-info-circle"></i> Upozornenie: Náš projekt nachodí sa len na počiatku, z plánovaných 50-tisíc piesni dosiaľ len 0 je zdigitalizovaných. Nech ťa teda smútok nepremkýna, ak nenájdeš, čo si chcel(a). Vyčkaj času, ako husa klasu. Alebo tiež  môžeš <a href="/vyzva/">priložiť ruku k dielu a pomôcť nám</a>.</p>
 
-</div>
+
+        </div>
 
        <div class="col-lg-3 col-lg-pull-8 col-xl-5 col-xl-pull-9">
 <h3>Skade už piesne máme (<?php echo $pocet_piesni;?>)</h3>
@@ -97,12 +99,13 @@ map.addLayer(map);
 
 
 <div class="container"><div class="row l-page">
-<div class="col-md-7">
+<div class="col-md-7 l-list-items">
 <h2>Najnovšie pridané piesne</h2>
 
+
+
 <?php foreach ($piesne as $key=>$piesen) { ?>
-        <div class="col-md-12">
-        <div class="l-song-item l-well"> 
+        <div class="l-song-item l-well">
         <h3><a href="piesen.php?<?php echo $piesen['id_piesen'];?>"><?php echo ($piesen["nazov_dlhy"]==""?"(ešte nezdigitalizované)":$piesen["nazov_dlhy"]."…");?></a></h3>
         <?php if ($piesen['file_mp3']<>"") { 
             $p_button="playpause_p_".$piesen['id_piesen'];
@@ -113,25 +116,30 @@ map.addLayer(map);
             onclick="playpause('<?php echo "#".$p_audio;?>','<?php echo "#".$p_button;?>');" ><i class="fa fa-play"></i></a>
         <audio id="<?php echo $p_audio; ?>" controls="controls" src="data/<?php echo $piesen['id_piesen']; ?>/<?php echo $piesen['file_mp3']; ?>" style="display:none">Your browser does not support the audio element.</audio>
 -->
+
+
         <?php }?>
 
         <a href="piesen.php?<?php echo $piesen['id_piesen'];?>"><img src='data/<?php echo $piesen['id_piesen']; ?>/<?php echo $piesen["file_png"];?>'></a>
         <!--<p class="l-song-subh">
             <small>Zozbieral(a): <a href="zberatel.php?id=<?php echo $piesen['id_zberatel']; ?>"><?php echo $piesen['zberatelia_meno']; ?></a> (<?php echo $piesen['datum_zbieranie']; ?>) ● Zdigitalizoval(a): <a href="digitalizator.php?id=<?php echo $piesen['id_digitalizator']; ?>"><?php echo $piesen['digitalizatori_meno']; ?></a> (<?php echo $piesen['datum_digitalizacia']; ?>) ● Pôvodná zbierka <a href="zbierky.php?id=<?php echo $piesen['id_zbierka'] ?>"><?php echo $piesen['zbierky_nazov'] ?></a></small>
         </p>-->
-        </div><BR>
+        </div>
 
 
 
-        </div><div></div>
+
     <?php } ?>
+    <BR>
 
-<div align="center"><button type="button" class="l-btn l-btn--large l-btn--primary" onclick="window.location.href='/piesne/hladat.php'">Všetky piesne (<?php echo $pocet_piesni;?>)</button></div>
+    <div class="l-center"><button type="button" class="l-btn l-btn--large l-btn--primary">Všetky piesne (29)</button></div>
+
+
 
 </div>
 
 
-<div class="col-md-5">
+<div class="col-md-5 l-chart">
 <H2>Najpopulárnejšie</H2>
 <ol>
 <?php foreach ($piesne_top as $key=>$piesen) { ?>

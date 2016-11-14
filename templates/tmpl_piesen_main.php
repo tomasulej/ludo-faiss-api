@@ -39,7 +39,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
             </div>
 
-            <p class="hidden-md-down"> <!--class="l-song-subh"-->
+            <p class="l-song-subh hidden-md-down"> <!--class="hidden-md-down"-->
                 <small>Zozbieral(a): <strong><!--<a href="zberatel.php?id=<?php echo $piesen->id_zberatel; ?>">--><?php echo $piesen->zberatelia_meno; ?><!--</a>--></strong> (<?php echo $piesen->datum_zbieranie; ?>) ● Zdigitalizoval(a): <strong><!--<a href="digitalizator.php?id=<?php echo $piesen->id_digitalizator; ?>">--><?php echo $piesen->digitalizatori_meno; ?><!--</a>--></strong> (<?php echo date("Y",strtotime($piesen->datum_digitalizacia)); ?>) ● Pôvodná zbierka <strong><!--<a href="zbierky.php?id=<?php echo $piesen->id_zbierka ?>">--><?php echo $piesen->zbierky_nazov ?><!--</a>--></strong></small>
             </p>
 
