@@ -19,7 +19,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
         <div class="l-song-header" data-role="header">
             <div class="row">
 
-                <div class="col-md-7">
+                <div class="col-md-9">
 
                     <h1>
                         <?php echo $piesen->nazov_dlhy;?>
@@ -27,7 +27,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
                 </div>
 
-                <div class="col-md-5 l-right">
+                <div class="col-md-3 l-right">
                     <a id="playpause_main" class="l-btn l-btn--primary l-btn--medium" onclick="playpause('#aud','#playpause_main');"><i class="fa fa-play"></i> Prehrať melódiu</a>
                 </div>
 
