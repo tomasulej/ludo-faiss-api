@@ -118,9 +118,9 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 <div id="tuto-poznam_div" class="l-well l-know">
             <strong>Poznáte túto pieseň?</strong>
             Dajte nám vedieť! Pomôžete tým mapovať rozšírenie piesni na Slovensku:
-            <button class="l-btn l-btn--primary l-btn--small" data-toggle="popover" id="tuto-poznam" data-placement="top" data-original-title="" title="">
+            <button class="l-btn l-btn--primary l-btn--small" data-toggle="popover" id="tuto-poznam" data-trigger="focus" data-original-title="" title="">
                 <i class="fa fa-star"></i> Túto pieseň poznám!</button>
-                <a data-toggle="popover" data-content="Nie všetky staré piesne ešte niekto pozná a nie všetky sa dnes spievajú tam, kde boli pred stovkami rokov zozbierané. Snažíme sa preto &lt;strong&gt;mapovať, kde všade sa ešte dnes spievajú jednotlivé piesne&lt;/strong&gt;. Dajte nám vedieť, či pieseň poznáte a &lt;strong&gt;pomôžte nám v našom úsilí!&lt;/strong&gt; Ďakujeme :)" data-placement="bottom" data-original-title="" title=""><i class="fa fa-question-circle"></i>
+                <a data-toggle="popover" data-content="Nie všetky staré piesne ešte niekto pozná a nie všetky sa dnes spievajú tam, kde boli pred stovkami rokov zozbierané. Snažíme sa preto &lt;strong&gt;mapovať, kde všade sa ešte dnes spievajú jednotlivé piesne&lt;/strong&gt;. Dajte nám vedieť, či pieseň poznáte a &lt;strong&gt;pomôžte nám v našom úsilí!&lt;/strong&gt; Ďakujeme :)"  data-original-title="" title=""><i class="fa fa-question-circle"></i>
                 </a>
         </div>
 
@@ -779,7 +779,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 //tuto poznam!
 $('[data-toggle="popover"]').popover({
     html: true,
-    trigger: 'manual',
+    trigger: 'focus',
     content: function() {
         //e.preventDefault();
         //alert("ahoj");  

@@ -22,7 +22,7 @@ if ($_POST['odoslane_tutopoznam']=="true") {
   
 ?>
 <div class="alert alert-success" role="alert">
-  <p><strong>Perfektné</strong>, ďakujeme za pomoc, teraz už vieme všetko potrebné. Ak by ste mali chuť dostávať od nás občasný newsletter s novými piesňami a ďalšími informáciami o projekte, <a href="http://www.ludoslovensky.sk/newsletter.html">kliknite sem</a>.  </p>
+  <p><strong>Perfektné</strong>, ďakujeme za pomoc, teraz už vieme všetko potrebné. Ak by si mal(a) chuť dostávať od nás občasný newsletter s novými piesňami a ďalšími informáciami o projekte, <a href="http://www.ludoslovensky.sk/newsletter.html">nože klikni sem</a>.  </p>
 </div>
 
 
@@ -41,7 +41,7 @@ if ($_POST['odoslane_tutopoznam']=="true") {
 
 ?>
 <div class="alert alert-success" role="alert">
-  <p><strong>Ďakujeme za informáciu!</strong> Povedzte nám viac o tom, odkiaľ ste a kedy ste sa narodili a pomôžte nám tak <strong>mapovať ľudovú kultúru na Slovensku</strong>.</b></p>
+  <p><strong>Hop, cup, tralala!</strong><BR> Ešte by sa nám predsa o tebe hodilo poznať pár doplňujúcich informácii.</p>
 </div>
 
   <style type="text/css">
@@ -61,7 +61,7 @@ if ($_POST['odoslane_tutopoznam']=="true") {
 
 <form id="form_tutopoznam" method="post">
   <fieldset class="form-group">
-    <label for="rok_narodenia" class="form-control-label"><strong>Rok vášho narodenia:</strong></label>
+    <label for="rok_narodenia" class="form-control-label"><strong>Rok tvojho narodenia:</strong></label>
     <select class="form-control" id="rok_narodenia" name="rok_narodenia">
 		<?php
 
@@ -74,9 +74,9 @@ if ($_POST['odoslane_tutopoznam']=="true") {
 </fieldset>
 
 <fieldset class="form-group">
-                        <label for="autocomplete"><strong>Odkiaľ ste (mesto/obec):</strong></label>
+                        <label for="autocomplete"><strong>Odkiaľ si (mesto/obec):</strong></label>
                         <input id="autocomplete" name="lokalita" onFocus="geolocate()" type="text" placeholder="Napr. Kocúrkovo" class="form-control input-lg">
-                        <small class="text-muted">Resp. kde si bývali, keď si pieseň počuli prvýkrát?</small>
+                        <small class="text-muted">Resp. kde si býval(a), keď si pieseň počul(a) prvýkrát?</small>
                         <input type="hidden" name="lat" id="lat" value="">
                         <input type="hidden" name="lng" id="lng" value="">
                         <input type="hidden" name="odoslane_tutopoznam" id="odoslane_tutopoznam" value="true">
