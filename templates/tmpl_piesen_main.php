@@ -240,7 +240,13 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                 <strong>Tempo</strong>: <?php echo $piesen->tempo?></a><BR>
                 <strong>Dátum zozbierania</strong>: <?php echo $piesen->datum_zbieranie?><BR>
                 <strong>Dátum digitalizácie</strong>: <?php echo date("d.m.Y",strtotime($piesen->datum_digitalizacia));?><BR>
-                 <strong>Stiahnuť</strong>: <a href="stiahnut.php?id=<?php echo $piesen->id_piesen ?>&format=xml"><i class="fa fa-music"></i> noty</a>  alebo <a href="stiahnut.php?id=<?php echo $piesen->id_piesen ?>&format=mp3"><i class="fa fa-volume-up"></i> hudbu</a> <!-- <a href=""><i class="fa fa-print"></i> vytlačiť</a> -->
+                 <strong>Stiahnuť</strong>:
+                    <a href="stiahnut.php?id=<?php echo $piesen->id_piesen; ?>&format=xml"><i class="fa fa-music"></i> noty</a>, <a href="stiahnut.php?id=<?php echo $piesen->id_piesen ?>&format=mp3"><i class="fa fa-volume-up"></i> hudbu</a>
+                    <?php if ($piesen->file_pdf<>"") { ?>
+                    , <a href="stiahnut.php?id=<?php echo $piesen->id_piesen; ?>&format=xml"><i class="fa fa-music"></i> originál (pdf)</a>
+                    <?php } ?>
+
+                    <!-- <a href=""><i class="fa fa-print"></i> vytlačiť</a> -->
                     <HR>
                     <p><a class="l-btn l-btn--primary l-btn--small" data-toggle="modal" data-target="#detaily"><i class="fa fa-info"></i> Všetky informácie o piesni</a></p>
 

@@ -43,7 +43,12 @@ if ($_POST['odoslane']=='true') {
     $upl_png_target = $_SERVER["DOCUMENT_ROOT"]."/piesne/data/".(int)$_POST['id_piesen']."/".basename($_FILES["upl_png"]["name"]);
     $upl_png_temp=$_FILES["upl_png"]["tmp_name"];
     move_uploaded_file($upl_png_temp, $upl_png_target);
-   
+
+
+    //pdf upload
+    $upl_png_target = $_SERVER["DOCUMENT_ROOT"]."/piesne/data/".(int)$_POST['id_piesen']."/".basename($_FILES["upl_pdf"]["name"]);
+    $upl_png_temp=$_FILES["upl_pdf"]["tmp_name"];
+    move_uploaded_file($upl_pdf_temp, $upl_pdf_target);
    
    
    //pridanie do databazy
