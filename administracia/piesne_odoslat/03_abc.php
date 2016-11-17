@@ -52,10 +52,11 @@ if ($_POST['odoslane']=='true') {
    
    
    //pridanie do databazy
-    $q=mysql_query(sprintf("UPDATE piesne SET file_xml='%s', file_mp3='%s', file_png='%s' WHERE id_piesen=%s", 
+    $q=mysql_query(sprintf("UPDATE piesne SET file_xml='%s', file_mp3='%s', file_png='%s', file_pdf='%s' WHERE id_piesen=%s",
            basename($_FILES["upl_xml"]["name"]), 
            basename($_FILES["upl_mp3"]["name"]),
            basename($_FILES["upl_png"]["name"]),
+           basename($_FILES["upl_pdf"]["name"]),
            (int)$_POST['id_piesen']));
     
 
