@@ -243,7 +243,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                  <strong>Stiahnuť</strong>:
                     <a href="stiahnut.php?id=<?php echo $piesen->id_piesen; ?>&format=xml"><i class="fa fa-music"></i> noty</a>, <a href="stiahnut.php?id=<?php echo $piesen->id_piesen ?>&format=mp3"><i class="fa fa-volume-up"></i> hudbu</a>
                     <?php if ($piesen->file_pdf<>"") { ?>
-                    , <a href="stiahnut.php?id=<?php echo $piesen->id_piesen; ?>&format=xml"><i class="fa fa-music"></i> originál (pdf)</a>
+                    , <a href="stiahnut.php?id=<?php echo $piesen->id_piesen; ?>&format=pdf"><i class="fa fa-photo"></i> originál</a>
                     <?php } ?>
 
                     <!-- <a href=""><i class="fa fa-print"></i> vytlačiť</a> -->
