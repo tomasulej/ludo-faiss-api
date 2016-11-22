@@ -130,11 +130,13 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 <div id="tuto-poznam_div" class="l-well l-know">
             <strong>Poznáte túto pieseň?</strong>
             Dajte nám vedieť! Pomôžete tým mapovať rozšírenie piesni na Slovensku:
-            <button class="l-btn l-btn--primary l-btn--small" data-toggle="popover" id="tuto-poznam" data-trigger="focus" data-original-title="" title="">
+            <button class="l-btn l-btn--primary l-btn--small" data-toggle="modal" href="javascript:void(0);" data-target="#tutopoznam_box" onclick="tutopoznam();">
                 <i class="fa fa-star"></i> Túto pieseň poznám!</button>
+
+
                 <a data-toggle="popover" data-content="Nie všetky staré piesne ešte niekto pozná a nie všetky sa dnes spievajú tam, kde boli pred stovkami rokov zozbierané. Snažíme sa preto &lt;strong&gt;mapovať, kde všade sa ešte dnes spievajú jednotlivé piesne&lt;/strong&gt;. Dajte nám vedieť, či pieseň poznáte a &lt;strong&gt;pomôžte nám v našom úsilí!&lt;/strong&gt; Ďakujeme :)"  data-original-title="" title=""><i class="fa fa-question-circle"></i>
                 </a>
-        </div>
+</div>
 
 
 
@@ -224,6 +226,27 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Zatvoriť</button>
 
             </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="tutopoznam_box" id="tutopoznam_box" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <div class="modal-body" id="tutopoznam_box_text">
+
+
+            </div>
+
         </div>
     </div>
 </div>
@@ -798,6 +821,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 $('[data-toggle="popover"]').popover({
     html: true,
     trigger: 'focus',
+    placement: 'bottom',
     content: function() {
         //e.preventDefault();
         //alert("ahoj");  
@@ -810,6 +834,19 @@ $('[data-toggle="popover"]').popover({
     e.preventDefault();
     e.stopImmediatePropagation();
   });
+
+
+function tutopoznam(){
+    $('#tutopoznam_box_text').html($.ajax({url: 'piesen.tuto-poznam.php?id_piesen=<?php echo $piesen->id_piesen; ?>',
+        dataType: 'html',
+        async: false}).responseText);
+
+
+}
+
+
+
+
 
 
     function _d(role) {
