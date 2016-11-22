@@ -30,7 +30,9 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0/leaflet.markercluster.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0/MarkerCluster.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0/MarkerCluster.Default.css" />
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js"></script>
+
+
  <style>
 .supsub {
     display: inline-block;
@@ -92,7 +94,7 @@
         <div class="row">
 
             <div class="col-xl-1 col-lg-2 col-xs-5">
-                <a class="l-navbar__logo">
+                <a class="l-navbar__logo" href="/">
                     <img src="/public/img/logo-small-dark.png" height="28">
                 </a>
 
