@@ -75,7 +75,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                             <span aria-hidden="true">&times;</span>
                         </button>
                         <strong>Tempo je len ilustračné!</strong>  Skutočné tempo, akým ľudia spievali túto pieseň, môže byť mierne pomalšie alebo rýchlejšie oproti tomu, v ktorom pieseň prehrávame my.
-                       <BR> <a  href="javascript:void(0)" onclick="javascript:Cookies.set('tempo_alert', 'false');$('#tempo_alert').hide();">Dobre, rozumiem.</a>
+                       <a  href="javascript:void(0)" onclick="javascript:Cookies.set('tempo_alert', 'false');$('#tempo_alert').hide();">Dobre, rozumiem.</a>
                     </div>
 
                 </div>
