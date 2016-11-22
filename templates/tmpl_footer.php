@@ -8,7 +8,7 @@
                 <img src="/public/img/logo-inverse.png">
             </a>
 
-            <p><i class="fa fa-copyright" aria-hidden="true"></i> <a href="http://www.facebook.com/tomas.ulej.pise">Tomáš Ulej</a> 2013-<?php echo date("Y"); ?>. Webdesign: <a href="http://romanklco.com">Roman Klčo</a>. Odborné poradenstvo: Mgr. Jana Ambrózová, PhD.<BR>
+            <p>Autor projektu: <i class="fa fa-copyright" aria-hidden="true"></i> <a href="http://www.facebook.com/tomas.ulej.pise">Tomáš Ulej</a> 2013-<?php echo date("Y"); ?>. Webdesign: <a href="http://romanklco.com">Roman Klčo</a>. Odborné poradenstvo: Mgr. Jana Ambrózová, PhD.<BR>
                  Slovenské Spevy: <i class="fa fa-copyright" aria-hidden="true"></i> Ladislav Galko. Digitalizujeme s láskavým súhlasom dedičov a <a href="http://www.opus.sk">vydavateľstva Opus</a>. Prečítajte si <a href="/o-ludovi.php">viac o projekte</a>.
             </p>
             
