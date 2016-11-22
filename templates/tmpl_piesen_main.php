@@ -74,7 +74,8 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                         <button type="button" class="close" data-dismiss="alert" aria-label="Zatvoriť" onclick="javascript:Cookies.set('tempo_alert', 'false');">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <strong>Ho, ho, ho! Nie tak rýchlo!</strong>  Skutočné tempo, akým ľudia spievali túto pieseň, môže byť mierne pomalšie alebo rýchlejšie oproti tomu, v ktorom pieseň prehrávame my.
+                        <strong>Tempo je len ilustračné!</strong>  Skutočné tempo, akým ľudia spievali túto pieseň, môže byť mierne pomalšie alebo rýchlejšie oproti tomu, v ktorom pieseň prehrávame my.
+                       <BR> <a  href="javascript:void(0)" onclick="javascript:Cookies.set('tempo_alert', 'false');$('#tempo_alert').hide();">Dobre, rozumiem.</a>
                     </div>
 
                 </div>
