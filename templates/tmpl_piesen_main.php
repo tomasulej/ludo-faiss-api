@@ -44,6 +44,9 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
             </p>
 
 
+
+
+
         </div>
 
 
@@ -61,10 +64,18 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                             <div id="vidyub"></div>
                     </div>
                     <div id="streep"></div>
+
+
+
                     <div id="notation">
                     </div>
 
-
+                    <div class="alert alert-warning alert-dismissible fade in" id="tempo_alert" style="display:none" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Zatvoriť" onclick="javascript:Cookies.set('tempo_alert', 'false');">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>Ho, ho, ho! Nie tak rýchlo!</strong>  Skutočné tempo, akým ľudia spievali túto pieseň, môže byť mierne pomalšie alebo rýchlejšie oproti tomu, v ktorom pieseň prehrávame my.
+                    </div>
 
                 </div>
 
@@ -754,9 +765,15 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
      if ($(media_id)[0].paused) {
         $(media_id).trigger('play');
         $(button_id+' i').attr('class', "fa fa-pause");
-    
-     } else {    
-        $(media_id).trigger('pause');
+         if (Cookies.get('tempo_alert')!="false") {
+             $('#tempo_alert').show();
+         }
+
+
+     } else {
+         $('#tempo_alert').hide();
+
+         $(media_id).trigger('pause');
         $(button_id+' i').attr('class', "fa fa-play");
      }    
     }

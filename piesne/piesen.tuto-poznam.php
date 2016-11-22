@@ -97,6 +97,13 @@ if ($_POST['odoslane_tutopoznam']=="true") {
         postal_code: 'short_name'
       };
 
+      $("#rok_narodenia").val(Cookies.get('rok_narodenia'));
+      $("#autocomplete").val(Cookies.get('lokalita'));
+      $("#lat").val(Cookies.get('lat'));
+      $("#lng").val(Cookies.get('lng'));
+
+
+
       function initAutocomplete() {
         // Create the autocomplete object, restricting the search to geographical
         // location types.
@@ -152,8 +159,16 @@ function odosli_formular(){
            }
          });
 
+    //cookies
+    Cookies.set('rok_narodenia', $("#rok_narodenia").val());
+    Cookies.set('lokalita', $("#autocomplete").val());
+    Cookies.set('lat', $("#lat").val());
+    Cookies.set('lng', $("#lng").val());
+
 
 }
+
+
 
 
 
