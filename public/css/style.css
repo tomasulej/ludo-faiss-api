@@ -2216,6 +2216,8 @@
     background: #d6232e; }
   .switch .switch-yellow {
     background: #f5ab32; }
+  .switch .switch-violet {
+    background: #9C57A2; }
 
 body {
   font-family: 'Source Serif Pro', serif;
@@ -2363,6 +2365,15 @@ a {
 .l-theme-yellow .l-navbar .l-navbar__user a {
   color: #f5ab32; }
 
+.l-theme-violet .l-navbar .l-navbar__menu li a {
+  color: #9C57A2; }
+.l-theme-violet .l-navbar .l-navbar__menu li.active {
+  background: #9C57A2; }
+  .l-theme-violet .l-navbar .l-navbar__menu li.active a {
+    color: #fff; }
+.l-theme-violet .l-navbar .l-navbar__user a {
+  color: #9C57A2; }
+
 .l-navbar {
   height: 4rem;
   background: #fff;
@@ -2425,6 +2436,14 @@ a {
     color: #fff1b4; }
 .l-theme-yellow .l-header-breadcrumbs {
   color: #fff1b4; }
+
+.l-theme-violet .l-header {
+  background: #9C57A2;
+  color: #c8a9c4; }
+  .l-theme-violet .l-header a {
+    color: #c8a9c4; }
+.l-theme-violet .l-header-breadcrumbs {
+  color: #c8a9c4; }
 
 .l-header {
   padding: 2rem 0 0 0; }
@@ -2545,6 +2564,9 @@ a {
 .l-theme-yellow .l-articles h2 {
   color: #f5ab32; }
 
+.l-theme-violet .l-articles h2 {
+  color: #9C57A2; }
+
 .l-articles {
   padding-top: 3rem; }
   .l-articles h2 {
@@ -2599,6 +2621,9 @@ a {
 
 .l-theme-yellow .l-page h1, .l-theme-yellow .l-page h2 {
   color: #f5ab32; }
+
+.l-theme-violet .l-page h1, .l-theme-violet .l-page h2 {
+  color: #9C57A2; }
 
 .l-page {
   padding: 2rem 0; }

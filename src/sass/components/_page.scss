@@ -38,6 +38,16 @@
   }
 }
 
+.l-theme-violet{
+
+  .l-page{
+
+    h1, h2{
+      color: $color-violet;
+    }
+  }
+}
+
 .l-page{
 
   padding: 2rem 0;

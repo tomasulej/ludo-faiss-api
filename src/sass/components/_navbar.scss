@@ -88,6 +88,28 @@ $navbar-height: 4rem;
   }
 }
 
+.l-theme-violet{
+
+  .l-navbar{
+
+    .l-navbar__menu li a{
+      color: $color-violet;
+    }
+
+    .l-navbar__menu li.active{
+      background: $color-violet;
+
+      a{
+        color: #fff;
+      }
+    }
+
+    .l-navbar__user a{
+      color: $color-violet;
+    }
+  }
+}
+
 .l-navbar{
 
   .btn-burger{

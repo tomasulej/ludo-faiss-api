@@ -66,6 +66,24 @@
   }
 }
 
+.l-theme-violet{
+
+  .l-header{
+
+    background: $color-violet;
+    color: $color-violet-lighter;
+
+    a{
+      color: $color-violet-lighter;
+    }
+  }
+
+  .l-header-breadcrumbs{
+    color: $color-violet-lighter;
+  }
+}
+
+
 .l-header{
 
   padding: 2rem 0 0 0;
