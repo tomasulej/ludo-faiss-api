@@ -26,6 +26,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
         </div>
 
 
+
         <div class="l-song">
             <div class="row">
                 <div class="col-md-12">
@@ -45,19 +46,30 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
     <script>
 
-        document.onmouseover = function() {
-//User's mouse is inside the page. (This is working)
-            window.innerDocClick = true;
-        }
 
-        document.onmouseleave = function() {
-//User's mouse has left the page. (this is working)
-            window.innerDocClick = false;
-        }
 
         window.onhashchange = function() {
             //alert(window.location.hash);
-            window.location.href="hladat.php?q="+window.location.hash.slice(1);
+            //window.location.href="hladat.php?q="+window.location.hash.slice(1);
+
+            $('[data-toggle="popover"]').popover({
+                html: true,
+                trigger: 'manual',
+                content: function() {
+                    //e.preventDefault();
+                    //alert("ahoj");
+                    return $.ajax({url: 'piesen.tuto-poznam.php?id_piesen=<?php echo $piesen->id_piesen; ?>',
+                        dataType: 'html',
+                        async: false}).responseText;
+                }
+            }).click(function(e) {
+                $(this).popover('toggle');
+                e.preventDefault();
+                e.stopImmediatePropagation();
+            });
+
+
+
         };
 
 

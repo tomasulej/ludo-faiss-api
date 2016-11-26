@@ -1,7 +1,7 @@
 <?php
     $theme="l-theme-green l-layout-song";
     $piesne_tab='class="active"';
-include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
+require_once $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
 require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
@@ -12,26 +12,43 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
     <div class="container">
 
+
+
+
+
         <div class="l-song-header" data-role="header">
             <div class="row">
-                <div class="col-md-1 col-xs-2">
-                    <a id="playpause_main" class="l-btn l-btn--primary l-btn--small l-btn--play" onclick="playpause('#aud','#playpause_main');"><i class="fa fa-play"></i></a>
-                </div>
-                <div class="col-md-11 col-xs-10">
+
+                <div class="col-md-9">
 
                     <h1>
                         <?php echo $piesen->nazov_dlhy;?>
                     </h1>
 
-                    <div class="hidden-md-down"> <!--class="l-song-subh"-->
-                        <small>Zozbieral(a): <strong><!--<a href="zberatel.php?id=<?php echo $piesen->id_zberatel; ?>">--><?php echo $piesen->zberatelia_meno; ?><!--</a>--></strong> (<?php echo $piesen->datum_zbieranie; ?>) ● Zdigitalizoval(a): <strong><!--<a href="digitalizator.php?id=<?php echo $piesen->id_digitalizator; ?>">--><?php echo $piesen->digitalizatori_meno; ?><!--</a>--></strong> (<?php echo date("Y",strtotime($piesen->datum_digitalizacia)); ?>) ● Pôvodná zbierka <strong><!--<a href="zbierky.php?id=<?php echo $piesen->id_zbierka ?>">--><?php echo $piesen->zbierky_nazov ?><!--</a>--></strong></small>
-                    </div>
                 </div>
+
+                <div class="col-md-3 l-right">
+                    <a id="playpause_main" class="l-btn l-btn--primary l-btn--medium" onclick="playpause('#aud','#playpause_main');"><i class="fa fa-play"></i> Prehrať melódiu</a>
+                </div>
+
+
+
+
+
 
 
             </div>
 
+            <p class="l-song-subh hidden-md-down"> <!--class="hidden-md-down"-->
+                <small>Zozbieral(a): <strong><!--<a href="zberatel.php?id=<?php echo $piesen->id_zberatel; ?>">--><?php echo $piesen->zberatelia_meno; ?><!--</a>--></strong> (<?php echo $piesen->datum_zbieranie; ?>) ● Zdigitalizoval(a): <strong><!--<a href="digitalizator.php?id=<?php echo $piesen->id_digitalizator; ?>">--><?php echo $piesen->digitalizatori_meno; ?><!--</a>--></strong> (<?php echo date("Y",strtotime($piesen->datum_digitalizacia)); ?>) ● Pôvodná zbierka <strong><!--<a href="zbierky.php?id=<?php echo $piesen->id_zbierka ?>">--><?php echo $piesen->zbierky_nazov ?><!--</a>--></strong></small>
+            </p>
+
+
+
+
+
         </div>
+
 
 
 
@@ -42,15 +59,24 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                 <div class="col-md-12">
 
                     <div id="meddiv" style="display:none"   >
-                            <audio id="aud" controls="controls" ontimeupdate="show_lyrics(this.currentTime)" autoplay>Your browser does not support the audio element.</audio>
+                            <audio id="aud" controls="controls" ontimeupdate="show_lyrics(this.currentTime)">Your browser does not support the audio element.</audio>
                             <video id="vid" controls="controls" autoplay style="display:none">Your browser does not support the video element.</video>
                             <div id="vidyub"></div>
                     </div>
                     <div id="streep"></div>
+
+
+
                     <div id="notation">
                     </div>
 
-
+                    <div class="alert alert-warning alert-dismissible fade in" id="tempo_alert" style="display:none" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Zatvoriť" onclick="javascript:Cookies.set('tempo_alert', 'false');">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>Tempo je len ilustračné!</strong>  Skutočné tempo, akým ľudia spievali túto pieseň, môže byť mierne pomalšie alebo rýchlejšie.
+                      <!-- <a  href="javascript:void(0)" onclick="javascript:Cookies.set('tempo_alert', 'false');$('#tempo_alert').hide();">Dobre, rozumiem.</a> -->
+                    </div>
 
                 </div>
 
@@ -104,11 +130,13 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 <div id="tuto-poznam_div" class="l-well l-know">
             <strong>Poznáte túto pieseň?</strong>
             Dajte nám vedieť! Pomôžete tým mapovať rozšírenie piesni na Slovensku:
-            <button class="l-btn l-btn--primary l-btn--small" data-toggle="popover" id="tuto-poznam" data-placement="top" data-original-title="" title="">
+            <button class="l-btn l-btn--primary l-btn--small" data-toggle="modal" href="javascript:void(0);" data-target="#tutopoznam_box" onclick="tutopoznam();">
                 <i class="fa fa-star"></i> Túto pieseň poznám!</button>
-                <a data-toggle="popover" data-content="Nie všetky staré piesne ešte niekto pozná a nie všetky sa dnes spievajú tam, kde boli pred stovkami rokov zozbierané. Snažíme sa preto &lt;strong&gt;mapovať, kde všade sa ešte dnes spievajú jednotlivé piesne&lt;/strong&gt;. Dajte nám vedieť, či pieseň poznáte a &lt;strong&gt;pomôžte nám v našom úsilí!&lt;/strong&gt; Ďakujeme :)" data-placement="bottom" data-original-title="" title=""><i class="fa fa-question-circle"></i>
+
+
+                <a data-toggle="popover" data-content="Nie všetky staré piesne ešte niekto pozná a nie všetky sa dnes spievajú tam, kde boli pred stovkami rokov zozbierané. Snažíme sa preto &lt;strong&gt;mapovať, kde všade sa ešte dnes spievajú jednotlivé piesne&lt;/strong&gt;. Dajte nám vedieť, či pieseň poznáte a &lt;strong&gt;pomôžte nám v našom úsilí!&lt;/strong&gt; Ďakujeme :)"  data-original-title="" title=""><i class="fa fa-question-circle"></i>
                 </a>
-        </div>
+</div>
 
 
 
@@ -139,7 +167,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
             $p_audio="aud_".$p_piesen['id_piesen'];
             ?> 
 
-        <a class="l-btn l-btn--primary l-btn--small" id="<?php echo $p_button;?>" 
+        <a class="l-btn l-btn--primary l-btn--small l-btn-play" id="<?php echo $p_button;?>"
             onclick="playpause('<?php echo "#".$p_audio;?>','<?php echo "#".$p_button;?>');" ><i class="fa fa-play"></i></a>
         <audio id="<?php echo $p_audio; ?>" controls="controls" src="<?php echo $p_piesen['file_mp3']; ?>" style="display:none">Your browser does not support the audio element.</audio>
         <?php }?>
@@ -204,6 +232,27 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
 
 
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="tutopoznam_box" id="tutopoznam_box" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <div class="modal-body" id="tutopoznam_box_text">
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
 
 
 
@@ -226,7 +275,13 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                 <strong>Tempo</strong>: <?php echo $piesen->tempo?></a><BR>
                 <strong>Dátum zozbierania</strong>: <?php echo $piesen->datum_zbieranie?><BR>
                 <strong>Dátum digitalizácie</strong>: <?php echo date("d.m.Y",strtotime($piesen->datum_digitalizacia));?><BR>
-                 <strong>Stiahnuť</strong>: <a href="stiahnut.php?id=<?php echo $piesen->id_piesen ?>&format=xml"><i class="fa fa-music"></i> noty</a>  alebo <a href="stiahnut.php?id=<?php echo $piesen->id_piesen ?>&format=mp3"><i class="fa fa-volume-up"></i> hudbu</a> <!-- <a href=""><i class="fa fa-print"></i> vytlačiť</a> -->
+                 <strong>Stiahnuť</strong>:
+                    <a href="stiahnut.php?id=<?php echo $piesen->id_piesen; ?>&format=xml"><i class="fa fa-music"></i> noty</a>, <a href="stiahnut.php?id=<?php echo $piesen->id_piesen ?>&format=mp3"><i class="fa fa-volume-up"></i> hudbu</a>
+                    <?php if ($piesen->file_pdf<>"") { ?>
+                    , <a href="stiahnut.php?id=<?php echo $piesen->id_piesen; ?>&format=pdf"><i class="fa fa-photo"></i> originál</a>
+                    <?php } ?>
+
+                    <!-- <a href=""><i class="fa fa-print"></i> vytlačiť</a> -->
                     <HR>
                     <p><a class="l-btn l-btn--primary l-btn--small" data-toggle="modal" data-target="#detaily"><i class="fa fa-info"></i> Všetky informácie o piesni</a></p>
 
@@ -592,6 +647,23 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
        
             </div>
 
+
+        <!--klucove slova -->
+        <?php if (!empty($klucove_slova)) {  ?>
+        <div class="row">
+
+            <div class="col-md-12">
+                <h3>Kľúčové slová</h3>
+
+                <?php foreach ($klucove_slova as $key=>$klucoveslovo) { ?>
+                    <a href="hladat.php?q=<?php echo $klucoveslovo;?>" class="tag tag-default"><?php echo $klucoveslovo;?></a>
+                <?php } ?>
+
+            </div>
+
+        </div>
+
+        <?php } ?>
         <!-- populárne songy -->
 
 
@@ -611,6 +683,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
 
 
+
                     <div class="col-md-4">
                         <div class="l-song-item l-well">
                             <h3><?php echo ($p_piesen["nazov_kratky"]==""?"<a data-toggle=\"modal\" data-target=\"#estetunieje\">(ešte nezdigitalizované)":"<a href=piesen.php?".$p_piesen["id_piesen"].">".$p_piesen["nazov_kratky"]."…");?></a></h3>
@@ -619,7 +692,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
                                 $p_audio="aud_".$p_piesen['id_piesen'];
                                 ?>
 
-                                <a class="l-btn l-btn--primary l-btn--small" id="<?php echo $p_button;?>"
+                                <a class="l-btn l-btn--primary l-btn--small l-btn--play" id="<?php echo $p_button;?>"
                                    onclick="playpause('<?php echo "#".$p_audio;?>','<?php echo "#".$p_button;?>');" ><i class="fa fa-play"></i></a>
                                 <audio id="<?php echo $p_audio; ?>" controls="controls" src="<?php echo $p_piesen['file_mp3']; ?>" style="display:none">Your browser does not support the audio element.</audio>
                             <?php }?>
@@ -716,9 +789,15 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
      if ($(media_id)[0].paused) {
         $(media_id).trigger('play');
         $(button_id+' i').attr('class', "fa fa-pause");
-    
-     } else {    
-        $(media_id).trigger('pause');
+         if (Cookies.get('tempo_alert')!="false") {
+             $('#tempo_alert').show();
+         }
+
+
+     } else {
+         $('#tempo_alert').hide();
+
+         $(media_id).trigger('pause');
         $(button_id+' i').attr('class', "fa fa-play");
      }    
     }
@@ -741,7 +820,8 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 //tuto poznam!
 $('[data-toggle="popover"]').popover({
     html: true,
-    trigger: 'manual',
+    trigger: 'focus',
+    placement: 'bottom',
     content: function() {
         //e.preventDefault();
         //alert("ahoj");  
@@ -754,6 +834,19 @@ $('[data-toggle="popover"]').popover({
     e.preventDefault();
     e.stopImmediatePropagation();
   });
+
+
+function tutopoznam(){
+    $('#tutopoznam_box_text').html($.ajax({url: 'piesen.tuto-poznam.php?id_piesen=<?php echo $piesen->id_piesen; ?>',
+        dataType: 'html',
+        async: false}).responseText);
+
+
+}
+
+
+
+
 
 
     function _d(role) {
@@ -801,11 +894,11 @@ function abc2svg() {
     
   });
 
-
+/*
 var vid = document.getElementById("aud");
 vid.onloadeddata = function() {
     playpause('#aud','#playpause_main'); 
-};
+}; */
 
 
    

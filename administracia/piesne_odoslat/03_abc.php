@@ -27,7 +27,7 @@ if ($id_piesen==0) {$id_piesen=$_GET['id_piesen'];}
 
 if ($_POST['odoslane']=='true') {
 
-
+    rmdir ($_SERVER["DOCUMENT_ROOT"]."/piesne/data/".(int)$_POST['id_piesen']);
     mkdir($_SERVER["DOCUMENT_ROOT"]."/piesne/data/".(int)$_POST['id_piesen']);
     //xml upload
     $upl_xml_target = $_SERVER["DOCUMENT_ROOT"]."/piesne/data/".(int)$_POST['id_piesen']."/".basename($_FILES["upl_xml"]["name"]);
@@ -43,14 +43,20 @@ if ($_POST['odoslane']=='true') {
     $upl_png_target = $_SERVER["DOCUMENT_ROOT"]."/piesne/data/".(int)$_POST['id_piesen']."/".basename($_FILES["upl_png"]["name"]);
     $upl_png_temp=$_FILES["upl_png"]["tmp_name"];
     move_uploaded_file($upl_png_temp, $upl_png_target);
-   
+
+
+    //pdf upload
+    $upl_pdf_target = $_SERVER["DOCUMENT_ROOT"]."/piesne/data/".(int)$_POST['id_piesen']."/".basename($_FILES["upl_pdf"]["name"]);
+    $upl_pdf_temp=$_FILES["upl_pdf"]["tmp_name"];
+    move_uploaded_file($upl_pdf_temp, $upl_pdf_target);
    
    
    //pridanie do databazy
-    $q=mysql_query(sprintf("UPDATE piesne SET file_xml='%s', file_mp3='%s', file_png='%s' WHERE id_piesen=%s", 
+    $q=mysql_query(sprintf("UPDATE piesne SET file_xml='%s', file_mp3='%s', file_png='%s', file_pdf='%s' WHERE id_piesen=%s",
            basename($_FILES["upl_xml"]["name"]), 
            basename($_FILES["upl_mp3"]["name"]),
            basename($_FILES["upl_png"]["name"]),
+           basename($_FILES["upl_pdf"]["name"]),
            (int)$_POST['id_piesen']));
     
 

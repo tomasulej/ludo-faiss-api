@@ -30,7 +30,9 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0/leaflet.markercluster.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0/MarkerCluster.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0/MarkerCluster.Default.css" />
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js"></script>
+
+
  <style>
 .supsub {
     display: inline-block;
@@ -91,10 +93,27 @@
 -->
         <div class="row">
 
-            <div class="col-xl-1 col-lg-2 col-xs-4">
-                <a class="l-navbar__logo">
+            <div class="col-xl-1 col-lg-2 col-xs-5">
+                <a class="l-navbar__logo" href="/">
                     <img src="/public/img/logo-small-dark.png" height="28">
                 </a>
+
+                <span class="hidden-sm-up">
+                    <a class="btn-burger" id="burger" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-bars" style=""></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="burger">
+                        <a class="dropdown-item" href="/prislovia">Príslovia a porekadlá</a>
+                        <a class="dropdown-item" href="/nadavky">Nadávky</a>
+                        <a class="dropdown-item" href="/piesne">Piesne</a>
+                        <a class="dropdown-item" href="/labs">Ľudo Labs</a>
+                    </div>
+                </span>
+
+
+
+
+
             </div>
 
             <div class="col-xl-8 col-lg-7 hidden-md-down">
@@ -106,7 +125,7 @@
                 </menu>
             </div>
 
-            <div class="col-lg-3 col-md-6 col-xs-8">
+            <div class="col-lg-3 col-md-6 col-xs-7">
                 <div class="l-navbar__user">
                     <a href="/o-ludovi.php">O Ľudovi</a>
                     <a class="l-btn l-btn--small l-btn--primary" href="/vyzva">Pridaj sa</a>

@@ -8,10 +8,12 @@
                 <img src="/public/img/logo-inverse.png">
             </a>
 
-            <p>(c) Ľudo Slovenský 2013-2016. Web: <a href="http://www.facebook.com/tomas.ulej.pise">Tomáš Ulej</a> a <a href="http://romanklco.com">Roman Klčo</a></p>
+            <p>Autor projektu: <i class="fa fa-copyright" aria-hidden="true"></i> <a href="http://www.facebook.com/tomas.ulej.pise">Tomáš Ulej</a> 2013-<?php echo date("Y"); ?>. Webdesign: <a href="http://romanklco.com">Roman Klčo</a>. Odborné poradenstvo: Mgr. Jana Ambrózová, PhD.<BR>
+                 Slovenské Spevy: <i class="fa fa-copyright" aria-hidden="true"></i> Ladislav Galko. Digitalizujeme s láskavým súhlasom dedičov a <a href="http://www.opus.sk">vydavateľstva Opus</a>. Prečítajte si <a href="/o-ludovi.php">viac o projekte</a>.
+            </p>
             
 
-            <div class="row"><div class="col-md-7">
+            <div class="row"><div class="col-md-9">
             <div class="l-footer__partners">
 
                 <h2>Partneri a sponzori:</h2>
@@ -19,17 +21,18 @@
                 <a href="http://www.websupport.sk"><img src="/public/img/websupport-inverse.png"></a>
                 <a href="http://www.mestskakniznica.sk"><img src="/public/img/kniznica-inverse.png"></a>
                 <a href="http://www.jankohrasko.sk"><img src="/public/img/janko-hrasko-inverse.png"></a>
+                <!-- <a href="http://www.opus.sk"><img src="/public/img/opus_logo.png" height="32px"></a> -->
 
             </div>
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-3">
             <div class="l-footer__partners">
 
                 <h2>Odborný garant:</h2>
 
-                <a href="http://www.ketnoffukf.sk"><img src="/public/img/ukf.png"></a>
-               <a href="http://www.ketnoffukf.sk"><img src="/public/img/katedra.jpeg"></a>
+               <!-- <a href="http://www.ketnoffukf.sk"><img src="/public/img/ukf.png"></a> -->
+               <a href="http://www.ketnoffukf.sk"><img src="/public/img/katedra.jpeg"><BR>Katedra etnológie a folkloristiky Filozofickej fakulty UKF v Nitre</a>
 
 
             </div>

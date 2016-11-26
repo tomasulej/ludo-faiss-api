@@ -175,6 +175,13 @@ if ($id_piesen<>0) {
      <!-- <input type="input" class="form-control" id="file_html" name="file_html" placeholder="cislo_nazov-piesne.html" value="<? echo $p_edit->file_html; ?>">-->
     </div>
     </div>
+
+       <div class="form-group row">
+          <label for="file_pdf" class="col-sm-2 form-control-label">Súbor pdf (originál):</label>
+          <div class="col-sm-10">
+             <input type="file" name="upl_pdf" id="upl_pdf">
+      </div>
+    </div>
     
 
 
