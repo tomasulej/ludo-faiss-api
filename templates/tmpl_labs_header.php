@@ -6,7 +6,7 @@
 
             <div class="col-lg-8">
 
-                <a class="l-header__logo" href="/piesne"><img src="/public/img/logo-piesne-inverse.png"></a>
+                <a class="l-header__logo" href="/piesne"><img src="/public/img/logo-labs-inverse.png"></a>
 
 <!-- <div class="l-header__links"><a href="index.php">Nechaj si vynadať!</a> - <a href="slovnik2.php">Celý slovník</a></div> -->
 
@@ -24,7 +24,7 @@
 
             </div>
 
-            <div class="l-header__img col-lg-4 l-header__img--bg" style="background-image: url('/public/img/ludo-music.png');"></div>
+            <div class="l-header__img col-lg-4 l-header__img--bg" style="background-image: url('/public/img/ludo-labs.png');"></div>
 
         </div>
 
