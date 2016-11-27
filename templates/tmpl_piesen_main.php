@@ -1,10 +1,9 @@
 <?php
     $theme="l-theme-green l-layout-song";
     $piesne_tab='class="active"';
-require_once $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
-require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
-require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
-
+    require_once $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
+    require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
+    require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 ?>
 
 
@@ -812,10 +811,16 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 <script src="http://wim.vree.org/js/xml2abc-min.js"></script>
 <script src="http://wim.vree.org/js/xml2abc-min.js"></script>
 <script src="/public/js/abcjs_basic_2.3-min.js"></script>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-575ac8e6862d0152"></script> 
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-575ac8e6862d0152"></script>
+<script src='http://demo.easyrec.org:8080/api-js/easyrec.js' type='text/javascript'></script>
 
 
 <script>
+
+
+
+
+
 
 //tuto poznam!
 $('[data-toggle="popover"]').popover({
@@ -905,6 +910,20 @@ vid.onloadeddata = function() {
 
     $(document).ready(function(){
         abc2svg();
+
+
+        //easyrec
+        var apiKey      = "864b7c56f873272f2d4f6f69197eb4f8";
+        var tenantId    = "EASYREC_DEMO";
+
+        easyrec_view({
+            userId:"",
+            itemId:"<?php echo $piesen->id_piesen; ?>",
+            itemUrl:"/piesen.php?<?php echo $piesen->id_piesen; ?>",
+            itemDescription:"<?php echo $piesen->nazov_dlhy; ?>",
+            itemImageUrl:"/data/<?php echo $piesen->id_piesen; ?>/<?php echo $piesen->file_png;?>"});
+
+
 
         /*var headerScroll = false;
         var offsetTop = $(_d('header')).offset().top;
