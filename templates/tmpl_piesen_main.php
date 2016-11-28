@@ -160,7 +160,7 @@
 
         <div class="col-md-4">
         <div class="l-song-item l-well">
-        <h3><a data-toggle="modal" data-target="#estetunieje"><?php echo ($p_piesen["nazov_kratky"]==""?"(ešte nezdigitalizované)":$p_piesen["nazov_kratky"]."…");?></a></h3>
+        <h3><a <?php echo ($p_piesen["nazov_kratky"]==""?" data-toggle=\"modal\" data-target=\"#estetunieje\">(ešte nezdigitalizované)":" href='piesen.php?".$p_piesen["id_piesen"]."'>".$p_piesen["nazov_kratky"]."…");?></a></h3>
         <?php if ($p_piesen['file_mp3']<>"") { 
             $p_button="playpause_p_".$p_piesen['id_piesen'];
             $p_audio="aud_".$p_piesen['id_piesen'];
