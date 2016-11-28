@@ -36,7 +36,6 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
 <?php if (!empty($piesne)) {  ?>
 
-<div class="l-list-items">
 
 
     <?php foreach ($piesne as $key=>$piesen) { ?>

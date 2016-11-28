@@ -22,7 +22,7 @@
    <meta property="fb:app_id" content="619723681422597"/>
 
 
-
+    <script id="facebook-jssdk" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;appId=1402931466605062&amp;version=v2.0"></script>
     <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
     <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' /> 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0/dist/leaflet.css" />
@@ -103,7 +103,7 @@
                         <i class="fa fa-bars" style=""></i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="burger">
-                        <a class="dropdown-item" href="/prislovia">Príslovia a porekadlá</a>
+                        <a class="dropdown-item" href="/prislovia2">Príslovia a porekadlá</a>
                         <a class="dropdown-item" href="/nadavky">Nadávky</a>
                         <a class="dropdown-item" href="/piesne">Piesne</a>
                         <a class="dropdown-item" href="/labs">Ľudo Labs</a>
@@ -118,7 +118,7 @@
 
             <div class="col-xl-8 col-lg-7 hidden-md-down">
                 <menu class="l-navbar__menu">
-                    <li <?php echo $prislovia_tab;?>><a href="/prislovia" target="_parent">Príslovia a porekadlá</a></li>
+                    <li <?php echo $prislovia_tab;?>><a href="/prislovia2" target="_parent">Príslovia a porekadlá</a></li>
                     <li <?php echo $nadavky_tab;  ?>><a href="/nadavky/slovnik2.php" target="_parent">Nadávky</a></li>
                     <li <?php echo $piesne_tab;?>><a href="/piesne/" target="_parent">Piesne</a></li>
                     <li <?php echo $labs_tab;  ?>><a href="/labs" target="_parent">Ľudo Labs</a></li>

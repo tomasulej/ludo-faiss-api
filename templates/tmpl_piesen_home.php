@@ -91,12 +91,7 @@ map.addLayer(map);
             </div> 
 
         </div>
-
-    </div>
-
 </div>
-
-
 
 <div class="container"><div class="row l-page">
 <div class="col-md-7 l-list-items">
