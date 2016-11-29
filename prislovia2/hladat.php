@@ -1,8 +1,8 @@
 <?php
 //includes
 
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+//error_reporting(E_ALL);
+//ini_set('display_errors', '1');
 
 include $_SERVER["DOCUMENT_ROOT"]."/databaza_prislovia.php";
 include "kategoria.inc.php";
