@@ -50,7 +50,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_prislovia_header.php";
 
 
                         <p>
-                            <a href="<?php $prislovie["url"] ?>">   <?php echo $prislovie["text"]; ?> </a>
+                            <a href="<?php echo $prislovie["url"] ?>">   <?php echo $prislovie["text"]; ?> </a>
                         </p>
 
                         <div class="fb-like" data-href="<?php echo $prislovie["url"];?>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>

@@ -11,7 +11,7 @@
 
             <div class="col-lg-5 l-header__links">
                 <a href="najpopularnejsie.php"><strong>Najpopulárnejšie</strong></a> -
-                <a href="cela-zbierka.php">Celá zbierka po témach</a> -
+                <a href="cela-zbierka.php">Celá zbierka po témach</a>
 
 
 
