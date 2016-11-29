@@ -28,14 +28,50 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_prislovia_header.php";
 
 
 
+    <div class="container">
+
+        <div class="l-list-items">
+
+
 <?php echo $obsah; ?>
 
-
+</div>
+        </div>
 
 
 
     </div>
 
+
+<script>
+
+
+
+    $('[data-toggle="popover"]').popover({
+        html: true,
+        trigger: 'focus',
+        placement: 'right',
+        content: function() {
+            //e.preventDefault();
+            //alert("ahoj");
+            return $.ajax({url: 'piesen.tuto-poznam.php?id_piesen=<?php echo $piesen->id_piesen; ?>',
+                dataType: 'html',
+                async: false}).responseText;
+        }
+    }).mouseover(function(e) {
+        $(this).popover('toggle');
+        e.preventDefault();
+        e.stopImmediatePropagation();
+    }).mouseout(function(e) {
+        $('[data-toggle="popover"]').popover('hide');
+    });
+
+
+
+
+
+
+</script>
 
 
 
