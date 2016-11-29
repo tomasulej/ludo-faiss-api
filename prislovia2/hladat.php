@@ -5,6 +5,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 include $_SERVER["DOCUMENT_ROOT"]."/databaza_prislovia.php";
+include "kategoria.inc.php";
+
 
 $q=$_GET['q'];
 
