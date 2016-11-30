@@ -812,10 +812,10 @@
 <script src="http://wim.vree.org/js/xml2abc-min.js"></script>
 <script src="/public/js/abcjs_basic_2.3-min.js"></script>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-575ac8e6862d0152"></script>
-<script src='http://demo.easyrec.org:8080/api-js/easyrec.js' type='text/javascript'></script>
+<script src="http://www.ludoslovensky.sk:8080/easyrec-web/api-js/easyrec.js" type="text/javascript"></script>
 <script type='text/javascript'>
-    var apiKey      = "864b7c56f873272f2d4f6f69197eb4f8";
-    var tenantId    = "ludoslovensky";
+    var apiKey = "d75d567db9f310c51f665c609e6059a5";
+    var tenantId = "piesne";
 </script>
 
 <script>
