@@ -10,6 +10,20 @@ include $_SERVER["DOCUMENT_ROOT"]."/databaza_prislovia.php";
 include "kategoria.inc.php";
 
 
+//META
+$meta_type="article";
+$meta_title="Ľudo Slovenský: príslovia a porekadlá na tému ".kat_namebyid($_GET['id']);
+$meta_image="http://www.ludoslovensky.sk/public/img/ludo-prislovia.png";
+$meta_url="http://".$_SERVER['SERVER_NAME']."/prislovie/kategoria.php?".$_GET['id'];
+$meta_desc="Ľudo slovenský radí a poradí aj Tebe. Príď sa pozrieť na 12-tisíc jeho porekadiel a prísloví";
+
+
+
+
+
+
+
+
 //tmpls
 $tmpl_prislovie= "<p id=\"prislovie_%s\"><a class='prislovie' data-toggle=\"popover\"  
 data-content=\"<div class='quote-popover'>%s</div>\" href=\"prislovie.php?id=%s\">%s</a></p>";

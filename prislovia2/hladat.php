@@ -8,6 +8,11 @@ include $_SERVER["DOCUMENT_ROOT"]."/databaza_prislovia.php";
 include "kategoria.inc.php";
 
 
+
+
+
+
+
 $q=$_GET['q'];
 
 $tmpl_prislovie= "<p id=\"prislovie_%s\"><a class='prislovie' data-toggle=\"popover\"  

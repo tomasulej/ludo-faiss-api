@@ -1,4 +1,17 @@
-<?php 
+<?php
+
+
+//META
+$meta_type="article";
+$meta_title="Ľudo Slovenský - Najväčšia digitálna zbierka kultúrneho dedičstva Slovenska";
+$meta_image="http://www.ludoslovensky.sk/public/img/ludo.png";
+$meta_url="http://".$_SERVER['SERVER_NAME'];
+$meta_desc="Ahojte, ja som Ľudo Slovenský!
+
+Tisíc rokov píšem rozprávky, tvorím príslovia, porekadlá, nadávam, kľajem a spievam. Som najplodnejší autorom Slovenska a tu je celá moja tvorba.";
+
+
+
 
 
 $nadpis="Ľudo Slovenský - všetko dôležité o projekte";

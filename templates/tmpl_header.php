@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="<?php echo $meta_desc;?>">
 
     <title><?php  echo $meta_title;   ?> </title>
 
@@ -31,7 +32,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0/MarkerCluster.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0/MarkerCluster.Default.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js"></script>
-
 
  <style>
 .supsub {
@@ -120,7 +120,7 @@
                 <menu class="l-navbar__menu">
                     <li <?php echo $prislovia_tab;?>><a href="/prislovia2" target="_parent">Príslovia a porekadlá</a></li>
                     <li <?php echo $nadavky_tab;  ?>><a href="/nadavky/slovnik2.php" target="_parent">Nadávky</a></li>
-                    <li <?php echo $piesne_tab;?>><a href="/piesne/" target="_parent">Piesne</a></li>
+                    <li <?php echo $piesne_tab;?>><a href="/piesne/" target="_parent">Piesne <span class="tag tag-default tag-pill">NOVÉ</span></a> </li>
                     <li <?php echo $labs_tab;  ?>><a href="/labs" target="_parent">Ľudo Labs</a></li>
                 </menu>
             </div>

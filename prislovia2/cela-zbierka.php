@@ -8,6 +8,18 @@ include $_SERVER["DOCUMENT_ROOT"]."/databaza_prislovia.php";
 
 $q=mysql_query("SELECT * FROM pr_kategorie WHERE parent_id=0;");
 
+
+//META
+$meta_type="article";
+$meta_title="Ľudo Slovenský: celá zbierka prísloví a porekadiel po kapitolách";
+$meta_image="http://www.ludoslovensky.sk/public/img/ludo-prislovia.png";
+$meta_url="http://".$_SERVER['SERVER_NAME']."/prislovie/cela-zbierka.php";
+$meta_desc="Ľudo slovenský radí a poradí aj Tebe. Príď sa pozrieť na 12-tisíc jeho porekadiel a prísloví";
+
+
+
+
+
 while ($kategoria=mysql_fetch_object($q)) {
 
     $q2=null;
