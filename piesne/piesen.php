@@ -25,7 +25,7 @@ $piesen=mysql_fetch_object($q);
 
 //META
 $meta_type="article";
-$meta_title=$piesen->nazov_dlhy. " (Piesne Ľuda Slovenského)";
+$meta_title=$piesen->nazov_dlhy;
 $meta_audio="http://".$_SERVER['SERVER_NAME']."/piesne/data/".$piesen->id_piesen."/".$piesen->file_mp3;
 $meta_image="http://".$_SERVER['SERVER_NAME']."/piesne/data/".$piesen->id_piesen."/".$piesen->file_png;
 $meta_url="http://".$_SERVER['SERVER_NAME']."/piesne/piesen.php?".$piesen->id_piesen;
