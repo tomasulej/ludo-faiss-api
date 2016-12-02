@@ -19,7 +19,7 @@
                 <h2>Partneri a sponzori:</h2>
                 <a href="http://www.martinus.sk"><img src="/public/img/martinus-inverse.png"></a>
                 <a href="http://www.websupport.sk"><img src="/public/img/websupport-inverse.png"></a>
-                <a href="http://www.mestskakniznica.sk"><img src="/public/img/kniznica-inverse.png"></a>
+                <a href="http://www.mestskakniznica.sk"><img src="/public/img/kniznica-inverse2.png"></a>
                 <a href="http://www.jankohrasko.sk"><img src="/public/img/janko-hrasko-inverse.png"></a>
                 <!-- <a href="http://www.opus.sk"><img src="/public/img/opus_logo.png" height="32px"></a> -->
 
