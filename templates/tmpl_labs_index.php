@@ -62,3 +62,6 @@ Z vďaky Douglesovi Adamsovi, ktorý prvý definoval žáner vogónskej poézie,
 
 
 </div>
+
+
+<?php require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_footer.php"; ?>
