@@ -127,7 +127,7 @@ map.addLayer(map);
     <?php } ?>
     <BR>
 
-    <div class="l-center"><button type="button" class="l-btn l-btn--large l-btn--primary" onclick="window.location='hladat.php'">Všetky piesne (29)</button></div>
+    <div class="l-center"><button type="button" class="l-btn l-btn--large l-btn--primary" onclick="window.location='hladat.php'">Všetky piesne (<?php echo $pocet_piesni;?>)</button></div>
 
 
 
