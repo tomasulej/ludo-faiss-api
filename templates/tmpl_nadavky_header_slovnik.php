@@ -32,9 +32,9 @@
 
                 <div class="l-header__info">
 
-                    <h1>Slovník slovenského nadávania!</h1>
+                    <h1>Najväčší slovník nadávania!</h1>
 
-                    <p>Tisíce rokov <b>bohujeme</b>, <b>pičujeme</b>, nadávame - vo väčšine slovníkov však tieto slová nenájdete. A pritom je naša slovná zásoba taká bohatá! Toto je (chýbajúci) slovník slovenského pičungu - vyše <strong>sedemsto vulgárnych, hrubých a sprostých slov</strong>, ktoré Slováci najradšej používajú - náš <strong>národný poklad</strong>, naša hrdosť.</p>
+                    <p>Tisíce rokov <b>bohujeme</b>, <b>p**ujeme</b>, nadávame - vo väčšine slovníkov však tieto slová nenájdete. A pritom je naša slovná zásoba taká bohatá! Toto je (chýbajúci) slovník slovenského nadávania - vyše <strong>sedemsto vulgárnych, hrubých a sprostých slov</strong>, ktoré Slováci najradšej používajú - náš <strong>národný poklad</strong>. </p>
 
 
                 </div>

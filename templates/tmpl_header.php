@@ -103,9 +103,10 @@
                         <i class="fa fa-bars" style=""></i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="burger">
-                        <a class="dropdown-item" href="/prislovia2">Príslovia a porekadlá</a>
+                                            <a class="dropdown-item" href="/piesne">Piesne</a>
+
+                        <a class="dropdown-item" href="/prislovia">Príslovia a porekadlá</a>
                         <a class="dropdown-item" href="/nadavky">Nadávky</a>
-                        <a class="dropdown-item" href="/piesne">Piesne</a>
                         <a class="dropdown-item" href="/labs">Ľudo Labs</a>
                     </div>
                 </span>
@@ -118,9 +119,10 @@
 
             <div class="col-xl-8 col-lg-7 hidden-md-down">
                 <menu class="l-navbar__menu">
-                    <li <?php echo $prislovia_tab;?>><a href="/prislovia2" target="_parent">Príslovia a porekadlá</a></li>
+                                    <li <?php echo $piesne_tab;?>><a href="/piesne/" target="_parent">Piesne <span class="tag tag-default tag-pill">NOVÉ</span></a> </li>
+
+                    <li <?php echo $prislovia_tab;?>><a href="/prislovia" target="_parent">Príslovia a porekadlá</a></li>
                     <li <?php echo $nadavky_tab;  ?>><a href="/nadavky/slovnik2.php" target="_parent">Nadávky</a></li>
-                    <li <?php echo $piesne_tab;?>><a href="/piesne/" target="_parent">Piesne <span class="tag tag-default tag-pill">NOVÉ</span></a> </li>
                     <li <?php echo $labs_tab;  ?>><a href="/labs" target="_parent">Ľudo Labs</a></li>
                 </menu>
             </div>

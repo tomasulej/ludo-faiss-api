@@ -1,3 +1,7 @@
+
+
+
+
 <?php
     $theme="l-theme-red";
     $nadavky_tab='class="active"';
@@ -8,6 +12,34 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_nadavky_header_slovnik.php";
  <link rel="stylesheet" href="css/style.css">
 
 <BR>
+
+
+ <div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title">Pozor, táto stránka obsahuje vulgarizmy</h2>
+      </div>
+      <div class="modal-body">
+        <p class="lead"><strong>Toto je stránka o nadávkach a nadávaní, preto - celkom logicky - obsahuje nadávky.</strong></p> 
+        <p class="lead">Ak nechcete vidieť nadávky, radšej sem nechoďte.</p>
+        <p class="lead"></p>
+        
+      </div>
+      <div class="modal-footer">
+        <a type="button" class="btn btn-link" href="http://www.ludoslovensky.sk/prislovia">Fuj! Chcem ísť preč</a>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="javascript:	Cookies.set('pop', 'false');">Choď niekam, aj s týmito hláškami, <strong>chcem vstúpiť!</strong></button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal --> 
+
+
+
+
+
+
 
 <div class="l-page">
 <div class="container">
@@ -108,6 +140,22 @@ while ($nadavka=mysql_fetch_object($q)) {
   <script src="js/libs/coffee-script.js"></script>
   <script src="js/libs/d3.min.js"></script>
   <script type="text/coffeescript" src="coffee/vis.coffee"></script>
+
+
+
+<script>
+$(document).ready(function() {
+
+         if (Cookies.get('pop')!="false") {
+            		$("#myModal").modal("show");
+         }
+
+});
+</script>
+
+
+
+
 
 <?php
 
