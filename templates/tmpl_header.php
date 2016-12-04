@@ -106,7 +106,7 @@
                                             <a class="dropdown-item" href="/piesne">Piesne</a>
 
                         <a class="dropdown-item" href="/prislovia">Príslovia a porekadlá</a>
-                        <a class="dropdown-item" href="/nadavky">Nadávky</a>
+                        <a class="dropdown-item" href="/nadavky/slovnik.php">Nadávky</a>
                         <a class="dropdown-item" href="/labs">Ľudo Labs</a>
                     </div>
                 </span>
@@ -122,7 +122,7 @@
                                     <li <?php echo $piesne_tab;?>><a href="/piesne/" target="_parent">Piesne <span class="tag tag-default tag-pill">NOVÉ</span></a> </li>
 
                     <li <?php echo $prislovia_tab;?>><a href="/prislovia" target="_parent">Príslovia a porekadlá</a></li>
-                    <li <?php echo $nadavky_tab;  ?>><a href="/nadavky/slovnik2.php" target="_parent">Nadávky</a></li>
+                    <li <?php echo $nadavky_tab;  ?>><a href="/nadavky/slovnik.php" target="_parent">Nadávky</a></li>
                     <li <?php echo $labs_tab;  ?>><a href="/labs" target="_parent">Ľudo Labs</a></li>
                 </menu>
             </div>
