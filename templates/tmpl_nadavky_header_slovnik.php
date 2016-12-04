@@ -23,7 +23,7 @@
                     <div class="l-header__links col-lg-7 l-margin-0">
 
 
-                        <a href="index.php">Nechaj si vynadať!</a> - <a href="slovnik2.php">Celý slovník</a>
+                        <a href="slovnik.php">Celý slovník</a> <a href="index.php">Nechaj si vynadať!</a>
 
 
                     </div>
