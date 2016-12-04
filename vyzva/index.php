@@ -131,9 +131,9 @@ ini_set('display_errors', '1');
     $subject = 'Vitajte v Ľudovi Slovenskom!';
 
 
+    echo "NOTY:".$noty;
 
-
-    if ($noty==1) {
+    if ($noty=='1') {
         send_mailgun($to, "Vitaj v komunite digitalizátovov Ľuda Slovenského!", $tmpl_email_welcome);
     }
 
