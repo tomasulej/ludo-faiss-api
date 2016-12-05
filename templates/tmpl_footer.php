@@ -11,9 +11,9 @@
             <p><small>Autor projektu: <i class="fa fa-copyright" aria-hidden="true"></i> <a href="http://www.facebook.com/tomas.ulej.pise">Tomáš Ulej</a> 2013-<?php echo date("Y"); ?>. Webdesign: <a href="http://romanklco.com">Roman Klčo</a>. Odborná garantka: Mgr. Jana Ambrózová, PhD., Katedra etnológie a folkloristiky Filozofickej fakulty UKF v Nitre.<BR>
                  Slovenské Spevy: <i class="fa fa-copyright" aria-hidden="true"></i> Ladislav Galko. Digitalizujeme s láskavým súhlasom dedičov a <a href="http://www.opus.sk">vydavateľstva Opus</a>. Prečítajte si <a href="/o-ludovi.php">viac o projekte</a>.</small>
             </p>
-            
 
             <div class="row"><div class="col-md-6 offset-md-2">
+
             <div class="l-footer__partners">
 
                 <h2>Partneri a sponzori:</h2>
@@ -28,7 +28,7 @@
             </div>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-3">
             <div class="l-footer__partners">
 
                 <h2>Odborný garant:</h2>
