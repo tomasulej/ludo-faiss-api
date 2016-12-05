@@ -11,8 +11,6 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_nadavky_header_slovnik.php";
 ?>
  <link rel="stylesheet" href="css/style.css">
 
-<BR>
-
 
  <div class="modal fade" id="myModal">
   <div class="modal-dialog">
@@ -33,7 +31,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_nadavky_header_slovnik.php";
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
-</div><!-- /.modal --> 
+</div><!-- /.modal -->
 
 
 
@@ -41,100 +39,118 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_nadavky_header_slovnik.php";
 
 
 
-<div class="l-page">
 <div class="container">
-<div class="">
 
-<h2>Najpopulárnejšie nadávky:</h2>
+    <div class="l-page">
 
-<nav class="navbar navbar-light bg-faded">
-<div class="row">
-<div class="col-md-7">
-<p>Zobraziť: 
-<a href="?sucasne" id="sucasne" class="btn btn-default btn-xs"><strong>Súčasné nadávky</strong> (kokot ap.)</a> 
-<a href="?zat" id="zat" class="btn btn-default btn-xs"><strong>Staré nadávky</strong> (papľuch ap.)</a> 
-</p></div>
+        <h2>Najpopulárnejšie nadávky:</h2>
 
-<div class="col-md-5">
-<a class="btn btn-default btn-xs" id="jeb" href="?jeb">jebať</a> 
-<a href="?prd" id="prd" class="btn btn-default btn-xs">prdieť</a> 
-<a href="?ser" id="ser" class="btn btn-default btn-xs">srať</a> 
-<a href="?mrd" id="mrd" class="btn btn-default btn-xs">mrdať</a> 
-<a href="?drb" id="drb" class="btn btn-default btn-xs">drbať</a>
-</p>
-</div>
+        <div class="l-well">
 
-</div>
+            <div class="row">
 
+                <div class="col-md-7">
+                    Zobraziť:
+                    <a href="?sucasne" id="sucasne" class="l-link"><strong>Súčasné nadávky</strong> (kokot ap.)</a>
+                    <a href="?zat" id="zat" class="l-link"><strong>Staré nadávky</strong> (papľuch ap.)</a>
+                </div>
 
-</nav>
+                <div class="col-md-5 l-right">
+                    <a class="l-link" id="jeb" href="?jeb">jebať</a>
+                    <a href="?prd" id="prd" class="l-link">prdieť</a>
+                    <a href="?ser" id="ser" class="l-link">srať</a>
+                    <a href="?mrd" id="mrd" class="l-link">mrdať</a>
+                    <a href="?drb" id="drb" class="l-link">drbať</a>
+                </div>
 
+            </div>
 
-
-<div id="vis"></div>
-<p><i>Čím väčšia bublina, tým viac sa používa. Vychádza z dát o počte použití daného slová na Google.com.</i></p> 
-</div>
-</div>
+        </div>
 
 
+        <div id="vis"></div>
+        <p>
+            <i>Čím väčšia bublina, tým viac sa používa. Vychádza z dát o počte použití daného slová na
+                Google.com.</i>
+        </p>
 
-</div>
-</div>
-</div>
-
-<HR>
-   <div class="container content" >
-    
-<div class="col-md-9">    
-<H2 align="center">Všetky sprostonárodné slová <small>Dovedna 738 výrazov</small></H2>
-<div id="nadavky">
-<?php
-include "../databaza_nadavky.php";
-
-$q=mysql_query("SELECT * FROM nadavka");
-
-while ($nadavka=mysql_fetch_object($q)) {
-	printf("<span id='nadavka_%s'><strong>%s</strong> - <i>%s</i></span><BR>",$nadavka->slovo,$nadavka->slovo,$nadavka->txt);
-}
-
-?>	    
-</div>	    
-</div>
+    </div>
 
 
-<div class="col-md-3">
-<H2>TOP Nadávky <small>podľa Google</small></H2>
-<ol>
-<?php
-
-$q=mysql_query("SELECT * FROM nadavka ORDER BY google DESC LIMIT 30");
-
-while ($nadavka=mysql_fetch_object($q)) {
-	printf("<li><strong>%s</strong><BR>",$nadavka->slovo);
-}
-
-?>
-</ol>
-
-
-<div class="fb-like-box fb_iframe_widget" data-href="https://www.facebook.com/ludo.slovensky" data-height="50px" data-colorscheme="dark" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=1402931466605062&amp;color_scheme=dark&amp;container_width=263&amp;header=false&amp;height=150&amp;href=https%3A%2F%2Fwww.facebook.com%2Fludo.slovensky&amp;locale=en_US&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=false"><span style="vertical-align: bottom; width: 300px; height: 150px;"><iframe name="f3a838ff08" width="1000px" height="150px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like_box Facebook Social Plugin" src="http://www.facebook.com/v2.0/plugins/like_box.php?app_id=1402931466605062&amp;channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2F6brUqVNoWO3.js%3Fversion%3D41%23cb%3Df15377eab4%26domain%3Dwww.ludoslovensky.sk%26origin%3Dhttp%253A%252F%252Fwww.ludoslovensky.sk%252Ff3f83bb3f%26relation%3Dparent.parent&amp;color_scheme=dark&amp;container_width=263&amp;header=false&amp;height=50&amp;href=https%3A%2F%2Fwww.facebook.com%2Fludo.slovensky&amp;locale=en_US&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=false" class="" style="border: none; visibility: visible; width: 300px; height: 70px;"></iframe></span></div>
 
 </div>
 
+<div class="container content">
+
+    <div class="l-page">
+    <div class="row">
+
+        <div class="col-md-9">
+            <h2>Všetky sprostonárodné slová
+                <small>Dovedna 738 výrazov</small>
+            </h2>
+            <div id="nadavky">
+                <?php
+                include "../databaza_nadavky.php";
+
+                $q = mysql_query("SELECT * FROM nadavka");
+
+                while ($nadavka = mysql_fetch_object($q)) {
+                    printf("<span id='nadavka_%s'><strong>%s</strong> - <i>%s</i></span><BR>", $nadavka->slovo, $nadavka->slovo, $nadavka->txt);
+                }
+
+                ?>
+            </div>
+        </div>
+
+
+        <div class="col-md-3">
+            <H2>TOP Nadávky
+                <small>podľa Google</small>
+            </H2>
+            <ol>
+                <?php
+
+                $q = mysql_query("SELECT * FROM nadavka ORDER BY google DESC LIMIT 30");
+
+                while ($nadavka = mysql_fetch_object($q)) {
+                    printf("<li><strong>%s</strong><BR>", $nadavka->slovo);
+                }
+
+                ?>
+            </ol>
+
+
+            <div class="fb-like-box fb_iframe_widget" data-href="https://www.facebook.com/ludo.slovensky"
+                 data-height="50px" data-colorscheme="dark" data-show-faces="true" data-header="false"
+                 data-stream="false" data-show-border="false" fb-xfbml-state="rendered"
+                 fb-iframe-plugin-query="app_id=1402931466605062&amp;color_scheme=dark&amp;container_width=263&amp;header=false&amp;height=150&amp;href=https%3A%2F%2Fwww.facebook.com%2Fludo.slovensky&amp;locale=en_US&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=false">
+                <span style="vertical-align: bottom; width: 300px; height: 150px;"><iframe name="f3a838ff08"
+                                                                                           width="1000px" height="150px"
+                                                                                           frameborder="0"
+                                                                                           allowtransparency="true"
+                                                                                           allowfullscreen="true"
+                                                                                           scrolling="no"
+                                                                                           title="fb:like_box Facebook Social Plugin"
+                                                                                           src="http://www.facebook.com/v2.0/plugins/like_box.php?app_id=1402931466605062&amp;channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2F6brUqVNoWO3.js%3Fversion%3D41%23cb%3Df15377eab4%26domain%3Dwww.ludoslovensky.sk%26origin%3Dhttp%253A%252F%252Fwww.ludoslovensky.sk%252Ff3f83bb3f%26relation%3Dparent.parent&amp;color_scheme=dark&amp;container_width=263&amp;header=false&amp;height=50&amp;href=https%3A%2F%2Fwww.facebook.com%2Fludo.slovensky&amp;locale=en_US&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=false"
+                                                                                           class=""
+                                                                                           style="border: none; visibility: visible; width: 300px; height: 70px;"></iframe></span>
+            </div>
+
+        </div>
+
+    </div>
+    </div>
 	    
 	</div>
 
-    <footer>
+    <div class="l-page">
 	    <div class="container">
-		    <div class="row">
-
-			    <div class="col-md-12">
-			    Zdroje: Zdroje: Krátky slovník slovenského jazyka; Slovník súčasnej slovenčiny; A.P. Záturecký: Slovenské príslovia, porekadlá a úslovia; Najkratší slovník slovenského jazyka. Niečo tu chýba? <strong><a href="mailto:tomasulej@tomasulej.sk" style="color:white;text-decoration: underline">Napíšte mi!</a></strong><BR>
-					    © <a href="http://www.facebook.com/tomas.ulej.pise" style="color:white;text-decoration: underline">Tomáš Ulej</a> 1987-2015.  <a href="http://www.ludoslovensky.sk/prislovia/o-ludovi.php" style="color:white;text-decoration: underline">Viac o projekte</a>.
-			    </div>
-		    </div>
-	    </div>
-    </footer>
+            Zdroje: Zdroje: Krátky slovník slovenského jazyka; Slovník súčasnej slovenčiny; A.P. Záturecký: Slovenské príslovia, porekadlá a úslovia; Najkratší slovník slovenského jazyka. Niečo tu chýba? <strong><a href="mailto:tomasulej@tomasulej.sk">Napíšte mi!</a></strong>
+            <br>
+            © <a href="http://www.facebook.com/tomas.ulej.pise">Tomáš Ulej</a> 1987-2015.  <a href="http://www.ludoslovensky.sk/prislovia/o-ludovi.php">Viac o projekte</a>.
+        </div>
+    </div>
 
   <script defer src="js/plugins.js"></script>
   <script src="js/libs/coffee-script.js"></script>

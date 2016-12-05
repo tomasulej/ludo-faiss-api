@@ -2249,6 +2249,10 @@ a {
 .btn {
   font-family: 'Qanelas-Soft Semibold', sans-serif; }
 
+.l-link {
+  font-family: 'Qanelas-Soft Semibold', sans-serif;
+  padding: 0 0.5rem; }
+
 .l-btn, .l-btn--small, .l-btn--medium, .l-btn--large {
   display: inline-block;
   vertical-align: middle;
