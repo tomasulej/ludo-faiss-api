@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c22600ea-5403-465d-9101-ef00f90f3a9f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/img/logo-labs-inverse.png" afterPath="$PROJECT_DIR$/public/img/logo-labs-inverse.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/img/logo-prislovia-inverse.png" afterPath="$PROJECT_DIR$/public/img/logo-prislovia-inverse.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/databaza_nadavky.php" afterPath="$PROJECT_DIR$/databaza_nadavky.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css.map" afterPath="$PROJECT_DIR$/public/css/style.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sass/_elements.scss" afterPath="$PROJECT_DIR$/src/sass/_elements.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sass/_variables.scss" afterPath="$PROJECT_DIR$/src/sass/_variables.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sass/components/_footer.scss" afterPath="$PROJECT_DIR$/src/sass/components/_footer.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sass/components/_promo.scss" afterPath="$PROJECT_DIR$/src/sass/components/_promo.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tmpl_nadavky_slovnik.php" afterPath="$PROJECT_DIR$/templates/tmpl_nadavky_slovnik.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tmpl_piesen_mapa.php" afterPath="$PROJECT_DIR$/templates/tmpl_piesen_mapa.php" />
     </list>
     <ignored path="ludo.iws" />
@@ -45,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tmpl_piesen_mapa.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tmpl_piesen_mapa.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/tmpl_piesen_mapa.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
-              <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+              <caret line="31" column="54" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -69,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/src/sass/components/_promo.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -95,7 +85,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tmpl_nadavky_slovnik.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tmpl_nadavky_slovnik.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/tmpl_nadavky_slovnik.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="228">
@@ -151,11 +141,11 @@
         <option value="$PROJECT_DIR$/templates/tmpl_footer.php" />
         <option value="$PROJECT_DIR$/src/sass/components/_footer.scss" />
         <option value="$PROJECT_DIR$/src/sass/components/_promo.scss" />
-        <option value="$PROJECT_DIR$/templates/tmpl_piesen_mapa.php" />
         <option value="$PROJECT_DIR$/src/sass/_variables.scss" />
         <option value="$PROJECT_DIR$/src/sass/_elements.scss" />
         <option value="$PROJECT_DIR$/databaza_nadavky.php" />
         <option value="$PROJECT_DIR$/templates/tmpl_nadavky_slovnik.php" />
+        <option value="$PROJECT_DIR$/templates/tmpl_piesen_mapa.php" />
       </list>
     </option>
   </component>
@@ -347,12 +337,12 @@
       <updated>1480177003350</updated>
       <workItem from="1480177004599" duration="17000" />
       <workItem from="1480324979999" duration="95000" />
-      <workItem from="1480965297460" duration="2787000" />
+      <workItem from="1480965297460" duration="2876000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2899000" />
+    <option name="totallyTimeSpent" value="2988000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="829" extended-state="6" />
@@ -427,15 +417,7 @@
     <entry file="file://$PROJECT_DIR$/src/sass/components/_promo.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tmpl_piesen_mapa.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -496,6 +478,14 @@
             <marker date="1480969247000" expanded="true" signature="2599:2620" ph="SELECT * FRO... nadavka" />
             <marker date="1480969247000" expanded="true" signature="2922:2973" ph="SELECT * FRO... nadavka" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tmpl_piesen_mapa.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="31" column="54" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
