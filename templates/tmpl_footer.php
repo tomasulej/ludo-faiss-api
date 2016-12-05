@@ -18,6 +18,8 @@
 
                 <h2>Partneri a sponzori:</h2>
                 <a href="http://www.martinus.sk"><img src="/public/img/martinus-inverse.png"></a>
+                                <a href="http://www.dennikn.sk"><img src="/public/img/n-logo.png"></a>
+
                 <a href="http://www.websupport.sk"><img src="/public/img/websupport-inverse.png"></a>
                 <a href="http://www.mestskakniznica.sk"><img src="/public/img/kniznica-inverse2.png"></a>
                <!-- <a href="http://www.jankohrasko.sk"><img src="/public/img/janko-hrasko-inverse.png"></a> -->

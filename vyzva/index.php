@@ -68,7 +68,7 @@
                <h3>Ehm, a kto vy vlastne ste?</h3>
                
 
-                <p>Projekt <a href="http://www.ludoslovensky.sk">Ľudo Slovenský</a> je združenie dobrovoľníkov, ktorí sa <strong>snažia dostať na internet naše kultúrne dedičstvo</strong> a zábavnou formou priblížiť všetko, čo vytvoril ľud(o) slovenský - náš anonymný John Doe, Janko Hraško - človek milión. Už sme na internet dostali kompletné <a href="http://www.ludoslovensky.sk/prislovia">príslovia, porekadlá</a> a <a href="http://www.ludoslovensky.sk/nadavky/">nadávky</a> a teraz chceme piesne. Projekt založil aforista a novinár Tomáš Ulej, a je logickým pokračovaním jeho projektu <a href="http://zlatyfond.sme.sk">Zlatý fond denníka SME</a>, vďaka ktorému sú na internete voľne dostupné všetky najvýznamnejšie slovenské literárne diela. Odborným konzultantom Ľuda Slovenského je Katedry etnológie a folkloristiky Filozofickej fakulty Univerzity Konštantína Filozofa v Nitre.</p>
+                <p>Projekt <a href="http://www.ludoslovensky.sk">Ľudo Slovenský</a> je združenie dobrovoľníkov, ktorí sa <strong>snažia dostať na internet naše kultúrne dedičstvo</strong> a zábavnou formou priblížiť všetko, čo vytvoril ľud(o) slovenský - náš anonymný John Doe, Janko Hraško - človek milión. Už sme na internet dostali kompletné <a href="http://www.ludoslovensky.sk/prislovia">príslovia, porekadlá</a> a <a href="http://www.ludoslovensky.sk/nadavky/">nadávky</a> a teraz chceme piesne. Projekt založil aforista a novinár Tomáš Ulej, a je logickým pokračovaním jeho projektu <a href="http://zlatyfond.sme.sk">Zlatý fond denníka SME</a>, vďaka ktorému sú na internete voľne dostupné všetky najvýznamnejšie slovenské literárne diela. Odborným konzultantom Ľuda Slovenského je Jana Ambrózová z Katedry etnológie a folkloristiky Filozofickej fakulty Univerzity Konštantína Filozofa v Nitre.</p>
                 
                  
 
@@ -134,7 +134,7 @@ ini_set('display_errors', '1');
     //echo "NOTY:".$noty;
 
     if ($noty=='ano') {
-        send_mailgun($to, "Vitaj v komunite digitalizátovov Ľuda Slovenského!", $tmpl_email_welcome);
+        //send_mailgun($to, "Vitaj v komunite digitalizátovov Ľuda Slovenského!", $tmpl_email_welcome);
     }
 
     send_mailgun("tomas@ludoslovensky.sk","Nový človek pribudol, aleluja, aleluja!",$mysql_query);
@@ -145,7 +145,7 @@ ini_set('display_errors', '1');
 ?>
 
 <div class="alert alert-success" role="alert">
-  <strong>Výborne!</strong> Ďakujeme veľmi pekne za vyplnenie nášho formulára. <strong>E-mailom sme Ti poslali ďalšie inštrukcie</strong>. Ak by neprišiel hneď, pozri, prosím, aj v spamovom priečinku a v prípade problémov <a href="mailto:ludo@ludoslovensky.sk">nám napíš</a> :).
+  <strong>Výborne!</strong> Ďakujeme veľmi pekne za vyplnenie nášho formulára, veľmi si to vážime. <strong>Inštrukcie ako sa k nám zapojiť Ti pošleme do 48 hodín na Tvoj e-mail</strong>.  V prípade otázok <a href="mailto:ludo@ludoslovensky.sk">nám napíš sem</a>.  :).
 </div>
 
 <?php 
@@ -158,7 +158,7 @@ ini_set('display_errors', '1');
 	} else {?>
 
                 <h2>Chceš nám pomôcť zdigitalizovať ľudové piesne? Vyplň dotazník a my sa Ti ozveme!</h2>
-                <p><strong>Vyplň dotazník a do 24 hodín Ti pošleme ďalšie inštrukcie ako nám môžeš pomôcť.</strong> </p>
+                <p><strong>Vyplň dotazník a do 48 hodín Ti pošleme ďalšie inštrukcie ako nám môžeš pomôcť.</strong> </p>
                 
 
                 
