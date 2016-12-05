@@ -13,7 +13,7 @@
             </p>
             
 
-            <div class="row"><div class="col-md-5 offset-md-2">
+            <div class="row"><div class="col-md-6 offset-md-2">
             <div class="l-footer__partners">
 
                 <h2>Partneri a sponzori:</h2>
