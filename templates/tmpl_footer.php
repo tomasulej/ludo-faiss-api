@@ -13,7 +13,7 @@
             </p>
             
 
-            <div class="row"><div class="col-md-9">
+            <div class="row"><div class="col-md-5 offset-md-2">
             <div class="l-footer__partners">
 
                 <h2>Partneri a sponzori:</h2>
@@ -28,7 +28,7 @@
             </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-2">
             <div class="l-footer__partners">
 
                 <h2>Odborný garant:</h2>
