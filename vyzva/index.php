@@ -145,7 +145,7 @@ ini_set('display_errors', '1');
 ?>
 
 <div class="alert alert-success" role="alert">
-  <strong>Výborne!</strong> Ďakujeme veľmi pekne za vyplnenie nášho formulára, veľmi si to vážime. <strong>Inštrukcie ako sa k nám zapojiť Ti pošleme do 48 hodín na Tvoj e-mail</strong>.  V prípade otázok <a href="mailto:ludo@ludoslovensky.sk">nám napíš sem</a>.  :).
+  <strong>Výborne!</strong> Ďakujeme veľmi pekne za vyplnenie nášho formulára, veľmi si to vážime. <strong>Inštrukcie o tom, ako sa k nám zapojiť, Ti pošleme do 48 hodín na Tvoj e-mail</strong>.  V prípade otázok <a href="mailto:ludo@ludoslovensky.sk">nám napíš sem</a>.  Ďakujeme ešte raz :).
 </div>
 
 <?php 
