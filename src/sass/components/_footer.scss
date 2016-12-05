@@ -4,14 +4,14 @@
   color: #fff;
   padding: 3rem 0;
 
-  a{
+  a, a:visited{
     color: $color-grey3;
   }
 
   .l-footer__signature{
 
     text-align: center;
-    font-family: 'Qanelas Soft', sans-serif;
+    font-family: 'Qanelas-Soft Semibold', sans-serif;
     font-size: 1rem;
 
     .l-footer__logo{

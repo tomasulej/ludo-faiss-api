@@ -2301,14 +2301,6 @@ a {
 .l-theme-yellow .l-num {
   background: #f5ab32; }
 
-.l-theme-violet .l-btn--primary {
-  background: #9C57A2;
-  color: #fff !important; }
-.l-theme-violet .l-btn--primary:hover {
-  background: #d488d4; }
-.l-theme-violet .l-num {
-  background: #9C57A2; }
-
 .l-well {
   background: #eef1f5;
   padding: 1rem;
@@ -2447,11 +2439,11 @@ a {
 
 .l-theme-violet .l-header {
   background: #9C57A2;
-  color: #eecfea; }
+  color: #c8a9c4; }
   .l-theme-violet .l-header a {
-    color: #eecfea; }
+    color: #c8a9c4; }
 .l-theme-violet .l-header-breadcrumbs {
-  color: #eecfea; }
+  color: #c8a9c4; }
 
 .l-header {
   padding: 2rem 0 0 0; }
@@ -2545,7 +2537,6 @@ a {
     margin-bottom: 1rem; } }
 .l-promo {
   padding-top: 3rem;
-  padding-bottom: 1rem;
   background: #333845;
   color: #fff; }
   .l-promo .text-muted-inverse {
@@ -2597,11 +2588,11 @@ a {
   background: #333845;
   color: #fff;
   padding: 3rem 0; }
-  .l-footer a {
-    color: #bdc6d7; }
+  .l-footer a, .l-footer a:visited {
+    color: #ccd6e8; }
   .l-footer .l-footer__signature {
     text-align: center;
-    font-family: 'Qanelas Soft', sans-serif;
+    font-family: 'Qanelas-Soft Semibold', sans-serif;
     font-size: 1rem; }
     .l-footer .l-footer__signature .l-footer__logo {
       display: inline-block;
