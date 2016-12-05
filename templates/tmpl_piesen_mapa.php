@@ -30,7 +30,7 @@
   <h2>Ľudové piesne na mape</h2>
 
 <div id="mapa" class="map" style="height:450px"></div>
-  <p><small>Mapa obsahuje údaje zaznačené zberateľmi piesne, či už <strong>miesto kde bola pieseň zozbieraná</strong>, alebo región, ktorý zberateľ uviedol ako ten, <strong>kde sa pieseň spieva</strong>. 
+  <br><p><small>Mapa obsahuje údaje zaznačené zberateľmi piesne, či už <strong>miesto kde bola pieseň zozbieraná</strong>, alebo región, ktorý zberateľ uviedol ako ten, <strong>kde sa pieseň spieva</strong>.
   Údaje už nemusia byť aktuálne. Do mapy sme tiež vyznačili lokality, ktoré sa spomínajú <strong>v samotnom texte piesne</strong>. Po kliknutí na bod získate zoznam piesni.</small></p>
 
 <script>

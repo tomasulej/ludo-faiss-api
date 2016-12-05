@@ -56,6 +56,22 @@ h2, h3, h4{
   line-height: 1.3em;
 }
 
+h2{
+  font-size: 1.75rem;
+}
+
+h3{
+  font-size: 1.5rem;
+}
+
+h4{
+  font-size: 1.25rem;
+}
+
+h5{
+  font-size: 1.15rem;
+}
+
 a{
   cursor: pointer;
 }
@@ -167,6 +183,22 @@ a{
 
   .l-num{
     background: $color-yellow;
+  }
+}
+
+.l-theme-violet{
+
+  .l-btn--primary{
+    background: $color-violet;
+    color: #fff !important;
+  }
+
+  .l-btn--primary:hover{
+    background: $color-violet-light;
+  }
+
+  .l-num{
+    background: $color-violet;
   }
 }
 

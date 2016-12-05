@@ -43,9 +43,9 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_nadavky_header_slovnik.php";
 
 <div class="l-page">
 <div class="container">
-<div class="l-song">
+<div class="">
 
-<h4>Najpopulárnejšie nadávky:</h4>
+<h2>Najpopulárnejšie nadávky:</h2>
 
 <nav class="navbar navbar-light bg-faded">
 <div class="row">
