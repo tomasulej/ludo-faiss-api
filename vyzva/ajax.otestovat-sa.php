@@ -86,7 +86,7 @@
 
                     <!-- otázka -->
                     <div class="row">
-                        <div class="col-md-8"><strong>Druhý takt treba hrať "pomaly".</strong></div>
+                        <div class="col-md-8"><strong>Druhý takt treba hrať na rozdiel od prvého "tichšie".</strong></div>
                         <div class="col-md-4">
                             <label class="form-check-inline">
                                 <input class="form-check-input" type="radio" name="inlineRadioOptions4" id="4" class="rad" value="1"> Áno</input>

@@ -73,7 +73,7 @@
                         <button type="button" class="close" data-dismiss="alert" aria-label="Zatvoriť" onclick="javascript:Cookies.set('tempo_alert', 'false');">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <strong>Tempo je len ilustračné!</strong>  Skutočné tempo, akým ľudia spievali túto pieseň, môže byť mierne pomalšie alebo rýchlejšie.
+                        <strong>Tempo je len ilustračné!</strong>  Tempové označenie vychádza z publikovanej verzie Slovenských spevov. Moderné zápisy ľudových piesní takéto označenia už neobsahujú. Rýchlosť prehrávania piesní je nutné vnímať ako orientačnú.
                       <!-- <a  href="javascript:void(0)" onclick="javascript:Cookies.set('tempo_alert', 'false');$('#tempo_alert').hide();">Dobre, rozumiem.</a> -->
                     </div>
 
@@ -128,7 +128,7 @@
 
 <div id="tuto-poznam_div" class="l-well l-know">
             <strong>Poznáte túto pieseň?</strong>
-            Dajte nám vedieť! Pomôžete tým mapovať rozšírenie piesni na Slovensku:
+            Dajte nám vedieť! Pomôžete nám tým preskúmať rozšírenie piesni na Slovensku:
             <button class="l-btn l-btn--primary l-btn--small" data-toggle="modal" href="javascript:void(0);" data-target="#tutopoznam_box" onclick="tutopoznam();">
                 <i class="fa fa-star"></i> Túto pieseň poznám!</button>
 
@@ -297,7 +297,7 @@
       <div class="modal-body">
 
       <H4>Zdroje informácii o tejto piesni</H4>
-      <p>Noty, texty, poznámky a ďalšie informácie o piesni, ktoré uvádzame na týchto webových stránkach vychádzajú z viacerých zdrojov - 1. z rukopisných informácii zberateľov a prispievateľov zbierky Slovenské Spevy; 2. z pera redakcie prvého knižného vydania Slovenských spevov; 3. od zostavovateľa druhého vydania Spevov Ladislava Galka (<a href="">pozri viac</a> o tom ako vznikala zbierka Slovenské spevy), alebo 4. tak, že ich na tento web z iných zdrojov pridali spolupracovníci webu Ľudo Slovenský. Aby sme záujemcom uľahčili orientáciu, uvádzame na tomto mieste pôvod informácií týkajúcich sa tejto piesne:</p>
+      <p>Noty, texty, poznámky a ďalšie informácie o piesni, ktoré uvádzame na týchto webových stránkach, vychádzajú z viacerých zdrojov - 1. z rukopisných informácií zberateľov a prispievateľov zbierky Slovenské spevy; 2. z pera redakcie prvého knižného vydania Slovenských spevov; 3. od zostavovateľa druhého vydania Spevov Ladislava Galka (doplneného a kritického), alebo 4. tak, že ich na tento web z iných zdrojov pridali spolupracovníci webu Ľudo Slovenský. Aby sme záujemcom uľahčili orientáciu, uvádzame na tomto mieste pôvod informácií týkajúcich sa tejto piesne:</p>
 
 
 <table class="table table-sm">
@@ -312,7 +312,7 @@
     <tr>
       <th>Názov</th>
       <td><?php echo $piesen->nazov_dlhy ?></td>
-      <td><small>Prvé ani druhé vydanie neobsahovalo názvy piesní. Dopĺňame z prvých slov piesne.</small></td>
+      <td><small>Prvé ani druhé vydanie neobsahuje názvy (incipity) piesní. Dopĺňame vychádzajúc z prvého verša piesne.</small></td>
     </tr>
 
 
@@ -468,7 +468,7 @@
           <?php 
           switch ($poznamky["id_druh"]) {
             case 0:
-                echo "Ide o poznámku, ktorú pridal k piesni prispievateľ resp. prvá redakcia";
+                echo "Ide o poznámku, ktorú pridal k piesni zberateľ, resp. prvá redakcia";
             break;
             case 1:
                 echo "Ide o poznámku spracovávateľa druhého vydania.";
@@ -488,18 +488,18 @@
 <?php if (!empty($podobne)) { $i=1; ?>
     <?php foreach ($podobne as $key=>$p_piesen) { ?>
      <tr>
-      <th>Prepojenie č. <?php echo $i;$i++; ?></th>
+      <th>Piesňový variant / Príbuznosť <?php echo $i;$i++; ?></th>
       <td><?php echo ($p_piesen["nazov_kratky"]==""?"(ešte nezdigitalizované)":$p_piesen["nazov_kratky"]."…");?></td>
       <td><small> <?php 
           switch ($p_piesen["id_vztah"]) {
             case 1:
-                echo "Prepojenie pribudlo v druhom vydaní. Ide o <i>totožný nápev</i>.";
+                echo "Prepojenie pribudlo v druhom vydaní. Ide o <i>totožný nápev</i> (podľa klasifikácie L. Galka).";
             break;
             case 2:
-                echo "Prepojenie pribudlo v druhom vydaní. K tejto piesni má <i>bližšiu príbuznosť</i>.";
+                echo "Prepojenie pribudlo v druhom vydaní. K tejto piesni má <i>bližšiu príbuznosť</i> (podľa klasifikácie L. Galka).";
             break;  
             case 3:
-                echo "Prepojenie pribudlo v druhom vydaní. K tejto piesni má <i>vzdialenejšiu príbuznosť</i>.";
+                echo "Prepojenie pribudlo v druhom vydaní. K tejto piesni má <i>vzdialenejšiu príbuznosť</i> (podľa klasifikácie L. Galka).";
             break;  
  
           }
@@ -514,10 +514,10 @@
 </table>
 
       <h4>Ako citovať toto dielo</h4>
-      <strong>Pôvodná zbierka, z ktorej sme vychádzali</strong><BR>
-      <blockquote><code>GALKO, L.: Slovenské spevy 1. diel (2. dopl. krit. a dokumentované vyd.). Bratislava : Opus, 1972. 599 s.</code></blockquote>
+      <strong>Pôvodná zbierka, z ktorej sme vychádzali:</strong><BR>
+      <blockquote><code>GALKO, L. Slovenské spevy : Druhé doplnené, kritické a dokumentované vydanie. I. diel. Bratislava : Opus, 1972. 599 s.</code></blockquote>
       <strong>Táto webová stránka:</strong><BR>
-      <blockquote><code>GALKO, Ladislav: Slovenské spevy 1. diel (2. dopl. krit. a dokumentované vyd.). Ľudo Slovenský 2016, [cit. 22. 9. 2016]. Dostupné na webovskej stránke (world wide web): http://www.ludoslovensky.sk/piesne/piesen.php?<?php echo $piesen->id_piesen;?></code></blockquote>
+      <blockquote><code>GALKO, L. Slovenské spevy : Druhé doplnené, kritické a dokumentované vydanie [online]. I. diel. Bratislava : Opus, 1972. 599 s. [cit. 2016-09-22]. Ľudo Slovenský 2016. Dostupné na internete: http://www.ludoslovensky.sk/piesne/piesen.php?<?php echo $piesen->id_piesen;?></code></blockquote>
 
 
 

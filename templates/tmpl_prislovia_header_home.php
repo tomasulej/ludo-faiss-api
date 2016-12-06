@@ -28,9 +28,9 @@
                 <div class="l-header__info">
 
                     <h1>Najväčšia zbierka slovenských prísloví a porekadiel!</h1>
-                    Rady ako žiť, krátke povzdychy, prirovnania - všetky spája jediné spojívko: už stovky rokov ich hovoria rodičia deťom a šíria ako mor, vírus medzi ďalšie generácie.
-                   Viac ako 12-tisíc z nich sme vzali, zdigitalizovali a roztriedili podľa tém,  aby navždy slúžili nám všetkým. Užívaj ich v zdraví, Ľudo internetový a šír medzi svojimi!
-            </div>
+                  Po bitke je každý múdry, preto Ľud(o) dáva rady do života! Vyše 12.000 prísloví, porekadiel a pranostík sme zdigitalizovali, poprepájali podľa tém, aby ste si mohli vychutnať múdrosť (aj hlúposť) našich predkov.
+                  
+                              </div>
 
             </div>
 
