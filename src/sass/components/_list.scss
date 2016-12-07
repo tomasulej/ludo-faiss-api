@@ -74,3 +74,25 @@
     }
   }
 }
+
+@media (max-width: $screen-xs-max) {
+
+
+  .l-chart {
+
+    ol {
+
+      li {
+
+        small {
+          width: 17%;
+          padding-right: 1%;
+        }
+
+        a {
+          width: 80%;
+        }
+      }
+    }
+  }
+}

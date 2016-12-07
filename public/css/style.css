@@ -2827,4 +2827,11 @@ a {
 .l-chart ol li:hover {
   background: #eef1f5; }
 
+@media (max-width: 33.9rem) {
+  .l-chart ol li small {
+    width: 17%;
+    padding-right: 1%; }
+  .l-chart ol li a {
+    width: 80%; } }
+
 /*# sourceMappingURL=style.css.map */
