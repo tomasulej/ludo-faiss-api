@@ -2808,13 +2808,17 @@ a {
   line-height: 1.8rem;
   border-radius: 5px; }
   .l-chart ol li small {
-    color: #717887; }
+    color: #717887;
+    text-align: right;
+    width: 13%;
+    padding-right: 1%;
+    display: inline-block; }
   .l-chart ol li .fa {
     margin-right: 3px; }
   .l-chart ol li a {
     display: inline-block;
     white-space: nowrap;
-    width: 90%;
+    width: 84%;
     overflow: hidden;
     text-overflow: ellipsis;
     padding-left: 0.5rem; }

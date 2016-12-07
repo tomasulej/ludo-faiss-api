@@ -45,6 +45,10 @@
 
       small{
         color: $color-grey;
+        text-align: right;
+        width: 13%;
+        padding-right: 1%;
+        display: inline-block;
       }
 
       .fa{
@@ -54,7 +58,7 @@
       a{
         display: inline-block;
         white-space: nowrap;
-        width: 90%;
+        width: 84%;
         overflow: hidden;
         text-overflow: ellipsis;
         padding-left: 0.5rem;
