@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="col-md-3 l-right">
-                    <a id="playpause_main" class="l-btn l-btn--primary l-btn--medium" onclick="playpause('#aud','#playpause_main');"><i class="fa fa-play"></i> Prehrať melódiu</a>
+                    <a id="playpause_main" class="l-btn l-btn--primary l-btn--medium l-btn--play" onclick="playpause('#aud','#playpause_main');"><i class="fa fa-play"></i> Prehrať melódiu</a>
                 </div>
 
 
