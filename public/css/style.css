@@ -2665,12 +2665,6 @@ a {
   background: #fff;
   width: 100%;
   padding-top: 1rem; }
-  .l-song-header .l-btn--play {
-    font-size: 1.6rem;
-    width: 3rem;
-    height: 3rem;
-    text-align: center;
-    margin-bottom: 1rem; }
 
 .l-song-header--float {
   position: fixed;
@@ -2779,7 +2773,13 @@ a {
 
   .l-layout-song .modal-header, .l-layout-song .modal-body, .l-layout-song .modal-footer {
     padding-left: 1rem;
-    padding-right: 1rem; } }
+    padding-right: 1rem; }
+
+  .l-song-header .l-btn--play {
+    display: block;
+    text-align: center;
+    margin-bottom: 3rem;
+    margin-top: 2rem; } }
 .l-search .l-search-header {
   margin-bottom: 3rem; }
 
@@ -2808,13 +2808,17 @@ a {
   line-height: 1.8rem;
   border-radius: 5px; }
   .l-chart ol li small {
-    color: #717887; }
+    color: #717887;
+    text-align: right;
+    width: 13%;
+    padding-right: 1%;
+    display: inline-block; }
   .l-chart ol li .fa {
     margin-right: 3px; }
   .l-chart ol li a {
     display: inline-block;
     white-space: nowrap;
-    width: 90%;
+    width: 84%;
     overflow: hidden;
     text-overflow: ellipsis;
     padding-left: 0.5rem; }
@@ -2822,5 +2826,12 @@ a {
     text-decoration: none; }
 .l-chart ol li:hover {
   background: #eef1f5; }
+
+@media (max-width: 33.9rem) {
+  .l-chart ol li small {
+    width: 17%;
+    padding-right: 1%; }
+  .l-chart ol li a {
+    width: 80%; } }
 
 /*# sourceMappingURL=style.css.map */
