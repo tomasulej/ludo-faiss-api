@@ -134,7 +134,7 @@ ini_set('display_errors', '1');
     //echo "NOTY:".$noty;
 
     if ($noty=='ano') {
-        //send_mailgun($to, "Vitaj v komunite digitalizátovov Ľuda Slovenského!", $tmpl_email_welcome);
+        send_mailgun($to, "Vitaj v komunite digitalizátovov Ľuda Slovenského!", $tmpl_email_welcome);
     }
 
     send_mailgun("tomas@ludoslovensky.sk","Nový človek pribudol, aleluja, aleluja!",$mysql_query);
