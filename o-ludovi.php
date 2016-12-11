@@ -42,7 +42,7 @@ $telo='
 
 <p>Zakladateľom projektu je aforista a novinár <a href="http://www.facebook.com/tomas.ulej.pise">Tomáš Ulej</a> a je pokračovaním jeho projektu <a href="http://zlatyfond.sme.sk">Zlatý fond denníka SME</a>, v ktorom sa podarilo na internet dostať najvýznamnejšie diela slovenskej literatúry. </p>
 
-<p><strong>Odborným garantom</strong> projektu je <strong>Katedra etnológie a folkloristiky Filozofickej fakulty Univerzity Konštantína Filozofa v Nitre</strong>.</p>
+<p><strong>Odbornou garantkou</strong> projektu je Mgr. Jana Ambrózová, PhD. z <strong>Katedry etnológie a folkloristiky Filozofickej fakulty Univerzity Konštantína Filozofa v Nitre</strong>.</p>
 
 <h2>Čo znamená názov?</h2>
 
