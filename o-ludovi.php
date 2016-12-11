@@ -23,7 +23,7 @@ $telo='
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" data-toggle="tab" href="#otazky" role="tab">Často kladené otázky</a>
+    <a class="nav-link active" data-toggle="tab" href="#otazky" role="tab">O projekte</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" data-toggle="tab" href="#povedali" role="tab">Povedali o Ľudovi</a>
