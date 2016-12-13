@@ -112,8 +112,8 @@ function nacitat_udaje() {
 
 
   //abc_times_arr
-  var abc_times_arr=abc_all.substring(abc_all.indexOf("times_arr"),abc_all.indexOf(";",abc_allindexOf("times_arr")+1));
-
+  var abc_times_arr=abc_all.substring(abc_all.indexOf("times_arr"),abc_all.indexOf(";",abc_all.indexOf("times_arr"))+1);
+  alert(abc_times_arr);
   $("#abc_times_arr").val(abc_times_arr); 
 
 }
