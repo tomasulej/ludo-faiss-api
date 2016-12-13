@@ -74,13 +74,53 @@ if ($_POST['odoslane']=='true') {
 
 <ol>
 <li><a href="gen/abcweb.html?http://<?php echo  $_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'];?>/piesne/data/<?php echo (int)$_POST['id_piesen'].'/'.basename($_FILES["upl_xml"]["name"])?>" target="_blank">Klikni sem</a> - do nového okna sa ti otvorila stránka, kde by si mal(a) vidieť noty. </li>
-<li>Na tejto stránke klikni v pravo na "Menu" a zaškrtni "Enable sync". Následne úplne dole klikni na "Save".<BR><img src="/public/img/navod_save_notes.gif"></li>
-<li>Otvoril sa teraz textový súbor, z neho do koloniek nižšie vykopírujte údaje podľa naznačenej schémy.<BR><img img src="/public/img/navod_save_notes2.png"><br>
-<font color="green">Zelenou</font> sú noty piesne, <font color="yellow">žltou</font>časovanie piesne a <font color="blue">modrou</font> nastavenia piesne.
+<li>Na tejto stránke klikni v pravo na "Menu" a zaškrtni "Enable sync". Následne úplne dole klikni na "Save".<!--<BR><img src="/public/img/navod_save_notes.gif"></li>-->
+<li>Otvoril sa teraz textový súbor, jeho obsah skopíruj do kolonky nižšie:<!--<BR><img img src="/public/img/navod_save_notes2.png"><br>
+<font color="green">Zelenou</font> sú noty piesne, <font color="yellow">žltou</font>časovanie piesne a <font color="blue">modrou</font> nastavenia piesne.-->
 </li>
 </ol>
 
 <form action="04_crop.php" method="post" class="l-form l-well">
+
+  <div class="form-group row">	  
+
+    <fieldset class="form-group">
+    <label for="abc_all">Sem skopíruj celý obsah a klikni na načítať údaje:</label>
+    <textarea class="form-control" id="abc_all" name="abc_all" rows="15"></textarea>
+  </fieldset>
+<button type="button" class="l-btn l-btn--large l-btn--primary" onclick="nacitat_udaje()">Načítať údaje</button>
+
+  </div>
+<script>
+function nacitat_udaje() {
+  var abc_all=$('#abc_all').val();
+  
+  //abc_notes
+  var abc_notes=abc_all.substring(abc_all.indexOf("abc_arr"));
+  abc_notes=abc_notes.replace("\"T:Title\",\n","");
+  abc_notes=abc_notes.replace("1.00cm","0.00cm");
+  abc_notes=abc_notes.replace("1.00cm","0.00cm");
+
+  abc_notes=abc_notes.replace('treble nm=\\"Klavír\\" snm=\\"Kl.\\"',"");
+  abc_notes=abc_notes.replace(abc_notes.substring(abc_notes.indexOf("Q:")-2,abc_notes.indexOf(",",abc_notes.indexOf("Q:"))+1),"");
+  $("#abc_notes").val(abc_notes); 
+
+  //abc_settings
+  var abc_settings=abc_all.substring(abc_all.indexOf("opt = "),abc_all.indexOf(";",abc_all.indexOf("opt = ")+1));
+  abc_settings=abc_settings.replace('"autscl":0','"autscl":true');
+  $("#abc_settings").val(abc_settings); 
+
+
+  //abc_times_arr
+  var abc_times_arr=abc_all.substring(abc_all.indexOf("times_arr"),abc_all.indexOf(";",abc_allindexOf("times_arr")+1));
+
+  $("#abc_times_arr").val(abc_times_arr); 
+
+}
+
+
+</script>
+
 
 
   
@@ -88,7 +128,7 @@ if ($_POST['odoslane']=='true') {
 
     <fieldset class="form-group">
     <label for="abc_notes">Noty piesne:</label>
-    <textarea class="form-control" id="abc_notes" name="abc_notes" rows="15"><?php echo $p_edit->abc_notes; ?></textarea>
+    <textarea class="form-control" id="abc_notes" name="abc_notes" rows="2"><?php echo $p_edit->abc_notes; ?></textarea>
   </fieldset>
   </div>
 
@@ -97,7 +137,7 @@ if ($_POST['odoslane']=='true') {
     <fieldset class="form-group">
     <label for="abc_settings">Nastavenia piesne:</label>
 
-    <textarea class="form-control" id="abc_settings"  name="abc_settings" rows="5"><?php if ((int)$_GET['id_piesen']<>0 OR (int)$_POST['id_piesen']<>0) {echo $p_edit->abc_settings;} else { echo 'opt = {"jump":0,"no_menu":0,"repufld":0,"noplyr":0,"nocsr":0,"media_height":"","btns":1,"ipadr":"","mstr":0,"autscl":true,"ctrmed":0,"ctrnot":0,"lncsr":0,"opacity":0.2,"synbox":0,"speed":1,"top_margin":0,"yubvid":"","nomed":0,"delay":0,"repskip":0,"spdctl":0,"lopctl":0,"metro":0};';} ?>
+    <textarea class="form-control" id="abc_settings"  name="abc_settings" rows="2"><?php if ((int)$_GET['id_piesen']<>0 OR (int)$_POST['id_piesen']<>0) {echo $p_edit->abc_settings;} else { echo 'opt = {"jump":0,"no_menu":0,"repufld":0,"noplyr":0,"nocsr":0,"media_height":"","btns":1,"ipadr":"","mstr":0,"autscl":true,"ctrmed":0,"ctrnot":0,"lncsr":0,"opacity":0.2,"synbox":0,"speed":1,"top_margin":0,"yubvid":"","nomed":0,"delay":0,"repskip":0,"spdctl":0,"lopctl":0,"metro":0};';} ?>
 
 </textarea>
   </fieldset>
@@ -109,7 +149,7 @@ if ($_POST['odoslane']=='true') {
   
     <fieldset class="form-group">
     <label for="abc_times_arr">Načasovanie piesne:</label>
-    <textarea class="form-control" id="abc_times_arr"  name="abc_times_arr" rows="5"><?php echo $p_edit->abc_times_arr; ?></textarea>
+    <textarea class="form-control" id="abc_times_arr"  name="abc_times_arr" rows="2"><?php echo $p_edit->abc_times_arr; ?></textarea>
   </fieldset>
   
 </div> 
@@ -126,7 +166,7 @@ if ($_POST['odoslane']=='true') {
 </ol>
 Uvedený príklad teda zapíšeme takto:<BR>
 <blockquote><code>
-{Sekerenka| pántok|<BR> 
+{|Sekerenka| pántok|<BR> 
 nechce rúbat| ruby;|<BR>
 sekerenka| pántok|<BR>
 nechce rúbat| duby;|<BR>
