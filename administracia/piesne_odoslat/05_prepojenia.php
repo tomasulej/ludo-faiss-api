@@ -97,6 +97,10 @@ if ($_POST['odoslane']=='true') {
 
     </select>
     </div>
+
+
+
+
   </fieldset>
   </div>
 
@@ -108,6 +112,9 @@ if ($_POST['odoslane']=='true') {
     <label for="txt"><strong>Pridať poznámku:</strong></label>
     <textarea class="form-control" id="txt" name="txt" rows="4"></textarea>
   </fieldset>
+
+      <p class="form-text text-muted">Templejty: <a href="javascript:void(0);" onclick='$("#txt").val("Táto pieseň bola transponovaná pre lepšiu čitateľnosť notového zápisu (bola jej zmenená tónina). V rukopise zberateľa nápev začínal tónom g<sup>1</sup>.")'>[notička v zátvorke]</a></p>
+
   </div>
 
 
