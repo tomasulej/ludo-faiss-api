@@ -21,8 +21,27 @@
                 <div class="col-md-9">
 
                     <h1>
-                        <?php echo $piesen->nazov_dlhy;?>
+                        <?php echo $objPiesen->nazov_dlhy;?>
                     </h1>
+
+
+                    <?php 
+
+
+                    
+                    if (count($arrVarianty)>1) {
+                        printf("<b>Varianty piesne:</b> ");
+                    foreach ($arrVarianty as $key=>$variant) { 
+                       $counter_variant++;
+                       if (!$variant["aktualna_piesen"]) {
+                           printf('<a href="piesen.php?%s">Variant č. %s</a> - ', $variant["id_piesen"], $counter_variant);     
+                       } else {
+                           printf('<i>Variant č. %s</i> - ', $counter_variant);     
+
+                       }
+                    } }
+                    
+                    ?>
 
                 </div>
 
@@ -39,7 +58,7 @@
             </div>
 
             <p class="l-song-subh hidden-md-down"> <!--class="hidden-md-down"-->
-                <small>Zozbieral(a): <strong><!--<a href="zberatel.php?id=<?php echo $piesen->id_zberatel; ?>">--><?php echo $piesen->zberatelia_meno; ?><!--</a>--></strong> (<?php echo $piesen->datum_zbieranie; ?>) ● Zdigitalizoval(a): <strong><!--<a href="digitalizator.php?id=<?php echo $piesen->id_digitalizator; ?>">--><?php echo $piesen->digitalizatori_meno; ?><!--</a>--></strong> (<?php echo date("Y",strtotime($piesen->datum_digitalizacia)); ?>) ● Pôvodná zbierka <strong><!--<a href="zbierky.php?id=<?php echo $piesen->id_zbierka ?>">--><?php echo $piesen->zbierky_nazov ?><!--</a>--></strong></small>
+                <small>Zozbieral(a): <strong><!--<a href="zberatel.php?id=<?php echo $objPiesen->id_zberatel; ?>">--><?php echo $objPiesen->zberatelia_meno; ?><!--</a>--></strong> (<?php echo $objPiesen->datum_zbieranie; ?>) ● Zdigitalizoval(a): <strong><!--<a href="digitalizator.php?id=<?php echo $objPiesen->id_digitalizator; ?>">--><?php echo $objPiesen->digitalizatori_meno; ?><!--</a>--></strong> (<?php echo date("Y",strtotime($objPiesen->datum_digitalizacia)); ?>) ● Pôvodná zbierka <strong><!--<a href="zbierky.php?id=<?php echo $objPiesen->id_zbierka ?>">--><?php echo $objPiesen->zbierky_nazov ?><!--</a>--></strong></small>
             </p>
 
 
@@ -85,7 +104,7 @@
 
 <div id="lyrics" class="l-song-lyrics" data-reveal-id="lyrics" data-height="200">
             
-        <?php echo lyrics2html($piesen->lyrics) ?>
+        <?php echo lyrics2html($objPiesen->lyrics) ?>
 
 
 
@@ -264,20 +283,20 @@
                 <div class="col-md-4">
                     <h3>Podrobnosti</h3>
 
-                <strong><a onclick="vytlac();">Názov</strong>: <?php echo $piesen->nazov_dlhy ?><BR>
-                <strong>Pôvodná zbierka</strong>: <?php echo $piesen->zbierky_nazov?><BR>
-                <strong>Strana:</strong> <?php echo $piesen->strana; ?><BR>
-                <strong>Identifikátor</strong>: <?php echo $piesen->identifikator?> <BR>
-                <strong>Zberateľ</strong>: <?php echo $piesen->zberatelia_meno?><BR>
-                <strong>Digitalizátor(ka)</strong>: <?php echo $piesen->digitalizatori_meno?></a><BR>
-                <!--<strong>Hudba</strong>: <a href="#"><?php echo $piesen->hudobnici_meno?></a><BR>-->
-                <strong>Tempo</strong>: <?php echo $piesen->tempo?></a><BR>
-                <strong>Dátum zozbierania</strong>: <?php echo $piesen->datum_zbieranie?><BR>
-                <strong>Dátum digitalizácie</strong>: <?php echo date("d.m.Y",strtotime($piesen->datum_digitalizacia));?><BR>
+                <strong><a onclick="vytlac();">Názov</strong>: <?php echo $objPiesen->nazov_dlhy ?><BR>
+                <strong>Pôvodná zbierka</strong>: <?php echo $objPiesen->zbierky_nazov?><BR>
+                <strong>Strana:</strong> <?php echo $objPiesen->strana; ?><BR>
+                <strong>Identifikátor</strong>: <?php echo $objPiesen->identifikator?> <BR>
+                <strong>Zberateľ</strong>: <?php echo $objPiesen->zberatelia_meno?><BR>
+                <strong>Digitalizátor(ka)</strong>: <?php echo $objPiesen->digitalizatori_meno?></a><BR>
+                <!--<strong>Hudba</strong>: <a href="#"><?php echo $objPiesen->hudobnici_meno?></a><BR>-->
+                <strong>Tempo</strong>: <?php echo $objPiesen->tempo?></a><BR>
+                <strong>Dátum zozbierania</strong>: <?php echo $objPiesen->datum_zbieranie?><BR>
+                <strong>Dátum digitalizácie</strong>: <?php echo date("d.m.Y",strtotime($objPiesen->datum_digitalizacia));?><BR>
                  <strong>Stiahnuť</strong>:
-                    <a href="stiahnut.php?id=<?php echo $piesen->id_piesen; ?>&format=xml"><i class="fa fa-music"></i> noty</a>, <a href="stiahnut.php?id=<?php echo $piesen->id_piesen ?>&format=mp3"><i class="fa fa-volume-up"></i> hudbu</a>
-                    <?php if ($piesen->file_pdf<>"") { ?>
-                    , <a href="stiahnut.php?id=<?php echo $piesen->id_piesen; ?>&format=pdf"><i class="fa fa-photo"></i> originál</a>
+                    <a href="<?php echo $objPiesen->xml_link; ?>"><i class="fa fa-music"></i> noty</a>, <a href="<?php echo $objPiesen->mp3_link; ?>"><i class="fa fa-volume-up"></i> hudbu</a>
+                    <?php if (!empty($objPiesen->pdf_link)) { ?>
+                    , <a href="<?php echo $objPiesen->pdf_link; ?>"><i class="fa fa-photo"></i> originál</a>
                     <?php } ?>
 
                     <!-- <a href=""><i class="fa fa-print"></i> vytlačiť</a> -->
@@ -292,7 +311,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h3 class="modal-title" id="myModalLabel"><?php echo $piesen->nazov_dlhy; ?> (všetky informácie o piesni)</h3>
+        <h3 class="modal-title" id="myModalLabel"><?php echo $objPiesen->nazov_dlhy; ?> (všetky informácie o piesni)</h3>
       </div>
       <div class="modal-body">
 
@@ -311,36 +330,36 @@
   <tbody>
     <tr>
       <th>Názov</th>
-      <td><?php echo $piesen->nazov_dlhy ?></td>
+      <td><?php echo $objPiesen->nazov_dlhy ?></td>
       <td><small>Prvé ani druhé vydanie neobsahuje názvy (incipity) piesní. Dopĺňame vychádzajúc z prvého verša piesne.</small></td>
     </tr>
 
 
         <tr>
       <th>Pôvodná zbierka</th>
-      <td><?php echo $piesen->zbierky_nazov?></td>
+      <td><?php echo $objPiesen->zbierky_nazov?></td>
       <td><small>Údaj preberáme z druhého vydania</small></td>
     </tr>
 
         <tr>
       <th>Strana</th>
-      <td><?php echo $piesen->strana ?></td>
+      <td><?php echo $objPiesen->strana ?></td>
       <td><small>Údaj preberáme z druhého vydania.</small></td>
     </tr>
 
         <tr>
       <th>Identifikátor</th>
-      <td><?php echo $piesen->identifikator ?></td>
+      <td><?php echo $objPiesen->identifikator ?></td>
       <td><small>Údaj preberáme z druhého vydania.</small></td>
     </tr>
 
         <tr>
       <th>Zberateľ</th>
-      <td><?php echo $piesen->zberatelia_meno ?></td>
+      <td><?php echo $objPiesen->zberatelia_meno ?></td>
       <td><small>
       <?php
       
-      switch ($piesen->source_zberatel) {
+      switch ($objPiesen->source_zberatel) {
             case 0:
                 echo "Údaj pochádza z prvého vydania a má podklad v rukopisoch zberateľa";
             break;
@@ -374,16 +393,16 @@
 
         <tr>
       <th>Digitalizátor(ka)</th>
-      <td><?php echo $piesen->digitalizatori_meno ?></td>
+      <td><?php echo $objPiesen->digitalizatori_meno ?></td>
       <td><small>Údaj pridávame pre potreby tohto vydania.</small></td>
     </tr>
 
         <tr>
       <th>Tempo</th>
-      <td><?php echo $piesen->tempo ?></td>
+      <td><?php echo $objPiesen->tempo ?></td>
       <td><small><?php
       
-      switch ($piesen->source_tempo) {
+      switch ($objPiesen->source_tempo) {
             case 0:
                 echo "Údaj pochádza z prvého vydania a má podklad v rukopisoch zberateľa";
             break;
@@ -417,10 +436,10 @@
 
         <tr>
       <th>Dátum zozbierania</th>
-      <td><?php echo $piesen->datum_zbieranie ?></td>
+      <td><?php echo $objPiesen->datum_zbieranie ?></td>
       <td><small><?php
       
-      switch ($piesen->source_datum_zbieranie) {
+      switch ($objPiesen->source_datum_zbieranie) {
             case 0:
                 echo "Údaj pochádza z prvého vydania a má podklad v rukopisoch zberateľa";
             break;
@@ -453,7 +472,7 @@
 
     <tr>
       <th>Dátum digitalizácie</th>
-      <td><?php echo $piesen->datum_digitalizacia ?></td>
+      <td><?php echo $objPiesen->datum_digitalizacia ?></td>
       <td><small>Údaj pridávame pre potreby tohto vydania.</small></td>
     </tr>
 
@@ -517,7 +536,7 @@
       <strong>Pôvodná zbierka, z ktorej sme vychádzali:</strong><BR>
       <blockquote><code>GALKO, L. Slovenské spevy : Druhé doplnené, kritické a dokumentované vydanie. I. diel. Bratislava : Opus, 1972. 599 s.</code></blockquote>
       <strong>Táto webová stránka:</strong><BR>
-      <blockquote><code>GALKO, L. Slovenské spevy : Druhé doplnené, kritické a dokumentované vydanie [online]. I. diel. Bratislava : Opus, 1972. 599 s. [cit. 2016-09-22]. Ľudo Slovenský 2016. Dostupné na internete: http://www.ludoslovensky.sk/piesne/piesen.php?<?php echo $piesen->id_piesen;?></code></blockquote>
+      <blockquote><code>GALKO, L. Slovenské spevy : Druhé doplnené, kritické a dokumentované vydanie [online]. I. diel. Bratislava : Opus, 1972. 599 s. [cit. 2016-09-22]. Ľudo Slovenský 2016. Dostupné na internete: http://www.ludoslovensky.sk/piesne/piesen.php?<?php echo $objPiesen->id_piesen;?></code></blockquote>
 
 
 
@@ -833,7 +852,7 @@ $('[data-toggle="popover"]').popover({
     content: function() {
         //e.preventDefault();
         //alert("ahoj");  
-      return $.ajax({url: 'piesen.tuto-poznam.php?id_piesen=<?php echo $piesen->id_piesen; ?>',
+      return $.ajax({url: 'piesen.tuto-poznam.php?id_piesen=<?php echo $objPiesen->id_piesen; ?>',
                      dataType: 'html',
                      async: false}).responseText;
     }
@@ -845,7 +864,7 @@ $('[data-toggle="popover"]').popover({
 
 
 function tutopoznam(){
-    $('#tutopoznam_box_text').html($.ajax({url: 'piesen.tuto-poznam.php?id_piesen=<?php echo $piesen->id_piesen; ?>',
+    $('#tutopoznam_box_text').html($.ajax({url: 'piesen.tuto-poznam.php?id_piesen=<?php echo $objPiesen->id_piesen; ?>',
         dataType: 'html',
         async: false}).responseText);
 
@@ -919,10 +938,10 @@ vid.onloadeddata = function() {
 
         easyrec_view({
             userId:"",
-            itemId:"<?php echo $piesen->id_piesen; ?>",
-            itemUrl:"/piesen.php?<?php echo $piesen->id_piesen; ?>",
-            itemDescription:"<?php echo $piesen->nazov_dlhy; ?>",
-            itemImageUrl:"/data/<?php echo $piesen->id_piesen; ?>/<?php echo $piesen->file_png;?>"});
+            itemId:"<?php echo $objPiesen->id_piesen; ?>",
+            itemUrl:"/piesen.php?<?php echo $objPiesen->id_piesen; ?>",
+            itemDescription:"<?php echo $objPiesen->nazov_dlhy; ?>",
+            itemImageUrl:"/data/<?php echo $objPiesen->id_piesen; ?>/<?php echo $objPiesen->file_png;?>"});
 
 
 
