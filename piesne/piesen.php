@@ -57,6 +57,7 @@ $arrPiesen = array(
         "source_tempo" => (!empty($piesen->source_tempo))?$piesen->source_tempo:$piesen_nadriadeny->source_tempo,
         "id_incipit" => (!empty($piesen->id_incipit))?$piesen->id_incipit:$piesen_nadriadeny->id_incipit,
         "lyrics" => (!empty($piesen->lyrics))?$piesen->lyrics:$piesen_nadriadeny->lyrics,
+        "file_png" => (!empty($piesen->file_xml))?$piesen->file_xml:$piesen_nadriadeny->file_xml,
         "file_png" => (!empty($piesen->file_png))?$piesen->file_png:$piesen_nadriadeny->file_png,
         "file_mp3" => (!empty($piesen->file_mp3))?$piesen->file_mp3:$piesen_nadriadeny->file_mp3,
         "file_pdf" => (!empty($piesen->file_pdf))?$piesen->file_pdf:$piesen_nadriadeny->file_pdf,
@@ -65,9 +66,9 @@ $arrPiesen = array(
         "digitalizatori_meno" => (!empty($piesen->digitalizatori_meno))?$piesen->digitalizatori_meno:$piesen_nadriadeny->digitalizatori_meno,
         "hudobnici_meno" => (!empty($piesen->hudobnici_meno))?$piesen->hudobnici_meno:$piesen_nadriadeny->hudobnici_meno,
         "tempo" => (!empty($piesen->tempo))?$piesen->tempo:$piesen_nadriadeny->tempo,
-        "pdf_link" => (!empty($piesen->file_pdf))?"stiahnut.php?id=".$piesen->id_piesen."format=pdf":"stiahnut.php?id=".$piesen_nadriadeny->id_piesen."format=pdf",
-        "xml_link" => (!empty($piesen->file_xml))?"stiahnut.php?id=".$piesen->id_piesen."format=xml":"stiahnut.php?id=".$piesen_nadriadeny->id_piesen."format=xml",
-        "mp3_link" => (!empty($piesen->file_mp3))?"stiahnut.php?id=".$piesen->id_piesen."format=mp3":"stiahnut.php?id=".$piesen_nadriadeny->id_piesen."format=mp3"
+        "pdf_link" => (!empty($piesen->file_pdf))?"stiahnut.php?id=".$piesen->id_piesen."&format=pdf":"stiahnut.php?id=".$piesen_nadriadeny->id_piesen."format=pdf",
+        "xml_link" => (!empty($piesen->file_xml))?"stiahnut.php?id=".$piesen->id_piesen."&format=xml":"stiahnut.php?id=".$piesen_nadriadeny->id_piesen."format=xml",
+        "mp3_link" => (!empty($piesen->file_mp3))?"stiahnut.php?id=".$piesen->id_piesen."&format=mp3":"stiahnut.php?id=".$piesen_nadriadeny->id_piesen."format=mp3"
 
 );  
 
