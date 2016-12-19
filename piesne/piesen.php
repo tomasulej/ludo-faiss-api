@@ -233,7 +233,13 @@ $zberatel_vyskyt=mysql_fetch_object($q_zberatel_vyskyt);
 
 
 //Mená
-$q_mena=mysql_query(sprintf("SELECT mena.id_meno,mena.meno,mena.pohlavie FROM mena, mena_piesne WHERE mena.id_meno=mena_piesne.id_meno AND mena_piesne.id_piesen=%s",(int)$id));
+if ($piesen->id_nadriadeny==0) {
+    $q_mena=mysql_query(sprintf("SELECT mena.id_meno,mena.meno,mena.pohlavie FROM mena, mena_piesne WHERE mena.id_meno=mena_piesne.id_meno AND mena_piesne.id_piesen=%s",(int)$id));
+} else {
+        $q_mena=mysql_query(sprintf("SELECT mena.id_meno,mena.meno,mena.pohlavie FROM mena, mena_piesne WHERE mena.id_meno=mena_piesne.id_meno AND mena_piesne.id_piesen=%s",(int)$id_nadriadeny));
+    
+}
+
 while ($o_mena=mysql_fetch_object($q_mena)) {
    $p_mena[]=array(
     "meno_id"=>$o_mena->id_meno, 
