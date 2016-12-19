@@ -225,10 +225,21 @@ while ($lokality=mysql_fetch_object($q_mapa)) {
 
 
 $c++;
-$q_zberatel_miesto=mysql_query("SELECT * FROM lokality WHERE id_lokalita=$piesen->id_zberatel_miesto");
-$zberatel_miesto=mysql_fetch_object($q_zberatel_miesto);    
-$q_zberatel_vyskyt=mysql_query("SELECT * FROM lokality WHERE id_lokalita=$piesen->id_zberatel_vyskyt");
-$zberatel_vyskyt=mysql_fetch_object($q_zberatel_vyskyt);    
+
+if ($piesen->id_nadriadeny==0) {
+    $q_zberatel_miesto=mysql_query("SELECT * FROM lokality WHERE id_lokalita=$piesen->id_zberatel_miesto");
+    $zberatel_miesto=mysql_fetch_object($q_zberatel_miesto);    
+    $q_zberatel_vyskyt=mysql_query("SELECT * FROM lokality WHERE id_lokalita=$piesen->id_zberatel_vyskyt");
+    $zberatel_vyskyt=mysql_fetch_object($q_zberatel_vyskyt);    
+} else {
+    $q_zberatel_miesto=mysql_query("SELECT * FROM lokality WHERE id_lokalita=$piesen_nadriadeny->id_zberatel_miesto");
+    $zberatel_miesto=mysql_fetch_object($q_zberatel_miesto);    
+    $q_zberatel_vyskyt=mysql_query("SELECT * FROM lokality WHERE id_lokalita=$piesen_nadriadeny->id_zberatel_vyskyt");
+    $zberatel_vyskyt=mysql_fetch_object($q_zberatel_vyskyt);    
+
+
+}
+
 
 
 
