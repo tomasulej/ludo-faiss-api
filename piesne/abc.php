@@ -35,7 +35,7 @@ if ($piesen->id_nadriadeny<>0) {
 //#
 
 media_file = "<?php 
-if ($piesen->id_nadriadeny==0 AND !empty($piesen->file_mp3)) {
+if ($piesen->id_nadriadeny==0 OR !empty($piesen->file_mp3)) {
     printf("data/%s/%s",$piesen->id_piesen,$piesen->file_mp3);
 } else {
     printf("data/%s/%s",$piesen_nadriadeny->id_piesen,$piesen_nadriadeny->file_mp3);
@@ -61,7 +61,7 @@ if ($piesen->id_nadriadeny==0 OR !empty($piesen->abc_times_arr)) {
 ?>
 
 <?php 
-if ($piesen->id_nadriadeny==0 AND !empty($piesen->abc_notes)) {
+if ($piesen->id_nadriadeny==0 OR !empty($piesen->abc_notes)) {
  echo $piesen->abc_notes; 
  } else  {
     echo $piesen_nadriadeny->abc_notes; 

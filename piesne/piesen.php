@@ -29,11 +29,6 @@ if ($piesen->id_nadriadeny<>0) {
     LEFT JOIN tempo ON piesne.id_tempo=tempo.id_tempo WHERE piesne.id_piesen=$piesen->id_nadriadeny";
     $piesen_nadriadeny=mysql_fetch_object(mysql_query($query2));
     $id_nadriadeny=(int)$piesen->id_nadriadeny;
-}
-
-
-//$objPiesen=$piesen;
-
 
 $arrPiesen = array(
         "id_piesen" => $piesen->id_piesen,
@@ -66,14 +61,24 @@ $arrPiesen = array(
         "digitalizatori_meno" => (!empty($piesen->digitalizatori_meno))?$piesen->digitalizatori_meno:$piesen_nadriadeny->digitalizatori_meno,
         "hudobnici_meno" => (!empty($piesen->hudobnici_meno))?$piesen->hudobnici_meno:$piesen_nadriadeny->hudobnici_meno,
         "tempo" => (!empty($piesen->tempo))?$piesen->tempo:$piesen_nadriadeny->tempo,
-        "pdf_link" => (!empty($piesen->file_pdf))?"stiahnut.php?id=".$piesen->id_piesen."&format=pdf":"stiahnut.php?id=".$piesen_nadriadeny->id_piesen."format=pdf",
-        "xml_link" => (!empty($piesen->file_xml))?"stiahnut.php?id=".$piesen->id_piesen."&format=xml":"stiahnut.php?id=".$piesen_nadriadeny->id_piesen."format=xml",
-        "mp3_link" => (!empty($piesen->file_mp3))?"stiahnut.php?id=".$piesen->id_piesen."&format=mp3":"stiahnut.php?id=".$piesen_nadriadeny->id_piesen."format=mp3"
+        "pdf_link" => (!empty($piesen->file_pdf))?"stiahnut.php?id=".$piesen->id_piesen."&format=pdf":"stiahnut.php?id=".$piesen_nadriadeny->id_piesen."&format=pdf",
+        "xml_link" => (!empty($piesen->file_xml))?"stiahnut.php?id=".$piesen->id_piesen."&format=xml":"stiahnut.php?id=".$piesen_nadriadeny->id_piesen."&format=xml",
+        "mp3_link" => (!empty($piesen->file_mp3))?"stiahnut.php?id=".$piesen->id_piesen."&format=mp3":"stiahnut.php?id=".$piesen_nadriadeny->id_piesen."&format=mp3"
 
-);  
-
+); 
 
 $objPiesen=(object)$arrPiesen;
+
+} else {
+    $objPiesen=$piesen;
+}
+
+
+
+ 
+
+
+
 
 
 //variantový pruh
