@@ -35,7 +35,7 @@
                     foreach ($arrVarianty as $key=>$variant) { 
                        $counter_variant++;
                        if (!$variant["aktualna_piesen"]) {
-                           printf('<a href="piesen.php?%s">Variant č. %s</a>', $variant["id_piesen"], $counter_variant);     
+                           printf('<a href="piesen.php?%s">Variant č. %s - </a>', $variant["id_piesen"], $counter_variant);     
                        } else {
                            printf('Variant č. %s - ', $counter_variant);     
 
