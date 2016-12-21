@@ -78,8 +78,8 @@ $arrPiesen = array(
 
 
 $objPiesen=(object)$arrPiesen;
-echo $piesen->file_xml; 
-echo $objPiesen->xml_link;
+//echo $piesen->file_xml; 
+//echo $objPiesen->xml_link;
 
 
 
