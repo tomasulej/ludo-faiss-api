@@ -41,7 +41,7 @@ if ($piesen->id_nadriadeny<>0) {
 
 $arrPiesen = array(
         "id_piesen" => $piesen->id_piesen,
-        "nazov_dlhy"=> (!empty($piesen->nazov_dlhy))?$piesen->nazov_dlhy." (variant)":$piesen_nadriadeny->nazov_dlhy." (variant)",
+        "nazov_dlhy"=> (!empty($piesen->nazov_dlhy))?$piesen->nazov_dlhy:$piesen_nadriadeny->nazov_dlhy,
         "nazov_kratky" => (!empty($piesen->nazov_kratky))?$piesen->nazov_kratky:$piesen->nazov_kratky,
         "id_zbierka" => (!empty($piesen->id_zbierka))?$piesen->id_zbierka:$piesen_nadriadeny->id_zbierka,
         "strana" => (!empty($piesen->strana))?$piesen->strana:$piesen_nadriadeny->strana,
@@ -75,6 +75,10 @@ $arrPiesen = array(
         "mp3_link" => (!empty($piesen->file_mp3))?"stiahnut.php?id=".$piesen->id_piesen."&format=mp3":"stiahnut.php?id=".$piesen_nadriadeny->id_piesen."&format=mp3"
 
 ); 
+
+
+if ($piesen->id_nadriadeny<>0) {$arrPiesen["nazov_dlhy"].=" (variant)";}
+
 
 
 $objPiesen=(object)$arrPiesen;
