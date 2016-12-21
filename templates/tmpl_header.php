@@ -55,6 +55,8 @@ src="https://www.facebook.com/tr?id=1364310410299072&ev=PageView&noscript=1"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js"></script>
 
  <style>
+
+
 .supsub {
     display: inline-block;
 }
@@ -63,11 +65,9 @@ src="https://www.facebook.com/tr?id=1364310410299072&ev=PageView&noscript=1"
 .supsub sub {
     position: relative;
     display: block;
-    font-size: .5em;
-    line-height: 1.2;
+    font-size: .6em;
+    line-height: 1.8;
 }
-
-
  </style>
 
 
