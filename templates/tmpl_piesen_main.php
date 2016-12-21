@@ -25,25 +25,26 @@
                     </h1>
 
 
-                    <?php 
+                    <?php    if (count($arrVarianty)>1) { ?>
+       
+                        <nav class="nav nav-inline">
+                        <?php
+
+                    $last_key = end(array_keys($varianty));
+                    foreach ($arrVarianty as $key=>$variant) {$counter_variant++;?>
+                        <li class="nav-item">
+                            <a class="nav-link <?php if ($variant["aktualna_piesen"]) {echo "active"; } ?>" href="piesen.php?<?php echo $variant["id_piesen"];?>">
+                            <?php if ($variant["aktualna_piesen"]) {?><strong><?php } ?> Variant č. <?php echo  $counter_variant; ?> <?php if ($variant["aktualna_piesen"]) {?> </strong> <?php } ?></a>
+                        </li>
+                    <?php } } ?>
+
+                        </nav>
 
 
-                    
-                    if (count($arrVarianty)>1) {
-                        printf("<b>Varianty piesne:</b> ");
-                        $last_key = end(array_keys($varianty));
-                    foreach ($arrVarianty as $key=>$variant) { 
-                       $counter_variant++;
-                       if (!$variant["aktualna_piesen"]) {
-                           printf('<a href="piesen.php?%s">Variant č. %s - </a>', $variant["id_piesen"], $counter_variant);     
-                       } else {
-                           printf('Variant č. %s - ', $counter_variant);     
 
-                       }
 
-                    } }
-                    
-                    ?>
+
+
 
                 </div>
 

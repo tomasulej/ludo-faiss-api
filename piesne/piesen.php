@@ -32,7 +32,7 @@ if ($piesen->id_nadriadeny<>0) {
 
 $arrPiesen = array(
         "id_piesen" => $piesen->id_piesen,
-        "nazov_dlhy"=> (!empty($piesen->nazov_dlhy))?$piesen->nazov_dlhy:$piesen_nadriadeny->nazov_dlhy,
+        "nazov_dlhy"=> (!empty($piesen->nazov_dlhy))?$piesen->nazov_dlhy." (variant)":$piesen_nadriadeny->nazov_dlhy." (variant)",
         "nazov_kratky" => (!empty($piesen->nazov_kratky))?$piesen->nazov_kratky:$piesen->nazov_kratky,
         "id_zbierka" => (!empty($piesen->id_zbierka))?$piesen->id_zbierka:$piesen_nadriadeny->id_zbierka,
         "strana" => (!empty($piesen->strana))?$piesen->strana:$piesen_nadriadeny->strana,
@@ -52,7 +52,7 @@ $arrPiesen = array(
         "source_tempo" => (!empty($piesen->source_tempo))?$piesen->source_tempo:$piesen_nadriadeny->source_tempo,
         "id_incipit" => (!empty($piesen->id_incipit))?$piesen->id_incipit:$piesen_nadriadeny->id_incipit,
         "lyrics" => (!empty($piesen->lyrics))?$piesen->lyrics:$piesen_nadriadeny->lyrics,
-        "file_png" => (!empty($piesen->file_xml))?$piesen->file_xml:$piesen_nadriadeny->file_xml,
+        "file_xml" => (!empty($piesen->file_xml))?$piesen->file_xml:$piesen_nadriadeny->file_xml,
         "file_png" => (!empty($piesen->file_png))?$piesen->file_png:$piesen_nadriadeny->file_png,
         "file_mp3" => (!empty($piesen->file_mp3))?$piesen->file_mp3:$piesen_nadriadeny->file_mp3,
         "file_pdf" => (!empty($piesen->file_pdf))?$piesen->file_pdf:$piesen_nadriadeny->file_pdf,
