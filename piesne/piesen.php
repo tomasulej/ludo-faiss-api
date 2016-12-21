@@ -63,7 +63,7 @@ $arrPiesen = array(
         "lyrics" => (!empty($piesen->lyrics))?$piesen->lyrics:$piesen_nadriadeny->lyrics,
         "file_xml" => (!empty($piesen->file_xml))?$piesen->file_xml:$piesen_nadriadeny->file_xml,
         "file_png" => (!empty($piesen->file_png))?$piesen->file_png:$piesen_nadriadeny->file_png,
-        "file_mp3" => (!empty($piesen->file_mp3))?$piesen->file_mp3:$piesen_nadriadeny->file_mp3,
+        "fie_mp3" => (!empty($piesen->file_mp3))?$piesen->file_mp3:$piesen_nadriadeny->file_mp3,
         "file_pdf" => (!empty($piesen->file_pdf))?$piesen->file_pdf:$piesen_nadriadeny->file_pdf,
         "zbierky_nazov" => (!empty($piesen->zbierky_nazov))?$piesen->zbierky_nazov:$piesen_nadriadeny->zbierky_nazov,
         "zberatelia_meno" => (!empty($piesen->zberatelia_meno))?$piesen->zberatelia_meno:$piesen_nadriadeny->zberatelia_meno,
@@ -78,8 +78,8 @@ $arrPiesen = array(
 
 
 $objPiesen=(object)$arrPiesen;
- 
-
+echo $piesen->file_xml; 
+echo $objPiesen->xml_link;
 
 
 
