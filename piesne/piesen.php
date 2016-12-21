@@ -30,6 +30,15 @@ if ($piesen->id_nadriadeny<>0) {
     $piesen_nadriadeny=mysql_fetch_object(mysql_query($query2));
     $id_nadriadeny=(int)$piesen->id_nadriadeny;
 
+
+
+
+} 
+
+//else {
+//    $objPiesen=$piesen;
+//}
+
 $arrPiesen = array(
         "id_piesen" => $piesen->id_piesen,
         "nazov_dlhy"=> (!empty($piesen->nazov_dlhy))?$piesen->nazov_dlhy." (variant)":$piesen_nadriadeny->nazov_dlhy." (variant)",
@@ -67,14 +76,8 @@ $arrPiesen = array(
 
 ); 
 
+
 $objPiesen=(object)$arrPiesen;
-
-} else {
-    $objPiesen=$piesen;
-}
-
-
-
  
 
 
