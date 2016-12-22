@@ -27,18 +27,21 @@
 
                     <?php    if (count($arrVarianty)>1) { ?>
        
-                        <nav class="nav nav-inline">
+
+
+
+                        <div class="l-song-variants">
                         <?php
 
                     $last_key = end(array_keys($varianty));
                     foreach ($arrVarianty as $key=>$variant) {$counter_variant++;?>
-                        <li class="nav-item">
-                            <a class="nav-link <?php if ($variant["aktualna_piesen"]) {echo "active"; } ?>" href="piesen.php?<?php echo $variant["id_piesen"];?>">
-                            <?php if ($variant["aktualna_piesen"]) {?><strong><?php } ?> Variant č. <?php echo  $counter_variant; ?> <?php if ($variant["aktualna_piesen"]) {?> </strong> <?php } ?></a>
-                        </li>
+                    
+                            <a class="l-btn l-btn--small <?php if ($variant["aktualna_piesen"]) {echo "l-btn--primary"; } ?>" href="piesen.php?<?php echo $variant["id_piesen"];?>"><i class="fa fa-music"></i> 
+                            Variant č. <?php echo  $counter_variant; ?></a>
+                    
                     <?php } } ?>
 
-                        </nav>
+                         </div>
 
 
 
