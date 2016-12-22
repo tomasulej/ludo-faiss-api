@@ -39,9 +39,12 @@
                             <a class="l-btn l-btn--small <?php if ($variant["aktualna_piesen"]) {echo "l-btn--primary"; } ?>" href="piesen.php?<?php echo $variant["id_piesen"];?>"><i class="fa fa-music"></i> 
                             Variant č. <?php echo  $counter_variant; ?></a>
                     
-                    <?php } } ?>
 
-                         </div>
+
+
+                    <?php }  ?>  </div> <?php } ?>
+
+                      
 
 
 
