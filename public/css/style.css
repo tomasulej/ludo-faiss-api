@@ -2666,6 +2666,9 @@ a {
   width: 100%;
   padding-top: 1rem; }
 
+.l-song-variants {
+  margin-bottom: 1rem; }
+
 .l-song-header--float {
   position: fixed;
   top: 0;
