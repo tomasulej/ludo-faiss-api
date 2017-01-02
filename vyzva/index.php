@@ -101,8 +101,8 @@
 	
 	include "../databaza_piesne.php";
     include "../src/mailgun.php";
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+//error_reporting(E_ALL);
+//ini_set('display_errors', '1');
 	
 	$meno=$_POST['meno'];
 	$email=$_POST['email'];
@@ -112,6 +112,15 @@ ini_set('display_errors', '1');
 	$nastroj=$_POST['nastroj'];
 	$os=$_POST['os'];
 	$viac=$_POST['viac'];
+
+    //RECAPTCHA
+    $secret="6LeaVhAUAAAAAJFJi5M-AGZ6AqQlQC-eAuzB6qQD";
+    $response=$_POST["g-recaptcha-response"];
+    $verify=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$response}");
+    $captcha_success=json_decode($verify);
+
+ if ($captcha_success->success==true) {
+
 	
 	//echo "Meno: $meno email: $email mesto: $mesto pocitac $pocitac noty $noty nastroj $nastroj os $os viac $viac";
 	
@@ -140,8 +149,6 @@ ini_set('display_errors', '1');
     send_mailgun("tomas@ludoslovensky.sk","Nový človek pribudol, aleluja, aleluja! (".date('m/d/Y', time()).")",$mysql_query);
 
 
-	
-	
 ?>
 
 <div class="alert alert-success" role="alert">
@@ -152,9 +159,23 @@ ini_set('display_errors', '1');
 fbq('track', 'CompleteRegistration');
 </script>
 
+<?php
+
+    } else {
+        ?>
+<div class="alert alert-danger" role="danger">
+<strong>Vyzerá to tak, že si neklikol na kolonku "Nie som robot".</strong> Kvôli ochrane proti rôznych spamerom si musíme byť istý, že si človek 
+z mäsa a kostí. Ospravedlňujeme sa za komplikácie. 
+</div>       
+                   <p> <button type="button" class="l-btn l-btn--large l-btn--primary" onclick='javascript:window.history.back();'>Ísť o krok späť a skúsiť to znova</button></p>
 
 
-<?php 
+       
+        <?php
+
+    } 
+
+	
 	
 	
 	
@@ -295,6 +316,10 @@ fbq('track', 'CompleteRegistration');
                         <label for="viac"><strong>Niečo viac o Tebe? Alebo nám chceš niečo odkázať?</strong></label> 
                         <textarea class="form-control" id="viac" name="viac"></textarea>
                     </fieldset> 
+
+                    <div><strong>Klikni na "Nie som robot", nech vieme, že máme tú česť s človekom z mäsa a kostí:</strong> 
+                    <div class="g-recaptcha" data-sitekey="6LeaVhAUAAAAAEpbvBd_yq3QkhtVs0cwlXhKlL2n"></div><BR></div>
+
 
 					<input type="hidden" name="odoslane" value="1">
 

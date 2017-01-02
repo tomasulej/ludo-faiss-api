@@ -53,6 +53,7 @@ src="https://www.facebook.com/tr?id=1364310410299072&ev=PageView&noscript=1"
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0/MarkerCluster.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0/MarkerCluster.Default.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js?hl=sk'></script>
 
  <style>
 
