@@ -43,9 +43,9 @@ if ((int)$_GET['id_piesen']<>0) {
 
 
 
-  <fieldset class="form-group">
+
     <label for="id_zbierka" class="col-sm-2 form-control-label"><strong>Zbierka:</strong></label>
-    <div class="col-sm-10">
+    <div class="col-sm-9">
     <select class="form-control" id="id_zbierka" name="id_zbierka">
 		<?php
 			$q=mysql_query("SELECT * FROM zbierky;");
@@ -65,12 +65,11 @@ if ((int)$_GET['id_piesen']<>0) {
 
 
     </div>
-  </fieldset>
+
   </div>	  
 	  
 	  
 	  
-	<fieldset>  
   <div class="form-group row">
     <label for="identifikator" class="col-sm-2 form-control-label"><strong>Interný identifikátor:</strong></label>
     <div class="col-sm-10">
@@ -78,7 +77,6 @@ if ((int)$_GET['id_piesen']<>0) {
       <p class="form-text text-muted">(nemusíte meniť)</p>
  </div>
   </div>
-	</fieldset>
 
 
   <div class="form-group row">
@@ -112,7 +110,7 @@ if ((int)$_GET['id_piesen']<>0) {
 
 	  
   <div class="form-group row">	  
-  <fieldset class="form-group">
+
     <label for="id_zberatel" class="col-sm-2 form-control-label"><strong>Zberateľ:</strong></label>
     <div class="col-sm-10">
     <select class="form-control" id="id_zberatel" name="id_zberatel">
@@ -141,7 +139,7 @@ if ((int)$_GET['id_piesen']<>0) {
 
     <p class="form-text text-muted">Vyberte meno zberateľa zo zoznamu. Ak chýba v zozname, vyberte "(Meno chýba v zozname)" a vpíšte ho ručne.</p>
     </div>
-  </fieldset>
+
   
   </div>	
 
@@ -180,7 +178,7 @@ if ((int)$_GET['id_piesen']<>0) {
 
 
   <div class="form-group row">	  
-  <fieldset class="form-group">
+
     <label for="id_zberatel_miesto" class="col-sm-2 form-control-label"><strong>Miesto zozbierania:</strong></label>
     <div class="col-sm-10">
     <select class="form-control" id="id_zberatel_miesto" name="id_zberatel_miesto">
@@ -200,7 +198,7 @@ if ((int)$_GET['id_piesen']<>0) {
 		?>
     </select>
     </div>
-  </fieldset>
+
   </div>	  
 
 
@@ -235,7 +233,7 @@ if ((int)$_GET['id_piesen']<>0) {
     </div> 
 
   <div class="form-group row">	  
-  <fieldset class="form-group">
+
     <label for="id_zberatel_vyskyt" class="col-sm-2 form-control-label"><strong>Miesto vyskytu piesne:</strong></label>
     <div class="col-sm-10">
     <select class="form-control" id="id_zberatel_vyskyt" name="id_zberatel_vyskyt">
@@ -259,7 +257,7 @@ if ((int)$_GET['id_piesen']<>0) {
 		?>
     </select>
     </div>
-  </fieldset>
+
   </div>
 
 
@@ -328,7 +326,6 @@ if ((int)$_GET['id_piesen']<>0) {
 
 
   <div class="form-group row">	  
-  <fieldset class="form-group">
     <label for="id_digitalizator" class="col-sm-2 form-control-label"><strong>Meno digitalizátora:</strong></label>
     <div class="col-sm-10">
     <select class="form-control" id="id_digitalizator" name="id_digitalizator">
@@ -354,7 +351,6 @@ if ((int)$_GET['id_piesen']<>0) {
     </select>
     <p class="form-text text-muted">Vaše meno, alebo meno digitalizátora. Ak chýba v zozname, vyberte možnosť "(chýba v zozname)" a doplňte.</p>
     </div>
-  </fieldset>
   </div>
   
 <div class="form-group row" style="display:none" id="div_txt_digitalizator"><div class="col-md-2"></div><div class="col-md-10">
@@ -366,7 +362,6 @@ if ((int)$_GET['id_piesen']<>0) {
 
 
  <div class="form-group row">	  
-  <fieldset class="form-group">
     <label for="id_digitalizator2" class="col-sm-2 form-control-label"><strong>Kto pridal dielo sem (Tvoje meno):</strong></label>
     <div class="col-sm-10">
     <select class="form-control" id="id_digitalizator2" name="id_digitalizator2">
@@ -392,7 +387,6 @@ if ((int)$_GET['id_piesen']<>0) {
     </select>
     <p class="form-text text-muted">Vaše meno, alebo meno digitalizátora. Ak chýba v zozname, vyberte možnosť "(chýba v zozname)" a doplňte.</p>
     </div>
-  </fieldset>
   </div>
   
 <div class="form-group row" style="display:none" id="div_txt_digitalizator2"><div class="col-md-2"></div><div class="col-md-10">
@@ -409,7 +403,6 @@ if ((int)$_GET['id_piesen']<>0) {
 
   
     <div class="form-group row" style="display:none">	  
-  <fieldset class="form-group">
     <label for="id_hudba" class="col-sm-2 form-control-label"><strong>Autor hudobnej nahrávky:</strong></label>
     <div class="col-sm-10">
     <select class="form-control" id="id_hudba" name="id_hudba">
@@ -433,13 +426,11 @@ if ((int)$_GET['id_piesen']<>0) {
 		?>
     </select>
     </div>
-  </fieldset>
   </div>
 
 
  
     <div class="form-group row">	  
-  <fieldset class="form-group">
     <label for="id_tempo" class="col-sm-2 form-control-label"><strong>Tempo:</strong></label>
     <div class="col-sm-10">
     <select class="form-control" id="id_tempo" name="id_tempo">
@@ -457,7 +448,6 @@ if ((int)$_GET['id_piesen']<>0) {
 		?>
     </select>
     </div>
-  </fieldset>
   </div>
 
 
@@ -482,7 +472,6 @@ if ((int)$_GET['id_piesen']<>0) {
 
 
     <div class="form-group row" style="display:none">	  
-  <fieldset class="form-group">
     <label for="id_incipit" class="col-sm-2 form-control-label"><strong>Incipit:</strong></label>
     <div class="col-sm-10">
     <select class="form-control" id="id_incipit">
@@ -505,7 +494,6 @@ if ((int)$_GET['id_piesen']<>0) {
 		?>
     </select>
     </div>
-  </fieldset>
   </div>
 
    
