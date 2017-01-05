@@ -67,6 +67,17 @@ if ($_POST['odoslane']=='true') {
         //echo "ID_digitalizator PO NOVOM JE:".$id_digitalizator;
     } 
     
+
+    $id_digitalizator2=$_POST['id_digitalizator2']; //printf(" %s:%s","id_digitalizator",$id_digitalizator);
+    //
+    if ($id_digitalizator2==-1) {
+        $txt_digitalizator2=$_POST['txt_digitalizator2'];
+        $q_txt_digitalizator2=mysql_query("INSERT INTO digitalizatori (meno) VALUES ('$txt_digitalizator2');");
+        $id_digitalizator2=mysql_insert_id();
+        //echo "ID_digitalizator PO NOVOM JE:".$id_digitalizator;
+    } 
+
+
     $id_hudba=$_POST['id_hudba']; //printf(" %s:%s","id_hudba",$id_hudba);
     $id_tempo=$_POST['id_tempo']; //printf(" %s:%s","id_tempo",$id_tempo);
     $id_incipit=$_POST['id_incipit']; $id_incipit=0;//printf(" %s:%s","id_incipit",$id_incipit);
@@ -90,7 +101,8 @@ $query_update=sprintf("UPDATE `piesne` SET
 `id_zberatel_vyskyt`=%s, 
 `datum_zbieranie`='%s', 
 `datum_digitalizacia`='%s', 
-`id_digitalizator`=%s, 
+`id_digitalizator`=%s,
+`id_digitalizator2`=%s, 
 `id_hudba`=%s, 
 id_tempo=%s, 
 `id_incipit`=%s, 
@@ -111,6 +123,7 @@ mysql_real_escape_string($id_zberatel_vyskyt),
 mysql_real_escape_string($datum_zbieranie),
 mysql_real_escape_string($datum_digitalizacia),
 mysql_real_escape_string($id_digitalizator),
+mysql_real_escape_string($id_digitalizator2),
 mysql_real_escape_string($id_hudba),
 mysql_real_escape_string($id_tempo),
 mysql_real_escape_string($id_incipit),

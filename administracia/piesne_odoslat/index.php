@@ -42,10 +42,9 @@ include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
   </div>	  
 	  
 	  
-<button type="submit" class="l-btn l-btn--large l-btn--primary">Pokračovať >></button>
+<button type="submit" class="l-btn l-btn--large l-btn--primary">Pokračovať v pridávaní >></button> <BR><BR> <a href="javascript:void(0);" onclick="window.location='01_variant.php?id_piesen='+$( '#id_piesen' ).val();">Pridať variant k tejto piesni</a> (použi len ak je už pieseň pridaná)
 
 </form>
-
 
 
 

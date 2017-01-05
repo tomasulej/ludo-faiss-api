@@ -364,6 +364,49 @@ if ((int)$_GET['id_piesen']<>0) {
     </div>
 </div></div>
 
+
+ <div class="form-group row">	  
+  <fieldset class="form-group">
+    <label for="id_digitalizator2" class="col-sm-2 form-control-label"><strong>Kto pridal dielo sem (Tvoje meno):</strong></label>
+    <div class="col-sm-10">
+    <select class="form-control" id="id_digitalizator2" name="id_digitalizator2">
+       <option value='-1'>(Meno chýba v zozname)</option>
+
+		<?php
+			$q=mysql_query("SELECT * FROM digitalizatori;");
+			while ($digitalizatori=mysql_fetch_object($q)) {
+
+      if ($p_edit->id_digitalizator==$digitalizatori->id_digitalizator) {
+
+			  printf("<option value='%s' selected>%s</option>",$digitalizatori->id_digitalizator,$digitalizatori->meno);	
+
+      }  
+      else { 
+
+			  printf("<option value='%s' %s>%s</option>",$digitalizatori->id_digitalizator,(empty($p_edit->id_digitalizator)) ? "selected":"",$digitalizatori->meno);	
+
+      }  
+			}
+			
+		?>
+    </select>
+    <p class="form-text text-muted">Vaše meno, alebo meno digitalizátora. Ak chýba v zozname, vyberte možnosť "(chýba v zozname)" a doplňte.</p>
+    </div>
+  </fieldset>
+  </div>
+  
+<div class="form-group row" style="display:none" id="div_txt_digitalizator2"><div class="col-md-2"></div><div class="col-md-10">
+    <label for="txt_digitalizator2" class="col-sm-2 form-control-label"><strong>Meno digitalizátora:</strong></label>
+    <div class="col-sm-10">
+      <input type="input" class="form-control" id="txt_digitalizator2" name="txt_digitalizator2" placeholder="Napíšte meno digitalizátora">
+    </div>
+</div></div>
+
+
+
+
+
+
   
     <div class="form-group row" style="display:none">	  
   <fieldset class="form-group">
@@ -509,6 +552,11 @@ if ((int)$_GET['id_piesen']<>0) {
           $("#id_digitalizator").change(function(){
             var val = $(this).find("option:selected").attr("value");
             if (val==-1) {$("#div_txt_digitalizator").show();$("#txt_digitalizator").focus();} else {$("#div_txt_digitalizator").hide();}
+          });
+
+          $("#id_digitalizator2").change(function(){
+            var val = $(this).find("option:selected").attr("value");
+            if (val==-1) {$("#div_txt_digitalizator2").show();$("#txt_digitalizator2").focus();} else {$("#div_txt_digitalizator2").hide();}
           });
 
 </script>
