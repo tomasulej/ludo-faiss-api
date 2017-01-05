@@ -29,7 +29,21 @@ include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
 if ((int)$_GET['id_piesen']<>0) {
   $q_edit=mysql_query(sprintf("SELECT * FROM piesne WHERE id_piesen=%s",(int)$_GET['id_piesen']));
   $p_edit=mysql_fetch_object( $q_edit);
-  //echo "<H1>".$p_edit->nazov_dlhy."xxx</H1>";
+if ($p_edit->id_nadriadeny<>0) {
+    $q_edit=mysql_query(sprintf("SELECT * FROM piesne WHERE id_piesen=%s",$p_edit->id_nadriadeny));
+    $p_edit=mysql_fetch_object( $q_edit);
+  
+  ?>
+
+  <div class="alert alert-info" role="alert">
+  <strong>Edituješ variant a nechceš nič meniť v týchto údajoch?</strong> <a href="02_subory.php?id_piesen=<?php echo $id_piesen; ?>"> Poď na ďalší krok >></a>
+</div>
+
+
+  <?php
+}
+
+
 };
 
 
@@ -114,6 +128,8 @@ if ((int)$_GET['id_piesen']<>0) {
     <label for="id_zberatel" class="col-sm-2 form-control-label"><strong>Zberateľ:</strong></label>
     <div class="col-sm-10">
     <select class="form-control" id="id_zberatel" name="id_zberatel">
+
+
     <option value='-1'>(Meno chýba v zozname)</option>
 
 
@@ -121,18 +137,21 @@ if ((int)$_GET['id_piesen']<>0) {
 			$q=mysql_query("SELECT * FROM zberatelia;");
 			while ($zberatelia=mysql_fetch_object($q)) {
 
+        
       if ($p_edit->id_zberatel==$zberatelia->id_zberatel) {
   			  printf("<option value='%s' selected>%s</option>",$zberatelia->id_zberatel,$zberatelia->meno);	
       
       } else {
 			    printf("<option value='%s' %s>%s</option>",$zberatelia->id_zberatel,(empty($p_edit->id_zberatel)) ? "selected":"",$zberatelia->meno);	
-
-
       }
 
 
 			}
 			
+  
+
+
+
 		?>
     </select>
 
