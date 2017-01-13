@@ -87,7 +87,6 @@ if ($_POST['odoslane']=='true') {
 <form action="ajax_poznamky.php" method="post" class="l-form l-well" id="odosli_poznamku">
 
     <div class="form-group row">	  
-  <fieldset class="form-group">
     <label for="id_druh" class="col-sm-2 form-control-label"><strong>Druh poznámky</strong></label>
     <div class="col-sm-10">
     <select class="form-control" id="id_druh" name="id_druh">
@@ -101,17 +100,14 @@ if ($_POST['odoslane']=='true') {
 
 
 
-  </fieldset>
   </div>
 
     <input type="hidden" id="id_piesen" name="id_piesen" value="<?php echo (int)$id_piesen;?>">
 
 
   <div class="form-group row">	  
-  <fieldset class="form-group">
     <label for="txt"><strong>Pridať poznámku:</strong></label>
     <textarea class="form-control" id="txt" name="txt" rows="4"></textarea>
-  </fieldset>
 
       <p class="form-text text-muted">Templejty: <a href="javascript:void(0);" onclick='$("#txt").val("Táto pieseň bola transponovaná pre lepšiu čitateľnosť notového zápisu (bola jej zmenená tónina). V rukopise zberateľa nápev začínal tónom g<sup>1</sup>.")'>[notička v zátvorke]</a></p>
 
@@ -214,7 +210,6 @@ function vymaz_prepojenie(id) {
 
 
     <div class="form-group row">	  
-  <fieldset class="form-group">
     <label for="id_vztah" class="col-sm-2 form-control-label"><strong>Druh prepojenia</strong></label>
     <div class="col-sm-10">
     <select class="form-control" id="id_vztah" name="id_vztah">
@@ -225,7 +220,6 @@ function vymaz_prepojenie(id) {
 
     </select>
     </div>
-  </fieldset>
   </div>
 
 <script>
@@ -251,7 +245,7 @@ function vymaz_prepojenie(id) {
 </div>
 
 
- <fieldset class="form-group" id="div_id_piesen2">
+ <div class="form-group" id="div_id_piesen2">
     <label for="id_piesen2" class="col-sm-2 form-control-label"><strong>Vyberte pieseň:</strong></label>
     <div class="col-sm-10">
     <select class="form-control" id="id_piesen2" name="id_piesen2">
@@ -266,9 +260,8 @@ function vymaz_prepojenie(id) {
 		?>
     </select>
     </div>
-  </fieldset>
 
-
+</div>
 
 
   <div class="form-group row">
