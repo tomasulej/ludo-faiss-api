@@ -131,15 +131,15 @@ if ($piesen->id_nadriadeny==0) { //tato piesen je hlavna, potom pridaj seba + je
 
 //META
  $meta_type="article";
- $meta_desc="Táto pieseň pochádza z Ľuda Slovenského, najväčšej zbierky ľudovej hudby na Slovensku. Pozri si melódiu, noty a všetky informácie o nej. ";
+ $meta_desc="Táto ľudová pieseň pochádza z Ľuda Slovenského, najväčšej zbierky ľudovej hudby na Slovensku. Pozri si melódiu, noty a všetky informácie o nej. ";
  $meta_url="http://".$_SERVER['SERVER_NAME']."/piesne/piesen.php?".$piesen->id_piesen;
 
 if ($piesen->id_nadriadeny==0) {
- $meta_title=$piesen->nazov_dlhy." ♬ ";
+ $meta_title=$piesen->nazov_dlhy." ♬ | Všetky ľudové piesne online";
  //$meta_audio="http://".$_SERVER['SERVER_NAME']."/piesne/data/".$piesen->id_piesen."/".$piesen->file_mp3;
  $meta_image="http://".$_SERVER['SERVER_NAME']."/piesne/data/".$piesen->id_piesen."/".$piesen->file_png;
 } else {
-  $meta_title=(!empty($piesen->nazov_dlhy))?$piesen->nazov_dlhy." ♬ ":$piesen_nadriadeny->nazov_dlhy." ♬ ";
+  $meta_title=(!empty($piesen->nazov_dlhy))?$piesen->nazov_dlhy." ♬  | Všetky ľudové piesne online":$piesen_nadriadeny->nazov_dlhy." ♬  | Všetky ľudové piesne online";
   //$meta_audio="http://".$_SERVER['SERVER_NAME']."/piesne/data/".$piesen->id_piesen."/".$piesen->file_mp3;
   $meta_image=(!empty($piesen->file_png))?"http://".$_SERVER['SERVER_NAME']."/piesne/data/".$piesen->id_piesen."/".$piesen->file_png:"http://".$_SERVER['SERVER_NAME']."/piesne/data/".$piesen_nadriadeny->id_piesen."/".$piesen_nadriadeny->file_png;
 }
@@ -169,6 +169,8 @@ while ($o_podobne=mysql_fetch_object($q_podobne)) {
 		
   }
 }
+
+$podobne_cudzie=rtrim($podobne_cudzie, ", ");
 
 // odporucane piesne 
 $query_odporucane=mysql_query("SELECT log.id_piesen, piesne.nazov_dlhy, piesne.file_mp3, piesne.file_png, piesne.nazov_kratky, sum(log.pocet) as videnia FROM log LEFT JOIN piesne ON piesne.id_piesen=log.id_piesen GROUP BY id_piesen ORDER BY videnia DESC LIMIT 10");

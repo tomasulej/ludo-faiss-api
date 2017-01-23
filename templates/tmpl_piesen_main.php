@@ -491,7 +491,7 @@
     <tr>
       <th colspan="2">
       <b>Poznámka č. <?php echo $i;$i++;    ?></b><BR>
-      <small><?php echo substr($poznamka["txt"],0,40); ?>…</small></th>
+      <small><?php echo substr($poznamka["txt"],0,strpos($poznamka["txt"]," ",50)); ?>…</small></th>
           <td><small>
           <?php 
           switch ($poznamky["id_druh"]) {
