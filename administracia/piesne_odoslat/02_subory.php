@@ -80,6 +80,27 @@ if ($_POST['odoslane']=='true') {
 
     $id_hudba=$_POST['id_hudba']; //printf(" %s:%s","id_hudba",$id_hudba);
     $id_tempo=$_POST['id_tempo']; //printf(" %s:%s","id_tempo",$id_tempo);
+    if ($id_tempo==-1) {
+        $txt_tempo=$_POST['txt_tempo'];
+        $txt_bpm=$_POST['txt_bpm'];
+        
+        $q_txt_tempo=mysql_query("INSERT INTO tempo (tempo, bpm) VALUES ('$txt_tempo','$txt_bpm');");
+        $id_tempo=mysql_insert_id();
+        echo "ID_digitalizator PO NOVOM JE:".$id_tempo;
+    } 
+
+
+    $id_tempo2=$_POST['id_tempo2']; //printf(" %s:%s","id_tempo2",$id_tempo2);
+     if ($id_tempo2==-1) {
+        $txt_tempo2=$_POST['txt_tempo2'];
+        $txt_bpm2=$_POST['txt_bpm2'];
+        
+        $q_txt_tempo2=mysql_query("INSERT INTO tempo (tempo, bpm) VALUES ('$txt_tempo2','$txt_bpm2');");
+        $id_tempo2=mysql_insert_id();
+        echo "ID_digitalizator PO NOVOM JE:".$id_tempo2;
+    } 
+
+
     $id_incipit=$_POST['id_incipit']; $id_incipit=0;//printf(" %s:%s","id_incipit",$id_incipit);
     $strana=$_POST['strana']; //printf(" %s:%s","strana",$strana);
 
@@ -88,6 +109,7 @@ if ($_POST['odoslane']=='true') {
     $source_zberatel_vyskyt=$_POST['source_zberatel_vyskyt']; //printf(" %s:%s","source_zberatel_vyskyt",$source_zberatel_vyskyt);
     $source_datum_zbieranie=$_POST['source_datum_zbieranie']; //printf(" %s:%s","source_datum_zbieranie",$source_datum_zbieranie);
     $source_tempo=$_POST['source_tempo']; //printf(" %s:%s","source_tempo",$source_tempo);
+    $source_tempo2=$_POST['source_tempo2']; //printf(" %s:%s","source_tempo2",$source_tempo2);
 
 
 $query_update=sprintf("UPDATE `piesne` SET 
@@ -105,12 +127,16 @@ $query_update=sprintf("UPDATE `piesne` SET
 `id_digitalizator2`=%s, 
 `id_hudba`=%s, 
 id_tempo=%s, 
+id_tempo2=%s,
 `id_incipit`=%s, 
 `source_zberatel`='%s',
 `source_zberatel_miesto`='%s',
 `source_zberatel_vyskyt`='%s',
 `source_datum_zbieranie`='%s',
-`source_tempo`='%s' WHERE id_piesen=%s;",
+`source_tempo`='%s', 
+`source_tempo2`='%s' 
+
+WHERE id_piesen=%s;",
 
 mysql_real_escape_string($id_zbierka),
 mysql_real_escape_string($identifikator),
@@ -126,12 +152,15 @@ mysql_real_escape_string($id_digitalizator),
 mysql_real_escape_string($id_digitalizator2),
 mysql_real_escape_string($id_hudba),
 mysql_real_escape_string($id_tempo),
+mysql_real_escape_string($id_tempo2),
 mysql_real_escape_string($id_incipit),
 mysql_real_escape_string($source_zberatel),
 mysql_real_escape_string($source_zberatel_miesto),
 mysql_real_escape_string($source_zberatel_vyskyt),
 mysql_real_escape_string($source_datum_zbieranie),
 mysql_real_escape_string($source_tempo),
+mysql_real_escape_string($source_tempo2),
+
 (int)$id_piesen
 );
 

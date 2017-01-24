@@ -453,6 +453,7 @@ if ($p_edit->id_nadriadeny<>0) {
     <label for="id_tempo" class="col-sm-2 form-control-label"><strong>Tempo:</strong></label>
     <div class="col-sm-10">
     <select class="form-control" id="id_tempo" name="id_tempo">
+              <option value='-1'>(Tempo chýba v zozname)</option>
 		<?php
 			$q=mysql_query("SELECT * FROM tempo;");
 			while ($tempo=mysql_fetch_object($q)) {
@@ -469,11 +470,30 @@ if ($p_edit->id_nadriadeny<>0) {
     </div>
   </div>
 
+<div class="form-group row" style="display:none" id="div_txt_tempo"><div class="col-md-2"></div><div class="col-md-10">
+    <label for="txt_tempo" class="col-sm-2 form-control-label"><strong>Tempo:</strong></label>
+    <div class="col-sm-10">
+      <input type="input" class="form-control" id="txt_tempo" name="txt_tempo" placeholder="Napíšte názov tempa">
+      
+    </div>
+
+    <label for="txt_bpm" class="col-sm-2 form-control-label"><strong>Bpm:</strong></label>
+    <div class="col-sm-10">
+      <input type="input" class="form-control" id="txt_bpm" name="txt_bpm" placeholder="Napíšte počet BPM (beats per minute)">
+      
+    </div>
+
+
+</div></div>
+
+
+
 
     <div class="form-group row">
     <label for="source_tempo" class="col-sm-2 form-control-label"><strong>Ako je napísané tempo:</strong></label>
     <div class="col-sm-10">
     <select class="form-control" id="source_tempo" name="source_tempo">
+
       <option value='0' <?php if ($p_edit->source_tempo==0) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) bez zátvoriek</option>
       <option value='1' <?php if ($p_edit->source_tempo==1) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v hranatých zátvorkách</option>
       <option value='2' <?php if ($p_edit->source_tempo==2) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v klasických zátvorkách</option>
@@ -487,6 +507,72 @@ if ($p_edit->id_nadriadeny<>0) {
 
 </div>
     </div> 
+
+
+
+    <div class="form-group row">	  
+    <label for="id_tempo2" class="col-sm-2 form-control-label"><strong>Tempo 2:</strong></label>
+    <div class="col-sm-10">
+    <select class="form-control" id="id_tempo2" name="id_tempo2">
+            <option value='-1'>(Tempo chýba v zozname)</option>
+
+		<?php
+			$q=mysql_query("SELECT * FROM tempo;");
+			while ($tempo=mysql_fetch_object($q)) {
+
+      if ($p_edit->id_tempo==$tempo->id_tempo) {
+			  printf("<option value='%s' selected>%s (%s bpm)</option>",$tempo->id_tempo,$tempo->tempo, $tempo->bpm);	
+
+      } 
+			  printf("<option value='%s'>%s (%s bpm)</option>",$tempo->id_tempo,$tempo->tempo, $tempo->bpm);	
+			}
+			
+		?>
+    </select>
+    </div>
+  </div>
+
+<div class="form-group row" style="display:none" id="div_txt_tempo2"><div class="col-md-2"></div><div class="col-md-10">
+    <label for="txt_tempo2" class="col-sm-2 form-control-label"><strong>Tempo2:</strong></label>
+    <div class="col-sm-10">
+      <input type="input" class="form-control" id="txt_tempo2" name="txt_tempo2" placeholder="Napíšte názov tempa">
+      
+    </div>
+
+    <label for="txt_bpm2" class="col-sm-2 form-control-label"><strong>Bpm:</strong></label>
+    <div class="col-sm-10">
+      <input type="input" class="form-control" id="txt_bpm2" name="txt_bpm2" placeholder="Napíšte počet BPM (beats per minute)">
+      
+    </div>
+
+
+</div></div>
+
+
+
+
+    <div class="form-group row">
+    <label for="source_tempo2" class="col-sm-2 form-control-label"><strong>Ako je napísané tempo2:</strong></label>
+    <div class="col-sm-10">
+    <select class="form-control" id="source_tempo2" name="source_tempo2">
+      <option value='0' <?php if ($p_edit->source_tempo==0) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) bez zátvoriek</option>
+      <option value='1' <?php if ($p_edit->source_tempo==1) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v hranatých zátvorkách</option>
+      <option value='2' <?php if ($p_edit->source_tempo==2) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v klasických zátvorkách</option>
+      <option value='3' <?php if ($p_edit->source_tempo==3) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v klasických aj hranatých zátvorkách</option>
+      <option value='4' <?php if ($p_edit->source_tempo==4) {echo 'selected';} else { echo '';} ?>>kurzíva bez zátvoriek</option>
+      <option value='5' <?php if ($p_edit->source_tempo==5) {echo 'selected';} else { echo '';} ?>>kurzíva v klasických zátvorkách</option>
+      <option value='6' <?php if ($p_edit->source_tempo==6) {echo 'selected';} else { echo '';} ?>>kurzíva v hranatých zátvorkách</option>
+      <option value='7' <?php if ($p_edit->source_tempo==7) {echo 'selected';} else { echo '';} ?>>kurzíva v klasických aj hranatých zátvorkých</option>
+
+    </select>
+
+</div>
+    </div> 
+
+
+
+
+
 
 
 
@@ -564,6 +650,16 @@ if ($p_edit->id_nadriadeny<>0) {
           $("#id_digitalizator2").change(function(){
             var val = $(this).find("option:selected").attr("value");
             if (val==-1) {$("#div_txt_digitalizator2").show();$("#txt_digitalizator2").focus();} else {$("#div_txt_digitalizator2").hide();}
+          });
+
+          $("#id_tempo").change(function(){
+            var val = $(this).find("option:selected").attr("value");
+            if (val==-1) {$("#div_txt_tempo").show();$("#txt_tempo").focus();} else {$("#div_txt_tempo").hide();}
+          });
+
+          $("#id_tempo2").change(function(){
+            var val = $(this).find("option:selected").attr("value");
+            if (val==-1) {$("#div_txt_tempo2").show();$("#txt_tempo2").focus();} else {$("#div_txt_tempo2").hide();}
           });
 
 </script>
