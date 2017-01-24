@@ -508,20 +508,23 @@ if ($p_edit->id_nadriadeny<>0) {
 </div>
     </div> 
 
+<a onclick="$('#div_id_tempo2').show();" href="javascript:void(0)">>> Chcem pridať aj druhé tempo, lebo sú dve >></a> - napríklad <i>"Moderato. (Sviežo)"</i>. Pridajme oboje - aj Tempo: "Moderato", Tempo 2: "Sviežo" </a>
 
-
+<div id="div_id_tempo2" style="display:none">
     <div class="form-group row">	  
     <label for="id_tempo2" class="col-sm-2 form-control-label"><strong>Tempo 2:</strong></label>
     <div class="col-sm-10">
     <select class="form-control" id="id_tempo2" name="id_tempo2">
             <option value='-1'>(Tempo chýba v zozname)</option>
+            <option value='0' selected>Žiadne druhé tempo - je iba jedno</option>
+            
 
 		<?php
 			$q=mysql_query("SELECT * FROM tempo;");
 			while ($tempo=mysql_fetch_object($q)) {
 
       if ($p_edit->id_tempo==$tempo->id_tempo) {
-			  printf("<option value='%s' selected>%s (%s bpm)</option>",$tempo->id_tempo,$tempo->tempo, $tempo->bpm);	
+			  printf("<option value='%s'>%s (%s bpm)</option>",$tempo->id_tempo,$tempo->tempo, $tempo->bpm);	
 
       } 
 			  printf("<option value='%s'>%s (%s bpm)</option>",$tempo->id_tempo,$tempo->tempo, $tempo->bpm);	
@@ -567,7 +570,7 @@ if ($p_edit->id_nadriadeny<>0) {
     </select>
 
 </div>
-    </div> 
+    </div> </div>
 
 
 
