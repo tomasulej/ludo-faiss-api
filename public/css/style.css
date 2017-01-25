@@ -2690,6 +2690,16 @@ a {
 .l-song-lyrics {
   margin-top: 4rem;
   position: relative; }
+  .l-song-lyrics .supsub {
+    display: inline-block;
+    margin-right: 5px; }
+    .l-song-lyrics .supsub sup, .l-song-lyrics .supsub sub {
+      display: block;
+      font-size: 0.75rem; }
+    .l-song-lyrics .supsub sup {
+      padding-bottom: 2px; }
+    .l-song-lyrics .supsub sub {
+      padding-top: 2px; }
   .l-song-lyrics .row {
     margin-bottom: 2rem; }
   .l-song-lyrics [class*="col-"] {

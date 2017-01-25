@@ -42,6 +42,24 @@
   margin-top: 4rem;
   position: relative;
 
+  .supsub {
+    display: inline-block;
+    margin-right: 5px;
+
+    sup, sub {
+      display: block;
+      font-size: 0.75rem;
+    }
+
+    sup{
+      padding-bottom: 2px;
+    }
+
+    sub{
+      padding-top: 2px;
+    }
+  }
+
   .row{
     margin-bottom: 2rem;
   }
