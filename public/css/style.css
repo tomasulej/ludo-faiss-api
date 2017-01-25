@@ -2755,7 +2755,8 @@ a {
 
 .l-song-item {
   padding: 1rem;
-  position: relative; }
+  position: relative;
+  min-height: 15rem; }
   .l-song-item h3 {
     margin-top: 0;
     padding-right: 3rem;
