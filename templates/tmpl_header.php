@@ -55,21 +55,6 @@ src="https://www.facebook.com/tr?id=1364310410299072&ev=PageView&noscript=1"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js"></script>
     <script src='https://www.google.com/recaptcha/api.js?hl=sk'></script>
 
- <style>
-
-
-.supsub {
-    display: inline-block;
-}
-
-.supsub sup,
-.supsub sub {
-    position: relative;
-    display: block;
-    font-size: .6em;
-    line-height: 1.8;
-}
- </style>
 
 
 	<script>(function(d, s, id) {

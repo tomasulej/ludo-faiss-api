@@ -299,7 +299,7 @@
                 <strong>Zberateľ</strong>: <?php echo $objPiesen->zberatelia_meno?><BR>
                 <strong>Digitalizátor(ka)</strong>: <?php echo $objPiesen->digitalizatori_meno?></a><BR>
                 <!--<strong>Hudba</strong>: <a href="#"><?php echo $objPiesen->hudobnici_meno?></a><BR>-->
-                <strong>Tempo</strong>: <?php echo $objPiesen->tempo?></a><BR>
+                <strong>Tempo</strong>: <?php echo $objPiesen->tempo1." ".$objPiesen->tempo2;?></a><BR>
                 <strong>Dátum zozbierania</strong>: <?php echo $objPiesen->datum_zbieranie?><BR>
                 <strong>Dátum digitalizácie</strong>: <?php echo date("d.m.Y",strtotime($objPiesen->datum_digitalizacia));?><BR>
                  <strong>Stiahnuť</strong>:
@@ -407,11 +407,11 @@
     </tr>
 
         <tr>
-      <th>Tempo</th>
-      <td><?php echo $objPiesen->tempo ?></td>
+      <th>Tempo: </th>
+      <td><?php echo $objPiesen->tempo1 ?></td>
       <td><small><?php
       
-      switch ($objPiesen->source_tempo) {
+      switch ($objPiesen->source_tempo1) {
             case 0:
                 echo "Údaj pochádza z prvého vydania a má podklad v rukopisoch zberateľa";
             break;
@@ -442,6 +442,46 @@
        ?></small></td>
 
     </tr>
+
+<?php if ($objPiesen->tempo2<>"") { ?>
+ <tr>
+      <th>Tempo:</th>
+      <td><?php echo $objPiesen->tempo2 ?></td>
+      <td><small><?php
+      
+      switch ($objPiesen->source_tempo2) {
+            case 0:
+                echo "Údaj pochádza z prvého vydania a má podklad v rukopisoch zberateľa";
+            break;
+            case 1:
+                echo "Údaj bol doplnený do druhého vydania na základe druhotných dokumentov";
+            break;
+            case 2:
+                echo "Údaj nemá podklad v rukopisoch zberateľa, no bol uvedený v prvom vydaní";
+            break;
+            case 3:
+                echo "";
+            break;
+            case 4:
+                echo "Údaj má podklad v rukopisoch zberateľa, no nebol uvedený v prvom vydaní";
+            break;
+            case 5:
+                echo "";
+            break;
+            case 6:
+                echo "";
+            break;
+            case 7:
+                echo "";
+            break;
+       }
+
+
+       ?></small></td>
+
+    </tr>
+<?php } ?>
+
 
         <tr>
       <th>Dátum zozbierania</th>
