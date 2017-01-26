@@ -764,7 +764,7 @@
                                 <audio id="<?php echo $p_audio; ?>" controls="controls" src="<?php echo $p_piesen['file_mp3']; ?>" style="display:none">Your browser does not support the audio element.</audio>
                             <?php }?>
 
-                            <a <?php if ($p_piesen['file_mp3']<>"") {echo "href=piesen.php?".$p_piesen['id_piesen'].'"';} else {echo 'data-toggle="modal" data-target="#estetunieje"'; }?>"><img src='<?php echo $p_piesen["file_png"];?>'></a>
+                            <a <?php if ($p_piesen['file_mp3']<>"") {echo "href=piesen.php?".$p_piesen['id_piesen'];} else {echo 'data-toggle="modal" data-target="#estetunieje"'; }?>><img src='<?php echo $p_piesen["file_png"];?>'></a>
                         </div></div>
 
                     <?php
