@@ -568,7 +568,7 @@ $('[data-toggle="popover"]').popover({
       <small><?php echo substr($poznamka["txt"],0,strpos($poznamka["txt"]," ",50)); ?>…</small></th>
           <td><small>
           <?php 
-          switch ($poznamky["id_druh"]) {
+          switch ($poznamka["id_druh"]) {
             case 0:
                 echo "Ide o poznámku, ktorú pridal k piesni zberateľ, resp. prvá redakcia";
             break;
