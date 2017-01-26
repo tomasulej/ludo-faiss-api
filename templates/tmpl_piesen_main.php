@@ -157,7 +157,7 @@
 <div id="tuto-poznam_div" class="l-well l-know">
             <strong>Poznáte túto pieseň?</strong>
             Dajte nám vedieť! Pomôžete nám tým preskúmať rozšírenie piesni na Slovensku:
-            <button class="l-btn l-btn--primary l-btn--small" data-toggle="modal" href="javascript:void(0);" data-target="#tutopoznam_box" onclick="tutopoznam();">
+            <button class="l-btn l-btn--primary l-btn--small" data-toggle="modal" href="javascript:void(0);" data-target="#tutopoznam_box" onclick="javascript:tutopoznam();">
                 <i class="fa fa-star"></i> Túto pieseň poznám!</button>
 
 
@@ -166,7 +166,41 @@
 </div>
 
 
+<script>
 
+function tutopoznam(){
+
+    $('#tutopoznam_box_text').html($.ajax({url: 'piesen.tuto-poznam.php?id_piesen=<?php echo $objPiesen->id_piesen; ?>',
+        dataType: 'html',
+        async: false}).responseText);
+
+
+}
+
+
+
+//tuto poznam!
+$('[data-toggle="popover"]').popover({
+    html: true,
+    trigger: 'focus',
+    placement: 'bottom',
+    content: function() {
+        //e.preventDefault();
+      alert("ahoj");  
+      return $.ajax({url: 'piesen.tuto-poznam.php?id_piesen=<?php echo $objPiesen->id_piesen; ?>',
+                     dataType: 'html',
+                     async: false}).responseText;
+    }
+  }).click(function(e) {
+    $(this).popover('toggle');
+    e.preventDefault();
+    e.stopImmediatePropagation();
+  });
+
+
+
+
+</script>
 
 
 
@@ -887,43 +921,6 @@
 </script>
 
 <script>
-
-
-
-
-
-
-//tuto poznam!
-$('[data-toggle="popover"]').popover({
-    html: true,
-    trigger: 'focus',
-    placement: 'bottom',
-    content: function() {
-        //e.preventDefault();
-        //alert("ahoj");  
-      return $.ajax({url: 'piesen.tuto-poznam.php?id_piesen=<?php echo $objPiesen->id_piesen; ?>',
-                     dataType: 'html',
-                     async: false}).responseText;
-    }
-  }).click(function(e) {
-    $(this).popover('toggle');
-    e.preventDefault();
-    e.stopImmediatePropagation();
-  });
-
-
-function tutopoznam(){
-    $('#tutopoznam_box_text').html($.ajax({url: 'piesen.tuto-poznam.php?id_piesen=<?php echo $objPiesen->id_piesen; ?>',
-        dataType: 'html',
-        async: false}).responseText);
-
-
-}
-
-
-
-
-
 
     function _d(role) {
         return '[data-role="' + role + '"]';
