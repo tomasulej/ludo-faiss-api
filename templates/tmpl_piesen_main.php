@@ -67,7 +67,16 @@
             </div>
 
             <p class="l-song-subh hidden-md-down"> <!--class="hidden-md-down"-->
-                <small>Zozbieral(a): <strong><!--<a href="zberatel.php?id=<?php echo $objPiesen->id_zberatel; ?>">--><?php echo $objPiesen->zberatelia_meno; ?><!--</a>--></strong> (<?php echo $objPiesen->datum_zbieranie; ?>) ● Zdigitalizoval(a): <strong><!--<a href="digitalizator.php?id=<?php echo $objPiesen->id_digitalizator; ?>">--><?php echo $objPiesen->digitalizatori_meno; ?><!--</a>--></strong> (<?php echo date("Y",strtotime($objPiesen->datum_digitalizacia)); ?>) ● Pôvodná zbierka <strong><!--<a href="zbierky.php?id=<?php echo $objPiesen->id_zbierka ?>">--><?php echo $objPiesen->zbierky_nazov ?><!--</a>--></strong></small>
+                <small>Zozbieral(a): <strong><!--<a href="zberatel.php?id=<?php echo $objPiesen->id_zberatel; ?>">--><?php echo $objPiesen->zberatelia_meno; ?><!--</a>--></strong> (<?php echo $objPiesen->datum_zbieranie; ?>) 
+                
+                ● Zdigitalizoval<?php echo (empty($objPiesen->digitalizatori2_meno))?"(a)":"i";?>: 
+                
+                <strong><!--<a href="digitalizator.php?id=<?php echo $objPiesen->id_digitalizator; ?>">--><?php echo $objPiesen->digitalizatori_meno; ?><!--</a>--></strong> 
+                <?php if (!empty($objPiesen->digitalizatori2_meno)) { ?> 
+                   a <strong><!--<a href="digitalizator.php?id=<?php echo $objPiesen->id_digitalizator2; ?>">--><?php echo $objPiesen->digitalizatori2_meno; ?><!--</a>--></strong> 
+                <?php } ?>
+
+                (<?php echo date("Y",strtotime($objPiesen->datum_digitalizacia)); ?>) ● Pôvodná zbierka <strong><!--<a href="zbierky.php?id=<?php echo $objPiesen->id_zbierka ?>">--><?php echo $objPiesen->zbierky_nazov ?><!--</a>--></strong></small>
             </p>
 
 
@@ -683,7 +692,7 @@ $('[data-toggle="popover"]').popover({
                     <?php if (!empty($p_mapa_point) OR !(empty($zberatel_miesto)) OR !empty($zberatel_vyskyt)) { ?>
 
 
-                    <div id='mapa' class='map' Style="height:300px"> </div>
+                    <div id='mapa' class='map' style="height:300px"> </div>
 
                     <script>
                         
@@ -848,7 +857,7 @@ $('[data-toggle="popover"]').popover({
 </div></div>
 
 
-<?php require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_footer.php"?>
+<?php require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_footer.php"; ?>
 
 
 
@@ -904,6 +913,29 @@ $('[data-toggle="popover"]').popover({
     }
 
 
+   $("#aud").on("play", function (e) {
+      $("#playpause_main"+' i').attr('class', "fa fa-pause");
+    });
+
+$("#aud").on("canplaythrough", function(e){
+    duration=e.currentTarget.duration;
+
+});    
+
+$("#aud").on("timeupdate", function(event){
+    ctime=this.currentTime;
+});
+
+
+    $("#aud").on("pause", function (e) {
+        this.currentTime = 0;
+        //playpause('#aud','#playpause_main'); 
+        $('#playpause_main i').attr('class', "fa fa-play");
+
+    });
+
+ 
+
 
 
 </script>
@@ -926,20 +958,9 @@ $('[data-toggle="popover"]').popover({
         return '[data-role="' + role + '"]';
     }
 
-    $("#aud").on("play", function (e) {
-      $("#playpause_main"+' i').attr('class', "fa fa-pause");
-    });
+ 
 
  
-$("#aud").on("canplaythrough", function(e){
-    duration=e.currentTarget.duration;
-
-});    
-
-$("#aud").on("timeupdate", function(event){
-    ctime=this.currentTime;
-});
-
 
 
 
@@ -956,22 +977,8 @@ function abc2svg() {
 
 
 
-    $("#aud").on("pause", function (e) {
-        this.currentTime = 0;
-        //playpause('#aud','#playpause_main'); 
-        $('#playpause_main i').attr('class', "fa fa-play");
 
-    });
 
-  $("#aud").bind('ended', function(){
-    
-  });
-
-/*
-var vid = document.getElementById("aud");
-vid.onloadeddata = function() {
-    playpause('#aud','#playpause_main'); 
-}; */
 
 
    
@@ -989,36 +996,6 @@ vid.onloadeddata = function() {
             itemDescription:"<?php echo $objPiesen->nazov_dlhy; ?>",
             itemImageUrl:"/data/<?php echo $objPiesen->id_piesen; ?>/<?php echo $objPiesen->file_png;?>"});
 
-
-
-        /*var headerScroll = false;
-        var offsetTop = $(_d('header')).offset().top;
-
-/*        $(window).scroll(function(){
-
-            var scroll = $(window).scrollTop();
-            if (scroll > offsetTop) {
-
-                if (!headerScroll) {
-
-                    $('.l-song').css('margin-top', $(_d('header')).height() + 'px');
-                    $(_d('header')).addClass('l-song-header--float');
-
-                    headerScroll = true;
-                }
-
-            } else {
-
-                if (headerScroll) {
-
-                    $('.l-song').css('margin-top', 0);
-                    $(_d('header')).removeClass('l-song-header--float');
-                    headerScroll = false;
-                }
-            }
-<<<<<<< HEAD
-        }); */
-    
 
     
 

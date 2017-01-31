@@ -10,7 +10,11 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_ludo_header.php";
 
         <div class="row">
 
+
+
+
             <div class="col-md-7">
+
 
  <?php echo $telo;?>
                 
