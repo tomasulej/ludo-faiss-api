@@ -340,7 +340,11 @@ $('[data-toggle="popover"]').popover({
                 <strong>Strana:</strong> <?php echo $objPiesen->strana; ?><BR>
                 <strong>Identifikátor</strong>: <?php echo $objPiesen->identifikator?> <BR>
                 <strong>Zberateľ</strong>: <?php echo $objPiesen->zberatelia_meno?><BR>
-                <strong>Digitalizátor(ka)</strong>: <?php echo $objPiesen->digitalizatori_meno?></a><BR>
+                <strong>Digitalizátor(ka)</strong>: <?php echo $objPiesen->digitalizatori_meno?> 
+                <?php if (!empty($objPiesen->digitalizatori2_meno)) { ?>
+                     a <?php echo $objPiesen->digitalizatori2_meno?></a><BR>
+                <?php } ?>
+
                 <!--<strong>Hudba</strong>: <a href="#"><?php echo $objPiesen->hudobnici_meno?></a><BR>-->
                 <strong>Tempo</strong>: <?php echo $objPiesen->tempo1." ".$objPiesen->tempo2;?></a><BR>
                 <strong>Dátum zozbierania</strong>: <?php echo $objPiesen->datum_zbieranie?><BR>
@@ -443,12 +447,19 @@ $('[data-toggle="popover"]').popover({
        </small></td>
     </tr>
 
-        <tr>
+    <tr>
       <th>Digitalizátor(ka)</th>
       <td><?php echo $objPiesen->digitalizatori_meno ?></td>
       <td><small>Údaj pridávame pre potreby tohto vydania.</small></td>
     </tr>
 
+<?php if (!empty($objPiesen->digitalizatori2_meno)) { ?>
+  <tr>
+      <th>Digitalizátor(ka)</th>
+      <td><?php echo $objPiesen->digitalizatori2_meno ?></td>
+      <td><small>Údaj pridávame pre potreby tohto vydania.</small></td>
+  </tr>
+<?php } ?>
         <tr>
       <th>Tempo: </th>
       <td><?php echo $objPiesen->tempo1 ?></td>
