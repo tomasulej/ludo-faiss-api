@@ -73,7 +73,7 @@ LEFT JOIN lokality AS miesto1 ON piesne.id_zberatel_miesto <=> miesto1.id_lokali
 LEFT JOIN lokality AS miesto2 ON piesne.id_zberatel_vyskyt <=> miesto2.id_lokalita
 
 
-WHERE stav<>0 AND file_xml<>''";
+WHERE stav=0 AND file_xml<>''";
 
 
 $q=mysql_query($query);
@@ -115,7 +115,7 @@ $q=mysql_query($query);
 
                 </td>
 
-                <td><a href="/piesne_odoslat/03_abc.php?id_piesen=<?php echo $piesen->id_piesen;?>" target="_blank"><span class="fa fa-pencil-square-o"> </span></a>
+                <td><a href="piesne_odoslat/03_abc.php?id_piesen=<?php echo $piesen->id_piesen;?>" target="_blank"><span class="fa fa-pencil-square-o"> </span></a>
                     <a href="ajax_piesen_schvalit.php"><span class="fa fa-thumbs-up"> </span></a></td>
 
 
