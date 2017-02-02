@@ -108,10 +108,10 @@ $q=mysql_query($query);
                 <td><?php echo $piesen->identifikator; ?></td>
 
                 <td>           <a href="/piesne/stiahnut.php?id=<?php $piesen->id_piesen;?>&format=xml"><span class="fa-file-code-o fa"></span></a>
-                    <a href="/piesne/stiahnut.php?id=<?php $piesen->id_piesen;?>&format=pdf"><span class="fa-file-pdf-o fa"></span></a></td>
+                    <a href="/piesne/stiahnut.php?id=<?php echo $piesen->id_piesen;?>&format=pdf"><span class="fa-file-pdf-o fa"></span></a></td>
 
 
-                <td><a href="/piesne/piesen.php?<?php echo $piesen->id_piesen;?>" target="_blank"><?php echo $piesen->nazov_dlhy; ?></a>
+                <td><a href="/piesne/piesen.php?<?php echo $piesen->id_piesen;?>" target="_blank"><?php echo $piesen->nazov_kratky; ?></a>
 
                 </td>
 
