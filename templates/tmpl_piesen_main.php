@@ -961,7 +961,10 @@ $("#aud").on("timeupdate", function(event){
 
 
         $(document).ready(function(){
-            abc2svg();
+            $('.abc').each(function(i, obj) {
+                ABCJS.renderAbc(obj, $(obj).text());
+
+            });
 
             easyrec_view({
                 userId:"",
@@ -985,12 +988,6 @@ $("#aud").on("timeupdate", function(event){
 
 
 
-    function abc2svg() {
-        $('.abc').each(function(i, obj) {
-            ABCJS.renderAbc(obj, $(obj).text());
-
-        });
-    }
 
 
 </script>
