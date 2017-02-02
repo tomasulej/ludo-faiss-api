@@ -961,10 +961,7 @@ $("#aud").on("timeupdate", function(event){
 
 
         $(document).ready(function(){
-            $('.abc').each(function(i, obj) {
-                ABCJS.renderAbc(obj, $(obj).text());
 
-            });
 
             easyrec_view({
                 userId:"",
@@ -972,6 +969,12 @@ $("#aud").on("timeupdate", function(event){
                 itemUrl:"/piesen.php?<?php echo $objPiesen->id_piesen; ?>",
                 itemDescription:"<?php echo $objPiesen->nazov_dlhy; ?>",
                 itemImageUrl:"/data/<?php echo $objPiesen->id_piesen; ?>/<?php echo $objPiesen->file_png;?>"});
+
+            $('.abc').each(function(i, obj) {
+                ABCJS.renderAbc(obj, $(obj).text());
+
+            });
+
         });
 
 
