@@ -42,7 +42,25 @@ function add_source($txt, $source) {
 
 }
 
+function add_source_vztahy($txt,$source)
+{
+    switch ($source) {
+        case 0:
+            $r=$txt;
+            break;
+        case 1:
+            $r=sprintf("<i>%s</i>",$txt);
+            break;
+        case 2:
+            $r=sprintf("%s",$txt);
+            break;
+        case 3:
+            $r=sprintf("[%s]",$txt);
+            break;
+    }
 
+    return $r;
+}
 
 
 
@@ -52,6 +70,18 @@ function add_source($txt, $source) {
     $nadpis="Schvaľovanie piesní";
     require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_administracia_header.php";
     include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
+
+
+if (!empty($_GET['id_pridat'])) {
+    $id_pridat=(int)$_GET['id_pridat'];
+    $q=mysql_query("UPDATE piesne SET stav=1 WHERE id_piesen=$id_pridat");
+    ?> <div class="alert alert-success" role="alert"><strong>Pieseň je schválená</strong> Ak si dačo doplietol, tak si ma nepraj!</div> <?php
+
+}
+
+
+
+
 
 $query="SELECT piesne.id_piesen, piesne.id_nadriadeny, piesne.typ_nadriadeny, piesne.nazov_variant, piesne.id_zbierka, 
 piesne.strana, piesne.nazov_variant, piesne.id_nadriadeny, piesne.identifikator, piesne.nazov_dlhy, piesne.nazov_kratky, 
@@ -98,6 +128,10 @@ $q=mysql_query($query);
                 <th>Miesto</th>
                 <th>Výskyt</th>
                 <th>Dátum zozbierania</th>
+                <th>Prepojenia</th>
+                <th>Poznámky</th>
+
+
                 <th>Digitalizátori</th>
 
 
@@ -116,16 +150,49 @@ $q=mysql_query($query);
                 </td>
 
                 <td><a href="piesne_odoslat/03_abc.php?id_piesen=<?php echo $piesen->id_piesen;?>" target="_blank"><span class="fa fa-pencil-square-o"> </span></a>
-                    <a href="ajax_piesen_schvalit.php"><span class="fa fa-thumbs-up"> </span></a></td>
+                    <a href="schvalovanie.php?id_pridat=<?php echo $piesen->id_piesen; ?>"><span class="fa fa-thumbs-up"> </span></a></td>
 
 
 
 
-                <td><?php echo add_source($piesen->tempo1, $piesen->source_tempo); ?>, <?php echo add_source($piesen->tempo2, $piesen->source_tempo2); ?></td>
+                <td><?php echo add_source($piesen->tempo1, $piesen->source_tempo); ?> <?php echo add_source($piesen->tempo2, $piesen->source_tempo2); ?></td>
                 <td><?php echo add_source($piesen->zberatelia_meno,$piesen->source_zberatel); ?></td>
                 <td><?php echo add_source($piesen->zberatel_miesto, $piesen->source_zberatel_miesto); ?></td>
                 <td><?php echo add_source($piesen->zberatel_vyskyt, $piesen->source_zberatel_vyskyt); ?></td>
                 <td><?php echo add_source($piesen->datum_zbieranie, $piesen->source_datum_zbieranie); ?></td>
+                <td>
+                <?php
+                    $q_vztahy=mysql_query("SELECT id_piesen1, id_piesen2, id_vztah, txt_piesen2, piesne.identifikator FROM vztahy_piesne LEFT JOIN piesne ON piesne.id_piesen=id_piesen1 OR piesne.id_piesen=id_piesen2 WHERE id_piesen1=$piesen->id_piesen OR id_piesen2=$piesen->id_piesen");
+                    while ($vztahy=mysql_fetch_object($q_vztahy)) {
+
+
+                        if ($vztahy->txt_piesen2==""){
+                            if ($vztahy->identifikator<>$piesen->identifikator) {
+                            echo add_source_vztahy($vztahy->identifikator, $vztahy->id_vztah)." - ";}
+                        } else {
+                            echo $vztahy->txt_piesen2." - ";
+                        }
+                     }
+
+
+                ?>
+
+                </td>
+
+                <td>
+                    <?php
+                        $q_poznamky=mysql_query("SELECT * FROM poznamky WHERE id_piesen=$piesen->id_piesen");
+                        $i=0;
+                        while ($poznamky=mysql_fetch_object($q_poznamky)) {
+                            $i++;
+                            printf("<a title='%s'>%s</a> ",$poznamky->txt, $i);
+                        }
+
+                    ?>
+
+                </td>
+
+
                 <td><?php echo $piesen->digitalizatori_meno; ?>, <?php echo $piesen->digitalizatori2_meno; ?></td>
 
 
@@ -143,6 +210,12 @@ $q=mysql_query($query);
 
 </div>
 
+<script>
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+
+</script>
 
 <?php require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_footer.php"?>
 
