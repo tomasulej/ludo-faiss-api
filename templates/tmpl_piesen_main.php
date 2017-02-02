@@ -880,7 +880,7 @@ $('[data-toggle="popover"]').popover({
 
 <script>
 
-        var v = $('.l-page'),
+    var v = $('.l-page'),
     cache_width = v.width(),
     a4  =[ 595.28,  841.89];
 
@@ -970,6 +970,27 @@ $("#aud").on("timeupdate", function(event){
         });
 
 
+
+    function _d(role) {
+        return '[data-role="' + role + '"]';
+    }
+
+
+
+
+
+
+
+
+
+    function abc2svg() {
+        $('.abc').each(function(i, obj) {
+            ABCJS.renderAbc(obj, $(obj).text());
+
+        });
+    }
+
+
 </script>
     
 <script src="http://wim.vree.org/js/abc2svg-1.js"></script>
@@ -979,45 +1000,7 @@ $("#aud").on("timeupdate", function(event){
 <script src="/public/js/abcjs_basic_2.3-min.js"></script>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-575ac8e6862d0152"></script>
 
-<script>
 
-    function _d(role) {
-        return '[data-role="' + role + '"]';
-    }
-
- 
-
- 
-
-
-
-
-
-function abc2svg() {
-	$('.abc').each(function(i, obj) {
-		ABCJS.renderAbc(obj, $(obj).text()); 	
- 
-	});
-}
-
-
-
-
-
-
-
-
-
-   
-
-
-
-
-
-
-    
-
-</script>
 
 <script src="/public/js/reveal.js"></script>
 
