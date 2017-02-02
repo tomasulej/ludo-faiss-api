@@ -105,7 +105,6 @@ function nacitat_udaje() {
   abc_notes=abc_notes.replace('treble nm=\"Klaví­r\" snm=\"Kl.\"',"");
 
 
-
   abc_notes=abc_notes.replace(abc_notes.substring(abc_notes.indexOf("Q:")-2,abc_notes.indexOf(",",abc_notes.indexOf("Q:"))+1),"");
   $("#abc_notes").val(abc_notes); 
 

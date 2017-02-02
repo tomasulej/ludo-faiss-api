@@ -141,7 +141,7 @@ $q=mysql_query($query);
             <tr>
                 <td><?php echo $piesen->identifikator; ?></td>
 
-                <td>           <a href="/piesne/stiahnut.php?id=<?php $piesen->id_piesen;?>&format=xml"><span class="fa-file-code-o fa"></span></a>
+                <td>           <a href="/piesne/stiahnut.php?id=<?php echo $piesen->id_piesen;?>&format=xml"><span class="fa-file-code-o fa"></span></a>
                     <a href="/piesne/stiahnut.php?id=<?php echo $piesen->id_piesen;?>&format=pdf"><span class="fa-file-pdf-o fa"></span></a></td>
 
 
