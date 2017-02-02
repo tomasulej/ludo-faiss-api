@@ -288,7 +288,7 @@ $('[data-toggle="popover"]').popover({
                 <h3 class="modal-title" id="estetunieje">Ďas to páral! Táto pieseň tu ešte nie je! :(</h3>
             </div>
             <div class="modal-body">
-                <p>Desiatky digitalizátorov denne usilovne pracujú na tom, aby sa tisícky piesni dostali na internet - túto však ešte nestihli. Vyčkaj času alebo <a href="/vyzva">pridaj k nám</a> a bude to rýchlejšie :)</p>
+                <p>Desiatky digitalizátorov denne usilovne pracujú na tom, aby sa tisícky piesni dostali na internet - túto však ešte nestihli. Vyčkaj času alebo <a href="/vyzva">sa pridaj k nám</a> a bude to rýchlejšie :)</p>
 
 
             </div>
