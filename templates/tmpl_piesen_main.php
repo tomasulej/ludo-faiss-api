@@ -869,7 +869,16 @@ $('[data-toggle="popover"]').popover({
 
 
 <?php require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_footer.php"; ?>
+<script src="http://wim.vree.org/js/abc2svg-1.js"></script>
+<script src="http://wim.vree.org/js/abcweb-min.js"></script>
+<script src="http://wim.vree.org/js/xml2abc-min.js"></script>
+<script src="http://wim.vree.org/js/xml2abc-min.js"></script>
+<script src="/public/js/abcjs_basic_2.3-min.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-575ac8e6862d0152"></script>
 
+
+
+<script src="/public/js/reveal.js"></script>
 <script src="http://www.ludoslovensky.sk:8080/easyrec-web/api-js/easyrec.js" type="text/javascript"></script>
 <script type='text/javascript'>
     var apiKey = "d75d567db9f310c51f665c609e6059a5";
@@ -993,16 +1002,7 @@ $("#aud").on("timeupdate", function(event){
 
 </script>
     
-<script src="http://wim.vree.org/js/abc2svg-1.js"></script>
-<script src="http://wim.vree.org/js/abcweb-min.js"></script>
-<script src="http://wim.vree.org/js/xml2abc-min.js"></script>
-<script src="http://wim.vree.org/js/xml2abc-min.js"></script>
-<script src="/public/js/abcjs_basic_2.3-min.js"></script>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-575ac8e6862d0152"></script>
 
-
-
-<script src="/public/js/reveal.js"></script>
 
 
 
