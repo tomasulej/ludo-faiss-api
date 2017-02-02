@@ -870,6 +870,11 @@ $('[data-toggle="popover"]').popover({
 
 <?php require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_footer.php"; ?>
 
+<script src="http://www.ludoslovensky.sk:8080/easyrec-web/api-js/easyrec.js" type="text/javascript"></script>
+<script type='text/javascript'>
+    var apiKey = "d75d567db9f310c51f665c609e6059a5";
+    var tenantId = "piesne";
+</script>
 
 
 
@@ -945,8 +950,24 @@ $("#aud").on("timeupdate", function(event){
 
     });
 
- 
 
+        $(document).ready(function(){
+            abc2svg();
+
+
+
+
+            easyrec_view({
+                userId:"",
+                itemId:"<?php echo $objPiesen->id_piesen; ?>",
+                itemUrl:"/piesen.php?<?php echo $objPiesen->id_piesen; ?>",
+                itemDescription:"<?php echo $objPiesen->nazov_dlhy; ?>",
+                itemImageUrl:"/data/<?php echo $objPiesen->id_piesen; ?>/<?php echo $objPiesen->file_png;?>"});
+
+
+
+
+        });
 
 
 </script>
@@ -957,11 +978,6 @@ $("#aud").on("timeupdate", function(event){
 <script src="http://wim.vree.org/js/xml2abc-min.js"></script>
 <script src="/public/js/abcjs_basic_2.3-min.js"></script>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-575ac8e6862d0152"></script>
-<script src="http://www.ludoslovensky.sk:8080/easyrec-web/api-js/easyrec.js" type="text/javascript"></script>
-<script type='text/javascript'>
-    var apiKey = "d75d567db9f310c51f665c609e6059a5";
-    var tenantId = "piesne";
-</script>
 
 <script>
 
@@ -994,23 +1010,7 @@ function abc2svg() {
 
    
 
-    $(document).ready(function(){
-        abc2svg();
 
-
-
-
-        easyrec_view({
-            userId:"",
-            itemId:"<?php echo $objPiesen->id_piesen; ?>",
-            itemUrl:"/piesen.php?<?php echo $objPiesen->id_piesen; ?>",
-            itemDescription:"<?php echo $objPiesen->nazov_dlhy; ?>",
-            itemImageUrl:"/data/<?php echo $objPiesen->id_piesen; ?>/<?php echo $objPiesen->file_png;?>"});
-
-
-    
-
-        });
 
 
 
