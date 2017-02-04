@@ -390,7 +390,7 @@ if ($p_edit->id_nadriadeny<>0) {
 			$q=mysql_query("SELECT * FROM digitalizatori;");
 			while ($digitalizatori=mysql_fetch_object($q)) {
 
-      if ($p_edit->id_digitalizator==$digitalizatori->id_digitalizator) {
+      if ($p_edit->id_digitalizator2==$digitalizatori->id_digitalizator) {
 
 			  printf("<option value='%s' selected>%s</option>",$digitalizatori->id_digitalizator,$digitalizatori->meno);	
 

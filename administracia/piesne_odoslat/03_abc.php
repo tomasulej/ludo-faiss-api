@@ -18,8 +18,8 @@ if ($id_piesen<>0) {
 }
 
 
-	//error_reporting(E_ALL);
-	//ini_set('display_errors', '1');
+	error_reporting(E_ALL);
+	ini_set('display_errors', '1');
 
 
 ?>
@@ -32,35 +32,51 @@ if ($_POST['odoslane']=='true') {
     rmdir ($_SERVER["DOCUMENT_ROOT"]."/piesne/data/".(int)$_POST['id_piesen']);
     mkdir($_SERVER["DOCUMENT_ROOT"]."/piesne/data/".(int)$_POST['id_piesen']);
     //xml upload
-    $upl_xml_target = $_SERVER["DOCUMENT_ROOT"]."/piesne/data/".(int)$_POST['id_piesen']."/".basename($_FILES["upl_xml"]["name"]);
-    $upl_xml_temp=$_FILES["upl_xml"]["tmp_name"];
-    move_uploaded_file($upl_xml_temp, $upl_xml_target);
-   
-    //mp3 upload
-    $upl_mp3_target = $_SERVER["DOCUMENT_ROOT"]."/piesne/data/".(int)$_POST['id_piesen']."/".basename($_FILES["upl_mp3"]["name"]);
-    $upl_mp3_temp=$_FILES["upl_mp3"]["tmp_name"];
-    move_uploaded_file($upl_mp3_temp, $upl_mp3_target);
-   
-    //png upload
-    $upl_png_target = $_SERVER["DOCUMENT_ROOT"]."/piesne/data/".(int)$_POST['id_piesen']."/".basename($_FILES["upl_png"]["name"]);
-    $upl_png_temp=$_FILES["upl_png"]["tmp_name"];
-    move_uploaded_file($upl_png_temp, $upl_png_target);
+    if (!empty(basename($_FILES["upl_xml"]["name"]))) {
+        $upl_xml_target = $_SERVER["DOCUMENT_ROOT"]."/piesne/data/".(int)$_POST['id_piesen']."/".basename($_FILES["upl_xml"]["name"]);
+        unlink($upl_xml_target);
+        $upl_xml_temp=$_FILES["upl_xml"]["tmp_name"];
+        move_uploaded_file($upl_xml_temp, $upl_xml_target);
 
+        $q=mysql_query(sprintf("UPDATE piesne SET file_xml='%s' WHERE id_piesen=%s", basename($_FILES["upl_xml"]["name"]),  (int)$_POST['id_piesen']));
+
+    }
+    //mp3 upload
+if (!empty(basename($_FILES["upl_mp3"]["name"]))) {
+    $upl_mp3_target = $_SERVER["DOCUMENT_ROOT"] . "/piesne/data/" . (int)$_POST['id_piesen'] . "/" . basename($_FILES["upl_mp3"]["name"]);
+    unlink($upl_mp3_target);
+
+    $upl_mp3_temp = $_FILES["upl_mp3"]["tmp_name"];
+    move_uploaded_file($upl_mp3_temp, $upl_mp3_target);
+
+    $q2=mysql_query(sprintf("UPDATE piesne SET file_mp3='%s' WHERE id_piesen=%s", basename($_FILES["upl_mp3"]["name"]),  (int)$_POST['id_piesen']));
+
+}
+
+
+    //png upload
+if (!empty(basename($_FILES["upl_png"]["name"]))) {
+    $upl_png_target = $_SERVER["DOCUMENT_ROOT"] . "/piesne/data/" . (int)$_POST['id_piesen'] . "/" . basename($_FILES["upl_png"]["name"]);
+    unlink($upl_png_target);
+
+    $upl_png_temp = $_FILES["upl_png"]["tmp_name"];
+    move_uploaded_file($upl_png_temp, $upl_png_target);
+    $q=mysql_query(sprintf("UPDATE piesne SET file_png='%s' WHERE id_piesen=%s", basename($_FILES["upl_png"]["name"]),  (int)$_POST['id_piesen']));
+
+}
 
     //pdf upload
-    $upl_pdf_target = $_SERVER["DOCUMENT_ROOT"]."/piesne/data/".(int)$_POST['id_piesen']."/".basename($_FILES["upl_pdf"]["name"]);
-    $upl_pdf_temp=$_FILES["upl_pdf"]["tmp_name"];
+if (!empty(basename($_FILES["upl_pdf"]["name"]))) {
+    $upl_pdf_target = $_SERVER["DOCUMENT_ROOT"] . "/piesne/data/" . (int)$_POST['id_piesen'] . "/" . basename($_FILES["upl_pdf"]["name"]);
+    unlink($upl_pdf_target);
+
+    $upl_pdf_temp = $_FILES["upl_pdf"]["tmp_name"];
     move_uploaded_file($upl_pdf_temp, $upl_pdf_target);
+    $q=mysql_query(sprintf("UPDATE piesne SET file_pdf='%s' WHERE id_piesen=%s", basename($_FILES["upl_pdf"]["name"]),  (int)$_POST['id_piesen']));
+
+}
    
-   
-   //pridanie do databazy
-    $q=mysql_query(sprintf("UPDATE piesne SET file_xml='%s', file_mp3='%s', file_png='%s', file_pdf='%s' WHERE id_piesen=%s",
-           basename($_FILES["upl_xml"]["name"]), 
-           basename($_FILES["upl_mp3"]["name"]),
-           basename($_FILES["upl_png"]["name"]),
-           basename($_FILES["upl_pdf"]["name"]),
-           (int)$_POST['id_piesen']));
-    
+
 
 }
 
