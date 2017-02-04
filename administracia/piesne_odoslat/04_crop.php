@@ -6,8 +6,8 @@
     require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_administracia_header.php";
     include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
 
-	error_reporting(E_ALL);
-	ini_set('display_errors', '1');
+	//error_reporting(E_ALL);
+	//ini_set('display_errors', '1');
 
 
 
@@ -56,16 +56,18 @@ if ($id_piesen<>0) {
 
     <form action="05_prepojenia.php" method="post" class="l-form l-well">
 
-<p><strong>Nastav ukazovateľ tak, aby <strong>ukazoval prvé dva takty</strong>.</strong>(nevieš ako na vec - <a href="/public/img/navod_nahlad.gif" target="_blank">klikni sem pre video</a>)</p>
+        <p><strong>Nastav 1. ukazovateľ tak, aby <strong>ukazoval prvé dva takty</strong>. Nastav 2. ukazovateľ, aby <strong>ukazoval celú pieseň</strong>. (nevieš ako na vec - <a href="/public/img/navod_nahlad.gif" target="_blank">klikni sem pre video</a>)</p>
 <img id="image" style="max-width: 100%;" height="800px" src="<?php echo "http://".$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT']."/piesne/data/".$p_edit->id_piesen."/".$p_edit->file_png?>">
 <input type="input" class="form-control" id="img_width" name="img_width" placeholder="">
 <input type="input" class="form-control" id="img_height" name="img_height" placeholder="">
 <input type="input" class="form-control" id="img_x" name="img_x" placeholder="">
 <input type="input" class="form-control" id="img_y" name="img_y" placeholder="">
 
-<p><strong>Nastav ukazovateľ tak, aby ukazoval <strong>celú pieseň</strong></p>
-<img id="image_full" style="max-width: 100%;" height="800px"  src="<?php echo "http://".$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT']."/piesne/data/".$p_edit->id_piesen."/".$p_edit->file_png?>">
-<input type="input" class="form-control" id="img_full_width" name="img_full_width" placeholder="">
+
+
+        <img id="image_full"  style="max-width: 100%;" src="<?php echo "http://".$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT']."/piesne/data/".$p_edit->id_piesen."/".$p_edit->file_png?>">
+
+        <input type="input" class="form-control" id="img_full_width" name="img_full_width" placeholder="">
 <input type="input" class="form-control" id="img_full_height" name="img_full_height" placeholder="">
 <input type="input" class="form-control" id="img_full_x" name="img_full_x" placeholder="">
 <input type="input" class="form-control" id="img_full_y" name="img_full_y" placeholder="">
@@ -99,6 +101,11 @@ if ($id_piesen<>0) {
       $('#replace').on('click', function () {
         $image.cropper('replace', '../assets/img/picture-2.jpg');
       });
+
+    });
+
+    $(function () {
+
     /// image full
           var $image_full = $('#image_full');
 
@@ -107,7 +114,7 @@ if ($id_piesen<>0) {
         zoomable: false,
         rotatable: false,
         scalable: true,
-        cropBoxResizable: false,
+        //cropBoxResizable: false,
         crop: function(e) {
     // Output the result data for cropping image.
                 $("#img_full_x").val(e.x);
@@ -124,7 +131,7 @@ if ($id_piesen<>0) {
       $('#replace').on('click', function () {
         $image_full.cropper('replace', '../assets/img/picture-2.jpg');
       });
-    
+
     });
   </script>
 
