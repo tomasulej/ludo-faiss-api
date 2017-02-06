@@ -134,7 +134,7 @@ if ($p_edit->id_nadriadeny<>0) {
 
 
 		<?php
-			$q=mysql_query("SELECT * FROM zberatelia;");
+			$q=mysql_query("SELECT * FROM zberatelia ORDER BY meno;");
 			while ($zberatelia=mysql_fetch_object($q)) {
 
         
@@ -204,7 +204,7 @@ if ($p_edit->id_nadriadeny<>0) {
     <option value='-1'>(Miesto chýba v zozname)</option>
     <option value='0' <?php if (empty($p_edit->id_zberatel_miesto)) {echo "selected";} ?>>(žiadne)</option>
 		<?php
-			$q=mysql_query("SELECT * FROM lokality;");
+			$q=mysql_query("SELECT * FROM lokality ORDER BY meno;");
 			while ($lokality=mysql_fetch_object($q)) {
       if ($p_edit->id_zberatel_miesto==$lokality->id_lokalita) {
         printf("<option value='%s' selected>%s</option>",$lokality->id_lokalita,$lokality->meno);	
@@ -260,7 +260,7 @@ if ($p_edit->id_nadriadeny<>0) {
         <option value='0' <?php if (empty($p_edit->id_zberatel_vyskyt)) {echo "selected";} ?>>(žiadne)</option>
 
 		<?php
-			$q=mysql_query("SELECT * FROM lokality;");
+			$q=mysql_query("SELECT * FROM lokality ORDER BY meno;");
 			while ($lokality=mysql_fetch_object($q)) {
 
       if ($p_edit->id_zberatel_vyskyt==$lokality->id_lokalita) {
@@ -351,7 +351,7 @@ if ($p_edit->id_nadriadeny<>0) {
        <option value='-1'>(Meno chýba v zozname)</option>
 
 		<?php
-			$q=mysql_query("SELECT * FROM digitalizatori;");
+			$q=mysql_query("SELECT * FROM digitalizatori ORDER BY meno;");
 			while ($digitalizatori=mysql_fetch_object($q)) {
 
       if ($p_edit->id_digitalizator==$digitalizatori->id_digitalizator) {
@@ -387,7 +387,7 @@ if ($p_edit->id_nadriadeny<>0) {
        <option value='-1'>(Meno chýba v zozname)</option>
 
 		<?php
-			$q=mysql_query("SELECT * FROM digitalizatori;");
+			$q=mysql_query("SELECT * FROM digitalizatori ORDER BY meno;");
 			while ($digitalizatori=mysql_fetch_object($q)) {
 
       if ($p_edit->id_digitalizator2==$digitalizatori->id_digitalizator) {
@@ -455,7 +455,7 @@ if ($p_edit->id_nadriadeny<>0) {
     <select class="form-control" id="id_tempo" name="id_tempo">
               <option value='-1'>(Tempo chýba v zozname)</option>
 		<?php
-			$q=mysql_query("SELECT * FROM tempo;");
+			$q=mysql_query("SELECT * FROM tempo ORDER BY tempo.tempo;");
 			while ($tempo=mysql_fetch_object($q)) {
 
       if ($p_edit->id_tempo==$tempo->id_tempo) {
@@ -520,7 +520,7 @@ if ($p_edit->id_nadriadeny<>0) {
             
 
 		<?php
-			$q=mysql_query("SELECT * FROM tempo;");
+			$q=mysql_query("SELECT * FROM tempo ORDER BY tempo.tempo;");
 			while ($tempo=mysql_fetch_object($q)) {
 
       if ($p_edit->id_tempo==$tempo->id_tempo) {

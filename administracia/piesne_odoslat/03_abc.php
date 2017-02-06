@@ -146,14 +146,14 @@ function nacitat_udaje() {
   <div class="form-group row">	  
 
     <label for="abc_notes">Noty piesne:</label>
-    <textarea class="form-control" id="abc_notes" name="abc_notes" rows="2"><?php echo $p_edit->abc_notes; ?></textarea>
+    <textarea class="form-control" id="abc_notes" name="abc_notes" rows="10"><?php echo $p_edit->abc_notes; ?></textarea>
   </div>
 
 <div class="form-group row">	  
   
     <label for="abc_settings">Nastavenia piesne:</label>
 
-    <textarea class="form-control" id="abc_settings"  name="abc_settings" rows="2"><?php if ((int)$_GET['id_piesen']<>0 OR (int)$_POST['id_piesen']<>0) {echo $p_edit->abc_settings;} else { echo 'opt = {"jump":0,"no_menu":0,"repufld":0,"noplyr":0,"nocsr":0,"media_height":"","btns":1,"ipadr":"","mstr":0,"autscl":true,"ctrmed":0,"ctrnot":0,"lncsr":0,"opacity":0.2,"synbox":0,"speed":1,"top_margin":0,"yubvid":"","nomed":0,"delay":0,"repskip":0,"spdctl":0,"lopctl":0,"metro":0};';} ?>
+    <textarea class="form-control" id="abc_settings"  name="abc_settings" rows="10"><?php if ((int)$_GET['id_piesen']<>0 OR (int)$_POST['id_piesen']<>0) {echo $p_edit->abc_settings;} else { echo 'opt = {"jump":0,"no_menu":0,"repufld":0,"noplyr":0,"nocsr":0,"media_height":"","btns":1,"ipadr":"","mstr":0,"autscl":true,"ctrmed":0,"ctrnot":0,"lncsr":0,"opacity":0.2,"synbox":0,"speed":1,"top_margin":0,"yubvid":"","nomed":0,"delay":0,"repskip":0,"spdctl":0,"lopctl":0,"metro":0};';} ?>
 
 </textarea>
   
@@ -163,7 +163,7 @@ function nacitat_udaje() {
 <div class="form-group row">	  
   
     <label for="abc_times_arr">Načasovanie piesne:</label>
-    <textarea class="form-control" id="abc_times_arr"  name="abc_times_arr" rows="2"><?php echo $p_edit->abc_times_arr; ?></textarea>
+    <textarea class="form-control" id="abc_times_arr"  name="abc_times_arr" rows="10"><?php echo $p_edit->abc_times_arr; ?></textarea>
   
 </div> 
 
@@ -192,7 +192,7 @@ kdo koho ne|lúbi.|}<BR>
 
 <div class="form-group row">	  
     <label for="lyrics"><strong>Slová piesne:</strong></label>
-    <textarea class="form-control" id="lyrics" name="lyrics" rows="15"><?php echo $p_edit->lyrics; ?></textarea>
+    <textarea class="form-control" id="lyrics" name="lyrics" rows="30"><?php echo $p_edit->lyrics; ?></textarea>
 </div>  
 
 <input type="hidden" name="odoslane" value="true">
