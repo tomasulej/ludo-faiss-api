@@ -2,7 +2,7 @@
 
 include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
 
-$query="SELECT lokality.area, lokality.id_lokalita, lokality.id_lokalita FROM lokality";
+$query="SELECT lokality.area, lokality.id_lokalita, lokality.id_lokalita FROM lokality WHERE id_nadriadeny IS NULL";
 $q_piesne=mysql_query($query);
 
 //META

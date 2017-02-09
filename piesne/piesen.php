@@ -231,9 +231,16 @@ while ($o_poznamky=mysql_fetch_object($q_poznamky)) {
 
 //mapa
 
+
+
+
 if ($piesen->id_nadriadeny==0) {
 
-    $q_mapa=mysql_query(sprintf("SELECT * FROM lokality,lokality_piesne where lokality.id_lokalita=lokality_piesne.id_lokalita AND lokality_piesne.id_piesen=%s",(int)$id));
+
+
+        $q_mapa=mysql_query(sprintf("SELECT * FROM lokality,lokality_piesne where lokality.id_lokalita=lokality_piesne.id_lokalita AND lokality_piesne.id_piesen=%s",(int)$id));
+
+
 } else {
         $q_mapa=mysql_query(sprintf("SELECT * FROM lokality,lokality_piesne where lokality.id_lokalita=lokality_piesne.id_lokalita AND lokality_piesne.id_piesen=%s",(int)$piesen->id_nadriadeny));
 }  
@@ -260,9 +267,10 @@ $c++;
 
 if ($piesen->id_nadriadeny==0) {
     $q_zberatel_miesto=mysql_query("SELECT * FROM lokality WHERE id_lokalita=$piesen->id_zberatel_miesto");
-    $zberatel_miesto=mysql_fetch_object($q_zberatel_miesto);    
+    $zberatel_miesto=mysql_fetch_object($q_zberatel_miesto);
     $q_zberatel_vyskyt=mysql_query("SELECT * FROM lokality WHERE id_lokalita=$piesen->id_zberatel_vyskyt");
-    $zberatel_vyskyt=mysql_fetch_object($q_zberatel_vyskyt);    
+    $zberatel_vyskyt=mysql_fetch_object($q_zberatel_vyskyt);
+
 } else {
     $q_zberatel_miesto=mysql_query("SELECT * FROM lokality WHERE id_lokalita=$piesen_nadriadeny->id_zberatel_miesto");
     $zberatel_miesto=mysql_fetch_object($q_zberatel_miesto);    
@@ -271,6 +279,25 @@ if ($piesen->id_nadriadeny==0) {
 
 
 }
+
+
+//ak ma nadriadenu lokalitu ries to inak
+if ($zberatel_miesto->id_nadriadeny==0) {
+    $zberatel_miesto_area=$zberatel_miesto->area;
+} else {
+    $q=mysql_query("SELECT area FROM lokality WHERE id_lokalita=$zberatel_miesto->id_nadriadeny");
+    $o_zberatel_miesto_area=mysql_fetch_object($q);
+    $zberatel_miesto_area=$o_zberatel_miesto_area->area;
+}
+
+if ($zberatel_vyskyt->id_nadriadeny==0) {
+    $zberatel_vyskyt_area=$zberatel_vyskyt->area;
+} else {
+    $q=mysql_query("SELECT area FROM lokality WHERE id_lokalita=$zberatel_vyskyt->id_nadriadeny");
+    $o_zberatel_vyskyt_area=mysql_fetch_object($q);
+    $zberatel_vyskyt_area=$o_zberatel_vyskyt_area->area;
+}
+
 
 
 

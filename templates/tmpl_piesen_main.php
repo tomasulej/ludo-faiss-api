@@ -712,8 +712,8 @@ $('[data-toggle="popover"]').popover({
                             'https://api.mapbox.com/styles/v1/jelusamot/ciucsw0fj007e2is1xs9pzkcj/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiamVsdXNhbW90IiwiYSI6ImNpZnN0NGM2MjAxd2N1NGx6OWk2Y3BjOGsifQ.aFGe3wpK5fbZbrpefXxDNA').addTo(map);
 
                         
-                        var geojson_vyskyt = [<?php echo $zberatel_vyskyt->area; ?>];
-                        var geojson_miesto = [<?php echo $zberatel_miesto->area; ?>];
+                        var geojson_vyskyt = [<?php echo $zberatel_vyskyt_area; ?>];
+                        var geojson_miesto = [<?php echo $zberatel_miesto_area; ?>];
           
                         var myLayer = L.geoJSON(geojson_miesto, {
                             pointToLayer: function(feature, latlon) {
