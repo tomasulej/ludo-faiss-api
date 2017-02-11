@@ -156,7 +156,10 @@
 </div>
 
 <script>
-fbq('track', 'CompleteRegistration');
+
+    fbq('track', 'CompleteRegistration');
+    track_subscribe('<?php echo $email; ?>');
+
 </script>
 
 <?php
