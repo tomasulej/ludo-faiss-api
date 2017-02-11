@@ -182,7 +182,7 @@ function tutopoznam(){
     $('#tutopoznam_box_text').html($.ajax({url: 'piesen.tuto-poznam.php?id_piesen=<?php echo $objPiesen->id_piesen; ?>',
         dataType: 'html',
         async: false}).responseText);
-
+    track_item_know(<?php echo $objPiesen->id_piesen; ?>,"<?php echo $objPiesen->nazov_dlhy; ?>","piesen","<?php echo $objPiesen->file_png; ?>");
 
 }
 

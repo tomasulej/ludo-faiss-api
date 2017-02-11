@@ -39,3 +39,13 @@ function track_item_download (id, name, type, preview_url, file_extension) {
     });
     return true;
 }
+
+function track_item_know (id, name, type, preview_url) {
+    exponea.track('item_know', {
+        id: id,
+        name: name,
+        type: type,
+        preview_url: preview_url
+    });
+    return true;
+}
