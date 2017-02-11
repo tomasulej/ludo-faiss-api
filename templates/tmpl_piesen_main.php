@@ -350,9 +350,13 @@ $('[data-toggle="popover"]').popover({
                 <strong>Dátum zozbierania</strong>: <?php echo $objPiesen->datum_zbieranie?><BR>
                 <strong>Dátum digitalizácie</strong>: <?php echo date("d.m.Y",strtotime($objPiesen->datum_digitalizacia));?><BR>
                  <strong>Stiahnuť</strong>:
-                    <a href="<?php echo $objPiesen->xml_link; ?>"><i class="fa fa-music"></i> noty</a>, <a href="<?php echo $objPiesen->mp3_link; ?>"><i class="fa fa-volume-up"></i> hudbu</a>
+
+                    <a href="<?php echo $objPiesen->xml_link; ?>" onclick='return track_item_download(<?php echo $objPiesen->id_piesen; ?>,"<?php echo $objPiesen->nazov_dlhy; ?>","piesen","<?php echo $objPiesen->file_png; ?>", "xml");'><i class="fa fa-music"></i> noty</a>,
+
+                    <a href="<?php echo $objPiesen->mp3_link; ?>" onclick='return track_item_download(<?php echo $objPiesen->id_piesen; ?>,"<?php echo $objPiesen->nazov_dlhy; ?>","piesen","<?php echo $objPiesen->file_png; ?>", "mp3");'><i class="fa fa-volume-up"></i> hudbu</a>
+
                     <?php if (!empty($objPiesen->pdf_link)) { ?>
-                    , <a href="<?php echo $objPiesen->pdf_link; ?>"><i class="fa fa-photo"></i> originál</a>
+                    , <a href="<?php echo $objPiesen->pdf_link; ?>" onclick='return track_item_download(<?php echo $objPiesen->id_piesen; ?>,"<?php echo $objPiesen->nazov_dlhy; ?>","piesen","<?php echo $objPiesen->file_png; ?>", "pdf");'><i class="fa fa-photo"></i> originál</a>
                     <?php } ?>
 
                     <!-- <a href=""><i class="fa fa-print"></i> vytlačiť</a> -->
@@ -924,13 +928,14 @@ $('[data-toggle="popover"]').popover({
      if ($(media_id)[0].paused) {
         $(media_id).trigger('play');
         $(button_id+' i').attr('class', "fa fa-pause");
-         if (Cookies.get('tempo_alert')!="false") {
-             $('#tempo_alert').show();
-         }
+         //if (Cookies.get('tempo_alert')!="false") {
+         //    $('#tempo_alert').show();
+         //}
+         if (media_id=='#aud') {track_item_play(<?php echo $objPiesen->id_piesen; ?>,"<?php echo $objPiesen->nazov_dlhy; ?>","piesen","<?php echo $objPiesen->file_png; ?>");}
 
 
      } else {
-         $('#tempo_alert').hide();
+         //$('#tempo_alert').hide();
 
          $(media_id).trigger('pause');
         $(button_id+' i').attr('class', "fa fa-play");

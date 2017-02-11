@@ -34,7 +34,7 @@
                 <h2>Odborný garant:</h2>
 
                <!-- <a href="http://www.ketnoffukf.sk"><img src="/public/img/ukf.png"></a> -->
-               <a href="http://www.ketnoffukf.sk"><img src="/public/img/katedra.jpeg"><!--<BR>Katedra etnológie a folkloristiky Filozofickej fakulty UKF v Nitre</a>-->
+                <a href="http://www.ketnoffukf.sk"><img src="/public/img/katedra.jpeg"></a><!--<BR>Katedra etnológie a folkloristiky Filozofickej fakulty UKF v Nitre</a>-->
 
 
             </div>
@@ -49,6 +49,17 @@
 </footer>
 
 
+
+
+
+<?php if (!empty($exponea_code)) { ?>
+<script>
+
+    <?php echo $exponea_code; ?>
+
+</script>
+
+<? } ?>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

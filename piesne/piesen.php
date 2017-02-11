@@ -97,6 +97,8 @@ $arrPiesen = array(
         "xml_link" => (!empty($piesen->file_xml))?"stiahnut.php?id=".$piesen->id_piesen."&format=xml":"stiahnut.php?id=".$piesen_nadriadeny->id_piesen."&format=xml",
         "mp3_link" => (!empty($piesen->file_mp3))?"stiahnut.php?id=".$piesen->id_piesen."&format=mp3":"stiahnut.php?id=".$piesen_nadriadeny->id_piesen."&format=mp3"
 
+
+
 ); 
 
 
@@ -341,8 +343,7 @@ $klucove_slova=array_unique($klucove_slova); */
 //log reading
 $datumcas = date('Y-m-d H:00:00');
 $q_log=mysql_query("INSERT INTO log SET id_piesen = $piesen->id_piesen, datumcas = '$datumcas', pocet = 1 ON DUPLICATE KEY UPDATE pocet = pocet + 1");
-
-
+$exponea_code=sprintf('track_item_visit(%s,"%s","%s","%s");', $objPiesen->id_piesen, $objPiesen->nazov_dlhy, "piesen", $objPiesen->file_png);
 
 
 // nacitanie informacii
