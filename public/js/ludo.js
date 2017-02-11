@@ -53,6 +53,7 @@ function track_item_know (id, name, type, preview_url) {
 function track_subscribe(email) {
     if ((grecaptcha.getResponse() != '') && (email != '')) {
         exponea.identify(email);
+        exponea.update({email: email});
         alert("Vďaka Ti neskutočná za pridanie. Ľudo Ti bude písať. Pre odhlásenie len v e-maili na odkaz klikni.");
     } else {
         alert("Ba som ti, čosi nedobre: e-mail si zadal(a)? Že nie si robot, odklikol/odklikla? Nože ešte raz skontroluj a znova sem ťukni!");
