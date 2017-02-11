@@ -19,6 +19,8 @@ $query="SELECT piesne.id_piesen, piesne.id_zbierka, piesne.nazov_variant, piesne
 LEFT JOIN tempo ON piesne.id_tempo=tempo.id_tempo WHERE piesne.stav<>0  AND (id_nadriadeny=0) ORDER BY datum_digitalizacia DESC LIMIT 5";
 $q_piesne=mysql_query($query);
 
+
+
 $piesne=array();
 while ( $riadok = mysql_fetch_array($q_piesne)) {
   array_push($piesne, $riadok);

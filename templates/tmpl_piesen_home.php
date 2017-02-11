@@ -146,7 +146,24 @@ map.addLayer(map);
 
 <h2>Pridaj sa do nášho newslettera</H2>
 <p>Chceš <strong>najnovšie piesne a novinky</strong>, správy a zaujímavosti o ľudovej slovesnosti <strong>priamo do svojej schránky</strong>? Daj nám svoj e-mail.
-<iframe width="100%" height="195" src="https://my.sendinblue.com/users/subscribe/js_id/2c7dt/id/3" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;"></iframe>
+
+
+    <form class="l-form l-well">
+
+        <fieldset class="form-group">
+            <label for="email"><strong>Tvoj e-mail:</strong></label>
+            <input id="email" name="email" type="text" placeholder="Napr. ludovit@stur.sk" class="form-control input-md" required="">
+        </fieldset>
+
+            <div class="g-recaptcha" data-sitekey="6LeaVhAUAAAAAEpbvBd_yq3QkhtVs0cwlXhKlL2n"></div><BR>
+
+
+        <button type="button" class="l-btn l-btn--primary" onclick="track_subscribe($('#email').val());">Odoberať Ľudove novinky</button>
+
+    </form>
+
+
+    <!-- <iframe width="100%" height="195" src="https://my.sendinblue.com/users/subscribe/js_id/2c7dt/id/3" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;"></iframe> -->
 
 
 <h2>Miluj Ľuda na Facebooku</h2>
