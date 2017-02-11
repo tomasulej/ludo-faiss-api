@@ -1,8 +1,8 @@
 <?php
 //PIESEN.PHP - vykreslenie piesne
 //TODO: $xml_link;$mp3_link;$pdf_link;
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+//error_reporting(E_ALL);
+//ini_set('display_errors', '1');
 
 //includes
 include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
