@@ -175,7 +175,7 @@ function odosli_formular(){
 </script>
 
 
-<button type="button" onclick="odosli_formular()" class="l-btn l-btn--large l-btn--primary">Odoslať informáciu</button>
+<button id="tutopoznam_prvykrok" type="button" onclick="odosli_formular()" class="l-btn l-btn--large l-btn--primary tutopoznam_druhykrok">Odoslať informáciu</button>
 
 </form>   
 

@@ -181,7 +181,7 @@
         </script>
 
 
-        <button type="button" onclick="odosli_formular()" class="l-btn l-btn--small l-btn--primary">Odoslať</button>
+        <button id="tutopoznam_prvykrok" type="button" onclick="odosli_formular()" class="l-btn l-btn--small l-btn--primary tutopoznam_druhykrok">Odoslať</button>
 
        </div>
         </div>

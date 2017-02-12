@@ -165,7 +165,7 @@
     <strong>Poznali ste túto pieseň už predtým?</strong>
 
 
-    <button class="l-btn l-btn--primary l-btn--small" onclick="javascript:poznam();">
+    <button id="tutopoznam_prvykrok" class="l-btn l-btn--primary l-btn--small tutopoznam_prvykrok" onclick="javascript:poznam();">
         <i class="fa fa-thumbs-up"></i> Áno</button>
 
 
@@ -208,7 +208,7 @@
 <div id="tuto-poznam_div" class="l-well l-know">
             <strong>Poznáte túto pieseň?</strong>
             Dajte nám vedieť! Pomôžete nám tým preskúmať rozšírenie piesni na Slovensku:
-            <button class="l-btn l-btn--primary l-btn--small" data-toggle="modal" href="javascript:void(0);" data-target="#tutopoznam_box" onclick="javascript:tutopoznam();">
+            <button class="l-btn l-btn--primary l-btn--small tutopoznam_prvykrok" data-toggle="modal" href="javascript:void(0);" data-target="#tutopoznam_box" onclick="javascript:tutopoznam();" id="tutopoznam_prvykrok">
                 <i class="fa fa-star"></i> Túto pieseň poznám!</button>
 
 
