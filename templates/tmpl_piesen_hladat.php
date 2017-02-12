@@ -19,7 +19,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
             <div class="input-group">
                 <input type="text" class="form-control-lg form-control" id="q" name="q" placeholder="Hľadať v piesňach" <?php if ($hladane<>"") {echo "value='".$hladane."'";} ?>>
                 <span class="input-group-btn">
-                    <button class="btn btn-lg l-btn--primary" type="button" onclick="$( '#hladat' ).submit();">Hľadať!</button>
+                    <button class="btn btn-lg l-btn--primary" type="submit">Hľadať!</button>
                 </span>
             </div>
         </div>

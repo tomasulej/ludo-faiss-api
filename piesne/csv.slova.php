@@ -25,7 +25,7 @@ $slova_sklon=explode(" ", $slova_dokopy);
     }
 
     foreach ($slova as $key=>$value) {
-        if ($value>1) {echo $key.",".$value."\n";}
+        if ($value>5) {echo $key.",".$value."\n";}
     }
 
 

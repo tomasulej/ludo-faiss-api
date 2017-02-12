@@ -49,8 +49,8 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
 
         window.onhashchange = function() {
-            //alert(window.location.hash);
-            //window.location.href="hladat.php?q="+window.location.hash.slice(1);
+
+            window.location.href="hladat.php?q="+window.location.hash.slice(1);
 
             $('[data-toggle="popover"]').popover({
                 html: true,
