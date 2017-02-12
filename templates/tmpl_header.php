@@ -114,7 +114,9 @@ src="https://www.facebook.com/tr?id=1364310410299072&ev=PageView&noscript=1"
         })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
     </script>
 
+    <!-- Optimazely -->
 
+    <script src="https://cdn.optimizely.com/js/8230584952.js"></script>
 
 
 
