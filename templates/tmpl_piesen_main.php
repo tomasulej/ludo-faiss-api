@@ -158,6 +158,47 @@
 
 
 
+<div id="tuto-poznam_div1" class="l-know" style="display:none">
+
+    <span class="fa fa-asterisk" aria-hidden="true" style="font-size: 35px">&nbsp;</span>
+
+    <strong>Poznali ste túto pieseň už predtým?</strong>
+
+
+    <button class="l-btn l-btn--primary l-btn--small" onclick="javascript:poznam();">
+        <i class="fa fa-thumbs-up"></i> Áno</button>
+
+
+    <button class="l-btn  l-btn--small" onclick="javascript:nepoznam();">
+        <i class="fa fa-thumbs-down"></i> Nie</button>
+
+
+    <a data-toggle="popover" data-content="Nie všetky staré piesne ešte niekto pozná a nie všetky sa dnes spievajú tam, kde boli pred stovkami rokov zozbierané. Snažíme sa preto &lt;strong&gt;mapovať, kde všade sa ešte dnes spievajú jednotlivé piesne&lt;/strong&gt;. Dajte nám vedieť, či pieseň poznáte a &lt;strong&gt;pomôžte nám v našom úsilí!&lt;/strong&gt; Ďakujeme :)"  data-original-title="" title=""><i class="fa fa-question-circle"></i>
+    </a>
+
+<BR><BR>
+
+</div>
+
+
+<div id="tuto-poznam_answer"></div>
+
+<script>
+    function poznam() {
+        $('#tuto-poznam_answer').html($.ajax({url: 'piesen.tuto-poznam1.php?id_piesen=<?php echo $objPiesen->id_piesen; ?>',
+            dataType: 'html',
+            async: false}).responseText);
+
+    }
+
+    function nepoznam() {
+        $('#tuto-poznam_answer').html("<strong>Vďaka za informáciu!</strong> Niet nad to spoznať nejakú novú ešte neopočúvanú pieseň :)");
+
+    }
+
+
+
+</script>
 
 
 
@@ -173,6 +214,8 @@
                 <a data-toggle="popover" data-content="Nie všetky staré piesne ešte niekto pozná a nie všetky sa dnes spievajú tam, kde boli pred stovkami rokov zozbierané. Snažíme sa preto &lt;strong&gt;mapovať, kde všade sa ešte dnes spievajú jednotlivé piesne&lt;/strong&gt;. Dajte nám vedieť, či pieseň poznáte a &lt;strong&gt;pomôžte nám v našom úsilí!&lt;/strong&gt; Ďakujeme :)"  data-original-title="" title=""><i class="fa fa-question-circle"></i>
                 </a>
 </div>
+
+
 
 
 <script>
