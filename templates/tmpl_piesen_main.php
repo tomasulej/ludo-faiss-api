@@ -121,7 +121,13 @@
         </div>
 
 <div id="lyrics" class="l-song-lyrics" data-reveal-id="lyrics" data-height="200">
-            
+
+
+
+
+    <!-- <a onclick="lyrics_zobrazit_skryte(true);">Klik</a> -->
+
+
         <?php echo lyrics2html($objPiesen->lyrics) ?>
 
 

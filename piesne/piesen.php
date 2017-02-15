@@ -1,6 +1,5 @@
 <?php
 //PIESEN.PHP - vykreslenie piesne
-//TODO: $xml_link;$mp3_link;$pdf_link;
 //error_reporting(E_ALL);
 //ini_set('display_errors', '1');
 
@@ -197,8 +196,10 @@ while ($o_podobne=mysql_fetch_object($q_podobne)) {
 
 $podobne_cudzie=rtrim($podobne_cudzie, ", ");
 
-// odporucane piesne 
-$query_odporucane=mysql_query("SELECT log.id_piesen, piesne.nazov_dlhy, piesne.file_mp3, piesne.file_png, piesne.nazov_kratky, sum(log.pocet) as videnia FROM log LEFT JOIN piesne ON piesne.id_piesen=log.id_piesen GROUP BY id_piesen ORDER BY videnia DESC LIMIT 10");
+// odporucane piesne
+$datum=date('Y-m-d', strtotime('-20 days'))." 00:00:00";
+
+$query_odporucane=mysql_query("SELECT log.id_piesen, piesne.nazov_dlhy, piesne.file_mp3, piesne.file_png, piesne.nazov_kratky, sum(log.pocet) as videnia FROM log LEFT JOIN piesne ON piesne.id_piesen=log.id_piesen WHERE datumcas > '$datum' GROUP BY id_piesen ORDER BY videnia DESC LIMIT 10");
 while ($o_odporucane=mysql_fetch_object($query_odporucane)) {
             $odporucane[] = array(
                 "id_piesen" => $o_odporucane->id_piesen,
