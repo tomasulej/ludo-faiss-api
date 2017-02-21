@@ -185,7 +185,7 @@
 
                                         <tr>
                                             <td align="center" bgcolor="#ffffff" style="border-radius: 3px 3px 0 0;">
-                                                <a href="http://www.ludoslovensky.sk/piesne/piesen.php?<?php echo $piesen['id_piesen'];?>"><img src="http://wwww.ludoslovensky.sk/piesne/data/<?php echo $piesen['id_piesen']; ?>/<?php echo $piesen['file_png']; ?>" width="600" height="200" alt="<?php echo $piesen['nazov_dlhy'];?>" style="display: block; border-radius: 3px 3px 0 0; font-family: sans-serif; font-size: 16px; color: #999999;" class="img-max"/></a>
+                                                <a href="http://www.ludoslovensky.sk/piesne/piesen.php?<?php echo $piesen['id_piesen'];?>"><img src="http://www.ludoslovensky.sk/piesne/data/<?php echo $piesen['id_piesen']; ?>/<?php echo $piesen['file_png']; ?>" width="600" height="200" alt="<?php echo $piesen['nazov_dlhy'];?>" style="display: block; border-radius: 3px 3px 0 0; font-family: sans-serif; font-size: 16px; color: #999999;" class="img-max"/></a>
                                             </td>
                                         </tr>
 

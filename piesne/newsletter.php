@@ -7,7 +7,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
 //piesne najpopularnejsie
 
 $datum=date('Y-m-d', strtotime('-31 days'))." 00:00:00";
-$query3=mysql_query("SELECT log.id_piesen, piesne.nazov_dlhy, piesne.file_png, sum(log.pocet) as videnia FROM log LEFT JOIN piesne ON piesne.id_piesen=log.id_piesen WHERE datumcas > '$datum' AND id_nadriadeny=0 GROUP BY id_piesen ORDER BY videnia DESC LIMIT 20");
+$query3=mysql_query("SELECT log.id_piesen, piesne.nazov_dlhy, piesne.file_png, sum(log.pocet) as videnia FROM log LEFT JOIN piesne ON piesne.id_piesen=log.id_piesen WHERE datumcas > '$datum' AND id_nadriadeny=0 GROUP BY id_piesen ORDER BY videnia DESC LIMIT 10");
 $piesne_top=array();
 while ( $riadok = mysql_fetch_array($query3)) {
     array_push($piesne_top, $riadok);
