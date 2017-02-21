@@ -108,7 +108,7 @@
                                                 </p>
 
                                                 <p style="font-size: 16px; line-height: 24px; margin: 0;">
-                                                    sú to už dva mesiace odkedy sme vznikli a máme množstvo noviniek. Prvýkrát sme si našli čas a posielame Vám ich aj v maile :)
+                                                    sú to už dva mesiace, odkedy sme vznikli a máme množstvo noviniek. Prvýkrát sme si našli čas a posielame Vám ich aj v maile :)
                                                 </p>
 
 
@@ -222,7 +222,7 @@
             <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" class="mobile-wrapper">
                 <tr>
                     <td align="center" valign="top" style="padding: 0 0 5px 0;">
-                        <img src="http://www.ludoslovensky.sk/public/img/logo-small-dark.png" width="80px"  border="0" style="display: block;">
+                        <a href="http://www.ludoslovensky.sk"> <img src="http://www.ludoslovensky.sk/public/img/logo-small-dark.png" width="80px"  border="0" style="display: block;"></a>
                     </td>
                 </tr>
                 <tr>
