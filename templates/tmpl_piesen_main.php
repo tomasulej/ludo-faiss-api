@@ -1018,6 +1018,8 @@ $("#aud").on("timeupdate", function(event){
         $(document).ready(function(){
 
 
+
+
             easyrec_view({
                 userId:"",
                 itemId:"<?php echo $objPiesen->id_piesen; ?>",
@@ -1029,6 +1031,13 @@ $("#aud").on("timeupdate", function(event){
                 ABCJS.renderAbc(obj, $(obj).text());
 
             });
+
+
+            var url= window.location.href;
+            if url.includes('utm_medium=email') {
+                window.location.href='http://www.ludoslovensky.sk/piesne/piesen.php?<?php echo $objPiesen->id_piesen; ?>';
+            }
+
 
         });
 

@@ -233,7 +233,7 @@
 
                             <a href="" style="color: #999999;" target="_blank">Pozrieť e-mail na webe</a>
                             &nbsp; &bull; &nbsp;
-                            <a href="" style="color: #999999;" target="_blank">Odhlásiť sa z newslettera</a>
+                            <a href="{{ email.unsubscribe }}" style="color: #999999;" target="_blank">Odhlásiť sa z newslettera</a>
                         </p>
                     </td>
                 </tr>
