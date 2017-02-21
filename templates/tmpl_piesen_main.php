@@ -1033,8 +1033,8 @@ $("#aud").on("timeupdate", function(event){
             });
 
 
-            var url= window.location.href;
-            if url.includes('utm_medium=email') {
+            var urla=window.location.href;
+            if urla.includes('utm_medium=email') {
                 window.location.href='http://www.ludoslovensky.sk/piesne/piesen.php?<?php echo $objPiesen->id_piesen; ?>';
             }
 
