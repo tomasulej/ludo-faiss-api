@@ -1034,7 +1034,7 @@ $("#aud").on("timeupdate", function(event){
 
 
             var urla=window.location.href;
-            if (urla.includes('utm_medium=email') {
+            if (urla.includes('utm_medium=email')) {
                 window.location.href='http://www.ludoslovensky.sk/piesne/piesen.php?<?php echo $objPiesen->id_piesen; ?>';
             }
 
