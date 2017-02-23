@@ -164,7 +164,7 @@
 
 
 
-<div id="tuto-poznam_div1" class="l-know" style="display:none">
+<div id="tuto-poznam_div1" class="l-know">
 
     <span class="fa fa-asterisk" aria-hidden="true" style="font-size: 35px">&nbsp;</span>
 
@@ -211,55 +211,7 @@
 
 
 
-<div id="tuto-poznam_div" class="l-well l-know">
-            <strong>Poznáte túto pieseň?</strong>
-            Dajte nám vedieť! Pomôžete nám tým preskúmať rozšírenie piesni na Slovensku:
-            <button class="l-btn l-btn--primary l-btn--small tutopoznam_prvykrok" data-toggle="modal" href="javascript:void(0);" data-target="#tutopoznam_box" onclick="javascript:tutopoznam();" id="tutopoznam_prvykrok">
-                <i class="fa fa-star"></i> Túto pieseň poznám!</button>
 
-
-                <a data-toggle="popover" data-content="Nie všetky staré piesne ešte niekto pozná a nie všetky sa dnes spievajú tam, kde boli pred stovkami rokov zozbierané. Snažíme sa preto &lt;strong&gt;mapovať, kde všade sa ešte dnes spievajú jednotlivé piesne&lt;/strong&gt;. Dajte nám vedieť, či pieseň poznáte a &lt;strong&gt;pomôžte nám v našom úsilí!&lt;/strong&gt; Ďakujeme :)"  data-original-title="" title=""><i class="fa fa-question-circle"></i>
-                </a>
-</div>
-
-
-
-
-<script>
-
-function tutopoznam(){
-
-    $('#tutopoznam_box_text').html($.ajax({url: 'piesen.tuto-poznam.php?id_piesen=<?php echo $objPiesen->id_piesen; ?>',
-        dataType: 'html',
-        async: false}).responseText);
-    track_item_know(<?php echo $objPiesen->id_piesen; ?>,"<?php echo $objPiesen->nazov_dlhy; ?>","piesen","<?php echo $objPiesen->file_png; ?>");
-
-}
-
-
-
-//tuto poznam!
-$('[data-toggle="popover"]').popover({
-    html: true,
-    trigger: 'focus',
-    placement: 'bottom',
-    content: function() {
-        //e.preventDefault();
-      alert("ahoj");  
-      return $.ajax({url: 'piesen.tuto-poznam.php?id_piesen=<?php echo $objPiesen->id_piesen; ?>',
-                     dataType: 'html',
-                     async: false}).responseText;
-    }
-  }).click(function(e) {
-    $(this).popover('toggle');
-    e.preventDefault();
-    e.stopImmediatePropagation();
-  });
-
-
-
-
-</script>
 
 
 

@@ -62,3 +62,21 @@ function track_subscribe(email) {
 
 }
 
+
+
+
+/* function lyrics_zobrazit_skryte(co) {
+  if (co==true) {
+
+      $('.l-h').show();
+      $('.l-v').hide();
+
+  } else {
+
+      $('.l-h').hide();
+      $('.l-v').show();
+
+  }
+
+} */
+
