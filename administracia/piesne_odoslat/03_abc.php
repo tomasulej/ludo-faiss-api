@@ -117,12 +117,14 @@ function nacitat_udaje() {
   abc_notes=abc_notes.replace("1.00cm","0.00cm");
   abc_notes=abc_notes.replace("1.00cm","0.00cm");
 
-  abc_notes=abc_notes.replace('treble nm=\\"Klavír\\" snm=\\"Kl.\\"',"");
+    //alert(abc_notes.indexOf("Q:"));
+
+    abc_notes=abc_notes.replace('treble nm=\\"Klavír\\" snm=\\"Kl.\\"',"");
   abc_notes=abc_notes.replace('treble nm=\"Klaví­r\" snm=\"Kl.\"',"");
 
 
-  abc_notes=abc_notes.replace(abc_notes.substring(abc_notes.indexOf("Q:")-2,abc_notes.indexOf(",",abc_notes.indexOf("Q:"))+1),"");
-  $("#abc_notes").val(abc_notes); 
+  if (abc_notes.indexOf("Q:")>0) { abc_notes=abc_notes.replace(abc_notes.substring(abc_notes.indexOf("Q:")-2,abc_notes.indexOf(",",abc_notes.indexOf("Q:"))+1),"");}
+  $("#abc_notes").val(abc_notes);
 
   //abc_settings
   var abc_settings=abc_all.substring(abc_all.indexOf("opt = "),abc_all.indexOf(";",abc_all.indexOf("opt = ")+1));
@@ -132,8 +134,7 @@ function nacitat_udaje() {
 
   //abc_times_arr
   var abc_times_arr=abc_all.substring(abc_all.indexOf("times_arr"),abc_all.indexOf(";",abc_all.indexOf("times_arr"))+1);
-  alert(abc_times_arr);
-  $("#abc_times_arr").val(abc_times_arr); 
+  $("#abc_times_arr").val(abc_times_arr);
 
 }
 
