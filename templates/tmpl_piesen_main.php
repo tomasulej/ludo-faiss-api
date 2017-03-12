@@ -875,11 +875,14 @@
 
 
 <?php require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_footer.php"; ?>
-<script src="http://wim.vree.org/js/abc2svg-1.js"></script>
-<script src="http://wim.vree.org/js/abcweb-min.js"></script>
-<script src="http://wim.vree.org/js/xml2abc-min.js"></script>
-<script src="http://wim.vree.org/js/xml2abc-min.js"></script>
+<script src="/public/js/abc2svg.js"></script>
+<script src="/public/js/abcweb-min.js"></script>
+<script src="/public/js/xml2abc-min.js"></script>
 <script src="/public/js/abcjs_basic_2.3-min.js"></script>
+
+
+
+
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-575ac8e6862d0152"></script>
 
 
