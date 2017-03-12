@@ -52,9 +52,6 @@ $telo='
 
 <img src="/public/img/ludo_plickov-original.jpg" style="max-width: 300px" class="img-fluid img-rounded m-x-auto d-block">
 
-<h2>Takže vy ste „národniari“, „vlastenci“, „matičiari“ alebo niečo také?</h2>
-
-<p>Och, len to nie! Sme alergickí na výrazy ako <i>„vlastenectvo“</i>, <i>„patriotizmus“</i> alebo <i>„národ“</i>, pretože už dávno stratili svoj pôvodný význam. Dlhšiu, filozofickú odpoveď na otázku, „o čo nám teda ide“ sme spísali do <a href="#manifest-luda">Manifestu Ľuda</a>.</p>
 
 <h2>Kto vás platí?</h2>
 
