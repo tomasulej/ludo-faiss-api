@@ -5,22 +5,23 @@ include $_SERVER["DOCUMENT_ROOT"]."/databaza_prislovia.php";
 
 $tmpl_odpoved='{
   "messages": [
+    {"text": "%s"},
     {
       "attachment": {
         "type": "template",
         "payload": {
           "template_type": "button",
-          "text": "%s",
+          "text": "Hello!",
           "buttons": [
             {
               "type": "show_block",
-              "block_name": "prislovie",
-              "title": "Ďalšie príslovie, prosím!"
+              "block_name": "some block name",
+              "title": "Show the block!"
             },
             {
               "type": "web_url",
-              "url": "https://ludoslovensky.sk/prislovia/prislovie.php?id=%s",
-              "title": "Pozrieť toto príslovie na webe"
+              "url": "https://petersapparel.parseapp.com/buy_item?item_id=%s",
+              "title": "Buy Item"
             }
           ]
         }
