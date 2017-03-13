@@ -107,13 +107,14 @@ WHERE stav=0 AND digitalizatori2.meno<>'' ORDER BY datum_digitalizacia DESC";
 
 
 $q=mysql_query($query);
-
+$pocet=mysql_num_rows($q);
 ?>
 
 
 <div class="l-page">
 
     <div class="container">
+        <i>Nepridaných:</i> <?php echo $pocet; ?>
 
         <table class="table table-responsive table-sm">
             <tr>
