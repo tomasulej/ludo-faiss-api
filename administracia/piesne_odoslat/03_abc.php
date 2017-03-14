@@ -91,7 +91,7 @@ if (!empty(basename($_FILES["upl_pdf"]["name"]))) {
 <p>Toto bude trošku náročnejšie, ale zvládneme to:</p>
 
 <ol>
-<li><a href="gen/abcweb.html?http://<?php echo  $_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'];?>/piesne/data/<?php if ((int)$_POST['id_piesen']<>0) { echo (int)$_POST['id_piesen'].'/'.basename($_FILES["upl_xml"]["name"]);} else {echo $p_edit->id_piesen.'/'.$p_edit->file_xml;} ?>" target="_blank">Klikni sem</a> - do nového okna sa ti otvorila stránka, kde by si mal(a) vidieť noty. </li>
+<li><a href="gen/abcweb_local.html?http://<?php echo  $_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'];?>/piesne/data/<?php if ((int)$_POST['id_piesen']<>0) { echo (int)$_POST['id_piesen'].'/'.basename($_FILES["upl_xml"]["name"]);} else {echo $p_edit->id_piesen.'/'.$p_edit->file_xml;} ?>" target="_blank">Klikni sem</a> - do nového okna sa ti otvorila stránka, kde by si mal(a) vidieť noty. </li>
 <li>Na tejto stránke klikni v pravo na "Menu" a zaškrtni "Enable sync". Následne úplne dole klikni na "Save".<!--<BR><img src="/public/img/navod_save_notes.gif"></li>-->
 <li>Otvoril sa teraz textový súbor, jeho obsah skopíruj do kolonky nižšie:<!--<BR><img img src="/public/img/navod_save_notes2.png"><br>
 <font color="green">Zelenou</font> sú noty piesne, <font color="yellow">žltou</font>časovanie piesne a <font color="blue">modrou</font> nastavenia piesne.-->
