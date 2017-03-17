@@ -337,18 +337,25 @@
                 <div class="col-md-4">
                     <h3><a id="contour">Podrobnosti</a></h3>
 
-<div id="contour_modal" class="modal hide fade" tabindex="-1" role="dialog">
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal">×</button>
-			<h3>Modal header</h3>
-	</div>
-	<div class="modal-body" id="contour_div">
-		<p>My modal content here…</p>
-	</div>
-	<div class="modal-footer">
-		<button class="btn" data-dismiss="modal">Zatvoriť</button>
-	</div>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="contour_modal" id="contour_modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                Melódia
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;x</span>
+                </button>
+
+            </div>
+            <div class="modal-body" id="contour_div">
+
+
+            </div>
+
+        </div>
+    </div>
 </div>
+
 
 <script>
 $('#contour').click(function(){

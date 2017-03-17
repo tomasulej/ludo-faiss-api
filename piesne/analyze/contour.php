@@ -1,6 +1,5 @@
 <?php
-$id_piesen=$_GET['id_piesen'];
-
+	$id_piesen=$_GET['id_piesen'];
 ?>
 
     <script type='text/javascript' src="/public/js/d3.min.js" charset="utf-8"></script>
