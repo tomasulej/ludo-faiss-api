@@ -346,7 +346,7 @@
 		<p>My modal content here…</p>
 	</div>
 	<div class="modal-footer">
-		<button class="btn" data-dismiss="modal">Close</button>
+		<button class="btn" data-dismiss="modal">Zatvoriť</button>
 	</div>
 </div>
 
