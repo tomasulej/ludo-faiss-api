@@ -28,7 +28,7 @@ $command = escapeshellcmd('/usr/bin/python /var/www/html/piesne/analyze/contour.
 echo $command;
 
 $data = shell_exec($command);
-
+echo $data;
 
 
 
