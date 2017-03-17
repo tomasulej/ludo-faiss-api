@@ -112,9 +112,11 @@
 
                     <div id="notation">
                     </div>
-        <div  id="contour_div" style="">
-            </div>
+     
 <small>Zobraziť skúšobnú verziu <a id="contour" href="javascript:void(0);">analyzátora melódie</a>.</small>
+
+   <div  id="contour_div" style="">
+            </div>
 
 <script>
 $('#contour').click(function(){
