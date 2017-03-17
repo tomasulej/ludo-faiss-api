@@ -1,7 +1,7 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+//error_reporting(E_ALL);
+//ini_set('display_errors', '1');
 
 include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
 $id_piesen=$_GET['id_piesen'];
@@ -28,7 +28,7 @@ $command = escapeshellcmd('/usr/bin/python /var/www/html/piesne/analyze/contour.
 echo $command;
 
 $data = shell_exec($command);
-echo $data;
+echo '[{"notes":'.$data.'}]';
 
 
 
