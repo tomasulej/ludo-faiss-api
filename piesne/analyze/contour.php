@@ -29,7 +29,7 @@ $id_piesen=$_GET['id_piesen'];
 </body>
 
 <script type="text/javascript">
-	xmlfile='json_piesen_contour.php?id_piesen=<?php echo $id_piesen; ?>';
+	json_file='json_piesen_contour.php?id_piesen=<?php echo $id_piesen; ?>';
 </script>
 
 <script type='text/javascript' src='script.js'></script>
