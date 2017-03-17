@@ -112,7 +112,17 @@
 
                     <div id="notation">
                     </div>
+        <div  id="contour_div" style="">
+            </div>
+<small>Zobraziť skúšobnú verziu <a id="contour" href="javascript:void(0);">analyzátora melódie</a>.</small>
 
+<script>
+$('#contour').click(function(){
+  	$('#contour_div').load('/piesne/analyze/contour.php?id_piesen=<?php echo $objPiesen->id_piesen; ?>');
+	$('#contour_div').show();
+ 	
+});
+</script>  
                     <div class="alert alert-warning alert-dismissible fade in" id="tempo_alert" style="display:none" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Zatvoriť" onclick="javascript:Cookies.set('tempo_alert', 'false');">
                             <span aria-hidden="true">&times;</span>
@@ -161,16 +171,7 @@
 
                     </ol></small>
 
-            <div  id="contour_div">
-            </div>
-
-<script>
-$('#contour').click(function(){
-  	$('#contour_div').load('/piesne/analyze/contour.php?id_piesen=<?php echo $objPiesen->id_piesen; ?>');
-	$('#contour_div').show();
- 	
-});
-</script>   
+     
 
         </div>
     <?php } ?>
