@@ -167,7 +167,7 @@
 <script>
 $('#contour').click(function(){
   	$('#contour_div').load('/piesne/analyze/contour.php?id_piesen=<?php echo $objPiesen->id_piesen; ?>');
-	$('contour_div').show();
+	$('#contour_div').show();
  	
 });
 </script>   
