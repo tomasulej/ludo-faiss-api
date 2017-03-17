@@ -231,6 +231,14 @@ while ($o_poznamky=mysql_fetch_object($q_poznamky)) {
         "txt"=>$o_poznamky->txt);
 }
 
+    $poznamky[] = array(
+        "id_druh"=>2,
+        "txt"=>'Zobraziť skúšobnú verziu <a id="contour" href="javascript:void(0);">analyzátora melódie</a>.');
+
+
+
+
+
 
 //mapa
 

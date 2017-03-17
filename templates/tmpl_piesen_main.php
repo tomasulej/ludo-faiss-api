@@ -20,43 +20,14 @@
 
                 <div class="col-md-9">
 
-                    <h1><a id='contour'>
+                    <h1>
                         <?php echo $objPiesen->nazov_dlhy;?>
-                        </a>
+                        
                     </h1>
 
 
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="contour_modal" id="contour_modal" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
 
-
-
-            </div>
-            <div class="modal-body" id="contour_div">
-
-
-            </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Zatvoriť</button>
-
-      </div>
-        </div>
-
-
-    </div>
-</div>
-
-
-<script>
-$('#contour').click(function(){
-  	$('#contour_div').load('/piesne/analyze/contour.php?id_piesen=<?php echo $objPiesen->id_piesen; ?>',function(result){
-	    $('#contour_modal').modal({show:true});
-	});
- 	
-});
-</script>    
+ 
 
 
 
@@ -189,6 +160,17 @@ $('#contour').click(function(){
                 <?php echo ($podobne_cudzie=="" ? "":"<li><strong>Podobné piesne v iných, dosiaľ nezdigitalizovaných zbierkach:</strong> ".$podobne_cudzie ); ?> </li>
 
                     </ol></small>
+
+            <div  id="contour_div">
+            </div>
+
+<script>
+$('#contour').click(function(){
+  	$('#contour_div').load('/piesne/analyze/contour.php?id_piesen=<?php echo $objPiesen->id_piesen; ?>');
+	$('contour_div').show();
+ 	
+});
+</script>   
 
         </div>
     <?php } ?>
