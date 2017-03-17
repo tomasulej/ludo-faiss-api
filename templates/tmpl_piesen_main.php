@@ -371,7 +371,7 @@ $('#contour').click(function(){
             <div class="row">
 
                 <div class="col-md-4">
-                    <h3><a id="contour">Podrobnosti</a></h3>
+                    <h3>Podrobnosti</h3>
 
 
 
