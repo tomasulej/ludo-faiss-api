@@ -1,5 +1,5 @@
 var data,
-    margin = { top: 20, right: 20, bottom: 30, left: 30},
+    margin = { top: 0, right: 0, bottom: 0, left: 0},
     width = 800 - margin.left - margin.right,
     height = 300 - margin.top - margin.bottom,
     color = d3.scale.category10(),
