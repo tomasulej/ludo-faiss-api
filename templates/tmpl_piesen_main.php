@@ -335,7 +335,31 @@
             <div class="row">
 
                 <div class="col-md-4">
-                    <h3>Podrobnosti</h3>
+                    <h3><a id="contour">Podrobnosti</a></h3>
+
+<div id="contour_modal" class="modal hide fade" tabindex="-1" role="dialog">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">×</button>
+			<h3>Modal header</h3>
+	</div>
+	<div class="modal-body" id="contour_div">
+		<p>My modal content here…</p>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal">Close</button>
+	</div>
+</div>
+
+<script>
+$('#contour').click(function(){
+  	$('#contour_div').load('/piesne/analyze/contour.php?id_piesen=<?php echo $objPiesen->id_piesen; ?>',function(result){
+	    $('#contour_modal').modal({show:true});
+	});
+ 	
+});
+</script>    
+
+
 
                 <strong><a onclick="vytlac();">Názov</strong>: <?php echo $objPiesen->nazov_dlhy ?><BR>
                 <strong>Pôvodná zbierka</strong>: <?php echo $objPiesen->zbierky_nazov?><BR>
