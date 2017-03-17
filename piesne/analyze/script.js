@@ -1,6 +1,6 @@
 var data,
     margin = { top: 20, right: 20, bottom: 30, left: 30},
-    width = 800 - margin.left - margin.right,
+    width = 900 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom,
     color = d3.scale.category10(),
     titles = [],
