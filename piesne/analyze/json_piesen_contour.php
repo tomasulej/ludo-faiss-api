@@ -28,6 +28,8 @@ $command = escapeshellcmd('/usr/bin/python /var/www/html/piesne/analyze/contour.
 //echo $command;
 
 $data = shell_exec($command);
+$data=str_replace("'",'"',$data);
+
 echo '[{"notes":'.$data.'}]';
 
 
