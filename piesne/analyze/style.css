@@ -1,21 +1,4 @@
-body {
-  padding: 10px; }
 
-span {
-  font: 12px sans-serif;
-  color: steelBlue;
-  display: block; }
-
-a {
-  text-decoration: none;
-  font-weight: bold;
-  color: steelBlue; }
-
-.container {
-  background: white;
-  display: block;
-  padding: 20px;
-  margin: auto; }
 
 .title text {
   fill: #505050;
