@@ -25,7 +25,7 @@ file_put_contents('/var/www/html/piesne/analyze/temp.xml', $xml_content);
 
 
 $command = escapeshellcmd('/usr/bin/python /var/www/html/piesne/analyze/contour.py /var/www/html/piesne/analyze/temp.xml');
-echo $command;
+//echo $command;
 
 $data = shell_exec($command);
 echo '[{"notes":'.$data.'}]';
