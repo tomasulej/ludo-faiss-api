@@ -139,11 +139,13 @@
                         <li><?php echo $poznamka["txt"]; ?></li>
                     <?php } ?>
 
+        <div  id="contour_div" class="l-well" style="display:none">
+
+
                 <?php echo ($podobne_cudzie=="" ? "":"<li><strong>Podobné piesne v iných, dosiaľ nezdigitalizovaných zbierkach:</strong> ".$podobne_cudzie ); ?> </li>
 
                     </ol></small>
 
-        <div  id="contour_div" class="l-well" style="display:none">
             </div>
 
 <script>
