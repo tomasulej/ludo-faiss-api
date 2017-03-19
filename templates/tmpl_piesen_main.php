@@ -139,22 +139,22 @@
                         <li><?php echo $poznamka["txt"]; ?></li>
                     <?php } ?>
 
-        <div  id="contour_div" class="l-well" style="display:none">
 
+                    <div  id="contour_div" class="l-well" style="display:none">
+                    </div>
+
+                    <script>
+                    $('#contour').click(function(){
+                        $('#contour_div').load('/piesne/analyze/contour.php?arrPiesen=<?php echo $urlVarianty; ?>&id_piesen=<?php echo $objPiesen->id_piesen;?>');
+                        $('#contour_div').show();
+                    });
+                    </script>
 
                 <?php echo ($podobne_cudzie=="" ? "":"<li><strong>Podobné piesne v iných, dosiaľ nezdigitalizovaných zbierkach:</strong> ".$podobne_cudzie ); ?> </li>
 
                     </ol></small>
 
-            </div>
-
-<script>
-$('#contour').click(function(){
-  	$('#contour_div').load('/piesne/analyze/contour.php?arrPiesen=<?php echo $urlVarianty; ?>&id_piesen=<?php echo $objPiesen->id_piesen?>');
-	$('#contour_div').show();
- 	
-});
-</script>  
+  
 
         </div>
     <?php } ?>
