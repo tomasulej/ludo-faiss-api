@@ -37,13 +37,14 @@ while ($piesen=mysql_fetch_object($q)) {
 
     $json = shell_exec($command);
     $json=str_replace("'",'"',$json);
-    $json=str_replace("[",'',$json);
-    $json=str_replace("]",'',$json);
+    //$json=str_replace("[",'',$json);
+    //$json=str_replace("]",'',$json);
     $json='{"notes": '.$json.', "title": ""},'; 
     $data.=$json;
 }
    
 
+$data=preg_replace('/,$/', '', $data); 
 
 echo "[$data]";
 
