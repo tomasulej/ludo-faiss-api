@@ -1,10 +1,10 @@
 <?php
 	$arrPiesen=$_GET['arrPiesen'];
 	$id_piesen=$_GET['id_piesen'];
- 	$arrPiesen=explode("-",$getPiesen);
+ 	$arrVarPiesen=explode("-",$getPiesen);
 
 
-foreach ($arrPiesen as $key=>$varPiesen) {
+foreach ($arrVarPiesen as $key=>$varPiesen) {
     if (!empty($varPiesen) AND $varPiesen<>$id_piesen) {
 		$idVariant=$varPiesen;
 	}     
