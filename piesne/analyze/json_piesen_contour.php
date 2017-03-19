@@ -39,7 +39,7 @@ while ($piesen=mysql_fetch_object($q)) {
     $json=str_replace("'",'"',$json);
     //$json=str_replace("[",'',$json);
     //$json=str_replace("]",'',$json);
-    $json=sprintf('{"notes": %s, "title": "%s"},',$json, ($piesen->id_nadriadeny<>0)?"Zásah prvej redakcie":"Pôvodný zápis zberateľa"); 
+    $json=sprintf('{"notes": %s, "title": "%s"},',$json, ($piesen->id_nadriadeny<>0)?"Zásah prvej redakcie":""); 
     $data.=$json;
 }
    
