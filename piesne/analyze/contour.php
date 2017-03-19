@@ -1,7 +1,7 @@
 <?php
 	$arrPiesen=$_GET['arrPiesen'];
 	$id_piesen=$_GET['id_piesen'];
- 	$arrVarPiesen=explode("-",$getPiesen);
+ 	$arrVarPiesen=explode("-",$arrPiesen);
 
 
 foreach ($arrVarPiesen as $key=>$varPiesen) {
