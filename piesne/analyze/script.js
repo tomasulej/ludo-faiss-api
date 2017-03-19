@@ -1,7 +1,7 @@
 var data,
     margin = { top: 20, right: 20, bottom: 30, left: 30},
     width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom,
+    height = 300 - margin.top - margin.bottom,
     color = d3.scale.category10(),
     titles = [],
     allMelodies = [],
@@ -114,7 +114,7 @@ var createButtons = function() {
         var button = $('<div></div>')
             .attr('id', melody)
             .addClass('col-md-5')
-            .html('<span class="stvorec" style="background-color:'+color(melody)+'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> '+melody);
+            .html('<span class="stvorec" style="background-color:'+color(melody)+'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <small>'+melody+'</small>');
             
         buttons.append(button);
 
