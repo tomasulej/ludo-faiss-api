@@ -111,7 +111,7 @@ var createButtons = function() {
         .attr('data-toggle', 'buttons');
 
     // create the melody button
-    /*allMelodies.map(function(melody) {
+    allMelodies.map(function(melody) {
         var button = $('<label></label>')
             .attr('id', melody)
             .addClass('btn btn-xs btn-default selector')
@@ -121,7 +121,7 @@ var createButtons = function() {
             .attr('autocomplete', 'off')
         button.append(buttonInput)
         buttons.append(button);
-    });*/
+    });
 
     setListeners();
 }
