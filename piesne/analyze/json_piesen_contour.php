@@ -45,7 +45,7 @@ while ($piesen=mysql_fetch_object($q)) {
    
 
 
-echo '[$data]';
+echo "[$data]";
 
 
 
