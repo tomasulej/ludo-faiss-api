@@ -28,7 +28,7 @@
     shape-rendering: crispEdges; }
 
 .melody {
-  opacity: 1.0; }
+  opacity: 0.9; }
   .melody:hover {
     opacity: 0.9; }
     .melody:hover path {
@@ -42,8 +42,8 @@
     stroke-linejoin: round; }
 
 .modification { 
-  opacity: 1.0;
-    stroke-dasharray: 5,5; 
+  opacity: 0.9;
+    stroke-dasharray: 11,11; 
 
 }
 
