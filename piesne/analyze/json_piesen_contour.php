@@ -35,10 +35,17 @@ while ($piesen=mysql_fetch_object($q)) {
   $command = escapeshellcmd('/usr/bin/python /var/www/html/piesne/analyze/contour.py /var/www/html/piesne/analyze/temp.xml');
 //echo $command;
 
-$data .= shell_exec($command);
-$data.=str_replace("'",'"',$data);
+    $json = shell_exec($command);
+    $json=str_replace("'",'"',$json);
+    $json=str_replace("[",'',$json);
+    $json=str_replace("]",'',$json);
+    $json='{"notes": '.$json.', "title": ""},'; 
+    $data.=$json;
 }
-echo '[{"notes":'.$data.'}]';
+   
+
+
+echo '[$data]';
 
 
 
