@@ -240,7 +240,7 @@ if (count($arrVarianty)>1) {
 
     $poznamky[] = array(
         "id_druh"=>2,
-        "txt"=>'Oproti zápisu zberateľa urobila prvá redakcia do tejto piesne zásahy. <a id="contour" href="javascript:void(0);">Zobraziť zmeny</a>.');
+        "txt"=>'Oproti zápisu zberateľa urobila prvá redakcia do tejto piesne niekoľko zásahov. <a id="contour" href="javascript:void(0);">Zistiť viac</a>.');
 } 
 
 //else {

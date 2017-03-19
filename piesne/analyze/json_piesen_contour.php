@@ -39,7 +39,7 @@ while ($piesen=mysql_fetch_object($q)) {
     $json=str_replace("'",'"',$json);
     //$json=str_replace("[",'',$json);
     //$json=str_replace("]",'',$json);
-    $json=sprintf('{"notes": %s, "title": "%s", "source": "%s"},',$json, ($piesen->id_nadriadeny<>0)?"Zmeny vykonané redakciou Slovenských spevov":"Melódia zapísaná pôvodným zberateľom (".$piesen->datum_zbieranie.")", ($piesen->id_nadriadeny<>0)?"modification":"original"); 
+    $json=sprintf('{"notes": %s, "title": "%s", "source": "%s"},',$json, ($piesen->id_nadriadeny<>0)?"Takto pieseň upravila prvá redakcia Slovenských spevov":"Takto pieseň zapísal pôvodný zberateľ (".$piesen->datum_zbieranie.")", ($piesen->id_nadriadeny<>0)?"modification":"original"); 
     $data.=$json;
 }
    

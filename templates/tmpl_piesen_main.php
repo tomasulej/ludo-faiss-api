@@ -143,7 +143,7 @@
 
                     </ol></small>
 
-        <div  id="contour_div" style="">
+        <div  id="contour_div" class="l-well" style="display:none">
             </div>
 
 <script>
