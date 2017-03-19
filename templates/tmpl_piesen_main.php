@@ -32,25 +32,6 @@
 
 
 
-                    <?php    if (count($arrVarianty)>1) { ?>
-       
-
-
-
-                        <div class="l-song-variants">
-                        <?php
-
-                    $last_key = end(array_keys($varianty));
-                    foreach ($arrVarianty as $key=>$variant) {$counter_variant++;?>
-                    
-                            <a class="l-btn l-btn--small <?php if ($variant["aktualna_piesen"]) {echo "l-btn--primary"; } ?>" href="piesen.php?<?php echo $variant["id_piesen"];?>"><i class="fa fa-music"></i> 
-                            Variant č. <?php echo  $counter_variant; ?></a>
-                    
-
-
-
-                    <?php }  ?>  </div> <?php } ?>
-
                       
 
 
@@ -167,7 +148,7 @@
 
 <script>
 $('#contour').click(function(){
-  	$('#contour_div').load('/piesne/analyze/contour.php?id_piesen=<?php echo $objPiesen->id_piesen; ?>');
+  	$('#contour_div').load('/piesne/analyze/contour.php?id_piesen=<?php echo $urlVarianty; ?>');
 	$('#contour_div').show();
  	
 });

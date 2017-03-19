@@ -127,6 +127,8 @@ if ($piesen->id_nadriadeny==0) { //tato piesen je hlavna, potom pridaj seba + je
             "nazov_variant" => $varianty_piesen->nazov_variant,
             "aktualna_piesen" => ($piesen->id_piesen==$varianty_piesen->id_piesen)?true:false
         );
+        $urlVarianty.=$varianty_piesen->id_piesen."-";
+    
     }
 
 
@@ -144,6 +146,7 @@ if ($piesen->id_nadriadeny==0) { //tato piesen je hlavna, potom pridaj seba + je
             "nazov_variant" => ($piesen->id_nadriadeny!=$varianty_piesen->id_piesen)?$varianty_piesen->nazov_variant:"Originál",
             "aktualna_piesen" => ($piesen->id_piesen==$varianty_piesen->id_piesen)?true:false
         );
+        $urlVarianty.=$varianty_piesen->id_piesen."-";
     }
 
 
@@ -231,10 +234,18 @@ while ($o_poznamky=mysql_fetch_object($q_poznamky)) {
         "txt"=>$o_poznamky->txt);
 }
 
+
+//Varianty - do poznámky
+if (count($arrVarianty)>1) {
+
+    $poznamky[] = array(
+        "id_druh"=>2,
+        "txt"=>'Oproti zápisu zberateľa urobila prvá redakcia do tejto piesne zásahy. <a id="contour" href="javascript:void(0);">Zobraziť zmeny</a>.');
+} else {
     $poznamky[] = array(
         "id_druh"=>2,
         "txt"=>'Zobraziť skúšobnú verziu <a id="contour" href="javascript:void(0);">analyzátora melódie</a>.');
-
+}
 
 
 
