@@ -39,7 +39,7 @@ while ($piesen=mysql_fetch_object($q)) {
     $json=str_replace("'",'"',$json);
     //$json=str_replace("[",'',$json);
     //$json=str_replace("]",'',$json);
-    $json='{"notes": '.$json.', "title": ""},'; 
+    $json=sprintf('{"notes": %s, "title": "%s"},',$json, (empty($piesen->nazov_variant))?$piesen->nazov_dlhy:$piesen->nazov_dlhy."(".$piesen->nazov_variant.")"); 
     $data.=$json;
 }
    
