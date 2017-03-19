@@ -1,14 +1,34 @@
+
+
+.title text {
+  fill: #505050;
+  opacity: 0.5;
+  font: 24px sans-serif; }
+
+.info {
+  line-height: 1;
+  padding: 12px;
+  background: #c3d9ff;
+  color: #444444;
+  position: absolute;
+  text-align: left;
+  font: 12px sans-serif;
+  border-radius: 10px;
+  display: block; }
+  .info span {
+    font: 14px sans-serif;
+    color: black;
+    font-weight: bold; }
+
 .axis {
-  font: 10px sans-serif; }
+  font: 14px sans-serif; }
   .axis path, .axis line {
     fill: none;
     stroke: #000;
     shape-rendering: crispEdges; }
 
 .melody {
-  opacity: 0.1;
-  stroke-width:7px;
-   }
+  opacity: 1.0; }
   .melody:hover {
     opacity: 0.9; }
     .melody:hover path {
@@ -18,10 +38,13 @@
     text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff; }
   .melody path {
     fill: none;
-    stroke-width: 3px;
+    stroke-width: 5px;
     stroke-linejoin: round; }
 
-.btn-group {
-  margin: 5px; }
+.modification { 
+  opacity: 1.0;
+    stroke-dasharray: 5,5; 
+
+}
 
 /*# sourceMappingURL=styles.css.map */

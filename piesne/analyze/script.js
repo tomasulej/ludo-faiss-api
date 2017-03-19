@@ -1,7 +1,7 @@
 var data,
     margin = { top: 20, right: 20, bottom: 30, left: 30},
-    width = 1000 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom,
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom,
     color = d3.scale.category10(),
     titles = [],
     allMelodies = [],
@@ -106,22 +106,20 @@ var setListeners = function() {
 }
 
 var createButtons = function() {
-    var buttons = $('#buttons');
-    buttons.addClass('btn-group')
-        .attr('data-toggle', 'buttons');
+    var buttons = $('#legend');
+    
 
     // create the melody button
     allMelodies.map(function(melody) {
-        var button = $('<label></label>')
+        var button = $('<div></div>')
             .attr('id', melody)
-            .addClass('btn btn-xs btn-default selector')
-            .text(melody);
-        var buttonInput = $('<input />')
-            .attr('type', 'checkbox')
-            .attr('autocomplete', 'off')
-        button.append(buttonInput)
+            .addClass('col-md-5')
+            .html('<span class="stvorec" style="background-color:'+color(melody)+'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> '+melody);
+            
         buttons.append(button);
-    });
+
+});
+
 
     setListeners();
 }
@@ -134,6 +132,7 @@ var setColors = function(data) {
     })
     var color = d3.scale.category10()
         .domain(titles);
+     
 }
 
 var offsetToPercent = function(data) {
@@ -176,6 +175,7 @@ var formatData = function(data) {
     data.map(function(m) {
         var melody = {};
         melody.title = m.title;
+        melody.source=m.source;
         melody.notes = [];
         m.notes.map(function(n, i) {
             numNotes += 1;
@@ -225,7 +225,7 @@ var chartPitches = function() {
             .attr('y', -6)
             .attr('dx', '.71em')
             .style('text-anchor', 'end')
-            .text("Priebeh piesne")
+            .text("Priebeh skladby")
 
         chart.append('g')
             .attr('class', 'axis axis--y')
@@ -236,17 +236,20 @@ var chartPitches = function() {
             .attr('y', 6)
             .attr('dy', '.71em')
             .style('text-anchor', 'end')
-            .text('Tóny');
 
-        var titleText = 'sss'
+            .text('Tón melódie');
+
+
+        var titleText = "Zmeny v melódii"
         chart.append('g')
             .attr('class', 'title')
           .append('text')
             .attr('y', 20)
             .attr('x', width / 2)
             .style('text-anchor', 'middle')
+
             .text(function() {
-                return data.title;
+                return titleText;
             });
 
         // visualize data
@@ -260,6 +263,7 @@ var chartPitches = function() {
 
         melody.append('path')
             .attr('class', 'line')
+
             .attr('d', function(d) {
                 var values = d.notes.map(function(note, index) {
                     return { x: note.offset, y: note.frequency }
@@ -268,8 +272,9 @@ var chartPitches = function() {
             })
             .attr('id', function(d, i) { return 'path-' + i; })
             .style('stroke', function(d) { return color(d.title) })
+            .attr('class', function(d) {return d.source})
 
-        melody.append('text')
+       /* melody.append('text')
             .attr('dy', -5)
           .append('textPath')
             .attr('class', 'textpath')
@@ -279,10 +284,11 @@ var chartPitches = function() {
                 return String(thisMelodyIndex / numMelodies * 100.0) + '%';
             })
             .attr('xlink:href', function(d, i) { return '#path-' + i; })
-            .text(function(d) { return d.title })
+            .text(function(d) { return d.title })*/
 
         createButtons();
     })
 }
 
 chartPitches();
+

@@ -16,8 +16,8 @@
 		<div class = 'container'>
 	    	<svg class='chart'>
 	    	</svg>
-		</div>
-		<div id = 'buttons'>
+
+			<div id = 'legend' class="row"></div>
 		</div>
 
 
