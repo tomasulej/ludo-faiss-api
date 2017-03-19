@@ -6,7 +6,7 @@
     shape-rendering: crispEdges; }
 
 .melody {
-  opacity: 0.9;
+  opacity: 0.1;
   stroke-width:7px;
    }
   .melody:hover {
