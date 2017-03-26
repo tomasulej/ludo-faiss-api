@@ -5,7 +5,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
 
 //META
 $meta_type="article";
-$meta_title="Ako (ne)nazvať svoje dieťa (O kom sa spieva v ľudových piesňach)";
+$meta_title="[INFOGRAFIKA] Ako (ne)nazvať svoje dieťa: O kom sa spieva v ľudových piesňach";
 $meta_image="http://www.ludoslovensky.sk/public/img/ludo-music.png";
 $meta_url="http://".$_SERVER['SERVER_NAME']."/blog/o-menach-v-ludovych-piesnach.php";
 $meta_desc="Kataríny (od jedného promile vyššie) zvyknú v krčmách spievať Neďaleko od Trenčína,  Jánovia (v rovnakom stave) zase Nepi, Jano, nepi vodu. O ktorých menách sa najčastejšie spieva v slovenských ľudových piesňach?";
