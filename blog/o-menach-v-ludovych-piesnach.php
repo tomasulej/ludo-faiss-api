@@ -13,7 +13,7 @@ $meta_desc="Kataríny (od jedného promile vyššie) zvyknú v krčmách spieva�
 
 
 
-$telo="<script id=\"infogram_0_ludo___mena-68560\" title=\"Ľudo - mená\" src=\"//e.infogr.am/js/dist/embed.js?x9o\" type=\"text/javascript\"></script><div style=\"padding:8px 0;font-family:Arial!important;font-size:13px!important;line-height:15px!important;text-align:center;border-top:1px solid #dadada;margin:0 30px\"><a href=\"https://infogr.am/ludo___mena-68560\" style=\"color:#989898!important;text-decoration:none!important;\" target=\"_blank\" rel=\"nofollow\">Ľudo - mená</a><br><a href=\"https://infogr.am/create/column-chart?utm_source=embed_bottom&utm_medium=seo&utm_campaign=column_chart\" style=\"color:#989898!important;text-decoration:none!important;\" target=\"_blank\" rel=\"nofollow\">Create column charts</a></div>";
+$telo="<script id=\"infogram_0_ludo___mena-68560\" title=\"Ľudo - mená\" src=\"//e.infogr.am/js/dist/embed.js?x9o\" type=\"text/javascript\"></script><div style=\"padding:8px 0;font-family:Arial!important;font-size:13px!important;line-height:15px!important;text-align:center;border-top:1px solid #dadada;margin:0 30px\"><a href=\"https://infogr.am/ludo___mena-68560\" style=\"color:#989898!important;text-decoration:none!important;\" target=\"_blank\" rel=\"nofollow\"></a><br><a href=\"https://infogr.am/create/column-chart?utm_source=embed_bottom&utm_medium=seo&utm_campaign=column_chart\" style=\"color:#989898!important;text-decoration:none!important;\" target=\"_blank\" rel=\"nofollow\"></a></div>";
 
 $bg_delete=true;
 // nacitanie informacii
