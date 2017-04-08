@@ -172,7 +172,7 @@ class ModifyHrefParser(CopyAndModifyParser):
                     start, end, val = spanval
 		    url = _urljoin(self.base_url, val)
                     newval = self.cgi_url+'?'+'url='+urllib.quote_plus(url, safe='')
-                    tagstr = tagstr[:start]+''+'href'+'="'+newval+'"'+tagstr[end:]
+                    tagstr = tagstr[:start]+''+'href'+'="'+newval+'" target="_top"'+tagstr[end:]
         return tagstr
 
 
