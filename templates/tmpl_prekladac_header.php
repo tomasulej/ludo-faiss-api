@@ -17,12 +17,12 @@
 
             <div class="col-lg-9">
 
-                <form action="hladat.php" method="get" id="hladat">
+                <form action="" method="get" id="prekladac">
 
                     <div class="input-group">
-                        <input type="text" class="form-control" name="q" placeholder="http://www.ludoslovensky.sk" <?php echo ($url)?"value='$url'":""; ?>>
+                        <input type="text" class="form-control" name="url" placeholder="http://www.ludoslovensky.sk" <?php echo ($url)?"value='$url'":""; ?>>
                         <span class="input-group-btn">
-                    <button class="btn btn-secondary l-btn l-btn--inverse" type="button" onclick="$( '#hladat' ).submit();">Surfuj ako Štúr!</button>
+                    <button class="btn btn-secondary l-btn l-btn--inverse" type="button" onclick="$( '#prekladac' ).submit();">Surfuj ako Štúr!</button>
                 </span>
                     </div>
 

@@ -11,7 +11,7 @@ if ($url<>"") { ?>
 
 
 
-<div class="embed-responsive embed-responsive-16by9">
+<div class="embed-responsive">
     <iframe class="embed-responsive-item" src="http://www.ludoslovensky.sk/prekladac/l.php?url=<?php echo $url;?>" allowfullscreen></iframe>
 </div>
 
