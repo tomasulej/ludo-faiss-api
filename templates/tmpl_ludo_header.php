@@ -17,7 +17,7 @@
 
             </div>
 
-            <div class="l-header__img col-lg-5 l-header__img--bg hidden-md-down" style="background-image: url('/public/img/ludo-grey.png');"></div>
+            <div class="l-header__img col-lg-5 l-header__img--bg hidden-md-down" <?php if (!$bg_delete==true) {?> style="background-image: url('/public/img/ludo-grey.png');"<?php } ?>></div>
 
         </div>
 

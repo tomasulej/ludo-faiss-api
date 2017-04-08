@@ -126,6 +126,8 @@
 
                     <li <?php echo $prislovia_tab;?>><a href="/prislovia" target="_parent">Príslovia a porekadlá</a></li>
                     <li <?php echo $nadavky_tab;  ?>><a href="/nadavky/slovnik.php" target="_parent">Nadávky</a></li>
+
+
                     <li <?php echo $labs_tab;  ?>><a href="/labs" target="_parent">Ľudo Labs</a></li>
                 </menu>
             </div>
