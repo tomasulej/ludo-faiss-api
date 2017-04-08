@@ -10,6 +10,6 @@ echo $command;
 
 $vystup = shell_exec($command);
 
-printf($vystup);
+echo $vystup;
 
 ?>
