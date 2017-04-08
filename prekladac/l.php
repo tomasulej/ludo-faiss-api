@@ -3,7 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-$url=$_GET['u'];
+$url=$_GET['url'];
 $command = escapeshellcmd("/usr/bin/python /var/www/html/prekladac/ludevit/examples/www/fetch.py $url -");
 
 //echo $command;
