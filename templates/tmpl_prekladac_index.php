@@ -10,7 +10,7 @@ if ($_GET['url']<>"") { ?>
 
 
 <div class="embed-responsive embed-responsive-16by9">
-    <iframe class="embed-responsive-item" src="http://www.ludoslovensky.sk/prekladac/l.php?url=<?php echo $_GET['$url']?>" allowfullscreen></iframe>
+    <iframe class="embed-responsive-item" src="http://www.ludoslovensky.sk/prekladac/l.php?url=<?php echo $_GET['url']?>" allowfullscreen></iframe>
 </div>
 
    <?php } ?>
