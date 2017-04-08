@@ -6,7 +6,7 @@
 
             <div class="col-lg-2">
 
-                <a class="l-header__logo" href="/piesne"><img src="/public/img/logo-prekladac-inverse.png"></a>
+                <a class="l-header__logo" href="/prekladac"><img src="/public/img/logo-prekladac-inverse.png"></a>
             </div>
 
             <div class="col-lg-1 l-header__links">
