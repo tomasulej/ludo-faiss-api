@@ -20,7 +20,7 @@ CHUNKSIZE = 5000
 # size of the first chunk, used to guess charset and add base url
 FIRSTCHUNKSIZE = 5000
 
-BASE_CGI='http://www.juls.savba.sk/ludevit/'
+BASE_CGI='http://www.ludoslovensky.sk/prekladac/l.php'
 
 def _replace_entity(m):
      s = m.group(1)
