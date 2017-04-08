@@ -20,7 +20,7 @@
                 <form action="hladat.php" method="get" id="hladat">
 
                     <div class="input-group">
-                        <input type="text" class="form-control" name="q" placeholder="http://www.ludoslovensky.sk" >
+                        <input type="text" class="form-control" name="q" placeholder="http://www.ludoslovensky.sk" <?php echo ($url)?"value='$url'":""; ?>>
                         <span class="input-group-btn">
                     <button class="btn btn-secondary l-btn l-btn--inverse" type="button" onclick="$( '#hladat' ).submit();">Surfuj ako Štúr!</button>
                 </span>
