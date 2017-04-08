@@ -184,12 +184,12 @@ class MyParser(ModifyHrefParser):
 
 if __name__=='__main__':
     filehandle = open('a.html', 'r')
-    parser = MyParser(base_url='http://www.sme.sk')
+    parser = MyParser(base_url='http://www.ludoslovensky.sk')
     while True:
         data = filehandle.read(1000)               # read in the data in chunks
         if not data: break                      # we've reached the end of the file - python could do with a do:...while syntax...
         parser.feed(data)
-        sys.stdout.write(parser.pull())                     # you can output data whilst processing using the push method
+        # sys.stdout.write(parser.pull())                     you can output data whilst processing using the push method
     #processedfile = parser.close()              # or all in one go using close  
     parser.close()                       # Even if using push you will still need a final close
     sys.stdout.write( parser.pull())
