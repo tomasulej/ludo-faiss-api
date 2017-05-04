@@ -10,7 +10,7 @@ $command = escapeshellcmd("/usr/bin/python /var/www/html/prekladac/ludevit/examp
 
 $vystup = shell_exec($command);
 
-$vystup = substr($vystup,strpos($vystup, "<!DOCTYPE")+8);
+$vystup = substr($vystup,strpos($vystup, "<!DOCTYPE")-1);
 
 echo $vystup;
 
