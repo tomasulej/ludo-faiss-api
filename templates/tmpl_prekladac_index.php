@@ -15,4 +15,11 @@ if ($url<>"") { ?>
     <iframe class="embed-responsive-item" style="overflow: auto; -webkit-overflow-scrolling: touch; width:100%; height:100%; position: absolute; " src="http://www.ludoslovensky.sk/prekladac/l.php?url=<?php echo $url;?>" allowfullscreen width="100%"></iframe>
 </div>
 
+   <?php } else { ?>
+
+<div class="row justify-content-md-center"><div class="col-md-12">
+<img src="/public/img/surfuj.png" width=800px class="img-fluid">
+</div>
+</div>
    <?php } ?>
+
