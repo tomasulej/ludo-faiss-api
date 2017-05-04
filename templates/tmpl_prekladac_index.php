@@ -11,7 +11,7 @@ if ($url<>"") { ?>
 
 
 
-<div class="embed-responsive embed-responsive-1by1 row" style="overflow: auto; -webkit-overflow-scrolling: touch;">
+<div class="embed-responsive embed-responsive-1by1" style="overflow: auto; -webkit-overflow-scrolling: touch;">
     <iframe class="embed-responsive-item" style="overflow: auto; -webkit-overflow-scrolling: touch; width:100%; height:100%; position: absolute; " src="http://www.ludoslovensky.sk/prekladac/l.php?url=<?php echo $url;?>" allowfullscreen width="100%"></iframe>
 </div>
 
