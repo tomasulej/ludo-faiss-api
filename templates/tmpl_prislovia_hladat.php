@@ -31,7 +31,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_prislovia_header.php";
 
         <div class="l-search-header">
             <h1>Vyhľadávanie v prísloviach <span>máme ich vyše 12-tisíc</span></h1>
-           <form action="hladat2.php" method="get" id="hladat">
+           <form action="hladat.php" method="get" id="hladat">
             <!--    <div class="input-group">
                     <input type="text" class="form-control-lg form-control" id="q" name="q" placeholder="Hľadať v piesňach" <?php if ($_GET['q']<>"") {echo "value='".$_GET['q']."'";} ?>>
                     <span class="input-group-btn">
