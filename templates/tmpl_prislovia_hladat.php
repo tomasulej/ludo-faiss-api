@@ -91,7 +91,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_prislovia_header.php";
 
                 <div class="list-group">
                     <span href="#" class="list-group-item list-group-item-action ">
-                        <h3 class="list-group-item-heading">Len útvary z témy:</h3>
+                        <h3 class="list-group-item-heading">Len útvary z konkrétnej témy:</h3>
                         
                         <div id="filter_kategoria">
                             <!-- RefinementList widget will appear here -->
@@ -106,7 +106,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_prislovia_header.php";
 
    <div class="list-group">
                     <span href="#" class="list-group-item list-group-item-action ">
-                        <h3>Zúžiť pomocou kľúčových slov:</h3>
+                        <h3>Len útvary týkajúce sa kľúčových slov:</h3>
                         <div id="filter_kluc_slova_spolu" style="align:right">
                             <!-- RefinementList widget will appear here -->
                         </div>
