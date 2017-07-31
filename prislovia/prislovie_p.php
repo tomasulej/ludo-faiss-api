@@ -27,7 +27,7 @@ while ($poznamky=mysql_fetch_object($q2)) {
 <?php } ?>
 
 <strong>Zdroj</strong>: A. P. Záturecký: Slovenské príslovia, porekadlá a úslovia, Zlatý fond denníka SME, 2013<BR>
-<strong>Kategória</strong>: <a href="kategoria.php?id=<?php echo $prislovie->kap_main;?>"><?php echo kat_namebyid($prislovie->kap_id); ?> <BR>
+<strong>Kategória</strong>: <a href="kategoria.php?id=<?php echo $prislovie->kap_main;?>"><?php echo kat_namebyid($prislovie->kap_id); ?> </a><BR>
 <strong>Trvalý odkaz</strong>: <a href="prislovie.php?id=<?php echo $prislovie->id;?>">hin</a><BR>
 
 </small></blockquote>	        
