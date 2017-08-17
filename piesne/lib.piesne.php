@@ -109,6 +109,10 @@ function cleanlyrics($lyrics) {
 
 }
 
+
+
+
+
 function cleanlyrics_words($lyrics) {
 
 	//$array = explode('}',$lyrics);

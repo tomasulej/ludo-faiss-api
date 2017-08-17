@@ -7,8 +7,8 @@
 
 </head>
 
-<?
-include "databaza.php";
+<?php
+include "../databaza_prislovia.php";
 
 
 //vsetky kategorie
@@ -54,19 +54,36 @@ $q=mysql_query("SELECT * FROM pr_txt");
 //INNER JOIN pr_kluc ON pr_txt.klu_id=pr_kluc.id WHERE 1=1 LIMIT 10");
 
 while($prislovie=mysql_fetch_object($q)) {
+
+
+$slova_json_array=json_encode(explode(",", strtolower($slova[$prislovie->id])));
+$kluce_json_array=json_encode(explode(",", strtolower($kluce[$prislovie->klu_id])));
+//$kluce_slova_array=array_unique($kluce_slova_array);
+//$slova_kluce_json_array=json_encode(array_merge(json_decode($slova_json_array, true),json_decode($kluce_json_array, true)));
+//$slova_kluce_json_array=json_encode(array_unique(json_decode($slova_kluce_json_array)));
+
+$kluce_slova_array=array_merge(explode(",", strtolower($slova[$prislovie->id])), explode(",", strtolower($kluce[$prislovie->klu_id])));
+$kluce_slova_json=json_encode($kluce_slova_array);
+
+//print_r($kluce_slova_array);
+
 $json.=sprintf(
 '
-curl -XPUT \'http://95.85.7.30:9200/prislovia/prislovie/%s\' -d 
-\'{"txt": "%s",
-"kluc": "%s",
+{"id": "%s",
+"txt": "%s",
+"kluc": %s,
+"kluc_id": "%s",
 "kategoria": "%s",
+"kategoria_id":"%s",
 "utvar": "%s",
-"slova": "%s"}\'<BR>', 
-$prislovie->id, $prislovie->txt,$kluce[$prislovie->klu_id], $kategorie[$prislovie->kap_id], $utvary[$prislovie->utv_id], $slova[$prislovie->id]);
+"slova": %s,
+"kluc_slova_spolu": %s},
+<BR>', 
+$prislovie->id, $prislovie->txt, $kluce_json_array, $prislovie->klu_id, $kategorie[$prislovie->kap_id],$prislovie->kap_id, $utvary[$prislovie->utv_id], $slova_json_array, $kluce_slova_json);
 
 }  
 
-echo "<blockquote>".$json."</blockquote>";
+echo "<blockquote>[".$json."]</blockquote>";
 
 
 
