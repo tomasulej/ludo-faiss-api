@@ -183,11 +183,11 @@ $pocitadlo,
 
     <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
       <div class="card-block">
-        
+        <div class="row">
         <?php echo $melodie ?>
 
-        <div id="contour_div"></div>
-
+        <div id="contour_div" width="100%"></div>
+        </div>
       </div>
     </div>
   </div>
