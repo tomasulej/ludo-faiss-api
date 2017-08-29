@@ -1,5 +1,44 @@
 <?php
 
+function diff($old, $new){
+    $matrix = array();
+    $maxlen = 0;
+    foreach($old as $oindex => $ovalue){
+        $nkeys = array_keys($new, $ovalue);
+        foreach($nkeys as $nindex){
+            $matrix[$oindex][$nindex] = isset($matrix[$oindex - 1][$nindex - 1]) ?
+                $matrix[$oindex - 1][$nindex - 1] + 1 : 1;
+            if($matrix[$oindex][$nindex] > $maxlen){
+                $maxlen = $matrix[$oindex][$nindex];
+                $omax = $oindex + 1 - $maxlen;
+                $nmax = $nindex + 1 - $maxlen;
+            }
+        }   
+    }
+    if($maxlen == 0) return array(array('d'=>$old, 'i'=>$new));
+    return array_merge(
+        diff(array_slice($old, 0, $omax), array_slice($new, 0, $nmax)),
+        array_slice($new, $nmax, $maxlen),
+        diff(array_slice($old, $omax + $maxlen), array_slice($new, $nmax + $maxlen)));
+}
+
+function htmlDiff($old, $new){
+    $ret = '';
+    $diff = diff(preg_split("/[\s]+/", $old), preg_split("/[\s]+/", $new));
+    foreach($diff as $k){
+        if(is_array($k))
+            $ret .= (!empty($k['d'])?"<del>".implode(' ',$k['d'])."</del> ":'').
+                (!empty($k['i'])?"<ins>".implode(' ',$k['i'])."</ins> ":'');
+        else $ret .= $k . ' ';
+    }
+    return $ret;
+}
+
+
+
+
+
+
 function str_replace_once($str_pattern, $str_replacement, $string){
    
 	if (strpos($string, $str_pattern) !== false){
@@ -109,6 +148,40 @@ function cleanlyrics($lyrics) {
 
 }
 
+
+function cleanlyrics_full($lyrics) {
+	
+	
+			$nove_lyrics=str_replace("{", "", $lyrics);
+			$nove_lyrics=str_replace("}", "", $nove_lyrics);
+			$nove_lyrics=str_replace("|", "", $nove_lyrics);
+			$nove_lyrics=str_replace("\n", "<BR>", $nove_lyrics);
+	
+			
+	
+			return $nove_lyrics;
+	
+	}
+
+
+	function cleanlyrics_full_diff($lyrics1,$lyrics2) {
+		
+		$nove_lyrics2=str_replace("|", "", $lyrics2);
+		$nove_lyrics1=str_replace("|", "", $lyrics1);
+		$nove_lyrics1=str_replace("\n", "<BR>", $nove_lyrics1);
+		$nove_lyrics2=str_replace("\n", "<BR>", $nove_lyrics2);
+		
+
+		$nove_lyrics=htmlDiff($nove_lyrics1, $nove_lyrics2);
+
+		$nove_lyrics=str_replace("{", "", $nove_lyrics);
+		$nove_lyrics=str_replace("}", "", $nove_lyrics);
+
+		
+		
+				return $nove_lyrics;
+		
+		}
 
 
 
@@ -270,6 +343,156 @@ function je_plnovyznamove($form) {
 
     return $a;
 }
+
+
+
+
+function lyrics2html_diff($lyrics1,$lyrics2)
+{
+
+
+	
+
+//slohy
+$nove_lyrics1="<div class='row'> ".$lyrics1." </div>";
+$nove_lyrics1 = preg_replace("/[\r\n]+/", "\n", $nove_lyrics1);
+
+
+
+//slohy2
+$nove_lyrics2="<div class='row'> ".$lyrics2." </div>";
+$nove_lyrics2 = preg_replace("/[\r\n]+/", "\n", $nove_lyrics2);
+	
+	
+
+
+//}	
+	$sloha_counter=0;
+	while (strpos($nove_lyrics1,"}")!=false) {
+		$sloha_counter++;
+		//echo $nove_lyrics;
+		if (($sloha_counter % 3 == 0)) 
+			{$nove_lyrics1=str_replace_once("}","</div></div><div class='row'> ",$nove_lyrics1);}
+			else {$nove_lyrics1=str_replace_once("}","</div>",$nove_lyrics1);}
+	}
+
+	$sloha_counter=0;
+	while (strpos($nove_lyrics2,"}")!=false) {
+		$sloha_counter++;
+		//echo $nove_lyrics;
+		if (($sloha_counter % 3 == 0)) 
+			{$nove_lyrics2=str_replace_once("}","</div></div><div class='row'> ",$nove_lyrics2);}
+			else {$nove_lyrics2=str_replace_once("}","</div>",$nove_lyrics2);}
+	}
+
+
+
+
+    //{
+    $sloha_counter=0;
+
+
+    while (strpos($nove_lyrics1,"{")!=false) {
+        $sloha_counter++;
+        //echo $nove_lyrics;
+        $nove_lyrics1=str_replace_once("{", '<div class="col-md-4 sloha"><span class="l-num"> '.$sloha_counter.'</span> ', $nove_lyrics1);
+        //echo $nove_lyrics;
+
+
+    }
+    $sloha_counter=0;
+	
+	
+		while (strpos($nove_lyrics2,"{")!=false) {
+			$sloha_counter++;
+			//echo $nove_lyrics;
+			$nove_lyrics2=str_replace_once("{", '<div class="col-md-4 sloha"><span class="l-num"> '.$sloha_counter.'</span> ', $nove_lyrics2);
+			//echo $nove_lyrics;
+	
+	
+		}
+
+		//echo "<pre>$nove_lyrics1 ------------- $nove_lyrics2 </pre>";
+		
+
+
+		//echo "<pre>$nove_lyrics</pre>";
+
+	//nové riadky
+	$nove_lyrics1=nl2br($nove_lyrics1);
+
+
+	$nove_lyrics1=str_replace("</div><br />
+<div class=\"col-md-4 sloha\">", "</div><div class=\"col-md-4 sloha\">", $nove_lyrics1);
+
+$nove_lyrics2=nl2br($nove_lyrics2);
+
+
+	$nove_lyrics2=str_replace("</div><br />
+<div class=\"col-md-4 sloha\">", "</div><div class=\"col-md-4 sloha\">", $nove_lyrics2);
+
+
+	//opakovania
+	//$nove_lyrics=str_replace("/:", "<big>&#x1d106;</big>", $nove_lyrics);
+	//$nove_lyrics=str_replace(":/", "<big>𝄇</big>", $nove_lyrics);
+	
+	$nove_lyrics=htmlDiff($nove_lyrics1,$nove_lyrics2);
+	
+				
+	//takty
+	$counter=0;
+	$needle = "|";
+	$lastPos = 0;
+	$odkial_strihaj=0;
+	$positions = array();
+	$nove_lyrics2="";			
+
+	while (($lastPos = strpos($nove_lyrics, $needle, $lastPos))!== false) {
+				    //$positions[] = $lastPos;
+					
+						
+		$newPos=$lastPos + strlen($needle);
+		$nove_lyrics2.=sprintf("<span id='l%s' class='%s'>%s</span>", 
+		   $counter, "slova", substr($nove_lyrics,$odkial_strihaj,$lastPos-$odkial_strihaj));
+				    
+		$lastPos = $newPos;
+		$odkial_strihaj=$lastPos;
+		$counter++;
+					
+	}
+
+	//odstranenie prebytocnych <BR>
+	
+
+	$nove_lyrics2=str_replace("</div><br>", "</div>", $nove_lyrics2);
+	$nove_lyrics2=str_replace("<br><br>", "", $nove_lyrics2);
+
+					
+	return $nove_lyrics2;
+}
+
+
+function js2abc($js) {
+	$js=str_replace("abc_arr = [","",$js);
+	$js=str_replace('abc_enc = [];',"",$js);
+	$js=str_replace('""];',"",$js);
+	$js=str_replace('",',"",$js);
+	$js=str_replace('\"','"',$js);
+
+
+	foreach(preg_split('~[\r\n]+~', $js) as $line){
+		if(empty($line) or ctype_space($line)) continue; // skip only spaces
+		//if (substr($line,1,2)=="%%") continue;
+		$line=substr($line, 1);
+		$f_js.=$line.PHP_EOL;
+	}
+
+
+
+	return $f_js;
+
+}
+
 
 
 

@@ -80,6 +80,7 @@ $arrPiesen = array(
 
         "id_incipit" => (!empty($piesen->id_incipit))?$piesen->id_incipit:$piesen_nadriadeny->id_incipit,
         "lyrics" => (!empty($piesen->lyrics))?$piesen->lyrics:$piesen_nadriadeny->lyrics,
+        "lyrics2" => $piesen_nadriadeny->lyrics, 
         "file_xml" => (!empty($piesen->file_xml))?$piesen->file_xml:$piesen_nadriadeny->file_xml,
         "file_png" => (!empty($piesen->file_png))?$piesen->file_png:$piesen_nadriadeny->file_png,
         "fie_mp3" => (!empty($piesen->file_mp3))?$piesen->file_mp3:$piesen_nadriadeny->file_mp3,
@@ -240,13 +241,13 @@ if (count($arrVarianty)>1) {
 
     $poznamky[] = array(
         "id_druh"=>2,
-        "txt"=>'Oproti zápisu zberateľa urobila prvá redakcia do tejto piesne niekoľko zásahov. <a id="contour" href="javascript:void(0);">Zobraziť viac informácii</a>');
+        "txt"=>'Oproti zápisu zberateľa urobila prvá redakcia do tejto piesne niekoľko zásahov. <a id="compare" href="javascript:void(0);" >Zobraziť viac informácii</a>');
 } 
 
 //else {
 //    $poznamky[] = array(
 //        "id_druh"=>2,
-//        "txt"=>'Zobraziť skúšobnú verziu <a id="contour" href="javascript:void(0);">analyzátora melódie</a>.');
+//        "txt"=>'Zobraziť skúšobnú verziu <a id="compare" href="javascript:void(0);">analyzátora melódie</a>.');
 //}
 
 

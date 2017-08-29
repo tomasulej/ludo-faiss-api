@@ -109,20 +109,23 @@
 
         </div>
 
+
 <div id="lyrics" class="l-song-lyrics" data-reveal-id="lyrics" data-height="200">
 
-
-
-
-    <!-- <a onclick="lyrics_zobrazit_skryte(true);">Klik</a> -->
-
-
-        <?php echo lyrics2html($objPiesen->lyrics) ?>
-
-
-
+        <?php 
+        if (empty($objPiesen->lyrics2)) {
+            echo lyrics2html($objPiesen->lyrics);
+            
+        } else {
+            echo lyrics2html_diff($objPiesen->lyrics,$objPiesen->lyrics2);
+        }
+        
+        
+        
+        ?>
 
 </div>
+
 
 
 
@@ -139,19 +142,7 @@
                         <li><?php echo $poznamka["txt"]; ?></li>
                     <?php } ?>
 
-
-                    <div  id="contour_div" class="l-well" style="display:none">
-                    </div>
-
-                    <script>
-                    $('#contour').click(function(){
-                        $('#contour_div').load('/piesne/analyze/contour.php?arrPiesen=<?php echo $urlVarianty; ?>&id_piesen=<?php echo $objPiesen->id_piesen;?>');
-                        $('#contour_div').show();
-                        $('#contour').hide();
-                    });
-                    </script>
-
-                <?php echo ($podobne_cudzie=="" ? "":"<li><strong>Podobné piesne v iných, dosiaľ nezdigitalizovaných zbierkach:</strong> ".$podobne_cudzie ); ?> </li>
+               <?php echo ($podobne_cudzie=="" ? "":"<li><strong>Podobné piesne v iných, dosiaľ nezdigitalizovaných zbierkach:</strong> ".$podobne_cudzie ); ?> </li>
 
                     </ol></small>
 
@@ -159,6 +150,47 @@
 
         </div>
     <?php } ?>
+
+
+<?php //piesen ma varianty = box s detailami
+if (count($arrVarianty)>1) { ?>
+
+
+<script>
+$('#compare').click(function(){
+  $('#compare_body').load('/piesne/analyze/compare.php?arrPiesen=<?php echo $urlVarianty; ?>&$id_piesen=<?php echo  $objPiesen->id_piesen; ?>');
+  $('#compare_modal').modal();
+ });
+</script> 
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="compare_modal" id="compare_modal" aria-hidden="true" style="width: 100%;max-width: 100%;">
+    <div class="modal-dialog modal-lg" style="width: 100%;max-width: 100%;">
+
+
+
+        <div class="modal-content" style="width: 100%;max-width: 100%;">
+
+        <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body" id="compare_body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Zatvoriť</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php }?>
+
+
 
 
 <a href="#" data-reveal="lyrics" class="l-btn-reveal">Zobraziť viac <i class="fa fa-chevron-down"></i></a>
@@ -304,6 +336,7 @@
         </div>
     </div>
 </div>
+
 
 
 
@@ -872,7 +905,7 @@
 
 
 
-
+ 
 
 
 
@@ -884,9 +917,6 @@
 <script src="/public/js/abcweb-min.js"></script>
 <script src="/public/js/xml2abc-min.js"></script>
 <script src="/public/js/abcjs_basic_2.3-min.js"></script>
-
-
-
 
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-575ac8e6862d0152"></script>
 
