@@ -219,6 +219,6 @@ $pocitadlo,
 
 
 <script>
-    $('#contour_div').load('http://www.ludoslovensky.sk/piesne/analyze/contour.php?arrPiesen=<?php echo $arrPiesen?>&id_piesen=<?php echo $_GET["id_piesen"]?>');
+    $('#contour_div').load('/piesne/analyze/contour.php?arrPiesen=<?php echo $getPiesen?>&id_piesen=<?php echo $_GET["id_piesen"]?>');
 
 </script>
