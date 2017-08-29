@@ -22,7 +22,6 @@ foreach ($arrVarPiesen as $key=>$varPiesen) {
     <link rel='stylesheet' type='text/css' href='/piesne/analyze/style.css'>
 	<script type='text/javascript' src='/piesne/analyze/script.js'></script>
 		<div class = 'container'>
-		<p class="popis"><small>Prvá redakcia zbierky Slovenské spevy urobila v melódii tejto piesne zmeny oproti originálu, ktorý jej zaslal pôvodný zberateľ. Ladislav Galko, autor druhého vydania Slovenských spevov, preskúmal a porovnal originál piesne s publikovanou verziu a zaznamenal zmeny. Momentálne si prezeráte pôvodnú verziu piesne, tak ako ju zaznačil zberateľ, ak chcete zobraziť celú pieseň tak, ako ju zverejnila prvá redakcia, <a class="contour-url" href="/piesne/piesen.php?<?php echo $idVariant; ?>">kliknite sem</a>.</small></p>
 
 	    	<svg class='chart'>
 	    	</svg>

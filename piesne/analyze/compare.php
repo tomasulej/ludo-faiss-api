@@ -130,14 +130,13 @@ $pocitadlo=0;
 while ($piesen=mysql_fetch_object($q)) {
     $lyricsy[]=$piesen->lyrics;
 $melodie.=sprintf('
-<div class="col-md-%s"><h2>%s</h2>
+<div class="col-md-10"><h2>%s</h2>
 <div id="noty_%s" class="abc">
 %s
 </div>
 <script>compare_vysviet_div("noty_%s");</script>
 </div>', 
-round(12/$pocet),
-($piesen->id_nadriadeny<>0)?"Variant":"Originál",
+($piesen->id_nadriadeny<>0)?"Ako pieseň upravila prvá redakcia":"Originálny zápis zberateľa",
 $pocitadlo,
 js2abc($piesen->abc_notes),
 $pocitadlo);
@@ -150,7 +149,7 @@ $texty.=sprintf('
 </div>
 </div>', 
 round(12/$pocet),
-($piesen->id_nadriadeny<>0)?"Variant":"Originál",
+($piesen->id_nadriadeny<>0)?"Ako pieseň upravila prvá redakcia":"Originálny zápis zberateľa",
 $pocitadlo,
 ($pocitadlo==0)?cleanlyrics_full($piesen->lyrics):cleanlyrics_full_diff($lyricsy[0],$piesen->lyrics));
 
@@ -167,7 +166,8 @@ $pocitadlo,
 ?>
 
 
-<p>Lorem ipsum</p>
+<p class="popis"><small>Prvá redakcia zbierky Slovenské spevy urobila v melódii tejto piesne zmeny oproti originálu, ktorý jej zaslal pôvodný zberateľ. Ladislav Galko, autor druhého vydania Slovenských spevov, preskúmal a porovnal originál piesne s publikovanou verziu a zaznamenal zmeny. Tu sú jednotlivé verzie tejto piesne. </small></p>
+
 
 
 
@@ -176,7 +176,7 @@ $pocitadlo,
     <div class="card-header" role="tab" id="headingOne">
       <h5 class="mb-0">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Porovnať melódie piesní
+          Zobraziť zásahy do melódie
         </a>
       </h5>
     </div>
@@ -186,6 +186,8 @@ $pocitadlo,
         
         <?php echo $melodie ?>
 
+        <div id="contour"></div>
+
       </div>
     </div>
   </div>
@@ -193,7 +195,7 @@ $pocitadlo,
     <div class="card-header" role="tab" id="headingTwo">
       <h5 class="mb-0">
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Porovnať texty piesní
+          Zobraziť zásahy do textu
         </a>
       </h5>
     </div>
@@ -204,20 +206,7 @@ $pocitadlo,
       </div>
     </div>
   </div>
-  <div class="card">
-    <div class="card-header" role="tab" id="headingThree">
-      <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Zmeny v melódii na grafe
-        </a>
-      </h5>
-    </div>
-    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div class="card-block" id="contour_div">
 
-      </div>
-    </div>
-  </div>
 </div>
 
 
