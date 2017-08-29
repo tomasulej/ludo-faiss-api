@@ -1,7 +1,7 @@
 var data,
     margin = { top: 20, right: 20, bottom: 30, left: 30},
     width = 640 - margin.left - margin.right,
-    height = 380 - margin.top - margin.bottom,
+    height = 250 - margin.top - margin.bottom,
     color = d3.scale.category10(),
     titles = [],
     allMelodies = [],

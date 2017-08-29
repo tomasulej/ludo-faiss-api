@@ -186,7 +186,7 @@ $pocitadlo,
         <div class="row">
         <?php echo $melodie ?>
 
-        <div id="contour_div" class="col-md-10"></div>
+        <div id="contour_div" class="col-md-12"></div>
         </div>
       </div>
     </div>
