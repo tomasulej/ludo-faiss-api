@@ -1,5 +1,10 @@
 <script>
-window.onerror = function(msg) {
+
+
+
+function compare_vysviet_div(div_id) {
+
+    window.onerror = function(msg) {
     alert("window error: msg");
     return false
 };
@@ -21,8 +26,6 @@ var user = {
     imagesize: '100%'
 };
 
-
-function compare_vysviet_div(div_id) {
     var page = document.getElementById( div_id ).innerHTML;
 
     user.get_abcmodel = function(tsfirst, voice_tb, music_types, info) {
