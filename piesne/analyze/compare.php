@@ -186,7 +186,7 @@ $pocitadlo,
         
         <?php echo $melodie ?>
 
-        <div id="contour"></div>
+        <div id="contour_div"></div>
 
       </div>
     </div>
