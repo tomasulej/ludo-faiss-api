@@ -176,8 +176,8 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_prislovia_header.php";
 <script>
   
 const search = instantsearch({
-  appId: 'T0C73PKUJS',
-  apiKey: '6b6aaa22a081bdb3ec67737512ed48f2',
+  appId: '35TGB7A4IL',
+  apiKey: 'd6d60f1618cfe0cb63e229b4678fc703',
   indexName: 'prislovia',
   urlSync: true
 });
