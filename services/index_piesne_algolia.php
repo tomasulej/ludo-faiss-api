@@ -12,7 +12,7 @@
 
 
 
-$client = new \AlgoliaSearch\Client("DHW83XWZZX", "122f02d64cb73c929102bbe522caf20e");
+$client = new \AlgoliaSearch\Client("35TGB7A4IL", "588386ed04fbcb8d39903d7e71c62126");
 $index = $client->initIndex('piesne');
 
 mysql_select_db("piesne");
