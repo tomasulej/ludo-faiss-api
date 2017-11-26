@@ -76,8 +76,8 @@ while ($piesen=mysql_fetch_object($query)) {
 
 
     //slova
-        include_once $_SERVER["DOCUMENT_ROOT"]."/databaza_slova.php";
-    
+        //include_once $_SERVER["DOCUMENT_ROOT"]."/databaza_slova.php";
+        mysql_connect("localhost","slova","LudoLudoVedMaNeser");
         mysql_select_db("slova");
         $slova_sklon=explode(" ", cleanlyrics_words($piesen->lyrics));
         //print_r($slova_sklon);

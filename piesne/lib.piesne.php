@@ -1,5 +1,4 @@
 <?php
-        include_once $_SERVER["DOCUMENT_ROOT"]."/databaza_slova.php";
 		
 function diff($old, $new){
     $matrix = array();
