@@ -1,7 +1,7 @@
 <?php
 
-//error_reporting(E_ALL);
-//ini_set('display_errors', '1');
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 
   require_once($_SERVER["DOCUMENT_ROOT"].'/public/php/algolia/algoliasearch.php');
 
@@ -70,7 +70,7 @@ while ($piesen=mysql_fetch_object($query)) {
         } 
         $miesta[]=$zberatel_vyskyt->meno;
     
-     if (mysql_num_rows($q_zberatel_miesto)==0 AND mysql_num_rows($q_zberatel_vyskyt)==0) {$miesta[]="(Neuvedené)";echo "!!!!";}
+     if (mysql_num_rows($q_zberatel_miesto)==0 AND mysql_num_rows($q_zberatel_vyskyt)==0) {$miesta[]="(Neuvedené)";}
 
 
     //slova
@@ -79,6 +79,7 @@ while ($piesen=mysql_fetch_object($query)) {
         //print_r($slova_sklon);
         foreach ($slova_sklon as &$word) {
             $word_zakl=zakladny_tvar($word);
+ 
 
             if (je_plnovyznamove(zakladny_tvar_form($word))) {
                 $slova[]=$word_zakl;
@@ -93,10 +94,10 @@ while ($piesen=mysql_fetch_object($query)) {
         //$slova=array();
         $slova=$oneDim;
 
-print_r($miesta);
+print_r($slova);
 
 
-
+/*
 
       $index->addObject(
         [
@@ -126,7 +127,7 @@ print_r($miesta);
 
         ]
     ); 
-
+*/
     
 
 }
