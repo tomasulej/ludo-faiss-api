@@ -40,6 +40,12 @@ if ($_POST['odoslane']=='true') {
 
         $q=mysql_query(sprintf("UPDATE piesne SET file_xml='%s' WHERE id_piesen=%s", basename($_FILES["upl_xml"]["name"]),  (int)$_POST['id_piesen']));
 
+        $xml=simplexml_load_file($upl_xml_target);  
+        $tempo_bpm=$xml->part[0]->measure[0]->direction->sound['tempo']; 
+        if (!is_null($tempo_bpm)){
+            $q_update=mysql_query("UPDATE piesne SET tempo_bpm=$tempo_bpm WHERE id_piesen=".(int)$_POST['id_piesen']);
+          }
+
     }
     //mp3 upload
 if (!empty(basename($_FILES["upl_mp3"]["name"]))) {

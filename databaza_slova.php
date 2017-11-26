@@ -13,7 +13,7 @@
       $p_databaza="slova";
       $p_host="localhost";
 } else {
-
+      echo "ahoj";
       $p_meno="slova";
       $p_heslo="LudoLudoVedMaNeser";
       $p_databaza="slova";
