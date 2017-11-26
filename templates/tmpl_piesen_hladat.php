@@ -1,12 +1,28 @@
-<?php
-    $theme="l-theme-green";
-    $blog_tab='class="active"';
 
-include $_SERVER["DOCUMENT_ROOT"]."/piesne/lib.piesne.php";
+
+<?php
+$theme="l-theme-green";
+$prislovia_tab='class="active"';
+
 require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
+
 ?>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.0.0/dist/instantsearch.min.css">
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.0.0/dist/instantsearch.min.js"></script>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=619723681422597";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 
 
 <div class="l-page l-search l-list">
@@ -14,14 +30,34 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
     <div class="container">
 
         <div class="l-search-header">
-            <h1>Vyhľadávanie v piesňach <span>3.400 piesní!</span></h1>
-            <form action="hladat.php" method="get" id="hladat">
-            <div class="input-group">
-                <input type="text" class="form-control-lg form-control" id="q" name="q" placeholder="Hľadať v piesňach" <?php if ($hladane<>"") {echo "value='".$hladane."'";} ?>>
-                <span class="input-group-btn">
-                    <button class="btn btn-lg l-btn--primary" type="submit">Hľadať!</button>
+            <h1>Vyhľadávanie v piesňach </h1>
+            <!--    <div class="input-group">
+                    <input type="text" class="form-control-lg form-control" id="q" name="q" placeholder="Hľadať v piesňach" <?php if ($_GET['q']<>"") {echo "value='".$_GET['q']."'";} ?>>
+                    <span class="input-group-btn">
+                    <button class="btn btn-lg l-btn--primary" type="button" onclick="$( '#hladat' ).submit();">Hľadať!</button>
                 </span>
-            </div>
+                </div> -->
+
+            
+                <div id="search-box"></div>
+
+
+              <!--      <div class="input-group">
+                <input id="q" type="text" class="form-control-lg form-control" placeholder="Hľadať v piesňach">
+                <span class="input-group-btn">
+                    
+                </span>
+            </div>-->
+        
+        
+
+     
+      
+      <div id="current-refined-values">
+  <!-- CurrentRefinedValues widget will appear here -->
+</div>
+
+
         </div>
 
     </div>
@@ -29,77 +65,385 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
 
 
     <div class="container">
+<div class="row">
+          <div class="col-md-4 l-list-filter">
+
+
+
+
+
+               <div class="list-group">
+                    <span href="#" class="list-group-item list-group-item-action ">
+                        <h3 class="list-group-item-heading">Tempo:</h3>
+                        
+                        <div id="filter_tempo">
+                            <!-- RefinementList widget will appear here -->
+                        </div>
+                        
+                    </span>    
+                        
+
+
+                </div>
+
+
+
+
+                <div class="list-group">
+                    <span href="#" class="list-group-item list-group-item-action ">
+                        <h3 class="list-group-item-heading">Týkajúce sa miest:</h3>
+                        
+                        <div id="filter_miesta">
+                            <!-- RefinementList widget will appear here -->
+                        </div>
+                        
+                    </span>    
+                        
+
+
+                </div>
+
+                 <div class="list-group">
+                    <span href="#" class="list-group-item list-group-item-action ">
+                        
+                        <h3 class="list-group-item-heading">Kľúčové slová:</h3>
+
+
+                        <div id="filter_slova">
+                            <!-- RefinementList widget will appear here -->
+                        </div>
+                        
+                    </span>    
+                        
+
+
+                </div>
+
+                    
+                <div class="list-group">
+                    <span href="#" class="list-group-item list-group-item-action ">
+                        <h3 class="list-group-item-heading">Zberatelia:</h3>
+                        
+                        <div id="filter_zberatelia_meno">
+                            <!-- RefinementList widget will appear here -->
+                        </div>
+                        
+                    </span>    
+                        
+
+
+                </div>
+
+              
+                <div class="list-group">
+                    <span href="#" class="list-group-item list-group-item-action ">
+                        <h3 class="list-group-item-heading">Digitalizátori:</h3>
+                        
+                        <div id="filter_digitalizatori">
+                            <!-- RefinementList widget will appear here -->
+                        </div>
+                        
+                    </span>    
+                        
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+<div class="col-md-8">
+
+
+
+
+
 
         <div class="l-list-items">
+            <ul class="list-group">
+            <div id="hits">
+                
+            
+            </div>
 
 
 
-<?php if (!empty($piesne)) {  ?>
+            </ul>
 
+            <div id="strankovanie"></div>
 
-
-    <?php foreach ($piesne as $key=>$piesen) { ?>
-        <div class="l-song-item l-well">
-        <h3><a href="piesen.php?<?php echo $piesen['id_piesen'];?>"><?php echo ($piesen["nazov_dlhy"]==""?"(ešte nezdigitalizované)":$piesen["nazov_dlhy"]);?></a></h3>
-        <?php if ($piesen['file_mp3']<>"") { 
-            $p_button="playpause_p_".$piesen['id_piesen'];
-            $p_audio="aud_".$piesen['id_piesen'];
-            ?> 
-
-        <a class="l-btn l-btn--primary l-btn--small l-btn--play" id="<?php echo $p_button;?>"
-            onclick="playpause('<?php echo "#".$p_audio;?>','<?php echo "#".$p_button;?>');" ><i class="fa fa-play"></i></a>
-        <audio id="<?php echo $p_audio; ?>" controls="controls" src="data/<?php echo $piesen['id_piesen']; ?>/<?php echo $piesen['file_mp3']; ?>" style="display:none" onended="alert('j');">Your browser does not support the audio element.</audio>
-
-        <?php }?>
-
-        <!-- <a href="piesen.php?<?php echo $piesen['id_piesen'];?>"><img src='data/<?php echo $piesen['id_piesen']; ?>/<?php echo $piesen["file_png"];?>'></a> -->
-        
-        <div class="row">
-        <div class="col-md-4"><img src="data/<?php echo $piesen['id_piesen']; ?>/<?php echo $piesen['file_png'];?>" class="t"></div>
-        <div class="col-md-8 hidden-sm-down"><p><i><?php echo cleanlyrics($piesen['lyrics']); ?></i></p>
-            <a  href="piesen.php?<?php echo $piesen['id_piesen'];?>" class="l-btn l-btn--primary l-btn--small"><i class="fa fa-music"></i> Zobraziť celú pieseň</a>
         </div>
-        </div>
+</div>
+
+
+
+</div>
         </div>
 
-    <?php } ?>
+
+
     </div>
-<?php } else { ?> <div class="l-well"><strong>Juj, nebite ma, pán kapelník!</strong> Nič som nenašiel, ale keď tu toho bude viac - tak nájdem, to môžem sľúbiť. Dovtedy dačo iné pomrkaj. </div>   <?php } ?>
-</div> </div></div>
 
-
-<?php require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_footer.php"?>
-
-
-
-<!-- jQuery first, then Bootstrap JS. -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js" integrity="sha384-ux8v3A6CPtOTqOzMKiuo3d/DomGaaClxFYdCu2HPMBEkf6x2xiDyJ7gkXU0MWwaD" crossorigin="anonymous"></script>
 
 <script>
-    $('.switch li a').click(function(){
-        var color = $(this).attr('class').split('-')[1];
-        $('body').removeClass().addClass('l-theme-' + color);
-    });
-    
-    function show_lyrics(cas) 
-    {
-     var counter=1;
-        for (var i = 0, len = times_arr.length; i < len; i++) {
-            for (var j = 0, len2 = times_arr[i].length; j < len2-1; j++) {
-                if ((cas>times_arr[i][j]) && (cas<times_arr[i][j+1])) {
-                    sp="#l"+counter;
-                    $(sp).attr("style","background-color: #CED2F7");
-                } 
-                else {
-                    sp="#l"+counter;
-                    $(sp).attr("style","background-color: white");
 
-                }
-                counter++;	
-            }
+
+
+  
+
+
+
+</script>
+
+<script>
+  
+const search = instantsearch({
+  appId: '35TGB7A4IL',
+  apiKey: 'd6d60f1618cfe0cb63e229b4678fc703',
+  indexName: 'piesne',
+  urlSync: true
+});
+
+search.start();
+
+
+
+
+
+
+
+  // initialize RefinementList
+  search.addWidget(
+    instantsearch.widgets.refinementList({
+      container: '#filter_slova',
+      attributeName: 'slova',
+      limit: 3,
+    showMore: {
+        limit:10,
+        templates: {
+            inactive: '<div><small><a href="javascript:undefined"><i class="fa fa-angle-double-down"></i> Zobraziť viac</a></small></div>',
+            active: ""
         }
-    }
+    }, 
+  
+        templates: {
+            item:    '<input class="{{cssClasses.checkbox}}" type="checkbox" value="{{value}}" {{#isRefined}}checked{{/isRefined}}>  {{value}} <sup>{{count}}</sup>',
+ 
+
+        },
+        cssClasses: {
+            header: 'd-inline-block',
+            //body: 'd-inline-block',
+            //item: 'd-inline-block '
+
+        }
+
+
+    })
+  );
+
+  // initialize RefinementList
+  search.addWidget(
+    instantsearch.widgets.refinementList({
+      container: '#filter_miesta',
+      attributeName: 'miesta',
+      limit: 3,
+    showMore: {
+        limit:10,
+        templates: {
+            inactive: '<div><small><a href="javascript:undefined"><i class="fa fa-angle-double-down"></i> Zobraziť viac</a></small></div>',
+            active: ""
+        }
+    }, 
+  
+        templates: {
+            item:    '<input class="{{cssClasses.checkbox}}" type="checkbox" value="{{value}}" {{#isRefined}}checked{{/isRefined}}>  {{value}} <sup>{{count}}</sup>',
+ 
+
+        },
+        cssClasses: {
+            header: 'd-inline-block',
+            //body: 'd-inline-block',
+            //item: 'd-inline-block '
+
+        }
+
+
+    })
+  );
+
+
+  // initialize RefinementList
+  search.addWidget(
+    instantsearch.widgets.refinementList({
+      container: '#filter_tempo',
+      attributeName: 'tempo_kategoria',
+      limit: 3,
+    showMore: {
+        limit:10,
+        templates: {
+            inactive: '<div><small><a href="javascript:undefined"><i class="fa fa-angle-double-down"></i> Zobraziť viac</a></small></div>',
+            active: ""
+        }
+    }, 
+  
+        templates: {
+            item:    '<input class="{{cssClasses.checkbox}}" type="checkbox" value="{{value}}" {{#isRefined}}checked{{/isRefined}}>  {{value}} <sup>{{count}}</sup>',
+ 
+
+        },
+        cssClasses: {
+            header: 'd-inline-block',
+            //body: 'd-inline-block',
+            //item: 'd-inline-block '
+
+        }
+
+
+    })
+  );
+
+
+  // initialize RefinementList
+  search.addWidget(
+    instantsearch.widgets.refinementList({
+      container: '#filter_digitalizatori',
+      attributeName: 'digitalizatori',
+      limit: 3,
+    showMore: {
+        limit:10,
+        templates: {
+            inactive: '<div><small><a href="javascript:undefined"><i class="fa fa-angle-double-down"></i> Zobraziť viac</a></small></div>',
+            active: ""
+        }
+    }, 
+  
+        templates: {
+            item:    '<input class="{{cssClasses.checkbox}}" type="checkbox" value="{{value}}" {{#isRefined}}checked{{/isRefined}}>  {{value}} <sup>{{count}}</sup>',
+ 
+
+        },
+        cssClasses: {
+            header: 'd-inline-block',
+            //body: 'd-inline-block',
+            //item: 'd-inline-block '
+
+        }
+
+
+    })
+  );
+  
+  // initialize RefinementList
+  search.addWidget(
+    instantsearch.widgets.refinementList({
+      container: '#filter_zberatelia_meno',
+      attributeName: 'zberatelia_meno',
+      limit: 3,
+    showMore: {
+        limit:10,
+        templates: {
+            inactive: '<div><small><a href="javascript:undefined"><i class="fa fa-angle-double-down"></i> Zobraziť viac</a></small></div>',
+            active: ""
+        }
+    }, 
+  
+        templates: {
+            item:    '<input class="{{cssClasses.checkbox}}" type="checkbox" value="{{value}}" {{#isRefined}}checked{{/isRefined}}>  {{value}} <sup>{{count}}</sup>',
+ 
+
+        },
+        cssClasses: {
+            header: 'd-inline-block',
+            //body: 'd-inline-block',
+            //item: 'd-inline-block '
+
+        }
+
+
+    })
+  );
+
+
+  search.addWidget(
+    instantsearch.widgets.hits({
+      container: '#hits',
+      hitsPerPage: 8,
+      templates: {
+        empty: 'No results',
+        item: '<div class="l-song-item l-well"><h3><a href="piesen.php?{{id_piesen}}">{{{_highlightResult.nazov_dlhy.value}}}</a></h3><a class="l-btn l-btn--primary l-btn--small l-btn--play" id="playpause_p_{{id_piesen}}" onclick="playpause(\'#aud_{{id_piesen}}\',\'#playpause_p_{{id_piesen}}\');" ><i class="fa fa-play"></i></a><audio id="aud_{{id_piesen}}" controls="controls" src="data/{{id_piesen}}/{{file_mp3}}" style="display:none" onended="alert(\'j\');">Your browser does not support the audio element.</audio><div class="row"><div class="col-md-4"><img src="data/{{id_piesen}}/{{file_png}}" class="t"></div><div class="col-md-8 hidden-sm-down"><p><i>{{{_highlightResult.lyrics_snippet.value}}}</i></p><a  href="piesen.php?{{id_piesen}}" class="l-btn l-btn--primary l-btn--small"><i class="fa fa-music"></i> Zobraziť celú pieseň</a></div></div></div>'
+      }
+    })
+  );
+
+  // initialize SearchBox
+  search.addWidget(
+    instantsearch.widgets.searchBox({
+      container: '#search-box',
+      wrapInput: false,
+      placeholder: 'Hľadaj',
+      cssClasses: {input: 'form-control-lg form-control', root: 'input-group'},
+      poweredBy: true,
+
+    })
+  );
+
+
+
+
+
+
+
+
+  search.addWidget(
+    instantsearch.widgets.currentRefinedValues({
+      container: '#current-refined-values',
+      cssClasses: {
+          body: 'd-inline-block',
+          item: 'tag d-inline-block',
+          link: 'tag tag-default fa fa-close'
+      },
+      templates: {
+          header: '<Strong> Filtre: </strong>'
+          //clearAll: '<div><small><a href="{{url}}"><i class="fa fa-angle-double-down"></i> Vymazať všetky filtre</a></small></div>'
+
+      },
+      // This widget can also contain a clear all link to remove all filters,
+      // we disable it in this example since we use `clearAll` widget on its own.
+      clearAll: false
+    })
+  );
+
+
+
+search.addWidget(
+  instantsearch.widgets.pagination({
+    container: '#strankovanie',
+    cssClasses: {
+        root: 'pagination',
+        item: 'page-item',
+        link: 'page-link',
+        active: 'active'
+    },
+    scrollTo: 'h2',
+    labels: {
+       next: 'Ďalšia strana >',
+       previous: '< Predchádzajúca' 
+    },
+    maxPages: 20,
+    // default is to scroll to 'body', here we disable this behavior
+    scrollTo: false,
+    showFirstLast: false,
+  })
+);
+
+
+
+  search.start();
 
 
     function playpause(media_id,button_id) 
@@ -115,101 +459,11 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_piesne_header.php";
     }
 
 
-
-
-</script>
-    
-<script src="http://wim.vree.org/js/abc2svg-1.js"></script>
-<script src="http://wim.vree.org/js/abcweb-min.js"></script>
-<script src="http://wim.vree.org/js/xml2abc-min.js"></script>
-<script src="http://wim.vree.org/js/xml2abc-min.js"></script>
-<script src="/public/js/abcjs_basic_2.3-min.js"></script>
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-575ac8e6862d0152"></script>
-
-
-<script>
-
-    function _d(role) {
-        return '[data-role="' + role + '"]';
-    }
-
-    $("#aud").on("play", function (e) {
-      $("#playpause_main"+' i').attr('class', "fa fa-pause");
-    });
-
- 
-    $("#aud").on("canplaythrough", function(e){
-        duration=e.currentTarget.duration;
-    });    
-
-$("#aud").on("timeupdate", function(event){
-    ctime=this.currentTime;
-});
-
-    $("#aud").on("pause", function (e) {
-       if(duration<=ctime) {alert('kokot!');};
-       alert(ctime+"xxx"+duration);
-    });
-
-
-  $("#aud").bind('seeked', function(){
-    alert("kokot");
-  });
-
-function abc2svg() {
-	$('.abc').each(function(i, obj) {
-		ABCJS.renderAbc(obj, $(obj).text()); 	
- 
-	});
-}
-
-	
-
-
-
-
-
-
-
-
-
-
-    $(document).ready(function(){
-        abc2svg();
-        var headerScroll = false;
-        var offsetTop = $(_d('header')).offset().top;
-
-/*        $(window).scroll(function(){
-
-            var scroll = $(window).scrollTop();
-            if (scroll > offsetTop) {
-
-                if (!headerScroll) {
-
-                    $('.l-song').css('margin-top', $(_d('header')).height() + 'px');
-                    $(_d('header')).addClass('l-song-header--float');
-
-                    headerScroll = true;
-                }
-
-            } else {
-
-                if (headerScroll) {
-
-                    $('.l-song').css('margin-top', 0);
-                    $(_d('header')).removeClass('l-song-header--float');
-                    headerScroll = false;
-                }
-            }
-        }); */
-    
-
-    
-    
-    });
-
 </script>
 
+<?php require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_footer.php";?>
 
-</body>
-</html>
+
+
+
+
