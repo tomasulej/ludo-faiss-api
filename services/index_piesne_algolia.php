@@ -101,7 +101,7 @@ while ($piesen=mysql_fetch_object($query)) {
 print_r($slova);
 
 
-/*
+
 
       $index->addObject(
         [
@@ -131,7 +131,7 @@ print_r($slova);
 
         ]
     ); 
-*/
+
     
 
 }
