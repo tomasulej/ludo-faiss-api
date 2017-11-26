@@ -30,6 +30,8 @@ WHERE piesne.stav<>0 AND id_nadriadeny=0 ORDER BY datum_digitalizacia DESC LIMIT
 
 
 while ($piesen=mysql_fetch_object($query)) {
+    include_once $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
+    
         $slova=array();
         $miesta=array();
         $miesta_lokality=array();
@@ -74,6 +76,8 @@ while ($piesen=mysql_fetch_object($query)) {
 
 
     //slova
+        include_once $_SERVER["DOCUMENT_ROOT"]."/databaza_slova.php";
+    
         mysql_select_db("slova");
         $slova_sklon=explode(" ", cleanlyrics_words($piesen->lyrics));
         //print_r($slova_sklon);
