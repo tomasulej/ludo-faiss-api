@@ -25,7 +25,7 @@ LEFT JOIN hudobnici ON piesne.id_hudba=hudobnici.id_hudba
 LEFT JOIN tempo AS t1 ON piesne.id_tempo <=> t1.id_tempo
 LEFT JOIN tempo AS t2 ON piesne.id_tempo2 <=> t2.id_tempo
 
-WHERE piesne.stav<>0 AND id_nadriadeny=0 ORDER BY datum_digitalizacia DESC");
+WHERE piesne.stav<>0 AND id_nadriadeny=0 ORDER BY datum_digitalizacia DESC LIMIT 10");
 
 
 
