@@ -75,6 +75,8 @@ while ($piesen=mysql_fetch_object($query)) {
      if (mysql_num_rows($q_zberatel_miesto)==0 AND mysql_num_rows($q_zberatel_vyskyt)==0) {$miesta[]="(Neuvedené)";}
 
 
+
+
     //slova
         //include_once $_SERVER["DOCUMENT_ROOT"]."/databaza_slova.php";
         mysql_connect("localhost","slova","LudoLudoVedMaNeser");
@@ -100,7 +102,11 @@ while ($piesen=mysql_fetch_object($query)) {
 
 print_r($slova);
 
+    //tempa
+    if ($piesen->tempo_bpm>0) {
+        if ($piesen->tempo_bpm<80) {$tempo_kategoria="Pomalé";} else if ($piesen->tempo_bpm<120){$tempo_kategoria="Stredne rýchle";} else {$tempo_kategoria="Rýchle";}
 
+    }
 
 
       $index->addObject(
@@ -127,7 +133,8 @@ print_r($slova);
             'zberatel_vyskyt'=>$zberatel_vyskyt->meno,
             'nazvy_v_texte'=>$miesta_lokality,
             'slova'=>$slova, 
-            'tempo_bpm'=>(int)$piesen->tempo_bpm
+            'tempo_bpm'=>(int)$piesen->tempo_bpm,
+            'tempo_kategoria'=>$tempo_kategoria
 
         ]
     ); 
