@@ -39,18 +39,25 @@ while ($piesen=mysql_fetch_object($query)) {
 
         $id=(int)$piesen->id_piesen;
     //mena
-        mysql_select_db("piesne");
-        $q_mena=mysql_query("SELECT mena.id_meno,mena.meno,mena.pohlavie FROM mena, mena_piesne WHERE mena.id_meno=mena_piesne.id_meno AND mena_piesne.id_piesen=$id");
+    mysql_connect("localhost","piesne","LudoLudoVedMaNeser");
+    mysql_select_db("piesne");
+    $q_mena=mysql_query("SELECT mena.id_meno,mena.meno,mena.pohlavie FROM mena, mena_piesne WHERE mena.id_meno=mena_piesne.id_meno AND mena_piesne.id_piesen=$id");
         while ($o_mena=mysql_fetch_object($q_mena)) {
             $mena[]=$o_mena->meno;
         }  
     //miesta
-        $q_mapa=mysql_query(sprintf("SELECT * FROM lokality,lokality_piesne where lokality.id_lokalita=lokality_piesne.id_lokalita AND lokality_piesne.id_piesen=%s",(int)$id));
+    mysql_connect("localhost","piesne","LudoLudoVedMaNeser");
+    mysql_select_db("piesne");
+    $q_mapa=mysql_query(sprintf("SELECT * FROM lokality,lokality_piesne where lokality.id_lokalita=lokality_piesne.id_lokalita AND lokality_piesne.id_piesen=%s",(int)$id));
         while ($lokality=mysql_fetch_object($q_mapa)) {
             $miesta[]=$lokality->meno;
             $miesta_lokality[]=$lokality->meno;
         }
 
+
+        mysql_connect("localhost","piesne","LudoLudoVedMaNeser");
+        mysql_select_db("piesne");
+        
         $q_zberatel_miesto=mysql_query("SELECT * FROM lokality WHERE id_lokalita=$piesen->id_zberatel_miesto");
         $zberatel_miesto=mysql_fetch_object($q_zberatel_miesto);
         
@@ -59,9 +66,10 @@ while ($piesen=mysql_fetch_object($query)) {
             $zberatel_miesto=mysql_fetch_object($q_zberatel_miesto);
         }    
         
-        $miesta[]=$zberatel_miesto->meno;
-
-
+        $miesta[].=$zberatel_miesto->meno;
+        mysql_connect("localhost","piesne","LudoLudoVedMaNeser");
+        mysql_select_db("piesne");
+        
         $q_zberatel_vyskyt=mysql_query("SELECT * FROM lokality WHERE id_lokalita=$piesen->id_zberatel_vyskyt");
         $zberatel_vyskyt=mysql_fetch_object($q_zberatel_vyskyt);
         
@@ -70,7 +78,7 @@ while ($piesen=mysql_fetch_object($query)) {
             $zberatel_vyskyt=mysql_fetch_object($q_zberatel_vyskyt);
             
         } 
-        $miesta[]=$zberatel_vyskyt->meno;
+        $miesta[].=$zberatel_vyskyt->meno;
     
      if (mysql_num_rows($q_zberatel_miesto)==0 AND mysql_num_rows($q_zberatel_vyskyt)==0) {$miesta[]="(Neuvedené)";}
 
@@ -100,11 +108,11 @@ while ($piesen=mysql_fetch_object($query)) {
         //$slova=array();
         $slova=$oneDim;
 
-print_r($slova);
+print_r($miesta);
 
     //tempa
     if ($piesen->tempo_bpm>0) {
-        if ($piesen->tempo_bpm<80) {$tempo_kategoria="Pomalé";} else if ($piesen->tempo_bpm<120){$tempo_kategoria="Stredne rýchle";} else {$tempo_kategoria="Rýchle";}
+        if ($piesen->tempo_bpm<60) {$tempo_kategoria="Pomalé";} else if ($piesen->tempo_bpm<150){$tempo_kategoria="Stredne rýchle";} else {$tempo_kategoria="Rýchle";}
     }
 
 
