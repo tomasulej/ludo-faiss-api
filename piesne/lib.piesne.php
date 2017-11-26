@@ -324,10 +324,10 @@ function je_plnovyznamove($form) {
     $a=false;
 
     if(substr($form, 0, 1) == "S") {$a=true;};
-    if(substr($form, 0, 1) == "A") {$a=false;};
+    if(substr($form, 0, 1) == "A") {$a=true;};
     if(substr($form, 0, 1) == "P") {$a=false;};
     if(substr($form, 0, 1) == "N") {$a=false;};
-    if(substr($form, 0, 1) == "V") {$a=false;};
+    if(substr($form, 0, 1) == "V") {$a=true;};
     if(substr($form, 0, 1) == "G") {$a=false;};
     if(substr($form, 0, 1) == "D") {$a=false;};
     if(substr($form, 0, 1) == "E") {$a=false;};

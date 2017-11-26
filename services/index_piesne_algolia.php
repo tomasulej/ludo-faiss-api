@@ -105,7 +105,6 @@ print_r($slova);
     //tempa
     if ($piesen->tempo_bpm>0) {
         if ($piesen->tempo_bpm<80) {$tempo_kategoria="Pomalé";} else if ($piesen->tempo_bpm<120){$tempo_kategoria="Stredne rýchle";} else {$tempo_kategoria="Rýchle";}
-
     }
 
 
