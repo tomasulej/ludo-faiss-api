@@ -112,7 +112,7 @@ print_r($miesta);
 
     //tempa
     if ($piesen->tempo_bpm>0) {
-        if ($piesen->tempo_bpm<60) {$tempo_kategoria="Pomalé";} else if ($piesen->tempo_bpm<150){$tempo_kategoria="Stredne rýchle";} else {$tempo_kategoria="Rýchle";}
+        if ($piesen->tempo_bpm<60) {$tempo_kategoria="Pomalé";} else if ($piesen->tempo_bpm<150){$tempo_kategoria="Mierne až stredne rýchle";} else {$tempo_kategoria="Rýchle";}
     }
 
 
