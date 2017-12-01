@@ -20,10 +20,10 @@ data-content=\"<div class='quote-popover'>%s</div>\" href=\"prislovie.php?id=%s\
 
 //META
 $meta_type="article";
-$meta_title="Ľudo Slovenský: hľadať v najväčšej digitálnej zbierke ľudovej hudby";
+$meta_title="Ľudové piesne na tému '".$q."' | Ludoslovensky.sk";
 $meta_image="http://www.ludoslovensky.sk/public/img/ludo-music.png";
-$meta_url="http://".$_SERVER['SERVER_NAME']."/piesne/hladat2.php";
-$meta_desc="Tisíce rokov Ľudo Slovenský spieva piesne. Sú našim pokladom. Aby sme ho zachovali, postupne zbierame, digitalizujeme, triedime a sprístupňujeme desaťtisíce piesní, ktoré sa počas tisícok rokov spievali na našom území.";
+$meta_url="http://".$_SERVER['SERVER_NAME']."/piesne/hladat.php";
+$meta_desc="Zbierame, digitalizujeme, a sprístupňujeme slovenské ľudové piesne. Pozrite si tie na tému '".$q."'";
 
 
 

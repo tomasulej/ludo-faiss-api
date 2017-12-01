@@ -29,13 +29,22 @@ while ($poznamky=mysql_fetch_object($q2)) {
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?php echo $prislovie->txt;?> Nechaj si poradiť aj ty!">
+    <meta name="description" content="Pozrite si detaily o prísloví „<?php echo $prislovie_desc;?>“ na našom webe.">
     <meta name="author" content="Tomáš Ulej">
 
-<meta property="og:title" content="Totok mi poradil Ľudo slovenský." />
-<meta property="og:description" content="'<?php echo $prislovie->txt;?>' Nechaj si poradiť aj ty z dvanásť tisíc Ľuda slovenského prísloví a porekadiel. Zozbieral Adolf Peter Záturecký. Stránku zbúchal Tomáš Ulej." />
 
-    <title>Ľudo slovenský radí: rada č. <?php echo $prislovie->id; ?> </title>
+
+
+<?php
+
+$prislovie_desc=(strlen($prislovie->txt)>100)?substr($prislovie->txt,0,100)."…":$prislovie->txt;
+$prislovie_title=(strlen($prislovie->txt)>40)?substr($prislovie->txt,0,40)."…":$prislovie->txt;
+
+?>
+<meta property="og:title" content="<?php echo $prislovie_title; ?> | Ludoslovensky.sk" />
+<meta property="og:description" content="Pozrite si detaily o prísloví „<?php echo $prislovie_desc;?>“ na našom webe." />
+
+    <title><?php echo $prislovie_title; ?> | Ludoslovensky.sk</title>
 
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap-theme.min.css">

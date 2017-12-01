@@ -704,7 +704,7 @@ $('#compare').click(function(){
                     <h3>Osoby spomenúte v piesni</h3>
 <div>
                     <?php foreach ($p_mena as $key=>$meno) { ?>
-                    <a href="osoby.php?id=<?php echo $meno['meno_id']; ?>">
+                    <a href="hladat.php?q=<?php echo $meno['meno']; ?>">
                     
                     <?php echo 
                      ($meno["pohlavie"]==1 ? "♂ ":"♀ ").$meno["meno"];?></a>
