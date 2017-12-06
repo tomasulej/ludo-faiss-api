@@ -129,29 +129,46 @@ $pocitadlo=0;
 
 while ($piesen=mysql_fetch_object($q)) {
     $lyricsy[]=$piesen->lyrics;
+
+        switch ($piesen->typ_nadriadeny) {
+            case 0:
+                $nadpis='Táto verzia ('.date("Y",strtotime($piesen->datum_digitalizacia)).')';
+                break;
+            case 1:
+                $nadpis="Prvá redakcia Slovenských spevov (1891)";
+                break;
+            case 2:
+                $nadpis="Pôvodný zberateľ (".$piesen->datum_zbieranie.')';
+                break;
+        }
+
+
+
+
 $melodie.=sprintf('
-<div class="col-md-10"><h2>%s</h2>
+<div class="col-md-12"><h3>%s</h3>
 <div id="noty_%s" class="abc">
 %s
 </div>
 <script>compare_vysviet_div("noty_%s");</script>
 </div>', 
-($piesen->id_nadriadeny<>0)?"Ako pieseň upravila prvá redakcia":"Originálny zápis zberateľa",
+$nadpis,
 $pocitadlo,
 js2abc($piesen->abc_notes),
 $pocitadlo);
 
 
 $texty.=sprintf('
-<div class="col-md-%s"><h2>%s</h2>
+<div class="col-md-%s"><h3>%s</h3>
 <div id="lyrics_%s">   
-%s
+<small>%s</small>
 </div>
 </div>', 
 round(12/$pocet),
-($piesen->id_nadriadeny<>0)?"Ako pieseň upravila prvá redakcia":"Originálny zápis zberateľa",
+$nadpis,
 $pocitadlo,
-($pocitadlo==0)?cleanlyrics_full($piesen->lyrics):cleanlyrics_full_diff($lyricsy[0],$piesen->lyrics));
+cleanlyrics_full($piesen->lyrics));
+
 
 
 
@@ -166,7 +183,7 @@ $pocitadlo,
 ?>
 
 
-<p class="popis"><small>Prvá redakcia zbierky Slovenské spevy urobila v melódii tejto piesne zmeny oproti originálu, ktorý jej zaslal pôvodný zberateľ. Ladislav Galko, autor druhého vydania Slovenských spevov, preskúmal a porovnal originál piesne s publikovanou verziu a zaznamenal zmeny. Tu sú jednotlivé verzie tejto piesne. </small></p>
+<p class="popis"><small>Prvá redakcia zbierky Slovenské spevy <strong>urobila v melódii tejto piesne zmeny oproti originálu</strong>, ktorý jej zaslal pôvodný zberateľ. Ladislav Galko, autor druhého vydania Slovenských spevov, preskúmal a <strong>porovnal originál piesne s publikovanou verziu a zaznamenal zmeny</strong>. Pre vedeckú úplnosť uvádzame jednotlivé verzie tejto piesne s označenými odchylkami. </small></p>
 
 
 
@@ -201,8 +218,9 @@ $pocitadlo,
     </div>
     <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="card-block">
+        <div class="row">
         <?php echo $texty; ?>
-
+        </div>
       </div>
     </div>
   </div>
@@ -211,6 +229,6 @@ $pocitadlo,
 
 
 <script>
-    $('#contour_div').load('/piesne/analyze/contour.php?arrPiesen=<?php echo $getPiesen?>&id_piesen=<?php echo $_GET["id_piesen"]?>');
+    //$('#contour_div').load('/piesne/analyze/contour.php?arrPiesen=<?php echo $getPiesen?>&id_piesen=<?php echo $_GET["id_piesen"]?>');
 
 </script>

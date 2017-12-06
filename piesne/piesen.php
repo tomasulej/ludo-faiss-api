@@ -243,13 +243,14 @@ while ($o_poznamky=mysql_fetch_object($q_poznamky)) {
 }
 
 
-//Varianty - do poznámky
+//Varianty - do poznámky TODO
+/*
 if (count($arrVarianty)>1) {
 
     $poznamky[] = array(
         "id_druh"=>2,
         "txt"=>'Oproti zápisu zberateľa urobila prvá redakcia do tejto piesne niekoľko zásahov. <a id="compare" href="javascript:void(0);" >Zobraziť viac informácii</a>');
-} 
+} */
 
 //else {
 //    $poznamky[] = array(

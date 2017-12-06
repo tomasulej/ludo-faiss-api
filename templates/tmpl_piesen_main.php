@@ -152,8 +152,9 @@
     <?php } ?>
 
 
-<?php //piesen ma varianty = box s detailami
-if (count($arrVarianty)>1) { ?>
+<?php //piesen ma varianty = box s detailami TODO
+
+if ((count($arrVarianty)>1) && (1==2))  { ?>
 
 
 <script>
