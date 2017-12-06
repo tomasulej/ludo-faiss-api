@@ -181,9 +181,9 @@ if ($piesen->id_nadriadeny==0) {
 
 // podobne piesne TODO: nadriadeny
 if ($piesen->id_nadriadeny==0) {
-    $q_podobne=mysql_query(sprintf('SELECT file_mp3, file_png, id_vztahy_piesne, id_vztah, id_piesen1,id_piesen2, txt_piesen2, piesne.nazov_dlhy, piesne.nazov_kratky, piesne.id_piesen FROM vztahy_piesne, piesne WHERE (id_piesen1=%s OR id_piesen2=%s) AND (piesne.id_piesen=id_piesen1 OR piesne.id_piesen=id_piesen2);',(int)$id,(int)$id));
+    $q_podobne=mysql_query(sprintf('SELECT file_mp3, file_png, id_vztahy_piesne, id_vztah, id_piesen1,id_piesen2, txt_piesen2, piesne.nazov_dlhy, piesne.nazov_kratky, piesne.id_piesen FROM vztahy_piesne, piesne WHERE (id_piesen1=%s OR id_piesen2=%s) AND (piesne.id_piesen=id_piesen1 OR piesne.id_piesen=id_piesen2) GROUP BY id_vztahy_piesne;',(int)$id,(int)$id));
 } else {
-        $q_podobne=mysql_query(sprintf('SELECT file_mp3, file_png, id_vztahy_piesne, id_vztah, id_piesen1,id_piesen2, txt_piesen2, piesne.nazov_dlhy, piesne.nazov_kratky, piesne.id_piesen FROM vztahy_piesne, piesne WHERE (id_piesen1=%s OR id_piesen2=%s) AND (piesne.id_piesen=id_piesen1 OR piesne.id_piesen=id_piesen2);',$piesen->id_nadriadeny, $piesen->id_nadriadeny));
+        $q_podobne=mysql_query(sprintf('SELECT file_mp3, file_png, id_vztahy_piesne, id_vztah, id_piesen1,id_piesen2, txt_piesen2, piesne.nazov_dlhy, piesne.nazov_kratky, piesne.id_piesen FROM vztahy_piesne, piesne WHERE (id_piesen1=%s OR id_piesen2=%s) AND (piesne.id_piesen=id_piesen1 OR piesne.id_piesen=id_piesen2) GROUP BY id_vztahy_piesne;',$piesen->id_nadriadeny, $piesen->id_nadriadeny));
 }
 
 
