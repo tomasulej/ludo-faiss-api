@@ -103,7 +103,7 @@ LEFT JOIN lokality AS miesto1 ON piesne.id_zberatel_miesto <=> miesto1.id_lokali
 LEFT JOIN lokality AS miesto2 ON piesne.id_zberatel_vyskyt <=> miesto2.id_lokalita
 
 
-WHERE stav=0 AND digitalizatori2.meno<>'' ORDER BY datum_digitalizacia DESC";
+WHERE stav=0 AND id_nadriadeny=0 AND digitalizatori2.meno<>'' ORDER BY datum_digitalizacia DESC";
 
 
 $q=mysql_query($query);
