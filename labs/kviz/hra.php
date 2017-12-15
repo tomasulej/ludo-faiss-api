@@ -11,7 +11,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/databaza_slova.php";
 
 // spravna odpoved;
 $counter=0;
-$q1=mysql_query("SELECT * FROM kviz_words WHERE count_synonyms>4 ORDER BY rand() LIMIT 1 ");
+$q1=mysql_query("SELECT * FROM kviz_words WHERE count_synonyms>3 ORDER BY rand() LIMIT 1 ");
 $objSolution=mysql_fetch_object($q1);
 $arrSolution=explode(";", $objSolution->synonyms);
 foreach ($arrSolution as &$solution) {
@@ -27,7 +27,7 @@ foreach ($arrSolution as &$solution) {
     }
 }
 $solution_count=$counter-1;
-$solution_count_required=3;
+$solution_count_required=2;
 $lstCorrectAnswers="[".rtrim($lstCorrectAnswers,",")."]";
 
 
