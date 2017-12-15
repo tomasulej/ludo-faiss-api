@@ -11,13 +11,13 @@ include $_SERVER["DOCUMENT_ROOT"]."/databaza_slova.php";
 
 // spravna odpoved;
 $counter=0;
-$q1=mysql_query("SELECT * FROM kviz_words WHERE count_synonyms>5 ORDER BY rand() LIMIT 1 ");
+$q1=mysql_query("SELECT * FROM kviz_words WHERE count_synonyms>4 ORDER BY rand() LIMIT 1 ");
 $objSolution=mysql_fetch_object($q1);
 $arrSolution=explode(";", $objSolution->synonyms);
 foreach ($arrSolution as &$solution) {
     $counter++;
     if ($counter==1) {
-        $solution_question=$solution;
+        $solution_question=str_replace("+","",$solution);
     } else {
         $answers[$counter]["word"]=$solution;
         $answers[$counter]["isCorrect"]=1;
@@ -37,7 +37,7 @@ while ($objAnswers=mysql_fetch_object($q2)) {
     $counter++;
     $arrPotAnswers=array();
     $arrPotAnswers=explode(";", $objAnswers->synonyms);
-    $answers[$counter]["word"]=$arrPotAnswers[0];
+    $answers[$counter]["word"]=str_replace("+","",$arrPotAnswers[0]);
     $answers[$counter]["isCorrect"]=0;
     $answers[$counter]["id"]=$counter;
 
