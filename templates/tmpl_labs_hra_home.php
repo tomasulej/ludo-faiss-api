@@ -64,18 +64,18 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 
     </div>
 
+        <div class="row">
+            <div id="fb_chvastacka" class="col-md-11 offset-md-1" style="display:none">
 
+                <h4>Pochváľ sa, koľko si nahral(a)</h4>
+                <div class="fb-comments" data-href="http://www.ludoslovensky.sk/labs/kviz/" data-numposts="5"></div>
+            </div>
+        </div>
 
 </div>
 </div>
 
-<div class="row">
-<div id="fb_chvastacka" class="col-md-11 offset-md-1" style="display:none">
 
-    <h4>Pochváľ sa, koľko si nahral(a)</h4>
-    <div class="fb-comments" data-href="http://www.ludoslovensky.sk/labs/kviz/" data-numposts="5"></div>
-</div>
-</div>
 
 
     <script type="text/javascript">
