@@ -90,7 +90,8 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                     var $this = $(this);
                     if (event.elapsed) {
                         $('#casomiera').css("display","none");
-                        if (Cookies.get('record')=='undefined') {
+                        //alert(Cookies.get('record'));
+                        if (Cookies.get('record')==undefined) {
                            Cookies.set('record', CorrectAnswers);
                            alert("Undefined");
                         } else if (parseInt(Cookies.get('record'))<=CorrectAnswers) {
