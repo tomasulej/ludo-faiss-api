@@ -19,7 +19,7 @@
             $("#divCorrectAnswers").html(CorrectAnswers);
             if ((answersRequired-currentCorrectAnwers)<1) {
                 $('#question').html('<div class="alert alert-success" role="alert"><strong> <i class="fa fa-refresh"></i> Paráda!</strong> Načítavam ďalšiu otázku. </div>');
-                setTimeout(function(){ loadQuestion(); }, 1000)
+                setTimeout(function(){ loadQuestion(); }, 500)
 
             }
         } else {

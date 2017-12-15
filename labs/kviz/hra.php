@@ -32,7 +32,7 @@ $lstCorrectAnswers="[".rtrim($lstCorrectAnswers,",")."]";
 
 
 //dalsie odpovede
-$q2=mysql_query("SELECT * FROM kviz_words ORDER BY rand() LIMIT 10 ");
+$q2=mysql_query("SELECT * FROM kviz_words ORDER BY rand() LIMIT 8 ");
 while ($objAnswers=mysql_fetch_object($q2)) {
     $counter++;
     $arrPotAnswers=array();
