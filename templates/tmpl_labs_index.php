@@ -57,6 +57,31 @@ Z vďaky Douglesovi Adamsovi, ktorý prvý definoval žáner vogónskej poézie,
         </div>
 
 
+    <div class="l-article row">
+
+        <div class="l-article__img col-md-3">
+
+            <a href="/labs/kviz"><img src="/public/img/labs_slova-statistiky.png"></a>
+
+        </div>
+
+        <div class="l-article__content col-md-9">
+
+            <h3><a href="/labs/kviz">Ľudov slovný kvíz</a></h3>
+
+            <p>
+            Akú máš dobrú slovnú zásobu? Koľko významov si schopný(á) odhaliť a minútu? Vyskúšaj Ľudov slovný kvíz.
+            </p>
+
+            <a href="/labs/kviz" class="l-btn l-btn--primary l-btn--small"><!--<i class="fa fa-music"></i>--> Vyskúšať Ľudov slovný kvíz</a>
+
+
+
+        </div>
+
+    </div>
+
+
 
     </div>
 

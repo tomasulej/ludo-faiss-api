@@ -1,0 +1,104 @@
+
+<?php
+
+    $theme="l-theme-yellow";
+    $labs_tab='class="active"';
+require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
+//require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_labs_header_small.php";
+
+?>
+<script src="//cdn.rawgit.com/hilios/jQuery.countdown/2.2.0/dist/jquery.countdown.min.js"></script>
+
+
+
+<div class="l-articles">
+    <div class="container">
+
+
+    <div class="row">
+    <div class="col-md-11 offset-md-1">
+        <h2>Ľudov slovný kvíz: otestuj svoju slovnú zásobu</a></h2>
+
+
+    </div></div>
+
+        <div class="row">
+
+        <div class="col-md-8 offset-md-1" id="hra">
+        <div class="card">
+            <div class="card-block">
+                <p><big>Slová a ich významy: ako dobrý(á) si v ich hľadaní? Koľko si ich <strong>schopný(á) nájsť za minútu</strong>? Otestuj sa v Ľudovom slovnom kvíze.<strong></big></p>
+                <BR><BR>
+                    <div class="l-center"><button type="button" class="l-btn l-btn--large l-btn--primary" onclick="startGame()">Spustiť Ľudov slovný kvíz</button></div>
+            </div>
+            </div>
+
+
+        </div>
+
+
+        <div class="col-md-3">
+
+            <div class="card" id="casomiera" style="display:none">
+                <div class="card-block">
+                    <h4 class="card-title">Koľko dáš za minútu?</h4>
+
+
+                    <div id="clock"></div>
+                    <div>Správne odpovede: <big style="color:green" id="divCorrectAnswers">0</big></div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+</div>
+</div>
+
+    <script type="text/javascript">
+
+
+        CorrectAnswers=0;
+
+
+        function loadQuestion() {
+            $( "#hra" ).load( "ajax_question.php" );
+        }
+
+        function startGame() {
+            loadQuestion();
+            $("#casomiera").css("display","block");
+            var fiveSeconds = new Date().getTime() + 59000;
+            $('#clock').countdown(fiveSeconds, {elapse: true})
+                .on('update.countdown', function (event) {
+                    var $this = $(this);
+                    if (event.elapsed) {
+                        $('#casomiera').css("display","none");
+                        $('#hra').html(
+                            '<div class="card"><div class="card-block">' +
+                            '<big><strong>Výborne!</strong> Správne si odpovedal(a) <strong>' +CorrectAnswers+'-krát</strong>.'+
+                            'Pochváľ sa a <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.ludoslovensky.sk%2Flabs%2Fkviz" target="_blank">vyzvi na súboj priateľov</a> na Facebooku. Alebo skús znova, či nenahráš viac :)</big>' +
+                            '<div class="l-center"><button type="button" class="l-btn l-btn--large l-btn--primary" onclick="location.reload();"> <i class="fa fa-refresh"></i> Hrať znova</button></div>\n' +
+                            '<hr width="30%"><BR><small>Toto je laboratórny experiment projektu <a href="http://www.ludoslovensky.sk">Ľudo Slovenský</a>, ktorého cieľom je sprístupniť naše kultúrne dedičstvo. Pozri <a href="http://www.ludoslovensky.sk">naše ďalšie projekty</a>. (c) 2017 <a href="http://www.facebook.com/tomas.ulej.pise">Tomáš Ulej</a>, založené na <a href="http://korpus.juls.savba.sk/WordNet.html">projekte WordNet</a> Jazykovedného ústavu Ľudovíta Štúra.</small>'+
+                            '</div></div>'
+                        );
+
+                    } else {
+                        $this.html('Ešte ti ostáva <strong>' + event.strftime('%S') + '</strong> sekúnd.');
+                    }
+                });
+
+        }
+
+
+
+    </script>
+
+
+
+<?php //require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_footer.php"?>
