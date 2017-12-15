@@ -27,7 +27,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
         <div class="col-md-8 offset-md-1" id="hra">
         <div class="card">
             <div class="card-block">
-                <p><big>Slová a ich významy: ako dobrý(á) si v ich hľadaní? Koľko si ich <strong>schopný(á) nájsť za minútu</strong>? Otestuj sa v Ľudovom slovnom kvíze.<strong></big></p>
+                <p><big>Ako veľmi si rozumieš so slovami? Koľko si ich <strong>schopný(á) nájsť za minútu</strong>? Otestuj svoju slovnú zásobu v Ľudovom slovnom kvíze.<strong></big></p>
                 <BR><BR>
                     <div class="l-center"><button type="button" class="l-btn l-btn--large l-btn--primary" onclick="startGame()">Spustiť Ľudov slovný kvíz</button></div>
             </div>
@@ -82,7 +82,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                         $('#hra').html(
                             '<div class="card"><div class="card-block">' +
                             '<big><strong>Výborne!</strong> Správne si odpovedal(a) <strong>' +CorrectAnswers+'-krát</strong>.'+
-                            'Pochváľ sa a <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.ludoslovensky.sk%2Flabs%2Fkviz" target="_blank">vyzvi na súboj priateľov</a> na Facebooku. Alebo skús znova, či nenahráš viac :)</big>' +
+                            'Pochváľ sa svojimi úspechmi a <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.ludoslovensky.sk%2Flabs%2Fkviz" target="_blank">vyzvi na súboj priateľov</a> na Facebooku. Alebo skús znova, či nenahráš viac :)</big>' +
                             '<div class="l-center"><button type="button" class="l-btn l-btn--large l-btn--primary" onclick="location.reload();"> <i class="fa fa-refresh"></i> Hrať znova</button></div>\n' +
                             '<hr width="30%"><BR><small>Toto je laboratórny experiment projektu <a href="http://www.ludoslovensky.sk">Ľudo Slovenský</a>, ktorého cieľom je sprístupniť naše kultúrne dedičstvo. Pozri <a href="http://www.ludoslovensky.sk">naše ďalšie projekty</a>. (c) 2017 <a href="http://www.facebook.com/tomas.ulej.pise">Tomáš Ulej</a>, založené na <a href="http://korpus.juls.savba.sk/WordNet.html">projekte WordNet</a> Jazykovedného ústavu Ľudovíta Štúra.</small>'+
                             '</div></div>'
