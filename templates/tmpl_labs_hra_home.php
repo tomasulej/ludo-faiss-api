@@ -11,7 +11,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 ?>
 <script src="//cdn.rawgit.com/hilios/jQuery.countdown/2.2.0/dist/jquery.countdown.min.js"></script>
 
-
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
 <div class="l-articles">
     <div class="container">
@@ -34,7 +34,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                     <div class="l-center"><button type="button" class="l-btn l-btn--large l-btn--primary" onclick="startGame()">Spustiť Ľudov slovný kvíz</button></div>
             </div>
             </div>
-
+            <small><a onclick="$('#fb_chvastacka').show()" href="javascript:void(0)">(Zobraziť diskusiu hráčov)</a></small>
 
         </div>
 
@@ -90,9 +90,15 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                     var $this = $(this);
                     if (event.elapsed) {
                         $('#casomiera').css("display","none");
+                        if (Cookies.get('record')=='undefined') {
+                           Cookies.set('record', CorrectAnswers);
+                           alert("Undefined");
+                        } else if (parseInt(Cookies.get('record'))<=CorrectAnswers) {
+                            Cookies.set('record', CorrectAnswers);
+                        }
                         $('#hra').html(
                             '<div class="card"><div class="card-block">' +
-                            '<big><strong>Výborne!</strong> Správne si odpovedal(a) <strong>' +CorrectAnswers+'-krát</strong>. '+
+                            '<big><strong>Výborne!</strong> Správne si odpovedal(a) <strong>' +CorrectAnswers+'-krát</strong> (zatiaľ najviac si dal(a) '+Cookies.get('record')+'-krát). '+
                             '<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.ludoslovensky.sk%2Flabs%2Fkviz" target="_blank">Pochváľ sa na Facebooku</a> a vyzvi priateľov na súboj. Alebo skús znova, či nenahráš viac :)</big><BR>' +
                             '<div class="l-center"><button type="button" class="l-btn l-btn--large l-btn--primary" onclick="location.reload();"> <i class="fa fa-refresh"></i> Hrať znova</button></div>\n' +
                             '<br><small>Páčilo sa? <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.ludoslovensky.sk%2Flabs%2Fkviz" target="_blank">Zdieľaj</a>. Rekord? <a onclick="$(\'#fb_chvastacka\').show()" href="javascript:void(0)"><i class="fa fa-level-down" aria-hidden="true"></i> Tu sa môžeš pochvastať, koľko si nahral(a)</a></small>.'+

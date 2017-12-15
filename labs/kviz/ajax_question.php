@@ -38,7 +38,7 @@
 
     <div class="card-block" >
 
-        <big>Označ <strong>dve slová</strong>, ktoré nejako súvisia s výrazom <strong><?php echo $solution_question; ?></strong>. <span id="count-current-correct" style="color:green">0</span>/<?php echo $solution_count_required ?></big>
+        <big>Označ <strong>dve slová</strong>, ktoré súvisia s výrazom <strong><?php echo $solution_question; ?></strong>. <span id="count-current-correct" style="color:green">0</span>/<?php echo $solution_count_required ?></big>
         </div>
 
         <?php foreach ($answers as $id=>$answer) { ?>
