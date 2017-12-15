@@ -93,7 +93,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                         //alert(Cookies.get('record'));
                         if (Cookies.get('record')==undefined) {
                            Cookies.set('record', CorrectAnswers);
-                           alert("Undefined");
+                           //alert("Undefined");
                         } else if (parseInt(Cookies.get('record'))<=CorrectAnswers) {
                             Cookies.set('record', CorrectAnswers);
                         }
