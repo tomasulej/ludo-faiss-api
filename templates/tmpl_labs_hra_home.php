@@ -93,9 +93,9 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                         $('#hra').html(
                             '<div class="card"><div class="card-block">' +
                             '<big><strong>Výborne!</strong> Správne si odpovedal(a) <strong>' +CorrectAnswers+'-krát</strong>. '+
-                            '<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.ludoslovensky.sk%2Flabs%2Fkviz" target="_blank">Pochváľ sa na Facebooku</a> a vyzvi priateľov na súboj. Alebo skús znova, či nenahráš viac :)</big>' +
+                            '<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.ludoslovensky.sk%2Flabs%2Fkviz" target="_blank">Pochváľ sa na Facebooku</a> a vyzvi priateľov na súboj. Alebo skús znova, či nenahráš viac :)</big><BR>' +
                             '<div class="l-center"><button type="button" class="l-btn l-btn--large l-btn--primary" onclick="location.reload();"> <i class="fa fa-refresh"></i> Hrať znova</button></div>\n' +
-                            '<br>Páčilo sa? <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.ludoslovensky.sk%2Flabs%2Fkviz" target="_blank">Zdieľaj</a>. Rekord? <a onclick="$(\'#fb_chvastacka\').show()" href="javascript:void(0)"><i class="fa fa-level-down" aria-hidden="true"></i> Tu sa môžeš pochvastať, koľko si nahral(a)</a>'+
+                            '<br><small>Páčilo sa? <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.ludoslovensky.sk%2Flabs%2Fkviz" target="_blank">Zdieľaj</a>. Rekord? <a onclick="$(\'#fb_chvastacka\').show()" href="javascript:void(0)"><i class="fa fa-level-down" aria-hidden="true"></i> Tu sa môžeš pochvastať, koľko si nahral(a)</a></small>.'+
                             '<hr width="30%"><BR><small>Toto je laboratórny experiment projektu <a href="http://www.ludoslovensky.sk">Ľudo Slovenský</a>, ktorého cieľom je sprístupniť naše kultúrne dedičstvo. Pozri <a href="http://www.ludoslovensky.sk">naše ďalšie projekty</a>. (c) 2017 <a href="http://www.facebook.com/tomas.ulej.pise">Tomáš Ulej</a>, založené na <a href="http://korpus.juls.savba.sk/WordNet.html">projekte WordNet</a> Jazykovedného ústavu Ľudovíta Štúra.</small>'+
                             '</div></div>'
                         );
