@@ -14,6 +14,8 @@ $counter=0;
 $q1=mysql_query("SELECT * FROM kviz_words WHERE count_synonyms>4 ORDER BY rand() LIMIT 1 ");
 $objSolution=mysql_fetch_object($q1);
 $arrSolution=explode(";", $objSolution->synonyms);
+shuffle($arrSolution);
+
 foreach ($arrSolution as &$solution) {
     $counter++;
     if ($counter==1) {
@@ -37,6 +39,7 @@ while ($objAnswers=mysql_fetch_object($q2)) {
     $counter++;
     $arrPotAnswers=array();
     $arrPotAnswers=explode(";", $objAnswers->synonyms);
+    shuffle($arrPotAnswers);
     $answers[$counter]["word"]=str_replace("+","",$arrPotAnswers[0]);
     $answers[$counter]["isCorrect"]=0;
     $answers[$counter]["id"]=$counter;

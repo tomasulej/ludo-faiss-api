@@ -107,6 +107,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                             '</div></div>'
                         );
 
+
                     } else {
                         $this.html('Ešte ti zostáva <strong>' + event.strftime('%S') + '</strong> sekúnd.');
                     }
