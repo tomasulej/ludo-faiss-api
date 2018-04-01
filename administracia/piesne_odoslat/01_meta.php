@@ -10,7 +10,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_administracia_header.php";
 
 
 <div class="l-page">
-
+<style>p.text-muted {display:none} </style>
     <div class="container">
 
 
@@ -58,8 +58,8 @@ if ($p_edit->id_nadriadeny<>0) {
 
 
 
-    <label for="id_zbierka" class="col-sm-2 form-control-label"><strong>Zbierka:</strong></label>
-    <div class="col-sm-9">
+    <label for="id_zbierka" class="col-sm-4 form-control-label"><strong>Zbierka:</strong></label>
+    <div class="col-sm-8">
     <select class="form-control" id="id_zbierka" name="id_zbierka">
 		<?php
 			$q=mysql_query("SELECT * FROM zbierky;");
@@ -85,8 +85,8 @@ if ($p_edit->id_nadriadeny<>0) {
 	  
 	  
   <div class="form-group row">
-    <label for="identifikator" class="col-sm-2 form-control-label"><strong>Interný identifikátor:</strong></label>
-    <div class="col-sm-10">
+    <label for="identifikator" class="col-sm-4 form-control-label"><strong>Interný identifikátor:</strong></label>
+    <div class="col-sm-8">
       <input type="input" class="form-control" id="identifikator" name="identifikator" placeholder="Identifikátor (napr. '231., '232b' a podobne." value="<?php  echo $p_edit->identifikator ?>"
       <p class="form-text text-muted">(nemusíte meniť)</p>
  </div>
@@ -94,8 +94,8 @@ if ($p_edit->id_nadriadeny<>0) {
 
 
   <div class="form-group row">
-    <label for="nazov_dlhy" class="col-sm-2 form-control-label"><strong>Dlhý názov:</strong></label>
-    <div class="col-sm-10">
+    <label for="nazov_dlhy" class="col-sm-4 form-control-label"><strong>Dlhý názov:</strong></label>
+    <div class="col-sm-8">
       <input type="input" class="form-control" id="nazov_dlhy" name="nazov_dlhy" placeholder="Dlhý názov piesne (napr. 'Na Kráľovej holi stojí strom zelený')" value="<?php  echo $p_edit->nazov_dlhy ?>">
     <p class="form-text text-muted">Začiatočné slová piesne (dlhšia verzia)- bude sa zobrazovať ako nadpis piesne</p>
 
@@ -103,8 +103,8 @@ if ($p_edit->id_nadriadeny<>0) {
   </div>
   
     <div class="form-group row">
-    <label for="nazov_kratky" class="col-sm-2 form-control-label"><strong>Krátky názov:</strong></label>
-    <div class="col-sm-10">
+    <label for="nazov_kratky" class="col-sm-4 form-control-label"><strong>Krátky názov:</strong></label>
+    <div class="col-sm-8">
       <input type="input" class="form-control" id="nazov_kratky" name="nazov_kratky" placeholder="Skrátený názov piesne (napr. 'Na Kráľovej holi...')" value="<?php  echo $p_edit->nazov_kratky ?>">
         <p class="form-text text-muted">Začiatočné slová piesne (kratšia verzia) - bude sa zobrazovať v podobných piesňach a iných miestach, kde nie je priestor zobraziť celý názov</p>
 
@@ -113,8 +113,8 @@ if ($p_edit->id_nadriadeny<>0) {
 
 
     <div class="form-group row">
-    <label for="strana" class="col-sm-2 form-control-label"><strong>Strana:</strong></label>
-    <div class="col-sm-10">
+    <label for="strana" class="col-sm-4 form-control-label"><strong>Strana:</strong></label>
+    <div class="col-sm-8">
       <input type="input" class="form-control" id="strana" name="strana" placeholder="Strana, resp. na ktorej sa nachádza pieseň" value="<?php  echo $p_edit->strana ?>">
               <p class="form-text text-muted">Pozrite v PDF súbore na ktorých stranách sa v origináli nachádzala pieseň. Napr. "54", "55-56".</p>
 
@@ -125,8 +125,8 @@ if ($p_edit->id_nadriadeny<>0) {
 	  
   <div class="form-group row">	  
 
-    <label for="id_zberatel" class="col-sm-2 form-control-label"><strong>Zberateľ:</strong></label>
-    <div class="col-sm-10">
+    <label for="id_zberatel" class="col-sm-4 form-control-label"><strong>Zberateľ:</strong></label>
+    <div class="col-sm-8">
     <select class="form-control" id="id_zberatel" name="id_zberatel">
 
 
@@ -163,25 +163,25 @@ if ($p_edit->id_nadriadeny<>0) {
   </div>	
 
 <div class="form-group row" style="display:none" id="div_txt_zberatel"><div class="col-md-2"></div><div class="col-md-10">
-    <label for="txt_zberatel" class="col-sm-2 form-control-label"><strong>Meno zberateľa:</strong></label>
-    <div class="col-sm-10">
+    <label for="txt_zberatel" class="col-sm-4 form-control-label"><strong>Meno zberateľa:</strong></label>
+    <div class="col-sm-8">
       <input type="input" class="form-control" id="txt_zberatel" name="txt_zberatel" placeholder="Napíšte meno zberateľa">
     </div>
 </div></div>
 
 
     <div class="form-group row">
-    <label for="source_zberatel" class="col-sm-2 form-control-label"><strong>Ako je napísaný zberateľ:</strong></label>
-    <div class="col-sm-10">
+    <label for="source_zberatel" class="col-sm-4 form-control-label"><strong>Ako je napísaný zberateľ:</strong></label>
+    <div class="col-sm-8">
     <select class="form-control" id="source_zberatel" name="source_zberatel">
-      <option value='0' <?php if ($p_edit->source_zberatel==0) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) bez zátvoriek</option>
-      <option value='1' <?php if ($p_edit->source_zberatel==1) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v hranatých zátvorkách</option>
-      <option value='2' <?php if ($p_edit->source_zberatel==2) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v okrúhlych zátvorkách</option>
-      <option value='3' <?php if ($p_edit->source_zberatel==3) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v okrúhlych aj hranatých zátvorkách</option>
-      <option value='4' <?php if ($p_edit->source_zberatel==4) {echo 'selected';} else { echo '';} ?>>kurzíva bez zátvoriek</option>
-      <option value='5' <?php if ($p_edit->source_zberatel==5) {echo 'selected';} else { echo '';} ?>>kurzíva v okrúhlych zátvorkách</option>
-      <option value='6' <?php if ($p_edit->source_zberatel==6) {echo 'selected';} else { echo '';} ?>>kurzíva v hranatých zátvorkách</option>
-      <option value='7' <?php if ($p_edit->source_zberatel==7) {echo 'selected';} else { echo '';} ?>>kurzíva v klasických aj hranatých zátvorkých</option>
+      <option value='0' <?php if ($p_edit->source_zberatel==0) {echo 'selected';} else { echo '';} ?>>x normálne písmo (nie kurzíva) bez zátvoriek</option>
+      <option value='1' <?php if ($p_edit->source_zberatel==1) {echo 'selected';} else { echo '';} ?>>[x] normálne písmo (nie kurzíva) v hranatých zátvorkách</option>
+      <option value='2' <?php if ($p_edit->source_zberatel==2) {echo 'selected';} else { echo '';} ?>>(x) normálne písmo (nie kurzíva) v okrúhlych zátvorkách</option>
+      <option value='3' <?php if ($p_edit->source_zberatel==3) {echo 'selected';} else { echo '';} ?>>[(x)] normálne písmo (nie kurzíva) v okrúhlych aj hranatých zátvorkách</option>
+      <option value='4' <?php if ($p_edit->source_zberatel==4) {echo 'selected';} else { echo '';} ?>>i kurzíva bez zátvoriek</option>
+      <option value='5' <?php if ($p_edit->source_zberatel==5) {echo 'selected';} else { echo '';} ?>>(i) kurzíva v okrúhlych zátvorkách</option>
+      <option value='6' <?php if ($p_edit->source_zberatel==6) {echo 'selected';} else { echo '';} ?>>[i] kurzíva v hranatých zátvorkách</option>
+      <option value='7' <?php if ($p_edit->source_zberatel==7) {echo 'selected';} else { echo '';} ?>>[(i)] kurzíva v klasických aj hranatých zátvorkých</option>
 
     </select>
             <p class="form-text text-muted">Pozrite ako je v origináli napísané. Údaj môže byť napísaný normálnym písmom, kurzívou a môže byť a nemusí byť vo vnútri okrúhlych alebo hranatých zátvoriek. Napríklad:<BR> <code>"(J. Rotarides, [1800], Príbelce [<i>Hontianska</i>])"</code><BR>
@@ -198,8 +198,8 @@ if ($p_edit->id_nadriadeny<>0) {
 
   <div class="form-group row">	  
 
-    <label for="id_zberatel_miesto" class="col-sm-2 form-control-label"><strong>Miesto zozbierania:</strong></label>
-    <div class="col-sm-10">
+    <label for="id_zberatel_miesto" class="col-sm-4 form-control-label"><strong>Miesto zozbierania:</strong></label>
+    <div class="col-sm-8">
     <select class="form-control" id="id_zberatel_miesto" name="id_zberatel_miesto">
     <option value='-1'>(Miesto chýba v zozname)</option>
     <option value='0' <?php if (empty($p_edit->id_zberatel_miesto)) {echo "selected";} ?>>(žiadne)</option>
@@ -226,25 +226,25 @@ if ($p_edit->id_nadriadeny<>0) {
 
 
   <div class="form-group row" style="display:none" id="div_txt_zberatel_miesto"><div class="col-md-2"></div><div class="col-md-10">
-    <label for="txt_zberatel" class="col-sm-2 form-control-label"><strong>Miesto zozbierania:</strong></label>
-    <div class="col-sm-10">
+    <label for="txt_zberatel" class="col-sm-4 form-control-label"><strong>Miesto zozbierania:</strong></label>
+    <div class="col-sm-8">
       <input type="input" class="form-control" id="txt_zberatel_miesto" name="txt_zberatel_miesto" placeholder="Napíšte miesto zozbierania">
     </div>
 </div></div>
 
 
     <div class="form-group row">
-    <label for="source_zberatel_miesto" class="col-sm-2 form-control-label"><strong>Ako je napísané miesto zozbierania:</strong></label>
-    <div class="col-sm-10">
+    <label for="source_zberatel_miesto" class="col-sm-4 form-control-label"><strong>Ako je napísané miesto zozbierania:</strong></label>
+    <div class="col-sm-8">
     <select class="form-control" id="source_zberatel_miesto" name="source_zberatel_miesto">
-      <option value='0' <?php if ($p_edit->source_zberatel_miesto==0) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) bez zátvoriek</option>
-      <option value='1' <?php if ($p_edit->source_zberatel_miesto==1) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v hranatých zátvorkách</option>
-      <option value='2' <?php if ($p_edit->source_zberatel_miesto==2) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v klasických zátvorkách</option>
-      <option value='3' <?php if ($p_edit->source_zberatel_miesto==3) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v klasických aj hranatých zátvorkách</option>
-      <option value='4' <?php if ($p_edit->source_zberatel_miesto==4) {echo 'selected';} else { echo '';} ?>>kurzíva bez zátvoriek</option>
-      <option value='5' <?php if ($p_edit->source_zberatel_miesto==5) {echo 'selected';} else { echo '';} ?>>kurzíva v klasických zátvorkách</option>
-      <option value='6' <?php if ($p_edit->source_zberatel_miesto==6) {echo 'selected';} else { echo '';} ?>>kurzíva v hranatých zátvorkách</option>
-      <option value='7' <?php if ($p_edit->source_zberatel_miesto==7) {echo 'selected';} else { echo '';} ?>>kurzíva v klasických aj hranatých zátvorkých</option>
+      <option value='0' <?php if ($p_edit->source_zberatel_miesto==0) {echo 'selected';} else { echo '';} ?>>x normálne písmo (nie kurzíva) bez zátvoriek</option>
+      <option value='1' <?php if ($p_edit->source_zberatel_miesto==1) {echo 'selected';} else { echo '';} ?>>[x] normálne písmo (nie kurzíva) v hranatých zátvorkách</option>
+      <option value='2' <?php if ($p_edit->source_zberatel_miesto==2) {echo 'selected';} else { echo '';} ?>>(x) normálne písmo (nie kurzíva) v klasických zátvorkách</option>
+      <option value='3' <?php if ($p_edit->source_zberatel_miesto==3) {echo 'selected';} else { echo '';} ?>>[(x)] normálne písmo (nie kurzíva) v klasických aj hranatých zátvorkách</option>
+      <option value='4' <?php if ($p_edit->source_zberatel_miesto==4) {echo 'selected';} else { echo '';} ?>>i kurzíva bez zátvoriek</option>
+      <option value='5' <?php if ($p_edit->source_zberatel_miesto==5) {echo 'selected';} else { echo '';} ?>>(i) kurzíva v klasických zátvorkách</option>
+      <option value='6' <?php if ($p_edit->source_zberatel_miesto==6) {echo 'selected';} else { echo '';} ?>>[i] kurzíva v hranatých zátvorkách</option>
+      <option value='7' <?php if ($p_edit->source_zberatel_miesto==7) {echo 'selected';} else { echo '';} ?>>[(i)] kurzíva v klasických aj hranatých zátvorkých</option>
 
     </select>
 
@@ -253,8 +253,8 @@ if ($p_edit->id_nadriadeny<>0) {
 
   <div class="form-group row">	  
 
-    <label for="id_zberatel_vyskyt" class="col-sm-2 form-control-label"><strong>Miesto vyskytu piesne:</strong></label>
-    <div class="col-sm-10">
+    <label for="id_zberatel_vyskyt" class="col-sm-4 form-control-label"><strong>Miesto vyskytu piesne:</strong></label>
+    <div class="col-sm-8">
     <select class="form-control" id="id_zberatel_vyskyt" name="id_zberatel_vyskyt">
         <option value='-1'>(Miesto chýba v zozname)</option>
         <option value='0' <?php if (empty($p_edit->id_zberatel_vyskyt)) {echo "selected";} ?>>(žiadne)</option>
@@ -281,24 +281,24 @@ if ($p_edit->id_nadriadeny<>0) {
 
 
 <div class="form-group row" style="display:none" id="div_txt_zberatel_vyskyt"><div class="col-md-2"></div><div class="col-md-10">
-    <label for="txt_zberatel" class="col-sm-2 form-control-label"><strong>Miesto výskytu:</strong></label>
-    <div class="col-sm-10">
+    <label for="txt_zberatel" class="col-sm-4 form-control-label"><strong>Miesto výskytu:</strong></label>
+    <div class="col-sm-8">
       <input type="input" class="form-control" id="txt_zberatel_vyskyt" name="txt_zberatel_vyskyt" placeholder="Napíšte miesto výskytu">
     </div>
 </div></div>
 
     <div class="form-group row">
-    <label for="source_zberatel_vyskyt" class="col-sm-2 form-control-label"><strong>Ako je napísané miesto výskytu piesne:</strong></label>
-    <div class="col-sm-10">
+    <label for="source_zberatel_vyskyt" class="col-sm-4 form-control-label"><strong>Ako je napísané miesto výskytu piesne:</strong></label>
+    <div class="col-sm-8">
     <select class="form-control" id="source_zberatel_vyskyt" name="source_zberatel_vyskyt">
-      <option value='0' <?php if ($p_edit->source_zberatel_vyskyt==0) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) bez zátvoriek</option>
-      <option value='1' <?php if ($p_edit->source_zberatel_vyskyt==1) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v hranatých zátvorkách</option>
-      <option value='2' <?php if ($p_edit->source_zberatel_vyskyt==2) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v klasických zátvorkách</option>
-      <option value='3' <?php if ($p_edit->source_zberatel_vyskyt==3) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v klasických aj hranatých zátvorkách</option>
-      <option value='4' <?php if ($p_edit->source_zberatel_vyskyt==4) {echo 'selected';} else { echo '';} ?>>kurzíva bez zátvoriek</option>
-      <option value='5' <?php if ($p_edit->source_zberatel_vyskyt==5) {echo 'selected';} else { echo '';} ?>>kurzíva v klasických zátvorkách</option>
-      <option value='6' <?php if ($p_edit->source_zberatel_vyskyt==6) {echo 'selected';} else { echo '';} ?>>kurzíva v hranatých zátvorkách</option>
-      <option value='7' <?php if ($p_edit->source_zberatel_vyskyt==7) {echo 'selected';} else { echo '';} ?>>kurzíva v klasických aj hranatých zátvorkých</option>
+      <option value='0' <?php if ($p_edit->source_zberatel_vyskyt==0) {echo 'selected';} else { echo '';} ?>>x normálne písmo (nie kurzíva) bez zátvoriek</option>
+      <option value='1' <?php if ($p_edit->source_zberatel_vyskyt==1) {echo 'selected';} else { echo '';} ?>>[x] normálne písmo (nie kurzíva) v hranatých zátvorkách</option>
+      <option value='2' <?php if ($p_edit->source_zberatel_vyskyt==2) {echo 'selected';} else { echo '';} ?>>(x) normálne písmo (nie kurzíva) v klasických zátvorkách</option>
+      <option value='3' <?php if ($p_edit->source_zberatel_vyskyt==3) {echo 'selected';} else { echo '';} ?>>[(x)] normálne písmo (nie kurzíva) v klasických aj hranatých zátvorkách</option>
+      <option value='4' <?php if ($p_edit->source_zberatel_vyskyt==4) {echo 'selected';} else { echo '';} ?>>i kurzíva bez zátvoriek</option>
+      <option value='5' <?php if ($p_edit->source_zberatel_vyskyt==5) {echo 'selected';} else { echo '';} ?>>(i) kurzíva v klasických zátvorkách</option>
+      <option value='6' <?php if ($p_edit->source_zberatel_vyskyt==6) {echo 'selected';} else { echo '';} ?>>[i] kurzíva v hranatých zátvorkách</option>
+      <option value='7' <?php if ($p_edit->source_zberatel_vyskyt==7) {echo 'selected';} else { echo '';} ?>>[(i)] kurzíva v klasických aj hranatých zátvorkých</option>
 
     </select>
 
@@ -308,8 +308,8 @@ if ($p_edit->id_nadriadeny<>0) {
 
 
     <div class="form-group row">
-    <label for="datum_zbieranie" class="col-sm-2 form-control-label"><strong>Dátum zozbierania:</strong></label>
-    <div class="col-sm-10">
+    <label for="datum_zbieranie" class="col-sm-4 form-control-label"><strong>Dátum zozbierania:</strong></label>
+    <div class="col-sm-8">
       <input type="input" class="form-control" id="datum_zbieranie" name="datum_zbieranie" placeholder="Dátum, kedy bola zbierka pôvodne zozbieraná" value="<?php echo $p_edit->datum_zbieranie; ?>">
     </div>
   </div>
@@ -317,17 +317,17 @@ if ($p_edit->id_nadriadeny<>0) {
 
 
     <div class="form-group row">
-    <label for="source_datum_zbieranie" class="col-sm-2 form-control-label"><strong>Ako je napísaný dátum zozbierania:</strong></label>
-    <div class="col-sm-10">
+    <label for="source_datum_zbieranie" class="col-sm-4 form-control-label"><strong>Ako je napísaný dátum zozbierania:</strong></label>
+    <div class="col-sm-8">
     <select class="form-control" id="source_datum_zbieranie" name="source_datum_zbieranie">
-      <option value='0' <?php if ($p_edit->source_datum_zbieranie==0) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) bez zátvoriek</option>
-      <option value='1' <?php if ($p_edit->source_datum_zbieranie==1) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v hranatých zátvorkách</option>
-      <option value='2' <?php if ($p_edit->source_datum_zbieranie==2) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v klasických zátvorkách</option>
-      <option value='3' <?php if ($p_edit->source_datum_zbieranie==3) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v klasických aj hranatých zátvorkách</option>
-      <option value='4' <?php if ($p_edit->source_datum_zbieranie==4) {echo 'selected';} else { echo '';} ?>>kurzíva bez zátvoriek</option>
-      <option value='5' <?php if ($p_edit->source_datum_zbieranie==5) {echo 'selected';} else { echo '';} ?>>kurzíva v klasických zátvorkách</option>
-      <option value='6' <?php if ($p_edit->source_datum_zbieranie==6) {echo 'selected';} else { echo '';} ?>>kurzíva v hranatých zátvorkách</option>
-      <option value='7' <?php if ($p_edit->source_datum_zbieranie==7) {echo 'selected';} else { echo '';} ?>>kurzíva v klasických aj hranatých zátvorkých</option>
+      <option value='0' <?php if ($p_edit->source_datum_zbieranie==0) {echo 'selected';} else { echo '';} ?>>x normálne písmo (nie kurzíva) bez zátvoriek</option>
+      <option value='1' <?php if ($p_edit->source_datum_zbieranie==1) {echo 'selected';} else { echo '';} ?>>[x] normálne písmo (nie kurzíva) v hranatých zátvorkách</option>
+      <option value='2' <?php if ($p_edit->source_datum_zbieranie==2) {echo 'selected';} else { echo '';} ?>>(x) normálne písmo (nie kurzíva) v klasických zátvorkách</option>
+      <option value='3' <?php if ($p_edit->source_datum_zbieranie==3) {echo 'selected';} else { echo '';} ?>>[(x)] normálne písmo (nie kurzíva) v klasických aj hranatých zátvorkách</option>
+      <option value='4' <?php if ($p_edit->source_datum_zbieranie==4) {echo 'selected';} else { echo '';} ?>>i kurzíva bez zátvoriek</option>
+      <option value='5' <?php if ($p_edit->source_datum_zbieranie==5) {echo 'selected';} else { echo '';} ?>>(i) kurzíva v klasických zátvorkách</option>
+      <option value='6' <?php if ($p_edit->source_datum_zbieranie==6) {echo 'selected';} else { echo '';} ?>>[i] kurzíva v hranatých zátvorkách</option>
+      <option value='7' <?php if ($p_edit->source_datum_zbieranie==7) {echo 'selected';} else { echo '';} ?>>[(i)] kurzíva v klasických aj hranatých zátvorkých</option>
 
     </select>
 
@@ -336,8 +336,8 @@ if ($p_edit->id_nadriadeny<>0) {
   
   
       <div class="form-group row">
-    <label for="datum_digitalizacia" class="col-sm-2 form-control-label"><strong>Dátum digitalizácie:</strong></label>
-    <div class="col-sm-10">
+    <label for="datum_digitalizacia" class="col-sm-4 form-control-label"><strong>Dátum digitalizácie:</strong></label>
+    <div class="col-sm-8">
       <input type="input" class="form-control" id="datum_digitalizacia" name="datum_digitalizacia" value="<?php if ($_GET['id_piesen']<>0) {echo $p_edit->datum_digitalizacia;} else {echo date("Y-m-d");} ?>">
       <p class="form-text text-muted">Uveďte dnešný dátum v tvare YYYY-MM-DD, napr. "2016-07-23"</p>
     </div>
@@ -345,8 +345,8 @@ if ($p_edit->id_nadriadeny<>0) {
 
 
   <div class="form-group row">	  
-    <label for="id_digitalizator" class="col-sm-2 form-control-label"><strong>Meno digitalizátora:</strong></label>
-    <div class="col-sm-10">
+    <label for="id_digitalizator" class="col-sm-4 form-control-label"><strong>Meno digitalizátora:</strong></label>
+    <div class="col-sm-8">
     <select class="form-control" id="id_digitalizator" name="id_digitalizator">
        <option value='-1'>(Meno chýba v zozname)</option>
 
@@ -373,16 +373,16 @@ if ($p_edit->id_nadriadeny<>0) {
   </div>
   
 <div class="form-group row" style="display:none" id="div_txt_digitalizator"><div class="col-md-2"></div><div class="col-md-10">
-    <label for="txt_digitalizator" class="col-sm-2 form-control-label"><strong>Meno digitalizátora:</strong></label>
-    <div class="col-sm-10">
+    <label for="txt_digitalizator" class="col-sm-4 form-control-label"><strong>Meno digitalizátora:</strong></label>
+    <div class="col-sm-8">
       <input type="input" class="form-control" id="txt_digitalizator" name="txt_digitalizator" placeholder="Napíšte meno digitalizátora">
     </div>
 </div></div>
 
 
  <div class="form-group row">	  
-    <label for="id_digitalizator2" class="col-sm-2 form-control-label"><strong>Kto pridal dielo sem (Tvoje meno):</strong></label>
-    <div class="col-sm-10">
+    <label for="id_digitalizator2" class="col-sm-4 form-control-label"><strong>Kto pridal dielo sem (Tvoje meno):</strong></label>
+    <div class="col-sm-8">
     <select class="form-control" id="id_digitalizator2" name="id_digitalizator2">
        <option value='-1'>(Meno chýba v zozname)</option>
 
@@ -409,8 +409,8 @@ if ($p_edit->id_nadriadeny<>0) {
   </div>
   
 <div class="form-group row" style="display:none" id="div_txt_digitalizator2"><div class="col-md-2"></div><div class="col-md-10">
-    <label for="txt_digitalizator2" class="col-sm-2 form-control-label"><strong>Meno digitalizátora:</strong></label>
-    <div class="col-sm-10">
+    <label for="txt_digitalizator2" class="col-sm-4 form-control-label"><strong>Meno digitalizátora:</strong></label>
+    <div class="col-sm-8">
       <input type="input" class="form-control" id="txt_digitalizator2" name="txt_digitalizator2" placeholder="Napíšte meno digitalizátora">
     </div>
 </div></div>
@@ -422,8 +422,8 @@ if ($p_edit->id_nadriadeny<>0) {
 
   
     <div class="form-group row" style="display:none">	  
-    <label for="id_hudba" class="col-sm-2 form-control-label"><strong>Autor hudobnej nahrávky:</strong></label>
-    <div class="col-sm-10">
+    <label for="id_hudba" class="col-sm-4 form-control-label"><strong>Autor hudobnej nahrávky:</strong></label>
+    <div class="col-sm-8">
     <select class="form-control" id="id_hudba" name="id_hudba">
 		<?php
 			$q=mysql_query("SELECT * FROM hudobnici;");
@@ -450,8 +450,8 @@ if ($p_edit->id_nadriadeny<>0) {
 
  
     <div class="form-group row">	  
-    <label for="id_tempo" class="col-sm-2 form-control-label"><strong>Tempo:</strong></label>
-    <div class="col-sm-10">
+    <label for="id_tempo" class="col-sm-4 form-control-label"><strong>Tempo:</strong></label>
+    <div class="col-sm-8">
     <select class="form-control" id="id_tempo" name="id_tempo">
               <option value='-1'>(Tempo chýba v zozname)</option>
 		<?php
@@ -471,14 +471,14 @@ if ($p_edit->id_nadriadeny<>0) {
   </div>
 
 <div class="form-group row" style="display:none" id="div_txt_tempo"><div class="col-md-2"></div><div class="col-md-10">
-    <label for="txt_tempo" class="col-sm-2 form-control-label"><strong>Tempo:</strong></label>
-    <div class="col-sm-10">
+    <label for="txt_tempo" class="col-sm-4 form-control-label"><strong>Tempo:</strong></label>
+    <div class="col-sm-8">
       <input type="input" class="form-control" id="txt_tempo" name="txt_tempo" placeholder="Napíšte názov tempa">
       
     </div>
 
-    <label for="txt_bpm" class="col-sm-2 form-control-label"><strong>Bpm:</strong></label>
-    <div class="col-sm-10">
+    <label for="txt_bpm" class="col-sm-4 form-control-label"><strong>Bpm:</strong></label>
+    <div class="col-sm-8">
       <input type="input" class="form-control" id="txt_bpm" name="txt_bpm" placeholder="Napíšte počet BPM (beats per minute)">
       
     </div>
@@ -490,18 +490,18 @@ if ($p_edit->id_nadriadeny<>0) {
 
 
     <div class="form-group row">
-    <label for="source_tempo" class="col-sm-2 form-control-label"><strong>Ako je napísané tempo:</strong></label>
-    <div class="col-sm-10">
+    <label for="source_tempo" class="col-sm-4 form-control-label"><strong>Ako je napísané tempo:</strong></label>
+    <div class="col-sm-8">
     <select class="form-control" id="source_tempo" name="source_tempo">
 
-      <option value='0' <?php if ($p_edit->source_tempo==0) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) bez zátvoriek</option>
-      <option value='1' <?php if ($p_edit->source_tempo==1) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v hranatých zátvorkách</option>
-      <option value='2' <?php if ($p_edit->source_tempo==2) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v klasických zátvorkách</option>
-      <option value='3' <?php if ($p_edit->source_tempo==3) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v klasických aj hranatých zátvorkách</option>
-      <option value='4' <?php if ($p_edit->source_tempo==4) {echo 'selected';} else { echo '';} ?>>kurzíva bez zátvoriek</option>
-      <option value='5' <?php if ($p_edit->source_tempo==5) {echo 'selected';} else { echo '';} ?>>kurzíva v klasických zátvorkách</option>
-      <option value='6' <?php if ($p_edit->source_tempo==6) {echo 'selected';} else { echo '';} ?>>kurzíva v hranatých zátvorkách</option>
-      <option value='7' <?php if ($p_edit->source_tempo==7) {echo 'selected';} else { echo '';} ?>>kurzíva v klasických aj hranatých zátvorkých</option>
+      <option value='0' <?php if ($p_edit->source_tempo==0) {echo 'selected';} else { echo '';} ?>>x normálne písmo (nie kurzíva) bez zátvoriek</option>
+      <option value='1' <?php if ($p_edit->source_tempo==1) {echo 'selected';} else { echo '';} ?>>[x] normálne písmo (nie kurzíva) v hranatých zátvorkách</option>
+      <option value='2' <?php if ($p_edit->source_tempo==2) {echo 'selected';} else { echo '';} ?>>(x) normálne písmo (nie kurzíva) v klasických zátvorkách</option>
+      <option value='3' <?php if ($p_edit->source_tempo==3) {echo 'selected';} else { echo '';} ?>>[(x)] normálne písmo (nie kurzíva) v klasických aj hranatých zátvorkách</option>
+      <option value='4' <?php if ($p_edit->source_tempo==4) {echo 'selected';} else { echo '';} ?>>i kurzíva bez zátvoriek</option>
+      <option value='5' <?php if ($p_edit->source_tempo==5) {echo 'selected';} else { echo '';} ?>>(i) kurzíva v klasických zátvorkách</option>
+      <option value='6' <?php if ($p_edit->source_tempo==6) {echo 'selected';} else { echo '';} ?>>[i] kurzíva v hranatých zátvorkách</option>
+      <option value='7' <?php if ($p_edit->source_tempo==7) {echo 'selected';} else { echo '';} ?>>[(i)] kurzíva v klasických aj hranatých zátvorkých</option>
 
     </select>
 
@@ -512,8 +512,8 @@ if ($p_edit->id_nadriadeny<>0) {
 
 <div id="div_id_tempo2" style="display:none">
     <div class="form-group row">	  
-    <label for="id_tempo2" class="col-sm-2 form-control-label"><strong>Tempo 2:</strong></label>
-    <div class="col-sm-10">
+    <label for="id_tempo2" class="col-sm-4 form-control-label"><strong>Tempo 2:</strong></label>
+    <div class="col-sm-8">
     <select class="form-control" id="id_tempo2" name="id_tempo2">
             <option value='-1'>(Tempo chýba v zozname)</option>
             <option value='0' selected>Žiadne druhé tempo - je iba jedno</option>
@@ -536,14 +536,14 @@ if ($p_edit->id_nadriadeny<>0) {
   </div>
 
 <div class="form-group row" style="display:none" id="div_txt_tempo2"><div class="col-md-2"></div><div class="col-md-10">
-    <label for="txt_tempo2" class="col-sm-2 form-control-label"><strong>Tempo2:</strong></label>
-    <div class="col-sm-10">
+    <label for="txt_tempo2" class="col-sm-4 form-control-label"><strong>Tempo2:</strong></label>
+    <div class="col-sm-8">
       <input type="input" class="form-control" id="txt_tempo2" name="txt_tempo2" placeholder="Napíšte názov tempa">
       
     </div>
 
-    <label for="txt_bpm2" class="col-sm-2 form-control-label"><strong>Bpm:</strong></label>
-    <div class="col-sm-10">
+    <label for="txt_bpm2" class="col-sm-4 form-control-label"><strong>Bpm:</strong></label>
+    <div class="col-sm-8">
       <input type="input" class="form-control" id="txt_bpm2" name="txt_bpm2" placeholder="Napíšte počet BPM (beats per minute)">
       
     </div>
@@ -555,17 +555,17 @@ if ($p_edit->id_nadriadeny<>0) {
 
 
     <div class="form-group row">
-    <label for="source_tempo2" class="col-sm-2 form-control-label"><strong>Ako je napísané tempo2:</strong></label>
-    <div class="col-sm-10">
+    <label for="source_tempo2" class="col-sm-4 form-control-label"><strong>Ako je napísané tempo2:</strong></label>
+    <div class="col-sm-8">
     <select class="form-control" id="source_tempo2" name="source_tempo2">
-      <option value='0' <?php if ($p_edit->source_tempo==0) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) bez zátvoriek</option>
-      <option value='1' <?php if ($p_edit->source_tempo==1) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v hranatých zátvorkách</option>
-      <option value='2' <?php if ($p_edit->source_tempo==2) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v klasických zátvorkách</option>
-      <option value='3' <?php if ($p_edit->source_tempo==3) {echo 'selected';} else { echo '';} ?>>normálne písmo (nie kurzíva) v klasických aj hranatých zátvorkách</option>
-      <option value='4' <?php if ($p_edit->source_tempo==4) {echo 'selected';} else { echo '';} ?>>kurzíva bez zátvoriek</option>
-      <option value='5' <?php if ($p_edit->source_tempo==5) {echo 'selected';} else { echo '';} ?>>kurzíva v klasických zátvorkách</option>
-      <option value='6' <?php if ($p_edit->source_tempo==6) {echo 'selected';} else { echo '';} ?>>kurzíva v hranatých zátvorkách</option>
-      <option value='7' <?php if ($p_edit->source_tempo==7) {echo 'selected';} else { echo '';} ?>>kurzíva v klasických aj hranatých zátvorkých</option>
+      <option value='0' <?php if ($p_edit->source_tempo==0) {echo 'selected';} else { echo '';} ?>>x normálne písmo (nie kurzíva) bez zátvoriek</option>
+      <option value='1' <?php if ($p_edit->source_tempo==1) {echo 'selected';} else { echo '';} ?>>[x] normálne písmo (nie kurzíva) v hranatých zátvorkách</option>
+      <option value='2' <?php if ($p_edit->source_tempo==2) {echo 'selected';} else { echo '';} ?>>(x) normálne písmo (nie kurzíva) v klasických zátvorkách</option>
+      <option value='3' <?php if ($p_edit->source_tempo==3) {echo 'selected';} else { echo '';} ?>>[(x)] normálne písmo (nie kurzíva) v klasických aj hranatých zátvorkách</option>
+      <option value='4' <?php if ($p_edit->source_tempo==4) {echo 'selected';} else { echo '';} ?>>i kurzíva bez zátvoriek</option>
+      <option value='5' <?php if ($p_edit->source_tempo==5) {echo 'selected';} else { echo '';} ?>>(i) kurzíva v klasických zátvorkách</option>
+      <option value='6' <?php if ($p_edit->source_tempo==6) {echo 'selected';} else { echo '';} ?>>[i] kurzíva v hranatých zátvorkách</option>
+      <option value='7' <?php if ($p_edit->source_tempo==7) {echo 'selected';} else { echo '';} ?>>[(i)] kurzíva v klasických aj hranatých zátvorkých</option>
 
     </select>
 
@@ -580,8 +580,8 @@ if ($p_edit->id_nadriadeny<>0) {
 
 
     <div class="form-group row" style="display:none">	  
-    <label for="id_incipit" class="col-sm-2 form-control-label"><strong>Incipit:</strong></label>
-    <div class="col-sm-10">
+    <label for="id_incipit" class="col-sm-4 form-control-label"><strong>Incipit:</strong></label>
+    <div class="col-sm-8">
     <select class="form-control" id="id_incipit">
 		<?php
 			$q=mysql_query("SELECT * FROM incipity;");
@@ -616,7 +616,7 @@ if ($p_edit->id_nadriadeny<>0) {
 
 	  
   <div class="form-group row">
-    <div class="col-sm-offset-2 col-sm-10">
+    <div class="col-sm-offset-2 col-sm-8">
 <button type="submit" class="l-btn l-btn--large l-btn--primary">Uložiť zmeny a pokračovať >></button>
     </div>
   </div>
