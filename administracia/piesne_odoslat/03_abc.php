@@ -196,10 +196,41 @@ kdo koho ne|lúbi.|}<BR>
 
 
 
+<script>
+
+function upravabc() {
+    var txt=$('textarea#lyrics').val();
+    txt=txt.split("\n\n").join('|}\n\n{|');
+        txt=txt.split("\n").join('|\n');
+        txt=txt.split("|}|").join('|}');
+        txt=txt.split("|}|").join('|}');
+   
+    var lines = txt.split('\n');   
+    var txt2="";
+
+for (var j = 0; j < lines.length; j++) {
+    if (lines[j].length>1) {
+      txt2=txt2+lines[j]+"\n";
+    } else {
+      txt2=txt2+"\n";  
+    }
+}
+
+        txt="{|"+txt2;
+
+    alert(txt);
+
+} 
+
+
+
+</script>
+
 
 <div class="form-group row">	  
-    <label for="lyrics"><strong>Slová piesne:</strong></label>
+    <label for="lyrics"><strong>Slová piesne:</strong> <a onclick="upravabc();" href="javascript:void(0)">Upraviť</a></label>
     <textarea class="form-control" id="lyrics" name="lyrics" rows="30"><?php echo $p_edit->lyrics; ?></textarea>
+    
 </div>  
 
 <input type="hidden" name="odoslane" value="true">
