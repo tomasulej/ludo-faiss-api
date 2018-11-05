@@ -100,7 +100,7 @@ while ($slovo=mysql_fetch_object($q)) {
 		//printf("<li>%s %s(%s)</a></li>", $popup, $slovo->word, $slovo->count);
 		
 		
-		$html=sprintf("<li>%s %s</a></li>", $popup, $slovo->word);
+		$html=sprintf("<li>%s %s %s</a></li>", $popup, $slovo->word, $slovo->count);
 		
 		$slova_array[$slovo->id]=$slovo->count;
 		$slova_html[$slovo->id]=$html;
