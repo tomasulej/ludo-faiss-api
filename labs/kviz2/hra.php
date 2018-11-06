@@ -19,7 +19,7 @@ while ($objSolution=mysql_fetch_object($q1)) {
     $counter=0;
     foreach ($arrSolution as &$solution) {    
         $counter++;
-        $answers[$objSolution->id]["word_".$counter].=$solution;
+        $answers[$objSolution->id]["word_".$counter]=$solution;
         if ($counter>1) break;
     }    
 
