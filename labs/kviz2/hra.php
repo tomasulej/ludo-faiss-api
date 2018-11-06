@@ -11,11 +11,11 @@ include $_SERVER["DOCUMENT_ROOT"]."/databaza_slova.php";
 
 // spravna odpoved;
 $counter=0;
-$q1=mysql_query("SELECT * FROM kviz_words ORDER BY rand() LIMIT 10 ");
+$q1=mysql_query("SELECT * FROM kviz_words ORDER BY rand() LIMIT 10");
 while ($objSolution=mysql_fetch_object($q1)) {
-    echo $objSolution->synonyms;
+    //echo $objSolution->synonyms;
     $arrSolution=explode(";", $objSolution->synonyms);
-    shuffle($arrSolution);
+    //shuffle($arrSolution);
     $counter=0;
     foreach ($arrSolution as &$solution) {    
         $counter++;
