@@ -1,7 +1,7 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+//error_reporting(E_ALL);
+//ini_set('display_errors', '1');
 
 
 
@@ -11,10 +11,10 @@ include $_SERVER["DOCUMENT_ROOT"]."/databaza_slova.php";
 
 // spravna odpoved;
 $counter=0;
-$q1=mysql_query("SELECT * FROM kviz_words ORDER BY rand() LIMIT 20 ");
+$q1=mysql_query("SELECT * FROM kviz_words ORDER BY rand() LIMIT 10 ");
 while ($objSolution=mysql_fetch_object($q1)) {
     $arrSolution=explode(";", $objSolution->synonyms);
-    //shuffle($arrSolution);
+    shuffle($arrSolution);
     $counter=0;
     foreach ($arrSolution as &$solution) {    
         $counter++;
@@ -27,7 +27,7 @@ while ($objSolution=mysql_fetch_object($q1)) {
 
 shuffle($answers);
 
-print_r($answers);
+//print_r($answers);
 
 ?>
 
