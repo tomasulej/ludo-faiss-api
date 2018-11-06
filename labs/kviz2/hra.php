@@ -13,6 +13,7 @@ include $_SERVER["DOCUMENT_ROOT"]."/databaza_slova.php";
 $counter=0;
 $q1=mysql_query("SELECT * FROM kviz_words ORDER BY rand() LIMIT 10 ");
 while ($objSolution=mysql_fetch_object($q1)) {
+    echo $objSolution->synonyms;
     $arrSolution=explode(";", $objSolution->synonyms);
     shuffle($arrSolution);
     $counter=0;
