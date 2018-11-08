@@ -11,13 +11,18 @@
     currentCorrectAnswers=0;
     currentGuess1=-1;
     currentGuess2=-1;
-    function UserGuess(id) {
+    function UserGuess(id,Karticka) {
+
+                    $('#karticka-'+Karticka).addClass("bg-warning");
+
 
         if (currentGuess1==-1) {
             currentGuess1=id;
+    
 
         } else if (currentGuess2==-1) {
             currentGuess2=id;
+            
         } else {
             currentGuess1=id;
             currentGuess2=-1;
@@ -32,14 +37,15 @@
                     currentCorrectAnswers++;
                     //alert(currentCorrectAnswers);
                     $("#divCorrectAnswers").html(currentCorrectAnswers);
-                    $('.answer-'+id).css("color","green");
+                    $('.karticka-'+id).removeClass("bg-warning").addClass("bg-success");
                     currentGuess1=-1;
                     currentGuess2=-1;  
 
                 }  else {
                     currentGuess1=-1;
                     currentGuess2=-1;   
-
+                    //$('.karticka').removeClass("bg-warning").addClass("bg-primary");
+                    $( ".karticka" ).each(function() {$( this ).removeClass( "bg-warning" ).addClass("bg-primary");});
 
                 }
             } } 
@@ -71,17 +77,55 @@
 
     <div class="card-block" >
 
-        <big>Hľadaj dvojice slov, ktoré spolu súvisia</big>
+        <big>Hľadaj dvojice slov, ktoré spolu súvisia.</big>
         </div>
 
+<style>
+.karticka {
+    float: left;
+    width: 100%;
+    padding: .75rem;
+    height:10vh;
+    margin-bottom: 2rem;
+    border: 0;
+    text-align:center
+}
+</style>
+ 
+
+
+
+
         <?php 
+        $idKarticka=0;
         foreach ($answers as $id=>$answer) { 
-            $arrMoznosti[]=sprintf('<button type="button" id="answer-%s-1" class="answer-%s l-btn--large btn-link btn-lg" onclick="UserGuess(%s)">%s</button>',$id,$id,$id,$answer["word_1"]);
-            $arrMoznosti[]=sprintf('<button type="button" id="answer-%s-2" class="answer-%s l-btn--large btn-link btn-lg" onclick="UserGuess(%s)">%s</button>',$id,$id,$id,$answer["word_2"]);
+            $idKarticka++;
+            $arrMoznosti[]=sprintf('<div class="col-md-3"><div id="karticka-%s" class="card bg-primary text-white karticka-%s"><div class="card-body"><a id="answer-%s-1" class="answer-%s l-btn--large btn-link btn-lg" onclick="UserGuess(%s,%s)">%s</button></div></div></div>', $idKarticka, $id, $id,$id,$id, $idKarticka, $answer["word_1"]);
+            $idKarticka++;
+            $arrMoznosti[]=sprintf('<div class="col-md-3"><div id="karticka-%s" class="card bg-primary text-white karticka karticka-%s"><div class="card-body"><a id="answer-%s-2" class="answer-%s l-btn--large btn-link btn-lg" onclick="UserGuess(%s,%s)">%s</button></div></div></div>',$idKarticka, $id, $id,$id,$id, $idKarticka, $answer["word_2"]);
         }
         shuffle($arrMoznosti);
 
-        foreach($arrMoznosti as $moznost) {printf($moznost);}
+        $tmpl_row='<div class="row">%s</div>';
+
+        $countAnswers=0;
+        printf('<div class="row">');
+
+        foreach($arrMoznosti as $moznost) {  
+            $countAnswers++;
+            if (($countAnswers % 4)==1) {
+                $zaciatok='</div><div class="row">';
+                $koniec='';
+            } else { 
+                $zaciatok='';
+                $koniec='';
+            }
+
+            printf($zaciatok);
+            printf($moznost);
+            printf($koniec);
+
+        }
 
         ?>
 
