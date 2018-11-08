@@ -46,7 +46,7 @@
                     currentGuess1=-1;
                     currentGuess2=-1; 
                     //alert(currentCorrectAnswers);
-                    $("#divCorrectAnswers").html(currentCorrectAnswers);
+                    $("#divCorrectAnswers").html(CorrectAnswers);
                     $('.karticka-'+id).removeClass("bg-warning").addClass("bg-success");
                     //$( ".karticka-"+id).each(function() {$( this ).prop("onclick","alert('sss')");$(this).off('click')});
                     $('.answer-'+id).prop("onclick", null);
