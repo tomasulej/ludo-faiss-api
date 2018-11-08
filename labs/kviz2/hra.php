@@ -15,7 +15,7 @@ $q1=mysql_query("SELECT * FROM kviz_words WHERE count_synonyms>2 ORDER BY rand()
 
 
 while ($objSolution=mysql_fetch_object($q1)) {
-    echo $objSolution->synonyms;
+    echo "<p>".$objSolution->synonyms;
     $arrSolution=explode(";", $objSolution->synonyms);
     //shuffle($arrSolution);
     $counter=0;
