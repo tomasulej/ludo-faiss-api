@@ -7,7 +7,7 @@
 
 <script>
     //correctAnswers=<?php echo $lstCorrectAnswers; ?>;
-    //answersRequired=<?php echo $solution_count_required ?>;
+    answersRequired=<?php echo $solution_count_required; ?>;
     currentCorrectAnswers=0;
     currentGuess1=-1;
     currentGuess2=-1;
@@ -49,6 +49,13 @@
 
                 }
             } } 
+
+            if ((answersRequired-currentCorrectAnswers)<1) {
+                $('#question').html('<div class="alert alert-success" role="alert"><strong> <i class="fa fa-refresh"></i> Paráda!</strong> Načítavam ďalšiu otázku. </div>');
+                setTimeout(function(){ loadQuestion(); }, 500)
+
+            }
+
        // if (correctAnswers.indexOf(id)>-1) {
        /*
             $('#answer-'+id).css("color","green");
@@ -56,11 +63,9 @@
             CorrectAnswers++;
             $("#count-current-correct").html(currentCorrectAnwers);
             $("#divCorrectAnswers").html(CorrectAnswers);
-            if ((answersRequired-currentCorrectAnwers)<1) {
-                $('#question').html('<div class="alert alert-success" role="alert"><strong> <i class="fa fa-refresh"></i> Paráda!</strong> Načítavam ďalšiu otázku. </div>');
-                setTimeout(function(){ loadQuestion(); }, 500)
 
-            }
+
+
         } else {
             $('#answer-'+id).css("color","red");
         } */

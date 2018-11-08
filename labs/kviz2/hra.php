@@ -11,7 +11,8 @@ include $_SERVER["DOCUMENT_ROOT"]."/databaza_slova.php";
 
 // spravna odpoved;
 $counter=0;
-$q1=mysql_query("SELECT * FROM kviz_words WHERE count_synonyms>2 ORDER BY rand() LIMIT 6");
+$solution_count_required=6;
+$q1=mysql_query("SELECT * FROM kviz_words WHERE count_synonyms>2 ORDER BY rand() LIMIT $solution_count_required");
 
 $countT=0;
 
