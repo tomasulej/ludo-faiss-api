@@ -13,18 +13,20 @@ include $_SERVER["DOCUMENT_ROOT"]."/databaza_slova.php";
 $counter=0;
 $q1=mysql_query("SELECT * FROM kviz_words WHERE count_synonyms>2 ORDER BY rand() LIMIT 10");
 
+$countT=0;
 
 while ($objSolution=mysql_fetch_object($q1)) {
-    echo "<p>".$objSolution->synonyms;
+    //echo "<p>".$objSolution->synonyms;
     $arrSolution=explode(";", $objSolution->synonyms);
+    //print_r($arrSolution)
     //shuffle($arrSolution);
     $counter=0;
     foreach ($arrSolution as &$solution) {    
         $counter++;
-        $answers[$objSolution->id]["word_".$counter]=$solution;
-        //if ($counter>1) (break;
+        $answers[$countT]["word_".$counter]=$solution;
+        if ($counter>1) break;
     }    
-
+$countT++;    
 };
 
 
