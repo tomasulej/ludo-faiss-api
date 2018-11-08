@@ -19,7 +19,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 
     <div class="row">
     <div class="col-md-11 offset-md-1">
-        <h2>Ľudov slovný kvíz: otestuj svoju slovnú zásobu</a></h2>
+        <h2>Ľudov slovný kvíz 2: otestuj svoju slovnú zásobu</a></h2>
 
 
     </div></div>
@@ -30,8 +30,8 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                 <p><big>Ako veľmi si rozumieš so slovami? Koľko si ich <strong>schopný(á) nájsť za minútu</strong>? Otestuj svoju slovnú zásobu v Ľudovom slovnom kvíze.</big></p>
                 <BR><BR>
                     <div class="l-center"><button type="button" class="l-btn l-btn--large l-btn--primary" onclick="startGame()">Spustiť Ľudov slovný kvíz</button></div>
-
-            <small><a onclick="$('#fb_chvastacka').show()" href="javascript:void(0)">(Zobraziť diskusiu hráčov)</a></small>
+<BR><BR>
+            <div style="text-align:center"><small><a onclick="$('#fb_chvastacka').show()" href="javascript:void(0)">(Zobraziť diskusiu hráčov)</a></small></div>
 
         </div>
 
@@ -58,7 +58,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
             <div id="fb_chvastacka" class="col-md-11 offset-md-1" style="display:none">
 
                 <h4>Pochváľ sa, koľko si nahral(a)</h4>
-                <div class="fb-comments" data-href="http://www.ludoslovensky.sk/labs/kviz/" data-numposts="5"></div>
+                <div class="fb-comments" data-href="http://www.ludoslovensky.sk/labs/kviz2/" data-numposts="5"></div>
             </div>
         </div>
 
@@ -97,9 +97,9 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
                         $('#hra').html(
                             '<div class="card"><div class="card-block">' +
                             '<big><strong>Výborne!</strong> Správne si odpovedal(a) <strong>' +CorrectAnswers+'-krát</strong> (zatiaľ najviac si dal(a) '+Cookies.get('record')+'-krát). '+
-                            '<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.ludoslovensky.sk%2Flabs%2Fkviz" target="_blank">Pochváľ sa na Facebooku</a> a vyzvi priateľov na súboj. Alebo skús znova, či nenahráš viac :)</big><BR>' +
+                            '<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.ludoslovensky.sk%2Flabs%2Fkviz2" target="_blank">Pochváľ sa na Facebooku</a> a vyzvi priateľov na súboj. Alebo skús znova, či nenahráš viac :)</big><BR>' +
                             '<div class="l-center"><button type="button" class="l-btn l-btn--large l-btn--primary" onclick="location.reload();"> <i class="fa fa-refresh"></i> Hrať znova</button></div>\n' +
-                            '<br><small>Páčilo sa? <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.ludoslovensky.sk%2Flabs%2Fkviz" target="_blank">Zdieľaj</a>. Rekord? <a onclick="$(\'#fb_chvastacka\').show()" href="javascript:void(0)"><i class="fa fa-level-down" aria-hidden="true"></i> Tu sa môžeš pochvastať, koľko si nahral(a)</a></small>.'+
+                            '<br><small>Páčilo sa? <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.ludoslovensky.sk%2Flabs%2Fkviz2" target="_blank">Zdieľaj</a>. Rekord? <a onclick="$(\'#fb_chvastacka\').show()" href="javascript:void(0)"><i class="fa fa-level-down" aria-hidden="true"></i> Tu sa môžeš pochvastať, koľko si nahral(a)</a></small>.'+
                             '<hr width="30%"><BR><small>Toto je laboratórny experiment projektu <a href="http://www.ludoslovensky.sk">Ľudo Slovenský</a>, ktorého cieľom je sprístupniť naše kultúrne dedičstvo. Pozri <a href="http://www.ludoslovensky.sk">naše ďalšie projekty</a>. (c) 2017 <a href="http://www.facebook.com/tomas.ulej.pise">Tomáš Ulej</a>, založené na <a href="http://korpus.juls.savba.sk/WordNet.html">projekte WordNet</a> Jazykovedného ústavu Ľudovíta Štúra.</small>'+
                             '</div></div>'
                         );
