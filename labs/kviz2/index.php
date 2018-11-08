@@ -12,7 +12,7 @@ $meta_desc="Zisti, ako dobrý si v slovenčine. Vyzývam Ťa na absolvovanie Ľu
 
 
 // nacitanie informacii
-require ($_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_labs_hra_home.php");
+require ($_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_labs_hra_home2.php");
 
 
 ?>
