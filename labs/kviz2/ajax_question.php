@@ -13,7 +13,7 @@
     currentGuess2=-1;
     function UserGuess(id,Karticka) {
 
-                    //$('#karticka-'+Karticka).addClass("bg-warning");
+                    $('#karticka-'+Karticka).addClass("bg-warning");
 
 
         if (currentGuess1==-1) {
@@ -44,8 +44,8 @@
                 }  else {
                     currentGuess1=-1;
                     currentGuess2=-1;   
-                    //$('.karticka').removeClass("bg-warning").addClass("bg-primary");
                     $( ".karticka" ).each(function() {$( this ).removeClass( "bg-warning" ).addClass("bg-primary");});
+                    $('#karticka-'+Karticka).effect("shake");
 
                 }
             } } 
@@ -100,7 +100,7 @@
         $idKarticka=0;
         foreach ($answers as $id=>$answer) { 
             $idKarticka++;
-            $arrMoznosti[]=sprintf('<div class="col-md-3"><div id="karticka-%s" class="card bg-primary text-white karticka-%s"><div class="card-body"><a id="answer-%s-1" class="answer-%s l-btn--large btn-link btn-lg" onclick="UserGuess(%s,%s)">%s</button></div></div></div>', $idKarticka, $id, $id,$id,$id, $idKarticka, $answer["word_1"]);
+            $arrMoznosti[]=sprintf('<div class="col-md-3"><div id="karticka-%s" class="card bg-primary text-white karticka karticka-%s"><div class="card-body"><a id="answer-%s-1" class="answer-%s l-btn--large btn-link btn-lg" onclick="UserGuess(%s,%s)">%s</button></div></div></div>', $idKarticka, $id, $id,$id,$id, $idKarticka, $answer["word_1"]);
             $idKarticka++;
             $arrMoznosti[]=sprintf('<div class="col-md-3"><div id="karticka-%s" class="card bg-primary text-white karticka karticka-%s"><div class="card-body"><a id="answer-%s-2" class="answer-%s l-btn--large btn-link btn-lg" onclick="UserGuess(%s,%s)">%s</button></div></div></div>',$idKarticka, $id, $id,$id,$id, $idKarticka, $answer["word_2"]);
         }
