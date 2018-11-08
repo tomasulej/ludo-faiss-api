@@ -25,6 +25,8 @@ while ($objSolution=mysql_fetch_object($q1)) {
 
 };
 
+print_r($answers);
+
 
 shuffle($answers);
 
