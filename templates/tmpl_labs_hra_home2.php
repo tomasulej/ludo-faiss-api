@@ -27,13 +27,10 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
         <div class="row">
 
         <div class="col-md-8 offset-md-1" id="hra">
-        <div class="card">
-            <div class="card-block">
                 <p><big>Ako veľmi si rozumieš so slovami? Koľko si ich <strong>schopný(á) nájsť za minútu</strong>? Otestuj svoju slovnú zásobu v Ľudovom slovnom kvíze.</big></p>
                 <BR><BR>
                     <div class="l-center"><button type="button" class="l-btn l-btn--large l-btn--primary" onclick="startGame()">Spustiť Ľudov slovný kvíz</button></div>
-            </div>
-            </div>
+
             <small><a onclick="$('#fb_chvastacka').show()" href="javascript:void(0)">(Zobraziť diskusiu hráčov)</a></small>
 
         </div>
