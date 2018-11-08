@@ -117,9 +117,9 @@
         $idKarticka=0;
         foreach ($answers as $id=>$answer) { 
             $idKarticka++;
-            $arrMoznosti[]=sprintf('<div class="col-md-4 col-4"><a id="answer-%s-1" class="answer-%s " onclick="UserGuess(%s,%s)"><div id="karticka-%s" class="card bg-primary text-white karticka karticka-%s"><div class="card-body">%s</div></div></div></a>', $id,$id,$id, $idKarticka,$idKarticka, $id,  $answer["word_1"]);
+            $arrMoznosti[]=sprintf('<div class="col-md-4 col-4 "><a id="answer-%s-1" class="answer-%s " onclick="UserGuess(%s,%s)"><div id="karticka-%s" class="card d-flex bg-primary text-white karticka karticka-%s"><div class="card-body align-items-center d-flex justify-content-center">%s</div></div></div></a>', $id,$id,$id, $idKarticka,$idKarticka, $id,  $answer["word_1"]);
             $idKarticka++;
-            $arrMoznosti[]=sprintf('<div class="col-md-4 col-4"><a id="answer-%s-2" class="answer-%s  " onclick="UserGuess(%s,%s)"><div id="karticka-%s" class="card bg-primary text-white karticka karticka-%s"><div class="card-body">%s</div></div></div></a>',$id,$id,$id, $idKarticka,$idKarticka, $id,  $answer["word_2"]);
+            $arrMoznosti[]=sprintf('<div class="col-md-4 col-4 "><a id="answer-%s-2" class="answer-%s  " onclick="UserGuess(%s,%s)"><div id="karticka-%s" class="card d-flex bg-primary text-white karticka karticka-%s"><div class="card-body align-items-center d-flex justify-content-center">%s</div></div></div></a>',$id,$id,$id, $idKarticka,$idKarticka, $id,  $answer["word_2"]);
         }
         shuffle($arrMoznosti);
 
