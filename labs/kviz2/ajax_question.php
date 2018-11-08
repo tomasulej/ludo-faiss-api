@@ -73,9 +73,7 @@
 
 <div id="question">
 
-<div class="card">
 
-    <div class="card-block" >
 
         <big>Hľadaj dvojice slov, ktoré spolu súvisia.</big>
         </div>
@@ -129,9 +127,5 @@
 
         ?>
 
-
-    </div>
-
-</div>
 
 </div>
