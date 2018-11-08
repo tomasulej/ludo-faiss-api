@@ -13,7 +13,7 @@
     currentGuess2=-1;
     function UserGuess(id,Karticka) {
 
-                    $('#karticka-'+Karticka).addClass("bg-warning");
+                    //$('#karticka-'+Karticka).addClass("bg-warning");
 
 
         if (currentGuess1==-1) {
