@@ -44,6 +44,16 @@
    <meta property="fb:app_id" content="619723681422597"/>
 
 
+<style>
+.dlog { display:none; background:lightblue; position:absolute; top: 50%; left: 50%; width:30%; padding:10px;
+        transform: translate(-50%,-50%); z-index:9; }
+.abc svg {  display: block; cursor: pointer; }
+.ewd svg {  }
+</style>
+<script src="/public/js/abc2svg-1.js"></script>
+<script src="/public/js/xmlplay_emb.js"></script>
+
+
 
 
 
