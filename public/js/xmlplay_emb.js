@@ -935,8 +935,7 @@ function addUnlockListener (elm, type, handler) {
     }
     elm.addEventListener ('mousedown', unlockAudio);
     elm.addEventListener ('touchend', unlockAudio);
-    document.getElementById("playpause_main").addEventListener("mousedown",unlockAudio);
-    document.getElementById("playpause_main").addEventListener("touchend",unlockAudio);
+ 
 
     elm.addEventListener (type, handler);
 
