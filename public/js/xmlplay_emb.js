@@ -457,6 +457,7 @@ function doLayout (abctxt, abc_elm, fplay) {
         addUnlockListener (svg, 'click', getNote);
     });
     if (fplay) mkNtsSeq ();
+    addUnlockListener(document.getElementById("playpause_main"),'click', getNote);
 }
 
 function setYSvgs () {  // calculate top y-coordinates of all svg's (systems)
