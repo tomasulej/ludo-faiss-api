@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="col-md-3 l-right">
-                    <a id="playpause_main" class="l-btn l-btn--primary l-btn--medium l-btn--play" onclick="playpause('#aud','#playpause_main');"><i class="fa fa-play"></i> Prehrať melódiu</a>
+                    <a id="playpause_main" class="l-btn l-btn--primary l-btn--medium l-btn--play" onclick="unlockaudio();"><i class="fa fa-play"></i> Prehrať melódiu</a>
                 </div>
 
 
@@ -973,7 +973,7 @@ $('#compare').click(function(){
         }
     }
 
-
+/*
     function playpause(media_id,button_id) 
     {
      if ($(media_id)[0].paused) {
