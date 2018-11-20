@@ -5,47 +5,976 @@
 //~ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
 //~ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 //~ See the GNU General Public License for more details. <http://www.gnu.org/licenses/gpl.html>.
-var $jscomp=$jscomp||{};$jscomp.scope={};$jscomp.defineProperty="function"==typeof Object.defineProperties?Object.defineProperty:function(a,g,l){if(l.get||l.set)throw new TypeError("ES3 does not support getters and setters.");a!=Array.prototype&&a!=Object.prototype&&(a[g]=l.value)};$jscomp.getGlobal=function(a){return"undefined"!=typeof window&&window===a?a:"undefined"!=typeof global&&null!=global?global:a};$jscomp.global=$jscomp.getGlobal(this);$jscomp.SYMBOL_PREFIX="jscomp_symbol_";
-$jscomp.initSymbol=function(){$jscomp.initSymbol=function(){};$jscomp.global.Symbol||($jscomp.global.Symbol=$jscomp.Symbol)};$jscomp.symbolCounter_=0;$jscomp.Symbol=function(a){return $jscomp.SYMBOL_PREFIX+(a||"")+$jscomp.symbolCounter_++};
-$jscomp.initSymbolIterator=function(){$jscomp.initSymbol();var a=$jscomp.global.Symbol.iterator;a||(a=$jscomp.global.Symbol.iterator=$jscomp.global.Symbol("iterator"));"function"!=typeof Array.prototype[a]&&$jscomp.defineProperty(Array.prototype,a,{configurable:!0,writable:!0,value:function(){return $jscomp.arrayIterator(this)}});$jscomp.initSymbolIterator=function(){}};$jscomp.arrayIterator=function(a){var g=0;return $jscomp.iteratorPrototype(function(){return g<a.length?{done:!1,value:a[g++]}:{done:!0}})};
-$jscomp.iteratorPrototype=function(a){$jscomp.initSymbolIterator();a={next:a};a[$jscomp.global.Symbol.iterator]=function(){return this};return a};$jscomp.iteratorFromArray=function(a,g){$jscomp.initSymbolIterator();a instanceof String&&(a+="");var l=0,b={next:function(){if(l<a.length){var r=l++;return{value:g(r,a[r]),done:!1}}b.next=function(){return{done:!0,value:void 0}};return b.next()}};b[Symbol.iterator]=function(){return b};return b};
-$jscomp.polyfill=function(a,g,l,b){if(g){l=$jscomp.global;a=a.split(".");for(b=0;b<a.length-1;b++){var r=a[b];r in l||(l[r]={});l=l[r]}a=a[a.length-1];b=l[a];g=g(b);g!=b&&null!=g&&$jscomp.defineProperty(l,a,{configurable:!0,writable:!0,value:g})}};$jscomp.polyfill("Array.prototype.keys",function(a){return a?a:function(){return $jscomp.iteratorFromArray(this,function(a){return a})}},"es6-impl","es3");
-$jscomp.polyfill("Math.log10",function(a){return a?a:function(a){return Math.log(a)/Math.LN10}},"es6-impl","es3");$jscomp.makeIterator=function(a){$jscomp.initSymbolIterator();var g=a[Symbol.iterator];return g?g.call(a):$jscomp.arrayIterator(a)};$jscomp.EXPOSE_ASYNC_EXECUTOR=!0;$jscomp.FORCE_POLYFILL_PROMISE=!1;
-$jscomp.polyfill("Promise",function(a){function g(){this.batch_=null}if(a&&!$jscomp.FORCE_POLYFILL_PROMISE)return a;g.prototype.asyncExecute=function(c){null==this.batch_&&(this.batch_=[],this.asyncExecuteBatch_());this.batch_.push(c);return this};g.prototype.asyncExecuteBatch_=function(){var c=this;this.asyncExecuteFunction(function(){c.executeBatch_()})};var l=$jscomp.global.setTimeout;g.prototype.asyncExecuteFunction=function(c){l(c,0)};g.prototype.executeBatch_=function(){for(;this.batch_&&this.batch_.length;){var c=
-this.batch_;this.batch_=[];for(var a=0;a<c.length;++a){var b=c[a];delete c[a];try{b()}catch(t){this.asyncThrow_(t)}}}this.batch_=null};g.prototype.asyncThrow_=function(c){this.asyncExecuteFunction(function(){throw c;})};var b=function(c){this.state_=0;this.result_=void 0;this.onSettledCallbacks_=[];var a=this.createResolveAndReject_();try{c(a.resolve,a.reject)}catch(y){a.reject(y)}};b.prototype.createResolveAndReject_=function(){function a(a){return function(c){y||(y=!0,a.call(b,c))}}var b=this,y=
-!1;return{resolve:a(this.resolveTo_),reject:a(this.reject_)}};b.prototype.resolveTo_=function(a){if(a===this)this.reject_(new TypeError("A Promise cannot resolve to itself"));else if(a instanceof b)this.settleSameAsPromise_(a);else{var c;a:switch(typeof a){case "object":c=null!=a;break a;case "function":c=!0;break a;default:c=!1}c?this.resolveToNonPromiseObj_(a):this.fulfill_(a)}};b.prototype.resolveToNonPromiseObj_=function(a){var c=void 0;try{c=a.then}catch(y){this.reject_(y);return}"function"==
-typeof c?this.settleSameAsThenable_(c,a):this.fulfill_(a)};b.prototype.reject_=function(a){this.settle_(2,a)};b.prototype.fulfill_=function(a){this.settle_(1,a)};b.prototype.settle_=function(a,b){if(0!=this.state_)throw Error("Cannot settle("+a+", "+b|"): Promise already settled in state"+this.state_);this.state_=a;this.result_=b;this.executeOnSettledCallbacks_()};b.prototype.executeOnSettledCallbacks_=function(){if(null!=this.onSettledCallbacks_){for(var a=this.onSettledCallbacks_,b=0;b<a.length;++b)a[b].call(),
-a[b]=null;this.onSettledCallbacks_=null}};var r=new g;b.prototype.settleSameAsPromise_=function(a){var b=this.createResolveAndReject_();a.callWhenSettled_(b.resolve,b.reject)};b.prototype.settleSameAsThenable_=function(a,b){var c=this.createResolveAndReject_();try{a.call(b,c.resolve,c.reject)}catch(t){c.reject(t)}};b.prototype.then=function(a,g){function c(a,b){return"function"==typeof a?function(b){try{t(a(b))}catch(R){l(R)}}:b}var t,l,r=new b(function(a,b){t=a;l=b});this.callWhenSettled_(c(a,t),
-c(g,l));return r};b.prototype["catch"]=function(a){return this.then(void 0,a)};b.prototype.callWhenSettled_=function(a,b){function c(){switch(g.state_){case 1:a(g.result_);break;case 2:b(g.result_);break;default:throw Error("Unexpected state: "+g.state_);}}var g=this;null==this.onSettledCallbacks_?r.asyncExecute(c):this.onSettledCallbacks_.push(function(){r.asyncExecute(c)})};b.resolve=function(a){return a instanceof b?a:new b(function(b,c){b(a)})};b.reject=function(a){return new b(function(b,c){c(a)})};
-b.race=function(a){return new b(function(c,g){for(var l=$jscomp.makeIterator(a),r=l.next();!r.done;r=l.next())b.resolve(r.value).callWhenSettled_(c,g)})};b.all=function(a){var c=$jscomp.makeIterator(a),g=c.next();return g.done?b.resolve([]):new b(function(a,l){function r(b){return function(c){t[b]=c;y--;0==y&&a(t)}}var t=[],y=0;do t.push(void 0),y++,b.resolve(g.value).callWhenSettled_(r(t.length-1),l),g=c.next();while(!g.done)})};$jscomp.EXPOSE_ASYNC_EXECUTOR&&(b.$jscomp$new$AsyncExecutor=function(){return new g});
-return b},"es6-impl","es3");var xmlplay_VERSION=81,instUrl="",withRT=1,instTab={};
-(function(){function a(a,b,q){function h(a){var d,f,n,h,b,e,v={},k,q={},c=[18,20,22,24,26,28];a=a.split("\n");for(d=0;d<a.length;++d)if(f=a[d],0<=f.indexOf("strings")&&(n=f.match(/V:\s*(\S+).*strings\s*=\s*(\S+)/)))k=n[1],v[k]={},n[2].split(",").forEach(function(a,d){h=a[0];b=12*parseInt(a[1]);e=b+[0,2,4,5,7,9,11]["CDEFGAB".indexOf(h)]+12;v[k][c[d]]=e}),q[k]=0<=f.indexOf("diafret");return[v,q]}function c(a){var d,f,h,b,e={};a=a.split("\n");for(d=0;d<a.length;++d)if(f=a[d],0<=f.indexOf("%%map")&&(h=
-f.match(/%%map *(\S+) *(\S+).*midi=(\d+)/)))f=h[1],b=h[2],h=h[3],e[f+b]=parseInt(h);return e}function e(a){var d={diamond:1,triangle:1,square:1,normal:1},h=['%%beginsvg\n<defs>\n<text id="x" x="-3" y="0">&#xe263;</text>\n<text id="x-" x="-3" y="0">&#xe263;</text>\n<text id="x+" x="-3" y="0">&#xe263;</text>\n<text id="normal" x="-3.7" y="0">&#xe0a3;</text>\n<text id="normal-" x="-3.7" y="0">&#xe0a3;</text>\n<text id="normal+" x="-3.7" y="0">&#xe0a4;</text>\n<g id="circle-x"><text x="-3" y="0">&#xe263;</text><circle r="4" class="stroke"/></g>\n<g id="circle-x-"><text x="-3" y="0">&#xe263;</text><circle r="4" class="stroke"/></g>\n<path id="triangle" d="m-4 -3.2l4 6.4 4 -6.4z" class="stroke" style="stroke-width:1.4"/>\n<path id="triangle-" d="m-4 -3.2l4 6.4 4 -6.4z" class="stroke" style="stroke-width:1.4"/>\n<path id="triangle+" d="m-4 -3.2l4 6.4 4 -6.4z" class="stroke" style="fill:#000"/>\n<path id="square" d="m-3.5 3l0 -6.2 7.2 0 0 6.2z" class="stroke" style="stroke-width:1.4"/>\n<path id="square-" d="m-3.5 3l0 -6.2 7.2 0 0 6.2z" class="stroke" style="stroke-width:1.4"/>\n<path id="square+" d="m-3.5 3l0 -6.2 7.2 0 0 6.2z" class="stroke" style="fill:#000"/>\n<path id="diamond" d="m0 -3l4.2 3.2 -4.2 3.2 -4.2 -3.2z" class="stroke" style="stroke-width:1.4"/>\n<path id="diamond-" d="m0 -3l4.2 3.2 -4.2 3.2 -4.2 -3.2z" class="stroke" style="stroke-width:1.4"/>\n<path id="diamond+" d="m0 -3l4.2 3.2 -4.2 3.2 -4.2 -3.2z" class="stroke" style="fill:#000"/>\n</defs>\n%%endsvg'],
-f,b,e,k="default",v={"default":[]};a=a.split("\n");for(f=0;f<a.length;++f)if(b=a[f],0<=b.indexOf("I:percmap")&&(b=b.split(" "),e=b[4],e in d&&(e=e+"+,"+e),b="%%map perc"+k+" "+b[1]+" print="+b[2]+" midi="+b[3]+" heads="+e,v[k].push(b)),0<=b.indexOf("V:")&&(e=b.match(/V:\s*(\S+)/)))k=e[1],k in v||(v[k]=[]);for(k in v)h=h.concat(v[k]);for(f=0;f<a.length;++f)b=a[f],0<=b.indexOf("I:percmap")||(0<=b.indexOf("V:")||0<=b.indexOf("K:")?((e=b.match(/V:\s*(\S+)/))&&(k=e[1]),0==v[k].length&&(k="default"),h.push(b),
-0<=b.indexOf("perc")&&-1==b.indexOf("map=")&&(b+=" map=perc"),0<=b.indexOf("map=perc")&&0<v[k].length&&h.push("%%voicemap perc"+k),0<=b.indexOf("map=off")&&h.push("%%voicemap")):h.push(b));return h.join("\n")}var k=a.split("\n");k.splice(1,0,"%%measurenb 0");a=k.join("\n");q&&(0<=a.indexOf("I:percmap")&&(a=e(a)),0<=a.indexOf("%%map")&&(ja=c(a)),0<=a.indexOf(" strings")&&h(a));F=b;M=0;k=function(){l(a,b,q)};q?g(a,k):k()}function g(a,b){function h(a){var d=[];a.forEach(function(a,b){d[a.st]?d[a.st].push(b):
-d[a.st]=[b];a.clef.clef_octave&&(N[b]=a.clef.clef_octave);H[b]=a.midictl&&a.midictl[7];void 0==H[b]&&(H[b]=100);I[b]=a.midictl&&a.midictl[10];void 0==I[b]&&(I[b]=64)});return d}var c,m="",e=[3,0,4,1,5,2,6],k=[0,2,4,5,7,9,11];J=[];N=[];K=120;H=[];I=[];c=new Abc({img_out:null,errmsg:function(a,b,h){m+=a+"\n"},read_file:function(a){return""},anno_start:null,get_abcmodel:function(f,d,c){function n(a,b){q[a]=[0,0,0,0,0,0,0];E[a]={};v[a]=b;var d=0<=b;(d?e.slice(0,b):e.slice(b)).forEach(function(b){q[a][b]+=
-d?1:-1})}var q={},A={"-2":-2,"-1":-1,0:0,1:1,2:2,3:0},E={},v={},m={};c=d[0].meter.a_meter;c.length&&parseInt(c[0].top);for(w=0;w<d.length;++w)n(w,d[w].key.k_sf),m[w]={};c={};ka=d.length;h(d);for(d=f;d;d=d.ts_next){var C,x,g,l,r=[],w;switch(d.type){case 14:f=d.tempo_notes.reduce(function(a,b){return a+b});K=d.tempo*f/384;break;case 10:g={t:d.time,mnum:-1,dur:d.dur};r.push(g);J.push({t:d.time,ix:d.istart,v:d.v,ns:r,inv:d.invis,tmp:K});break;case 8:var t=d.p_v.instr;"p"==d.p_v.clef.clef_type&&(t=119);
-t||(t=0);for(f=0;f<d.notes.length;++f){C=d.notes[f];x=C.pit+19;w=d.v;N[w]&&(x+=N[w]);g=Math.floor(x/7);l=x%7;void 0!=C.acc&&(E[w][x]=A[C.acc]);g=12*g+k[l]+(x in E[w]?E[w][x]:q[w][l]);l=d.p_v.map;if(119==t&&"MIDIdrum"!=l){var u=a.substring(d.istart,d.iend),u=u.match(/[=_^]*[A-Ga-g]/)[0];(l=ja[l+u])&&(g=l)}g=128*t+g;c[g]=1;g={t:d.time,mnum:g,dur:d.dur};x in m[w]?(m[w][x].dur+=d.dur,0==C.ti1&&delete m[w][x]):(0!=C.ti1&&(m[w][x]=g),r.push(g))}if(0==r.length)break;J.push({t:d.time,ix:d.istart,v:d.v,ns:r,
-stf:d.st,tmp:K});break;case 5:n(d.v,d.k_sf);break;case 0:n(d.v,v[d.v]),J.push({t:d.time,ix:d.istart,v:d.v,bt:d.bar_type,tx:d.text})}}S.forEach(function(a){var b=a.parentNode;b&&b.removeChild(a)});O=[];A="#f9f #3cf #c99 #f66 #fc0 #cc0 #ccc".split(" ");for(f=0;f<ka;++f)m=1<<f&0?"0":"",w=document.createElementNS("http://www.w3.org/2000/svg","rect"),w.setAttribute("fill",A[f%A.length]+m),w.setAttribute("fill-opacity","0.5"),w.setAttribute("width","0"),S.push(w),O.push(-1);b();null!=p?R(c):alert("Your browser has no Web Audio API -> no playback.")}});
-c.tosvg("play","%%play");c.tosvg("abc2svg",a);""==m&&(m="no error");console.log(m)}function l(h,g,q){function A(b){var d,f,e,k,n;b.stopPropagation();n=G.indexOf(this);if(!q||0>n)t(0),a(h,g,1);else if(e=b.clientX,e-=this.getBoundingClientRect().left,k=e*T,k<C||k>l)t(0);else{U||t(1);e=F.getBoundingClientRect().top;f=(b.clientY-e-la[n])*T;e=V[n];for(b=0;b<e.length&&!(e[b]>f);b++);for(b=0;b<u.length;++b)if(d=u[b].xy)if(f=d[0],e=d[1],d=d[3],!(f<n)&&k<parseFloat(e)+d){B=b;for(k=u[b].t;u[b]&&u[b].t==k;)c(u[b]),
-b+=1;break}}}var m,e="",k="",f=0;B=0;W={};V=[];var d={},E,n,C=1E3,l=0;if(h&&(m=new Abc({imagesize:'width="100%"',img_out:function(a){-1!=a.indexOf("<svg")&&(V[f]=Object.keys(d),d={},f+=1,E<C&&(C=E),n>l&&(l=n));e+=a},errmsg:function(a,b,d){k+=a+"\n"},read_file:function(a){return""},anno_start:function(a,b,h,e,k,c,q){if("note"==a||"rest"==a)e=m.ax(e).toFixed(2),k=m.ay(k).toFixed(2),q=m.ah(q),W[b]=[f,e,k,c,q];"bar"==a&&(k=m.ay(k),q=m.ah(q),k=Math.round(k+q),d[k]=1,n=m.ax(e),E=m.ax(0))},get_abcmodel:null}),
-m.tosvg("abc2svg",h),""==k&&(k="no error\n"),console.log(k),e)){F.innerHTML=e;G=Array.prototype.slice.call(F.getElementsByTagName("svg"));var p=Array.prototype.slice.call(F.getElementsByClassName("g"));P=p.length?p:G;b();r();G.forEach(function(a){ta(a,"click",A)});q&&qa()}}function b(){if(0!=G.length){var a=F.getBoundingClientRect().top;la=G.map(function(b){return b.getBoundingClientRect().top+document.documentElement.scrollTop-a})}}function r(){if(0!=G.length){var a,b,c,g=G[0];a=g.getBoundingClientRect().width;
-try{b=g.viewBox.baseVal.width}catch(m){b=a}c=(c=P[0].transform)?c.baseVal:[];c=c.length?c.getItem(0).matrix.a:1;T=b/c/a}}function c(a){function b(a,b){d=a.getBoundingClientRect();p=b.getBoundingClientRect();if(d.top<p.top||0>d.top||d.bottom>p.bottom||d.bottom>l)b.scrollTop=b==n?d.top-p.top:b.scrollTop+(d.top-p.top)}var h,c,g,e,k,f,d,E,n,l,p;f=S[a.vce];(h=a.xy)?(c=h[0],g=h[1],e=h[2],k=h[3],h=h[4],a.inv&&(h=k=0),c!=O[a.vce]&&((E=f.parentNode)&&E.removeChild(f),E=P[c],E.insertBefore(f,E.firstChild),
-O[a.vce]=c,a=P[c],n=document.scrollingElement,l=document.documentElement.clientHeight,F.scrollHeight>F.clientHeight&&b(a,F),b(a,n)),f.setAttribute("x",g),f.setAttribute("y",e),f.setAttribute("width",k),f.setAttribute("height",h)):(f.setAttribute("width",0),f.setAttribute("height",0))}function qa(){var a=0<B?u[B].t:0;u=[];X={};var b=1,g=0,l=0,m=0,e=0,k=0,f,d;for(f=0;f<J.length;++f){d=J[f];if(d.bt&&0==d.v){if(d.t in X)continue;if(1==b&&":"==d.bt[0]&&d.t>m){f=l-1;b=2;g+=d.t-m;continue}2==b&&":"==d.bt[0]&&
-d.t>m&&(b=1);1==b&&":"==d.bt[d.bt.length-1]&&(l=f,m=d.t);e&&(d.tx||"|"!=d.bt)&&(e=0,g-=d.t-k);2==b&&"1"==d.tx&&(e=1,k=d.t)}e||(d.bt?X[d.t]=1:u.push({t:d.t+g,xy:W[d.ix],ns:d.ns,vce:d.v,inv:d.inv,tmp:d.tmp}))}for(B=0;B<u.length&&(d=u[B],!(d.t>=a)||d.inv);++B);B==u.length&&--B;c(u[B])}function y(){if(p){for(var a=1E3*p.currentTime,b=0,g;0==b;){var l=u[B];g=156.25/l.tmp;B==u.length-1?(B=-1,b=l.ns[0].dur+1E3):(b=u[B+1].t,b=(b-l.t)*g);l.ns.forEach(function(b,e){g=192>=b.dur?1.3*g:1.1*g;var h=b.mnum,f=b.dur*
-g,d=l.vce;if(-1!=h){var c=h>>7;if(c in Y){var n=h%128,m=a/1E3,h=(f-1)/1E3,q,A,v,C,r,x,t,f=Z[c][n],u=p.createBufferSource(),B=f.useflt,w=f.uselfo,z=f.useenv;q=H[d]/127;d=(I[d]-64)/64;u.buffer=f.buffer;f.loopStart&&(u.loop=!0,u.loopStart=f.loopStart,u.loopEnd=f.loopEnd);u.playbackRate.value=aa[c][n];w&&(v=p.createOscillator(),v.frequency.value=f.lfofreq,c=p.createGain(),c.gain.value=f.lfo2vol,v.connect(c),A=p.createGain(),A.gain.value=1,c.connect(A.gain),c=p.createGain(),c.gain.value=f.lfo2ptc,v.connect(c),
-c.connect(u.detune));if(B){var y=p.createBiquadFilter();y.type="lowpass";y.frequency.value=f.filter}if(z){var D=1,c=p.createGain();c.gain.setValueAtTime(0,m);c.gain.linearRampToValueAtTime(D,m+f.envatt);n=f.envhld;x=f.envdec;h>n&&(c.gain.setValueAtTime(D,m+n),h<x?(t=h-n,x=t/(x-n)*f.envsus):(t=x-n,x=f.envsus),D*=x,c.gain.linearRampToValueAtTime(D,m+n+t));c.gain.setValueAtTime(D,m+h);n=m+h+D*f.envrel;c.gain.linearRampToValueAtTime(0,n);C=p.createConstantSource();C.offset.value=f.env2flt;C.connect(c);
-c.connect(y.detune)}Q&&(r=p.createStereoPanner(),r.pan.value=d);D=q*f.atten*.5;0==D&&(D=1E-5);q=p.createGain();q.gain.setValueAtTime(1E-5,m);q.gain.exponentialRampToValueAtTime(D,m+f.attack);n=f.hold;x=f.decay;h>n&&(q.gain.setValueAtTime(D,m+n),h<x?(t=h-n,x=Math.pow(10,t/(x-n)*Math.log10(f.sustain))):(t=x-n,x=f.sustain),D*=x,q.gain.exponentialRampToValueAtTime(D,m+n+t));q.gain.setValueAtTime(D,m+h);n=m+h+(100+20*Math.log10(D))/100*f.release;q.gain.exponentialRampToValueAtTime(1E-5,n);B?(u.connect(y),
-y.connect(r||q)):u.connect(r||q);r&&r.connect(q);w?(q.connect(A),A.connect(p.destination)):q.connect(p.destination);u.start(m);w&&v.start(m+f.lfodel);z&&C.start(m);u.stop(n);w&&v.stop(n);z&&C.stop(n)}else 0!=M&&(A=100,v=a/1E3,C=(f-1)/1E3,r=H[d]/127,f=(I[d]-64)/64,y=p.createBufferSource(),y.buffer=ma[h],h=p.createGain(),h.gain.setValueAtTime(1E-5,v),A=A*r*.015625,0==A&&(A=1E-5),h.gain.exponentialRampToValueAtTime(A,v+.001),Q&&(m=p.createStereoPanner(),m.pan.value=f),y.connect(m||h),m&&m.connect(h),
-h.connect(p.destination),y.start(v),v+=C,h.gain.setValueAtTime(A,v),h.gain.exponentialRampToValueAtTime(1E-5,v+.1),y.stop(v+.1))}});c(l);B+=1}clearTimeout(ba);ba=setTimeout(y,b)}else alert("Your browser has no Web Audio API -> no playback.")}function t(a){u.length&&((U=a)?y():clearTimeout(ba))}function ha(a){return new Promise(function(b,h){for(var c=atob(a),g=new ArrayBuffer(c.length),e=new Uint8Array(g),k=0;k<c.length;k++)e[k]=c.charCodeAt(k);p.decodeAudioData(g,function(a){b(a)},function(a){h({err:1,
-msg:a,data:""})})})}function sa(a){return new Promise(function(b,h){function c(g){var e,k,f,d;e=instData[g];k={attack:e.attack,hold:e.hold,decay:e.decay,sustain:e.sustain,release:e.release,atten:e.atten,filter:e.filter,lfodel:e.lfodel,lfofreq:e.lfofreq,lfo2ptc:e.lfo2ptc,lfo2vol:e.lfo2vol,envatt:e.envatt,envhld:e.envhld,envdec:e.envdec,envsus:e.envsus,envrel:e.envrel,env2flt:e.env2flt,uselfo:ca&&.008<e.lfofreq&&(0!=e.lfo2ptc||0!=e.lfo2vol),useflt:da&&16E3>e.filter,useenv:ea&&16E3>e.filter&&0!=e.env2flt};
-e.loopStart&&(k.loopStart=e.loopStart,k.loopEnd=e.loopEnd);f=e.scale;d=e.tune;for(var m=e.keyRangeLo;m<=e.keyRangeHi;m++)aa[a][m]=Math.pow(Math.pow(2,1/12),(m+d)*f),Z[a][m]=k,fa[128*a+m]=1;ha(e.sample).then(function(a){k.buffer=a;g<instData.length-1?c(g+1):(instData="",b("ok"))})["catch"](function(a){h(a)})}aa[a]=[];Z[a]=[];c(1)})}function ra(a){return new Promise(function(b,h){var c=document.createElement("script");c.src=instUrl+"instr"+a+"mp3.js";c.onload=function(){b("ok");document.head.removeChild(c)};
-c.onerror=function(b){h({err:2,msg:"could not load "+c.src,data:a})};document.head.appendChild(c)})}function ia(a){void 0==a.err&&(a.err=4,a.msg=a.toString());console.log(a.err+", "+a.msg+", "+a.data);switch(a.err){case 1:alert("Your browser does not support decoding ogg/vorbis -> no playback");break;case 2:a="Loading javascript soundfont failed, instrument "+a.data+"\nfalling back to midi-js";console.log(a);z.innerHTML+=a.replace("\n","<br>");break;case 3:console.log("Loading midi-js soundfont failed, instrument "+
-a.data+"\nmsg: "+a.msg);break;case 4:alert(a.msg)}}function L(a){function b(a){return new Promise(function(b,d){if(ga[a])b("ok");else{var c;na[a]?c="https://rawgit.com/gleitz/midi-js-soundfonts/gh-pages/FluidR3_GM/"+l+"-mp3":(l=a in instTab?instTab[a]:l,c=instUrl+l+"-mp3");z.innerHTML+=", loading: "+a;var f=document.createElement("script");f.src=c+".js";f.onload=function(){ga[a]=MIDI.Soundfont[l];oa[c]=1;console.log("midi-js instr "+e+" geladen");b("ok")};f.onerror=function(){d({err:3,msg:"could not load:"+
-c,data:a})};c in oa?b("ok"):document.head.appendChild(f)}})}function c(e){b(e).then(function(){var a=ga[e][f+d].split(",")[1];return ha(a)}).then(function(b){ma[g]=b;z.innerHTML+=", "+e+":"+k;fa[g]=1;L(a)})["catch"](function(a){ia(a);-1==a.msg.indexOf("gleitz")?(na[e]=1,z.innerHTML+="<br>loading local midi-js font failed, instrument: "+a.data+"<br>trying Github ...",c(e)):(alert("loading soundfont from Github failed, giving up."),z.style.display="none")})}var h="C Db D Eb E F Gb G Ab A Bb B".split(" "),
-g=a.shift();if(g){var e=g>>7,k=g%128,f=h[k%12],d=Math.floor(k/12)-1,l=ua[e];Y[e]?L(a):withRT&&!pa[e]?ra(e).then(function(){z.innerHTML+="loading instrument "+e+"<br>";return sa(e)}).then(function(){console.log("instr "+e+" geladen");Y[e]=1;L(a)})["catch"](function(a){ia(a);pa[e]=1;c(e)}):c(e)}else M=1,z.style.display="none",t(1)}function R(a){a=Object.keys(a).filter(function(a){return!(a in fa)});a.length?(z.innerHTML="",z.style.display="block",z.style.top=document.scrollingElement.scrollTop+document.documentElement.clientHeight/
-2.5+"px",L(a)):(M=1,t(1))}function ta(a,b,c){function g(b){a.removeEventListener("mousedown",g);a.removeEventListener("touchend",g);console.log("event listeners removed from "+a.nodeName);p&&"suspended"==p.state&&p.resume().then(function(){console.log("resuming audioContext")})}a.addEventListener("mousedown",g);a.addEventListener("touchend",g);a.addEventListener(b,c)}var J,ka,B=0,U=0,ba,M=0,u=[],N=[],X={},W={},V=[],G=[],P=[],la,T,O=[],S=[],p=null,ma=[],fa={},K=120,pa={},na={},Y={},ga=[],ja={},H=[],
-I=[],F=null,z=null,ua="acoustic_grand_piano bright_acoustic_piano electric_grand_piano honkytonk_piano electric_piano_1 electric_piano_2 harpsichord clavinet celesta glockenspiel music_box vibraphone marimba xylophone tubular_bells dulcimer drawbar_organ percussive_organ rock_organ church_organ reed_organ accordion harmonica tango_accordion acoustic_guitar_nylon acoustic_guitar_steel electric_guitar_jazz electric_guitar_clean electric_guitar_muted overdriven_guitar distortion_guitar guitar_harmonics acoustic_bass electric_bass_finger electric_bass_pick fretless_bass slap_bass_1 slap_bass_2 synth_bass_1 synth_bass_2 violin viola cello contrabass tremolo_strings pizzicato_strings orchestral_harp timpani string_ensemble_1 string_ensemble_2 synth_strings_1 synth_strings_2 choir_aahs voice_oohs synth_choir orchestra_hit trumpet trombone tuba muted_trumpet french_horn brass_section synth_brass_1 synth_brass_2 soprano_sax alto_sax tenor_sax baritone_sax oboe english_horn bassoon clarinet piccolo flute recorder pan_flute blown_bottle shakuhachi whistle ocarina lead_1_square lead_2_sawtooth lead_3_calliope lead_4_chiff lead_5_charang lead_6_voice lead_7_fifths lead_8_bass__lead pad_1_new_age pad_2_warm pad_3_polysynth pad_4_choir pad_5_bowed pad_6_metallic pad_7_halo pad_8_sweep fx_1_rain fx_2_soundtrack fx_3_crystal fx_4_atmosphere fx_5_brightness fx_6_goblins fx_7_echoes fx_8_scifi sitar banjo shamisen koto kalimba bagpipe fiddle shanai tinkle_bell agogo steel_drums woodblock taiko_drum melodic_tom synth_drum reverse_cymbal guitar_fret_noise breath_noise seashore bird_tweet telephone_ring helicopter applause gunshot".split(" "),
-oa={},K=120,Z=[],aa=[],Q=1,ca=1,da=1,ea=1;document.addEventListener("DOMContentLoaded",function(){Array.prototype.slice.call(document.getElementsByClassName("abc")).forEach(function(b){var c=b.innerHTML.replace("&gt;",">").replace("&lt;","<").replace("&amp;","&");a(c,b,0)});document.body.addEventListener("click",function(){U&&t(0)},!1);window.addEventListener("resize",function(){b();r()},!1);z=document.getElementById("comp");var c=window.AudioContext||window.webkitAudioContext;if(p=void 0!=c?new c:
-null){p.createStereoPanner||(Q=0);p.createOscillator||(ca=0);p.createBiquadFilter||(da=0);p.createConstantSource||(ea=0);var c=[],g=0;Q||c.push("Your browser does not support the StereoPanner element");withRT&&!ca&&(c.push("Your browser does not support the Oscillator element"),g=1);withRT&&!da&&(c.push("Your browser does not support the BiquadFilter element"),g=1);withRT&&!ea&&(c.push("Your browser does not support the ConstantSource element"),g=1);c.length&&alert(c.join("\n")+(g?"\nThe instrument(s) will sound (very) wrong":
-""))}else alert("Your browser has no Web Audio API -> no playback.")})})();
+
+'use strict'
+var xmlplay_VERSION = 81;
+var instUrl = '';   // path to directory containing sound fonts
+var withRT = 1;     // enable real time synthesis, otherwise pre-rendered waves (MIDIjs)
+var instTab = {};   // { instrument number -> instrument name } for non standard instrument names
+
+(function () {
+
+    var gAbcSave, gAbcTxt, opt = {}, allNotes, gBeats, gStaves, nVoices, scoreFnm
+    var iSeq = 0, iSeqStart, isPlaying = 0, timer1, gToSynth = 0;
+    var ntsSeq = [];
+    var gTrans = [];    // playback transposition for each voice
+    var barTimes = {};
+    var ntsPos = {};    // {abc_char_pos -> nSvg, x, y, w, h}
+    var stfPos = [];    // [stfys for each svg]
+    var deSvgs = [], deSvgGs = [];
+    var topSpace = 500, ySvgs, gScale;
+    var dottedHeight = 30;
+    var curStaff = 0;
+    var isvgPrev = [];  // svg index of each marker
+    var isvgAligned = 0;
+    var rMarks = [];    // a marker for each voice
+    var audioCtx = null;
+    var golven = [];
+    var midiLoaded = {};    // midi nums of already loaded waves
+    var gTempo = 120;
+    var notationHeight = 100;
+    var fileURL = '';
+    var drop_files = null;
+    var stfHgt = [];
+    var noSf2 = {};     // { n: boolean }, no local javascript font for instrument n
+    var noMidiJs = {};  // { n: boolean }, no local midi-js font for instrument n
+    var instSf2Loaded = {};
+    var instArr = [];   // { note_name -> b64 encoded compressed audio } for each loaded instrument
+    var mapTab = {};    // { map_name + ABC_note -> midi_number }
+    var midiVol = [];   // volume for each voice from midi controller 7
+    var midiPan = [];   // panning for each voice from midi controller 10
+    var gTunings = {};  // string tuning per voice
+    var gDiafret = {};  // diatonic fretting per voice (0 = chromatic, 1 = diatonic)
+    var abcElm = null;  // lopende abc element
+    var cmpDlg = null;
+    var alrtMsg2 = 'Your browser has no Web Audio API -> no playback.';
+    var	inst_tb = [ "acoustic_grand_piano", "bright_acoustic_piano", "electric_grand_piano",
+        "honkytonk_piano", "electric_piano_1", "electric_piano_2", "harpsichord", "clavinet", "celesta",
+        "glockenspiel", "music_box", "vibraphone", "marimba", "xylophone", "tubular_bells", "dulcimer",
+        "drawbar_organ", "percussive_organ", "rock_organ", "church_organ", "reed_organ", "accordion",
+        "harmonica", "tango_accordion", "acoustic_guitar_nylon", "acoustic_guitar_steel",
+        "electric_guitar_jazz", "electric_guitar_clean", "electric_guitar_muted", "overdriven_guitar",
+        "distortion_guitar", "guitar_harmonics", "acoustic_bass", "electric_bass_finger", 
+        "electric_bass_pick", "fretless_bass", "slap_bass_1", "slap_bass_2", "synth_bass_1",
+        "synth_bass_2", "violin", "viola", "cello", "contrabass", "tremolo_strings", "pizzicato_strings",
+        "orchestral_harp", "timpani", "string_ensemble_1", "string_ensemble_2", "synth_strings_1",
+        "synth_strings_2", "choir_aahs", "voice_oohs", "synth_choir", "orchestra_hit", "trumpet",
+        "trombone", "tuba", "muted_trumpet", "french_horn", "brass_section", "synth_brass_1",
+        "synth_brass_2", "soprano_sax", "alto_sax", "tenor_sax", "baritone_sax", "oboe", "english_horn",
+        "bassoon", "clarinet", "piccolo", "flute", "recorder", "pan_flute", "blown_bottle", "shakuhachi",
+        "whistle", "ocarina", "lead_1_square", "lead_2_sawtooth", "lead_3_calliope", "lead_4_chiff",
+        "lead_5_charang", "lead_6_voice", "lead_7_fifths", "lead_8_bass__lead", "pad_1_new_age",
+        "pad_2_warm", "pad_3_polysynth", "pad_4_choir", "pad_5_bowed", "pad_6_metallic", "pad_7_halo",
+        "pad_8_sweep", "fx_1_rain", "fx_2_soundtrack", "fx_3_crystal", "fx_4_atmosphere",
+        "fx_5_brightness", "fx_6_goblins", "fx_7_echoes", "fx_8_scifi", "sitar", "banjo", "shamisen",
+        "koto", "kalimba", "bagpipe", "fiddle", "shanai", "tinkle_bell", "agogo", "steel_drums",
+        "woodblock", "taiko_drum", "melodic_tom", "synth_drum", "reverse_cymbal", "guitar_fret_noise",
+        "breath_noise", "seashore", "bird_tweet", "telephone_ring", "helicopter", "applause","gunshot"]
+    var urlLoaded = {}; // onthoud welke scripts geladen zijn
+    var gTempo = 120, curTemp = 120, tempScale = 1;
+    var params = [];    // [instr][key] note parameters per instrument
+    var rates = [];     // [instr][key] playback rates
+    var gCurMask = 0;   // cursor mask (0-255)
+    const volCorJS = 0.5 / 32;  // volume scaling factor for midiJS
+    const volCorSF = 0.5;       // idem for Sf2
+    var hasPan = 1, hasLFO = 1, hasFlt = 1, hasVCF = 1; // web audio api support
+
+function logerr (s) { console.log (s); }
+
+function dolayout (abctxt, abc_elm, fplay) {
+    function stringTunings (abcIn) {
+        var ls, i, x, r, vce, bstep, boct, mnum, tuning = {}, vid, diafret = {};
+        var steps = [18, 20, 22, 24, 26, 28];   // apit van iedere snaar
+        ls = abcIn.split ('\n');
+        for (i = 0; i < ls.length; ++i) {
+            x = ls [i];
+            if (x.indexOf ('strings') >= 0) {
+                r = x.match (/V:\s*(\S+).*strings\s*=\s*(\S+)/);   // ?? voice optional with error msg
+                if (r) {
+                    vid = r[1];         // real voice id
+                    tuning [vid] = {};  // { apit snaar -> midi number }
+                    r[2].split (',').forEach (function (n, ix) {
+                        bstep = n[0]
+                        boct = parseInt (n[1]) * 12;
+                        mnum = boct + [0,2,4,5,7,9,11]['CDEFGAB'.indexOf (bstep)] + 12  // + capo ??
+                        tuning [vid] [steps [ix]] = mnum;
+                    });
+                    diafret [vid] = x.indexOf ('diafret') >= 0;
+                }
+            }
+        }
+        return [tuning, diafret];
+    }
+    function mapPerc (abcIn) {
+        var ls, i, x, r, mapName, note, midi, mtab = {};
+        ls = abcIn.split ('\n');
+        for (i = 0; i < ls.length; ++i) {
+            x = ls [i];
+            if (x.indexOf ('%%map') >= 0) {
+                r = x.match(/%%map *(\S+) *(\S+).*midi=(\d+)/)
+                if (r) {
+                    mapName = r[1]; note = r[2]; midi = r[3];
+                    mtab [mapName + note] = parseInt (midi);
+                }
+            }
+        }
+        return mtab;
+    }
+    function perc2map (abcIn) {
+        var b = '%%beginsvg\n<defs>\n'
+        b+= '<text id="x" x="-3" y="0">&#xe263;</text>\n'
+        b+= '<text id="x-" x="-3" y="0">&#xe263;</text>\n'
+        b+= '<text id="x+" x="-3" y="0">&#xe263;</text>\n'
+        b+= '<text id="normal" x="-3.7" y="0">&#xe0a3;</text>\n'
+        b+= '<text id="normal-" x="-3.7" y="0">&#xe0a3;</text>\n'
+        b+= '<text id="normal+" x="-3.7" y="0">&#xe0a4;</text>\n'
+        b+= '<g id="circle-x"><text x="-3" y="0">&#xe263;</text><circle r="4" class="stroke"/></g>\n'
+        b+= '<g id="circle-x-"><text x="-3" y="0">&#xe263;</text><circle r="4" class="stroke"/></g>\n'
+        b+= '<path id="triangle" d="m-4 -3.2l4 6.4 4 -6.4z" class="stroke" style="stroke-width:1.4"/>\n'
+        b+= '<path id="triangle-" d="m-4 -3.2l4 6.4 4 -6.4z" class="stroke" style="stroke-width:1.4"/>\n'
+        b+= '<path id="triangle+" d="m-4 -3.2l4 6.4 4 -6.4z" class="stroke" style="fill:#000"/>\n'
+        b+= '<path id="square" d="m-3.5 3l0 -6.2 7.2 0 0 6.2z" class="stroke" style="stroke-width:1.4"/>\n'
+        b+= '<path id="square-" d="m-3.5 3l0 -6.2 7.2 0 0 6.2z" class="stroke" style="stroke-width:1.4"/>\n'
+        b+= '<path id="square+" d="m-3.5 3l0 -6.2 7.2 0 0 6.2z" class="stroke" style="fill:#000"/>\n'
+        b+= '<path id="diamond" d="m0 -3l4.2 3.2 -4.2 3.2 -4.2 -3.2z" class="stroke" style="stroke-width:1.4"/>\n'
+        b+= '<path id="diamond-" d="m0 -3l4.2 3.2 -4.2 3.2 -4.2 -3.2z" class="stroke" style="stroke-width:1.4"/>\n'
+        b+= '<path id="diamond+" d="m0 -3l4.2 3.2 -4.2 3.2 -4.2 -3.2z" class="stroke" style="fill:#000"/>\n'
+        b+= '</defs>\n%%endsvg'
+        var fillmap = {'diamond':1, 'triangle':1, 'square':1, 'normal':1};
+        var abc = [b], ls, i, x, r, id='default', maps = {'default':[]};
+        ls = abcIn.split ('\n');
+        for (i = 0; i < ls.length; ++i) {
+            x = ls [i];
+            if (x.indexOf ('I:percmap') >= 0) {
+                x = x.split (' ');
+                var kop = x[4];
+                if (kop in fillmap) kop = kop + '+' + ',' + kop;
+                x = '%%map perc'+id+ ' ' +x[1]+' print=' +x[2]+ ' midi=' +x[3]+ ' heads=' + kop;
+                maps [id].push (x);
+            }
+            if (x.indexOf ('V:') >= 0) {
+                r = x.match (/V:\s*(\S+)/);
+                if (r) {
+                    id = r[1];
+                    if (!(id in maps)) maps [id] = [];
+                }
+            }
+        }
+        for (id in maps) abc = abc.concat (maps [id]);
+        for (i = 0; i < ls.length; ++i) {
+            x = ls [i];
+            if (x.indexOf ('I:percmap') >= 0) continue;
+            if (x.indexOf ('V:') >= 0 || x.indexOf ('K:') >= 0) {
+                r = x.match (/V:\s*(\S+)/);
+                if (r) id = r[1];
+                if (maps [id].length == 0) id = 'default';
+                abc.push (x);
+                if (x.indexOf ('perc') >= 0 && x.indexOf ('map=') == -1) x += ' map=perc';
+                if (x.indexOf ('map=perc') >= 0 && maps [id].length > 0) abc.push ('%%voicemap perc' + id);
+                if (x.indexOf ('map=off') >= 0) abc.push ('%%voicemap');
+            }
+            else abc.push (x);
+        }
+        return abc.join ('\n');
+    }
+    var xs = abctxt.split ('\n');
+    xs.splice (1, 0, '%%measurenb 0');
+    abctxt = xs.join ('\n');
+    if (fplay) {
+        if (abctxt.indexOf ('I:percmap') >= 0) abctxt = perc2map (abctxt);
+        if (abctxt.indexOf ('%%map') >= 0) mapTab = mapPerc (abctxt);
+        if (abctxt.indexOf (' strings') >= 0) {
+            var tns = stringTunings (abctxt);
+            gTunings = tns [0];
+            gDiafret = tns [1];
+        }
+    }
+    gAbcSave = abctxt;  // bewaar abc met wijzigingen
+    abcElm = abc_elm;
+    gToSynth = 0;
+    var fcnt = function () { doLayout (abctxt, abc_elm, fplay); }
+    if (fplay) doModel (abctxt, fcnt);
+    else fcnt ()
+}
+
+function doModel (abctxt, fcnt) {
+    var abc2svg;
+    var errtxt = '';
+    var BAR = 0, GRACE = 4, KEY = 5, METER = 6, NOTE = 8, REST = 10, TEMPO = 14, BASE_LEN = 1536;
+    var keySteps = [3,0,4,1,5,2,6];     // step values of the cycle of fifth
+    var scaleSteps = [0,2,4,5,7,9,11];  // step values of the scale of C
+    gAbcTxt = abctxt;
+    allNotes = [];
+    gTrans = [];
+    gTempo = 120;
+    midiVol = [];       // volume for each voice from midi controller 7
+    midiPan = [];       // panning for each voice from midi controller 10
+
+    function getStaves (voice_tb) {
+        var xs = [];
+        voice_tb.forEach (function (v, i) {
+            if (xs [v.st]) xs [v.st].push (i); 
+            else xs [v.st] = [i];
+            if (v.clef.clef_octave) gTrans [i] = v.clef.clef_octave;
+            stfHgt [v.st] = (v.stafflines || '|||||').length * 6 * (v.staffscale || 1);
+            midiVol [i] = v.midictl && v.midictl [7];
+            if (midiVol [i] == undefined) midiVol [i] = 100;
+            midiPan [i] = v.midictl && v.midictl [10];
+            if (midiPan [i] == undefined) midiPan [i] = 64;
+        });
+        return xs;
+    }
+
+    function errmsg (txt, line, col) {
+        errtxt += txt + '\n';
+    }
+
+    function parseModel (ts_p, voice_tb, music_types) {
+        function setKey (v, sharpness) {    // voice, index in cycle of fifth (keySteps)
+            acctab [v] = [0,0,0,0,0,0,0];   // step modifications for the current key in voice v
+            alts [v] = {};                  // reset alterations
+            curKey [v] = sharpness;
+            var sign = sharpness >= 0;
+            var accs = sign ? keySteps.slice (0, sharpness) : keySteps.slice (sharpness);   // steps modified by key
+            accs.forEach (function (iacc) { acctab [v][iacc] += sign ? 1 : -1; });          // perform modification in acctab
+        }
+        var acctab = {}, accTrans = {'-2':-2,'-1':-1,0:0,1:1,2:2,3:0}, alts = {}, curKey = {}, tied = {};
+        var diamap = '0,1-,1,1+,2,3,3,4,4,5,6,6+,7,8-,8,8+,9,10,10,11,11,12,13,13+,14'.split (',')
+        var mtr = voice_tb [0].meter.a_meter;
+        gBeats = mtr.length ? parseInt (mtr [0].top) : 4;
+        for (v = 0; v < voice_tb.length; ++v) {
+            var key = voice_tb [v].key.k_sf;
+            setKey (v, key);
+            tied [v] = {};
+        }
+        var midiUsed = {};
+        nVoices = voice_tb.length;
+        gStaves = getStaves (voice_tb);
+        for (var ts = ts_p; ts; ts = ts.ts_next) {
+            var i, n, p, oct, step, mn, noten = [], noot, fret, tuning, v, vid;
+            switch (ts.type) {
+            case TEMPO:
+                var dtmp = ts.tempo_notes.reduce (function (sum, x) { return sum + x; });
+                gTempo = ts.tempo * dtmp / 384;
+                break;
+            case REST:
+                noot = { t: ts.time, mnum: -1, dur: ts.dur };
+                noten.push (noot);
+                allNotes.push ({ t: ts.time, ix: ts.istart, v: ts.v, ns: noten, inv: ts.invis, tmp: gTempo });
+                break;
+            case NOTE:
+                var instr = ts.p_v.instr;       // from %%MIDI program instr
+                if (ts.p_v.clef.clef_type == 'p') instr = 119;  // percussion
+                if (!instr) instr = 0;          // default instrument: piano
+                for (i = 0; i < ts.notes.length; ++i) { // parse all notes (chords)
+                    n = ts.notes [i];
+                    p = n.pit + 19;             // C -> 35 == 5 * 7, global step
+                    v = ts.v;                   // voice number 0..
+                    vid = ts.p_v.id;            // voice ID
+                    if (gTrans [v]) p += gTrans [v];    // octaaf transpositie in sleutel
+                    oct = Math.floor (p / 7);   // C -> 5
+                    step = p % 7;               // C -> 0
+                    if (n.acc != undefined) alts [v][p] = accTrans [n.acc]; // wijzig acctab voor stap p in stem ts.v
+                    mn = oct * 12 + scaleSteps [step] + (p in alts [v] ? alts [v][p] : acctab [v][step]);
+                    var mapNm = ts.p_v.map;
+                    if (instr == 119 && mapNm != 'MIDIdrum') {
+                        var nt = abctxt.substring (ts.istart, ts.iend);
+                        nt = nt.match (/[=_^]*[A-Ga-g]/)[0];
+                        var x = mapTab [mapNm + nt];
+                        if (x) mn = x;
+                    }
+                    mn = instr * 128 + mn;
+                    midiUsed [mn] = 1;          // collect all used midinumbers
+
+                    noot = { t: ts.time, mnum: mn, dur: ts.dur };
+                    if (p in tied [v]) {
+                        tied [v][p].dur += ts.dur;      // verleng duur van vorige noot
+                        if (n.ti1 == 0) delete tied [v][p]; // geen verdere ties
+                        continue;                       // noot wordt in feite overgeslagen
+                    }
+                    if (n.ti1 != 0) tied [v][p] = noot; // bewaar ref naar r om later de duur te verlengen
+                    noten.push (noot);
+                }
+                if (noten.length == 0) break;           // door ties geen noten meer over
+                allNotes.push ({ t: ts.time, ix: ts.istart, v: ts.v, ns: noten, stf: ts.st, tmp: gTempo });
+                break;
+            case KEY: setKey (ts.v, ts.k_sf); break;    // set acctab to new key
+            case BAR:
+                setKey (ts.v, curKey [ts.v]);           // reset acctab to current key
+                allNotes.push ({ t: ts.time, ix: ts.istart, v: ts.v, bt: ts.bar_type, tx: ts.text });
+                break;
+            case METER:                         // ritme verandering: nog te doen !
+                //~ gBeats = parseInt (ts.a_meter [0].top);
+                break;
+            }
+        }
+        rMarks.forEach (function (mark) {   // verwijder oude markeringen
+            var pn = mark.parentNode;
+            if (pn) pn.removeChild (mark);
+        });
+        isvgPrev = [];                      // clear svg indexes
+        var kleur = ['#f9f','#3cf','#c99','#f66','#fc0','#cc0','#ccc'];
+        for (var i = 0; i < nVoices; ++i) { // a marker for each voice
+            var alpha = 1 << i & gCurMask ? '0' : ''
+            var rMark = document.createElementNS ('http://www.w3.org/2000/svg','rect');
+            rMark.setAttribute ('fill', kleur [i % kleur.length] + alpha);
+            rMark.setAttribute ('fill-opacity', '0.5');
+            rMark.setAttribute ('width', '0');  // omdat <rect> geen standaard HTML element is werkt rMark.width = 0 niet.
+            rMarks.push (rMark);
+            isvgPrev.push (-1);
+        }
+        fcnt ();
+        if (audioCtx != null) laadNootHulp (midiUsed);  // laad de golfdata van de benodigde midinummers
+        else alert (alrtMsg2);
+    }
+
+    var user = {
+        'img_out': null, // img_out,
+        'errmsg': errmsg,
+        'read_file': function (x) { return ''; },   // %%abc-include, unused
+        'anno_start': null, // svgInfo,
+        'get_abcmodel': parseModel
+    }
+    abc2svg = new Abc (user);
+    abc2svg.tosvg ('play', '%%play');   // houdt rekening met transpose= in K: of V:
+    abc2svg.tosvg ('abc2svg', abctxt);
+    if (errtxt == '') errtxt = 'no error';
+    logerr (errtxt);
+}
+
+function doLayout (abctxt, abc_elm, fplay) {
+    var abc2svg;
+    var muziek = '';
+    var errtxt = '';
+    var nSvg = 0;
+    iSeq = 0;
+    iSeqStart = 0;
+    ntsPos = {};    // {abc_char_pos -> nSvg, x, y, w, h}
+    stfPos = [];    // [stfys for each svg]
+    var stfys = {}; // y coors of the bar lines in a staff
+    var xleft, xright, xleftmin = 1000, xrightmax = 0;
+    curStaff = 0;
+
+    function errmsg (txt, line, col) {
+        errtxt += txt + '\n';
+    }
+
+    function img_out (str) {
+        if (str.indexOf ('<svg') != -1) {
+            stfPos [nSvg] = Object.keys (stfys);
+            stfys = {}
+            nSvg += 1;
+            if (xleft < xleftmin) xleftmin = xleft;
+            if (xright > xrightmax) xrightmax = xright;
+        }
+        muziek += str;
+    }
+
+    function svgInfo (type, s1, s2, x, y, w, h) {
+        if (type == 'note' || type == 'rest') {
+            x = abc2svg.ax (x).toFixed (2);
+            y = abc2svg.ay (y).toFixed (2);
+            h = abc2svg.ah (h);
+            ntsPos [s1] = [nSvg, x, y, w, h];
+        }
+        if (type == 'bar') {
+            y = abc2svg.ay (y);
+            h = abc2svg.ah (h);
+            y = Math.round (y + h);
+            stfys [y] = 1;
+            xright = abc2svg.ax (x);
+            xleft = abc2svg.ax (0);
+        }
+    }
+
+    function getNote (event) {
+        var p, isvg, x, y, w, h, xp, jsvg, i, ys, yp, yoff, t;
+        event.stopPropagation ();
+        jsvg = deSvgs.indexOf (this);
+        if (!fplay || jsvg < 0) {
+            playBack (0);
+            dolayout (abctxt, abc_elm, 1);
+            return;
+        }
+        x = event.clientX;           // position click relative to page
+        x -= this.getBoundingClientRect ().left;    // positie linker rand (van this = klikelement = svg) t.o.v. de viewPort
+        xp = x * gScale;
+        if (xp < xleftmin || xp > xrightmax) { // click in the margin
+            playBack (0);
+            return;
+        }
+        if (!isPlaying) playBack (1);
+        yoff = abcElm.getBoundingClientRect ().top;
+        yp = (event.clientY - yoff - ySvgs [jsvg]) * gScale;
+        ys = stfPos [jsvg];
+        for (i = 0; i < ys.length; i++) {
+            if (ys [i] > yp) {                      // op staff i is geklikt
+                curStaff = i;
+                break;
+            }
+        }
+        for (i = 0; i < ntsSeq.length; ++i) {
+            p = ntsSeq [i].xy;
+            if (!p) continue;       // invisible rest
+            isvg = p[0]; x = p[1]; y = p[2]; w = p[3]; h = p[4];
+            if (isvg < jsvg) continue;
+            if (xp < parseFloat (x) + w) {
+                iSeq = i;
+                iSeqStart = iSeq;   // zet ook de permanente startpositie
+                t = ntsSeq [i].t
+                while (ntsSeq [i] && ntsSeq [i].t == t) {
+                    putMarkLoc (ntsSeq [i]);
+                    i += 1
+                }
+                break;
+            }
+        }
+    }
+
+    if (!abctxt) return;
+
+    var user = {
+        'imagesize': 'width="100%"',
+        'img_out': img_out,
+        'errmsg': errmsg,
+        'read_file': function (x) { return ''; },   // %%abc-include, unused
+        'anno_start': svgInfo,
+        'get_abcmodel': null
+    }
+    abc2svg = new Abc (user);
+    abc2svg.tosvg ('abc2svg', abctxt);
+    if (errtxt == '') errtxt = 'no error\n';
+    logerr (errtxt);
+	if (!muziek) return;
+
+    abcElm.innerHTML = muziek;
+    deSvgs = Array.prototype.slice.call (abcElm.getElementsByTagName ('svg'));
+    var gs = Array.prototype.slice.call (abcElm.getElementsByClassName ('g'));
+    deSvgGs = gs.length ? gs : deSvgs;
+    setYSvgs ();
+    setScale ();
+    deSvgs.forEach (function (svg) {
+        addUnlockListener (svg, 'click', getNote);
+    });
+    if (fplay) mkNtsSeq ();
+}
+
+function setYSvgs () {  // calculate top y-coordinates of all svg's (systems)
+    if (deSvgs.length == 0) return;
+    var ynot = abcElm.getBoundingClientRect ().top;
+    ySvgs = deSvgs.map (function (svg) {
+        var y = svg.getBoundingClientRect ().top + document.documentElement.scrollTop;
+        return y - ynot;
+    });
+}
+
+function setScale () {
+    if (deSvgs.length == 0) return;
+    var w_svg, w_vbx, m, scale, svg = deSvgs [0];
+    var w_svg = svg.getBoundingClientRect ().width;     // width svg element in pixels
+    try       { w_vbx = svg.viewBox.baseVal.width; }    // width svg element (vbx coors)
+    catch (e) { w_vbx = w_svg; }                        // no viewbox
+    m = (m = deSvgGs [0].transform) ? m.baseVal : [];   // scale factor top g-grafic
+    scale = m.length ? m.getItem (0).matrix.a : 1;      // scale: svg-coors -> vbx-coors
+    gScale = ((w_vbx / scale) / w_svg);                 // pixels -> svg-coors
+}
+
+function putMarkLoc (n) {
+    var p, isvg, x, y, w, h, mark, e, r, pn, se, dh, s;
+    function scrollSvg (elm, scrollElm) {
+        r = elm.getBoundingClientRect ();   // positie t.o.v. de viewPort
+        s = scrollElm.getBoundingClientRect ();
+        if (r.top < s.top || r.top < 0 || r.bottom > s.bottom || r.bottom > dh) {
+            if (scrollElm == se) scrollElm.scrollTop  = r.top - s.top;  // scrolling the window
+            else                 scrollElm.scrollTop += r.top - s.top;  // scrolling abcElm
+        }
+    }
+    mark = rMarks [n.vce];
+    p = n.xy;
+    if (!p) {   // n.xy == undefined
+        mark.setAttribute ('width', 0);
+        mark.setAttribute ('height', 0);
+        return;
+    }
+    isvg = p[0]; x = p[1]; y = p[2]; w = p[3]; h = p[4];
+    if (n.inv) { w = 0; h = 0; }    // markeer geen onzichtbare rusten/noten
+    if (isvg != isvgPrev [n.vce]) {
+        pn = mark.parentNode;
+        if (pn) pn.removeChild (mark);
+        pn = deSvgGs [isvg]
+        pn.insertBefore (mark, pn.firstChild);
+        isvgPrev [n.vce] = isvg;
+        e = deSvgGs [isvg];
+        se =  document.scrollingElement; // <body> in Edge. <html> in FF and Chrome
+        dh = document.documentElement.clientHeight; // viewPort height
+        if (abcElm.scrollHeight > abcElm.clientHeight) { // abcElm is scrollable
+            scrollSvg (e, abcElm);      // svg -> top of abcElm
+        }
+        scrollSvg (e, se);              // svg -> top of body/html
+    }
+    mark.setAttribute ('x', x);
+    mark.setAttribute ('y', y);
+    mark.setAttribute ('width', w);
+    mark.setAttribute ('height', h);
+}
+
+function mkNtsSeq () {
+    var curNoteTime  = iSeq > 0 ? ntsSeq [iSeq].t : 0;
+    ntsSeq = []; barTimes = {};
+    var repcnt = 1, offset = 0, repstart = 0, reptime = 0, volta = 0, tvolta = 0, i, n;
+    for (i = 0; i < allNotes.length; ++i) {
+        n = allNotes [i];
+        if (n.bt && n.v == 0) {
+            if (n.t in barTimes) continue;  // herhaling maar 1 keer uitvoeren (bij herhaling in herhaling)
+            if (repcnt == 1 && n.bt [0] == ':' && n.t > reptime) { i = repstart - 1; repcnt = 2; offset += n.t - reptime; continue; }
+            if (repcnt == 2 && n.bt [0] == ':' && n.t > reptime) { repcnt = 1; }
+            if (repcnt == 1 && n.bt [n.bt.length - 1] == ':') { repstart = i; reptime = n.t; }
+            if (volta && (n.tx || n.bt != '|')) { volta = 0; offset -= n.t - tvolta; }
+            if (repcnt == 2 && n.tx == '1') { volta = 1; tvolta = n.t }
+        };
+        if (volta) continue;
+        if (n.bt) { barTimes [n.t] = 1; continue; } // maattijden voor metronoom
+        ntsSeq.push ({ t: n.t + offset, xy: ntsPos [n.ix], ns: n.ns, vce: n.v, inv: n.inv, tmp: n.tmp });
+    }
+    iSeq = 0;
+    for (; iSeq < ntsSeq.length; ++iSeq) {  // zet iSeq zo richt mogelijk bij laatste cursor positie
+        n = ntsSeq [iSeq];
+        if (n.t >= curNoteTime && !n.inv) break;    // de eerste zichtbare noot
+    }
+    if (iSeq == ntsSeq.length) iSeq -= 1;
+    putMarkLoc (ntsSeq [iSeq]);
+}
+
+function markeer () {
+    if (!audioCtx) { alert (alrtMsg2); return }
+    var t0 = audioCtx.currentTime * 1000;
+    var dt = 0, t1, tf;
+    var tfac = 60000 / 384;
+    while (dt == 0) {
+        var nt = ntsSeq [iSeq];             // de huidige noot
+        tf = tfac / nt.tmp;                 // abc tijd -> echte tijd in msec
+        if (iSeq == ntsSeq.length - 1) {    // laatste noot
+            iSeq = -1;                      // want straks +1
+            dt = nt.ns[0].dur + 1000;       // 1 sec extra voor herhaling
+        } else {
+            t1 = ntsSeq [iSeq + 1].t;       // abc tijd van volgende noot
+            dt = (t1 - nt.t) * tf;          // delta abc tijd * tf = delta echte tijd in msec
+        }
+        nt.ns.forEach (function (noot, i) { // speel accoord
+            if (noot.dur <= 192) tf *= 1.3  // legato effect voor <= 1/8
+            else  tf *= 1.1                 // minder voor > 1/8
+            speel (t0, noot.mnum, noot.dur * tf, nt.vce);
+        });
+        putMarkLoc (nt); 
+        iSeq += 1;
+    }
+    clearTimeout (timer1);
+    timer1 = setTimeout (markeer, dt);
+
+}
+
+function playBack (onoff) {
+    if (!ntsSeq.length) return;
+    isPlaying = onoff
+    if (isPlaying) {
+        markeer ();
+    } else {
+        clearTimeout (timer1);
+    }
+}
+
+function speel (tijd, noot, dur, vce) { // tijd en duur in millisecs
+    if (noot == -1) return; // een rust
+    var inst = noot >> 7;
+    if (inst in instSf2Loaded) {
+        opneer (inst, noot % 128, tijd / 1000, (dur - 1) / 1000, vce);  // msec -> sec
+    } else {
+        if (gToSynth == 0) return;
+        opneer_nosynth (noot, 0x64, tijd / 1000, (dur - 1) / 1000, vce); // default midi volume 100
+    }
+}
+
+function opneer_nosynth (midiNum, vol, time, dur, vce) {
+    var vceVol = midiVol [vce] / 127;
+    var vcePan = (midiPan [vce] - 64) / 64, panNode;
+    var source = audioCtx.createBufferSource ();
+    source.buffer = golven [midiNum];
+    var gainNode = audioCtx.createGain();
+    gainNode.gain.setValueAtTime (0.00001, time);   // begin bij -100 dB
+    vol = vol * vceVol * volCorJS;
+    if (vol == 0) vol = 0.00001;    // stem kan volume 0 hebben.
+    gainNode.gain.exponentialRampToValueAtTime (vol, time + 0.001);
+    if (hasPan) {
+        panNode = audioCtx.createStereoPanner();
+        panNode.pan.value = vcePan;
+    }
+    source.connect (panNode || gainNode);    // we doen de pan node voor de gain node!!
+    if (panNode) panNode.connect (gainNode); // anders werkt de gain niet in FF
+    gainNode.connect (audioCtx.destination); // verbind source met de sound kaart
+    source.start (time);
+    var tend = time + dur;
+    gainNode.gain.setValueAtTime (vol, tend);   // begin release at end of note
+    gainNode.gain.exponentialRampToValueAtTime (0.00001, tend + 0.1); // -100 dB
+    source.stop (tend + 0.1);
+}
+
+function opneer (instr, key, t, dur, vce) {
+    var g, st, g1, g2, g3, lfo, g4, g5, panNode;
+    var th, td, decdur, suslev, fac, tend;
+    var parm = params [instr][key];
+    var o = audioCtx.createBufferSource ();
+    var wf = parm.useflt; // met filter
+    var wl = parm.uselfo; // met LFO
+    var we = parm.useenv; // met modulator envelope
+    var vceVol = midiVol [vce] / 127;
+    var vcePan = (midiPan [vce] - 64) / 64;
+
+    o.buffer = parm.buffer
+    if (parm.loopStart) {
+        o.loop = true;
+        o.loopStart = parm.loopStart;
+        o.loopEnd = parm.loopEnd;
+    }
+    o.playbackRate.value = rates [instr][key];
+
+    if (wl) {   // tremolo en/of vibrato
+        lfo = audioCtx.createOscillator ();
+        lfo.frequency.value = parm.lfofreq;
+        g1 = audioCtx.createGain ();
+        g1.gain.value = parm.lfo2vol;   // diepte tremolo
+        lfo.connect (g1);               // output g1 is sinus tussen -lfo2vol en lfo2vol
+        g2 = audioCtx.createGain ();
+        g2.gain.value = 1.0;            // meerdere value inputs worden opgeteld
+        g1.connect (g2.gain);           // g2.gain varieert tussen 1-lfo2vol en 1+lfo2vol
+
+        g3 = audioCtx.createGain ();
+        g3.gain.value = parm.lfo2ptc;   // cents, diepte vibrato
+        lfo.connect (g3);
+        g3.connect (o.detune);
+    }
+
+    if (wf) {
+        var f = audioCtx.createBiquadFilter ();
+        f.type = 'lowpass'
+        f.frequency.value = parm.filter;
+    }
+
+    if (we) {
+        var vol = 1.0
+        g4 = audioCtx.createGain();
+        g4.gain.setValueAtTime (0, t);  // mod env is lineair
+        g4.gain.linearRampToValueAtTime (vol, t + parm.envatt);
+        th = parm.envhld; td = parm.envdec; decdur = 0;
+        if (dur > th) {                             // decay phase needed
+            g4.gain.setValueAtTime (vol, t + th);   // starting at end hold phase
+            if (dur < td) {                         // partial decay phase
+                decdur = dur - th                   // duration of decay phase
+                suslev = parm.envsus * (decdur / (td - th));  // partial gain decrease
+            } else {                                // full decay phase
+                decdur = td - th
+                suslev = parm.envsus                // full gain decrease (until sustain level)
+            }
+            vol = suslev * vol;                     // gain at end of decay phase
+            g4.gain.linearRampToValueAtTime (vol, t + th + decdur); // until end time of decay phase
+        }
+        g4.gain.setValueAtTime (vol, t + dur);      // begin release at end of note
+        fac = vol;                                  // still to go relative to 100% change
+        tend = t + dur + fac * parm.envrel;         // end of release phase
+        g4.gain.linearRampToValueAtTime (0.0, tend); // 0 at the end
+
+        g5 = audioCtx.createConstantSource ();
+        g5.offset.value = parm.env2flt;
+        g5.connect (g4);
+        g4.connect (f.detune);
+    }
+
+    if (hasPan) {
+        panNode = audioCtx.createStereoPanner()
+        panNode.pan.value = vcePan;
+    }
+
+    var vol = vceVol * parm.atten * volCorSF;
+    if (vol == 0) vol = 0.00001;                // -100 dB is zero volume
+    g = audioCtx.createGain();
+    g.gain.setValueAtTime (0.00001, t);         // -100 dB is zero volume
+    g.gain.exponentialRampToValueAtTime (vol, t + parm.attack);
+
+    th = parm.hold; td = parm.decay; decdur = 0;
+    if (dur > th) {                             // decay phase needed
+        g.gain.setValueAtTime (vol, t + th);    // starting at end hold phase
+        if (dur < td) {                         // partial decay phase
+            decdur = dur - th                   // duration of decay phase
+            suslev = Math.pow (10, Math.log10 (parm.sustain) * (decdur / (td - th)));  // partial gain decrease (linear ratio in dB)
+        } else {                                // full decay phase
+            decdur = td - th
+            suslev = parm.sustain               // full gain decrease (until sustain level)
+        }
+        vol = suslev * vol;                     // gain at end of decay phase
+        g.gain.exponentialRampToValueAtTime (vol, t + th + decdur); // until end time of decay phase
+    }
+    g.gain.setValueAtTime (vol, t + dur);       // begin release at end of note
+
+    fac = (100 + 20 * Math.log10 (vol)) / 100;  // still to go relative to 100dB change
+    tend = t + dur + fac * parm.release;        // end of release phase
+    g.gain.exponentialRampToValueAtTime (0.00001, tend); // -100 dB
+
+    if (wf) {   o.connect (f); f.connect (panNode || g); }
+    else        o.connect (panNode || g);       // we doen de pan node voor de gain node!!
+    if (panNode) panNode.connect (g);           // anders werkt de gain niet in FF
+    if (wl) {   g.connect (g2); g2.connect (audioCtx.destination); }
+    else        g.connect (audioCtx.destination);
+
+    o.start (t);
+    if (wl) lfo.start (t + parm.lfodel);
+    if (we) g5.start (t);
+    o.stop (tend);
+    if (wl) lfo.stop (tend);
+    if (we) g5.stop (tend);
+}
+
+function decode (xs) {
+    return new Promise (function (resolve, reject) {
+        var bstr = atob (xs);           // decode base64 to binary string
+        var ab = new ArrayBuffer (bstr.length);
+        var bs = new Uint8Array (ab);   // write as bytes
+        for (var i = 0; i < bstr.length; i++)
+            bs [i] = bstr.charCodeAt (i);
+        audioCtx.decodeAudioData (ab, function (buffer) {
+            resolve (buffer);           // buffer = AudioBuffer
+        }, function (error) {
+            reject ({err: 1, msg: error, data:''});
+        });
+    });
+}
+
+function inst_create (instr) {
+    return new Promise (function (resolve, reject) {
+        rates [instr] = [];
+        params[instr] = [];
+        function sampleIter (i) {
+            var gen, parm, sample, scale, tune, cd;
+            gen = instData [i];
+            parm = {
+                attack:  gen.attack,
+                hold:    gen.hold,
+                decay:   gen.decay,
+                sustain: gen.sustain,
+                release: gen.release,
+                atten:   gen.atten,
+                filter:  gen.filter,
+                lfodel:  gen.lfodel,
+                lfofreq: gen.lfofreq,
+                lfo2ptc: gen.lfo2ptc,
+                lfo2vol: gen.lfo2vol,
+                envatt:  gen.envatt,
+                envhld:  gen.envhld,
+                envdec:  gen.envdec,
+                envsus:  gen.envsus,
+                envrel:  gen.envrel,
+                env2flt: gen.env2flt,
+                uselfo: hasLFO && gen.lfofreq > 0.008 && (gen.lfo2ptc != 0 || gen.lfo2vol != 0), // LFO needed (vibrato or tremolo)
+                useflt: hasFlt && gen.filter < 16000,                       // lowpass filter needed
+                useenv: hasVCF && gen.filter < 16000 && gen.env2flt != 0,   // modulator envelope needed
+            }
+            if (gen.loopStart) {
+                parm.loopStart = gen.loopStart;
+                parm.loopEnd   = gen.loopEnd;
+            }
+            scale = gen.scale;
+            tune =  gen.tune;
+            for (var j = gen.keyRangeLo; j <= gen.keyRangeHi; j++) {
+                rates [instr][j] = Math.pow (Math.pow (2, 1 / 12), (j + tune) * scale);
+                params[instr][j] = parm;
+                midiLoaded [instr * 128 + j] = 1;   // onthoud dat de noot geladen is
+            }
+            decode (gen.sample).then (function (audBuf) { // b64 encoded binary string -> AudioBuffer
+                parm.buffer = audBuf;
+                if (i < instData.length - 1) sampleIter (i + 1);
+                else { instData = ''; resolve ('ok'); }   // save memory
+            }).catch (function (error) {
+                reject (error);
+            });
+        }
+        sampleIter (1);
+    });
+}
+
+function laadJSfont (inst) {
+    return new Promise (function (resolve, reject) {
+        var elm = document.createElement ('script');
+        elm.src = instUrl + 'instr' + inst + 'mp3.js';    // instData = "..."
+        elm.onload = function () {
+            resolve ('ok');
+            document.head.removeChild (elm);
+        };
+        elm.onerror = function (err) {
+            reject ({err: 2, msg: 'could not load ' + elm.src, data: inst});
+        };
+        document.head.appendChild (elm);
+    });
+}
+
+function showFout (fout) {
+    if (fout.err == undefined) { fout.err = 4; fout.msg = fout.toString (); }
+    logerr (fout.err + ', ' + fout.msg + ', ' + fout.data);
+    //~ cmpDlg.innerHTML += ', instr failed: ' + inst;
+    switch (fout.err) {
+    case 1: alert ('Your browser does not support decoding ogg/vorbis -> no playback'); break;
+    case 2: var txt = 'Loading javascript soundfont failed, instrument '+ fout.data + '\nfalling back to midi-js';
+        logerr (txt);
+        cmpDlg.innerHTML +=  txt.replace ('\n', '<br>'); break;
+    case 3: logerr ('Loading midi-js soundfont failed, instrument '+ fout.data + '\nmsg: ' + fout.msg); break;
+    case 4: alert (fout.msg); break;
+    }
+}
+
+function laadNoot (midiNums) {
+    function laadInst (nprg) {
+        return new Promise (function (resolve, reject) {
+            if (instArr [nprg]) { resolve ('ok'); return; }
+            var url, pf = 'https://rawgit.com/gleitz/midi-js-soundfonts/gh-pages/FluidR3_GM/';
+            if (noMidiJs [nprg]) url = pf + instNm + '-mp3';
+            else {
+                instNm = nprg in instTab ? instTab [nprg] : instNm;
+                url = instUrl + instNm + '-mp3';
+            }
+            cmpDlg.innerHTML += ', loading: ' + nprg;
+            var elm = document.createElement ('script');
+            elm.src = url + '.js';
+            elm.onload = function () {
+                instArr [nprg] = MIDI.Soundfont [instNm];
+                urlLoaded [url] = 1;
+                logerr ('midi-js instr ' + inst + ' geladen');
+                resolve ('ok');
+            };
+            elm.onerror = function () { 
+                reject ({err: 3, msg: 'could not load:' + url, data: nprg});
+            };
+            if (url in urlLoaded) { resolve ('ok'); return };     // voorkom dubbele scripts
+            document.head.appendChild (elm);
+        });
+    }
+    function laadMidiJsFont (nprg) {
+        laadInst (nprg).then (function () {
+            var xs = instArr [nprg] [noot + oct].split (',')[1];
+            return decode (xs);
+        }).then (function (buffer) {
+            golven [insmid] = buffer;
+            cmpDlg.innerHTML += ', ' + nprg + ':' + ixm;
+            midiLoaded [insmid] = 1; // onthoud dat de noot geladen is
+            laadNoot (midiNums);     // laad de volgende noot
+        }).catch (function (error) {
+            showFout (error);
+            if (error.msg.indexOf ('gleitz') == -1) {
+                noMidiJs [nprg] = 1;
+                cmpDlg.innerHTML += '<br>loading local midi-js font failed, instrument: ' + error.data + '<br>trying Github ...'
+                laadMidiJsFont (nprg);  // probeer opnieuw met github
+            } else {
+                alert ('loading soundfont from Github failed, giving up.');
+                cmpDlg.style.display = 'none';
+            }
+        });
+    }
+    var notes = 'C Db D Eb E F Gb G Ab A Bb B'.split (' ');
+    var insmid = midiNums.shift (); // midiNums wordt opgegeten
+    if (!insmid) {                  // alle noten zijn geladen
+        gToSynth = 1;
+        cmpDlg.style.display = 'none';
+        playBack (1);
+        return;
+    }
+    var inst = insmid >> 7;
+    var ixm  = insmid % 128;
+    var noot = notes [ixm % 12]
+    var oct = Math.floor (ixm / 12) - 1;
+    var instNm = inst_tb [inst];    // standard GM name
+    if (instSf2Loaded [inst]) { laadNoot (midiNums); return; }  // laad de volgende noot
+    if (withRT && !noSf2 [inst]) {  // probeer voorgekookte sf2 file
+        laadJSfont (inst).then (function () {
+            cmpDlg.innerHTML += 'loading instrument ' + inst + '<br>';
+            return inst_create (inst);
+        }).then (function () {
+            logerr ('instr ' + inst + ' geladen');
+            instSf2Loaded [inst] = 1;
+            laadNoot (midiNums);    // laad de volgende noot
+        }).catch (function (error) {
+            showFout (error);
+            noSf2 [inst] = 1;
+            laadMidiJsFont (inst);
+        });
+    } else {
+        laadMidiJsFont (inst);
+    }
+}
+
+function laadNootHulp (midiUsed) {
+    var midiNums = Object.keys (midiUsed).filter (function (m) { return !(m in midiLoaded); });
+    if (midiNums.length) {
+        cmpDlg.innerHTML = ''; 
+        cmpDlg.style.display = 'block';
+        var se =  document.scrollingElement, de = document.documentElement; // identiek, behalve in Edge
+        var ydlg = se.scrollTop + de.clientHeight / 2.5;
+        cmpDlg.style.top = ydlg + 'px';
+        laadNoot (midiNums);
+    } else {
+        gToSynth = 1;
+        playBack (1);
+    }
+}
+
+function addUnlockListener (elm, type, handler) {
+    function unlockAudio (evt){
+        elm.removeEventListener ('mousedown', unlockAudio);
+        elm.removeEventListener ('touchend', unlockAudio);
+        console.log ('event listeners removed from ' + elm.nodeName);
+        if (audioCtx && audioCtx.state == 'suspended') {
+            audioCtx.resume ().then (function () {
+                console.log ('resuming audioContext');
+            });
+        }
+    }
+    elm.addEventListener ('mousedown', unlockAudio);
+    elm.addEventListener ('touchend', unlockAudio);
+    elm.addEventListener (type, handler);
+}
+
+document.addEventListener ('DOMContentLoaded', function () {
+    var xs = Array.prototype.slice.call (document.getElementsByClassName ('abc'));
+    xs.forEach (function (e) {
+        var abc_elm = e;    // pas op: innerHTML vervangt '>', '<' en '&'
+        var abctxt = abc_elm.innerHTML.replace ('&gt;','>').replace ('&lt;','<').replace ('&amp;','&');
+        dolayout (abctxt, abc_elm, 0);
+    });
+    document.body.addEventListener ('click', function () {
+        if (isPlaying) playBack (0);
+    }, false);
+   
+    document.getElementById("playpause_main").addEventListener("click", function(){
+        if (isPlaying) playBack (0);
+    }, false);
+
+    window.addEventListener ('resize', function () {
+        setYSvgs ();
+        setScale ();
+    }, false);
+    cmpDlg = document.getElementById ('comp');
+    var ac = window.AudioContext || window.webkitAudioContext;
+    audioCtx = ac != undefined ? new ac () : null;
+    if (!audioCtx) { alert (alrtMsg2);
+    } else {
+        if (!audioCtx.createStereoPanner) hasPan = 0;
+        if (!audioCtx.createOscillator) hasLFO = 0;
+        if (!audioCtx.createBiquadFilter) hasFlt = 0;
+        if (!audioCtx.createConstantSource) hasVCF = 0;
+        //~ audioCtx.suspend ();   // test suspension
+        //~ hasLFO = 0; hasFlt = 0; hasVCF = 0; hasPan = 0;
+        var m = [], m2 = 0, s = 'Your browser does not support ';
+        if (!hasPan) m.push (s + 'the StereoPanner element');
+        if (withRT && !hasLFO) { m.push (s + 'the Oscillator element'); m2 = 1; }
+        if (withRT && !hasFlt) { m.push (s + 'the BiquadFilter element'); m2 = 1; }
+        if (withRT && !hasVCF) { m.push (s + 'the ConstantSource element'); m2 = 1; }
+        if (m.length) alert (m.join ('\n') + (m2 ? '\nThe instrument(s) will sound (very) wrong' : ''));
+    }
+});
+
+})();
