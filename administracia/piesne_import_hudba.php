@@ -17,8 +17,8 @@ foreach($fileList as $f){
     $f_= pathinfo($f, PATHINFO_FILENAME);
     //Generujem k nemu xml,
 
-    //$x=exec("sudo Xvfb :0 -screen 0 1280x768x24& 2>&1",$vystup);
-    //echo "Xvfb :0 -screen 0 1280x768x24& vrátilo <u>".var_dump($vystup).var_dump($x)."</u><BR>";
+    $x=exec("Xvfb :0 -screen 0 1280x768x24&",$vystup);
+    echo "Xvfb :0 -screen 0 1280x768x24& vrátilo <u>".var_dump($vystup).var_dump($x)."</u><BR>";
     $x=exec("export DISPLAY=:0",$vystup);
     echo print_r($vystup);
 
