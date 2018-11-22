@@ -17,13 +17,13 @@ foreach($fileList as $f){
     $f_= pathinfo($f, PATHINFO_FILENAME);
     //Generujem k nemu xml,
 
-    $x=exec("sudo Xvfb :0 -screen 0 1280x768x24&",$vystup);
+    $x=exec("sudo Xvfb :0 -screen 0 1280x768x24& 2>&1",$vystup);
     echo "sudo Xvfb :0 -screen 0 1280x768x24& vrátilo <u>".$vystup."</u><BR>";
-    $x=exec("export DISPLAY=:0",$vystup);
+    $x=exec("export DISPLAY=:0 2>&1",$vystup);
     echo "export DISPLAY=:0 vrátilo".$vystup."<BR>";
-    $command = "/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml";
+    $command = "/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml 2>&1";
     $vystup = exec($command, $co);
-    echo "Spustil som príkaz <i>".$command."</i>, server mi vrátil hlášku:".var_dump($vystup)."xx".var_dump($co)."'.<BR>";
+    echo "Spustil som príkaz <i>".$command."</i>, server mi vrátil hlášku:".$vystup."xx".$co."'.<BR>";
  
 }
 
