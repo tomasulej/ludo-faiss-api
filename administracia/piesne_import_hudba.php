@@ -21,7 +21,7 @@ foreach($fileList as $f){
     echo shell_exec("export DISPLAY=:0");
     $command = "/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml";
     $vystup = shell_exec($command);
-    echo "Spustil som príkaz <i>".$command."</i>, server mi vrátil hlášku: '".$vystup."'.<BR>";
+    echo "Spustil som príkaz <i>".$command."</i>, server mi vrátil hlášku: '".var_dump($vystup)."'.<BR>";
  
 }
 
