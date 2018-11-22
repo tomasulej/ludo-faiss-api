@@ -20,11 +20,11 @@ foreach($fileList as $f){
     //$x=exec("sudo Xvfb :0 -screen 0 1280x768x24& 2>&1",$vystup);
     //echo "Xvfb :0 -screen 0 1280x768x24& vrátilo <u>".var_dump($vystup).var_dump($x)."</u><BR>";
     $x=exec("export DISPLAY=:0 2>&1",$vystup);
-    echo $vystup;
-    
+    echo print_r($vystup);
+
     //echo "export DISPLAY=:0 vrátilo".var_dump($vystup).var_dump($x)."<BR>";
-    $command = shell_exec(escapeshellcmd("/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml"));
-    echo "Spustil som príkaz <i>/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml</i>, server mi vrátil hlášku:".$command."'.<BR>";
+    $command = exec(escapeshellcmd("/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml 2>&1"), $vystup);
+    echo "Spustil som príkaz <i>/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml</i>, server mi vrátil hlášku:".$command.print_r($vystup)."'.<BR>";
  
 }
 
