@@ -13,8 +13,8 @@ foreach($fileList as $f){
     echo "Našiel som súbor <B>".$f."</B><br>"; 
     $f_= pathinfo($f, PATHINFO_FILENAME);
     //Generujem k nemu xml,
-    $command = escapeshellcmd("/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml");
-    $vystup = shell_exec("export DISPLAY=:0;".$command);
+    $command = escapeshellcmd("export DISPLAY=:0; /usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml");
+    $vystup = shell_exec($command);
     echo "Spustil som príkaz <i>".$command."</i>, server mi vrátil hlášku: '".$vystup."'.<BR>";
  
 }
