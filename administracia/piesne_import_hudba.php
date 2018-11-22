@@ -14,7 +14,7 @@ foreach($fileList as $f){
     $f_= pathinfo($f, PATHINFO_FILENAME);
     //Generujem k nemu xml,
     $command = escapeshellcmd("/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml");
-    $vystup = shell_exec($command);
+    $vystup = shell_exec("export DISPLAY=:0;".$command);
     echo "Spustil som príkaz <i>".$command."</i>, server mi vrátil hlášku: '".$vystup."'.<BR>";
  
 }
