@@ -26,9 +26,9 @@ foreach($fileList as $f){
     $f_= pathinfo($f, PATHINFO_FILENAME);
     //Generujem k nemu xml,
 
-    echo background("Xvfb :0 -screen 0 1280x768x24& 2>&1");
+    echo background("Xvfb :0 -screen 0 1280x768x24&");
     //echo "Xvfb :0 -screen 0 1280x768x24& vrátilo <u>".var_dump($vystup).var_dump($x)."</u><BR>";
-    //$x=exec("export DISPLAY=:0 2>&1",$vystup);
+    echo background("export DISPLAY=:0");
     //echo print_r($vystup);
 
     //echo "export DISPLAY=:0 vrátilo".var_dump($vystup).var_dump($x)."<BR>";
