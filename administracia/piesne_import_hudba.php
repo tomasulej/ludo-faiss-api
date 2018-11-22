@@ -17,7 +17,7 @@ foreach($fileList as $f){
     $f_= pathinfo($f, PATHINFO_FILENAME);
     //Generujem k nemu xml,
 
-    echo shell_exec("Xvfb :0 -screen 0 1280x768x24&");
+    echo shell_exec("sudo Xvfb :0 -screen 0 1280x768x24&");
     echo shell_exec("export DISPLAY=:0");
     $command = "/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml";
     $vystup = shell_exec($command);
