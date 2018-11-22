@@ -19,9 +19,9 @@ foreach($fileList as $f){
 
     echo shell_exec("sudo Xvfb :0 -screen 0 1280x768x24&");
     echo shell_exec("export DISPLAY=:0");
-    $command = "/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml";
-    $vystup = shell_exec($command);
-    echo "Spustil som príkaz <i>".$command."</i>, server mi vrátil hlášku: '".var_dump($vystup)."'.<BR>";
+    $command = "/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml 2>&1";
+    $vystup = exec($command, $co);
+    echo "Spustil som príkaz <i>".$command."</i>, server mi vrátil hlášku:".var_dump($vystup)."xx".$co."'.<BR>";
  
 }
 
