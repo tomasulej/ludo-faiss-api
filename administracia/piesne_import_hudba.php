@@ -18,9 +18,9 @@ foreach($fileList as $f){
     //Generujem k nemu xml,
 
     $x=exec("sudo Xvfb :0 -screen 0 1280x768x24&",$vystup);
-    echo "sudo Xvfb :0 -screen 0 1280x768x24& vrátilo <u>".var_dump($vystup)."</u><BR>";
+    echo "sudo Xvfb :0 -screen 0 1280x768x24& vrátilo <u>".$vystup."</u><BR>";
     $x=exec("export DISPLAY=:0",$vystup);
-    echo "export DISPLAY=:0 vrátilo".var_dump($vystup)."<BR>";
+    echo "export DISPLAY=:0 vrátilo".$vystup."<BR>";
     $command = "/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml";
     $vystup = exec($command, $co);
     echo "Spustil som príkaz <i>".$command."</i>, server mi vrátil hlášku:".var_dump($vystup)."xx".var_dump($co)."'.<BR>";
