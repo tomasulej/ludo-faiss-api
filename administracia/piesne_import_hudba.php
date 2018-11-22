@@ -13,9 +13,9 @@ foreach($fileList as $f){
     echo "Našiel som súbor <B>".$f."</B><br>"; 
     $f_= pathinfo($f, PATHINFO_FILENAME);
     //Generujem k nemu xml,
-    $command = escapeshellcmd("/usr/bin/mscore $f -o $f_.xml");
+    $command = escapeshellcmd("/usr/bin/mscore /var/www/html/piesne/import/$f -o /var/www/html/piesne/import/$f_.xml");
     $vystup = shell_exec($command);
-    echo "Pokúsil som sa k nemu vygenerovať XML, server mi vrátil hlášku: '".$vystup."'.<BR>";
+    echo "Spustil som príkaz <i>".$command."</i>, server mi vrátil hlášku: '".$vystup."'.<BR>";
  
 }
 
