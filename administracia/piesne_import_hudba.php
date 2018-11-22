@@ -11,7 +11,7 @@ $fileList = glob('/var/www/html/piesne/import/*.mscz');
 foreach($fileList as $f){
     //Simply print them out onto the screen.
 
-    //echo shell_exec("whoami");
+    echo shell_exec("whoami")."PHP hovori".get_current_user();
 
     echo "Našiel som súbor <B>".$f."</B><br><BR>"; 
     $f_= pathinfo($f, PATHINFO_FILENAME);
