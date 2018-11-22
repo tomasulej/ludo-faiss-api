@@ -11,7 +11,7 @@ $fileList = glob('/var/www/html/piesne/import/*.mscz');
 foreach($fileList as $f){
     //Simply print them out onto the screen.
 
-    echo shell_exec("whoami")."PHP hovori".get_current_user();
+    echo shell_exec("whoami")."PHP hovori: ".get_current_user()."<BR>";
 
     echo "Našiel som súbor <B>".$f."</B><br><BR>"; 
     $f_= pathinfo($f, PATHINFO_FILENAME);
@@ -19,10 +19,10 @@ foreach($fileList as $f){
 
     //$x=exec("sudo Xvfb :0 -screen 0 1280x768x24& 2>&1",$vystup);
     //echo "Xvfb :0 -screen 0 1280x768x24& vrátilo <u>".var_dump($vystup).var_dump($x)."</u><BR>";
-    $x=exec("export DISPLAY=:0 2>&1",$vystup);
-    echo "export DISPLAY=:0 vrátilo".var_dump($vystup).var_dump($x)."<BR>";
-    $command = shell_exec("/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml");
-    echo "Spustil som príkaz <i>".$command."</i>, server mi vrátil hlášku:".$vystup."xx".var_dump($co)."'.<BR>";
+    //$x=exec("export DISPLAY=:0 2>&1",$vystup);
+    //echo "export DISPLAY=:0 vrátilo".var_dump($vystup).var_dump($x)."<BR>";
+    $command = shell_exec(escapeshellcmd("/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml"));
+    echo "Spustil som príkaz <i>/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml</i>, server mi vrátil hlášku:".$command."'.<BR>";
  
 }
 
