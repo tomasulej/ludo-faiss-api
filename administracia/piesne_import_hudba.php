@@ -29,21 +29,14 @@ foreach($fileList as $f){
 
     echo "Našiel som súbor <B>".$f."</B><br><BR>"; 
     $f_= pathinfo($f, PATHINFO_FILENAME);
-    //Generujem k nemu xml,
 
-    //echo background("Xvfb :0 -screen 0 1280x768x24&");
-    //echo "Xvfb :0 -screen 0 1280x768x24& vrátilo <u>".var_dump($vystup).var_dump($x)."</u><BR>";
-    //$command= shell_exec("export DISPLAY=:0");
-    //echo print_r($vystup);
+    
+    $x = shell_exec("sudo sh /var/www/html/administracia/musescore.sh $f /var/www/html/piesne/import/$f_");
+    $abc = shell_exec(escapeshellcmd("/usr/bin/python /var/www/html/public/py/xml2abc.py $f -"));
+    echo "<pre>".$abc."</pre>";
 
-    echo shell_exec("sudo sh /var/www/html/administracia/musescore.sh $f /var/www/html/piesne/import/$f_");
-
-    //echo "export DISPLAY=:0 vrátilo".var_dump($vystup).var_dump($x)."<BR>";
-    //$command = exec("/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml", $vystup);
-    //echo "Spustil som príkaz <i>/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml</i>, server mi vrátil hlášku:".$command.print_r2($vystup)."'<BR>";
- 
+    
 }
 
-//$command = escapeshellcmd("/usr/bin/mscore /var/www/html/prekladac/ludevit/examples/www/fetch.py $url -");
 
 ?>
