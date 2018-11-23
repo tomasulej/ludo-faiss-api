@@ -32,7 +32,7 @@ foreach($fileList as $f){
 
     
     $x = shell_exec("sudo sh /var/www/html/administracia/musescore.sh $f /var/www/html/piesne/import/$f_");
-    $abc = shell_exec(escapeshellcmd("sudo /usr/bin/python /var/www/html/public/py/xml2abc.py /var/www/html/piesne/import/$f_ 2>&1"));
+    $abc = shell_exec(escapeshellcmd("sudo /usr/bin/python /var/www/html/public/py/xml2abc.py /var/www/html/piesne/import/$f_"));
     echo "<pre>".$abc."</pre>";
 
     
