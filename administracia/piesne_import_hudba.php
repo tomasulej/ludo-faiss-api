@@ -33,12 +33,14 @@ foreach($fileList as $f){
 
     //echo background("Xvfb :0 -screen 0 1280x768x24&");
     //echo "Xvfb :0 -screen 0 1280x768x24& vrátilo <u>".var_dump($vystup).var_dump($x)."</u><BR>";
-    $command= shell_exec("export DISPLAY=:0");
+    //$command= shell_exec("export DISPLAY=:0");
     //echo print_r($vystup);
 
+    echo shell_exec("sudo sh /var/www/html/administracia/musescore.sh $f /var/www/html/piesne/import/$f_.xml");
+
     //echo "export DISPLAY=:0 vrátilo".var_dump($vystup).var_dump($x)."<BR>";
-    $command = exec("/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml", $vystup);
-    echo "Spustil som príkaz <i>/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml</i>, server mi vrátil hlášku:".$command.print_r2($vystup)."'<BR>";
+    //$command = exec("/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml", $vystup);
+    //echo "Spustil som príkaz <i>/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml</i>, server mi vrátil hlášku:".$command.print_r2($vystup)."'<BR>";
  
 }
 
