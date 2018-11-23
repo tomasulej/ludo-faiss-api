@@ -1,4 +1,8 @@
 $ cat myscript
 Xvfb :0 -screen 0 1280x768x24&
 export DISPLAY=:0
-/usr/bin/mscore $1 -o $2
+/usr/bin/mscore $1 -o $2.xml
+/usr/bin/mscore $1 -o $2.mp3
+/usr/bin/mscore $1 -o $2.png
+
+

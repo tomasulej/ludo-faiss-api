@@ -36,7 +36,7 @@ foreach($fileList as $f){
     //$command= shell_exec("export DISPLAY=:0");
     //echo print_r($vystup);
 
-    echo shell_exec("sudo sh /var/www/html/administracia/musescore.sh $f /var/www/html/piesne/import/$f_.xml");
+    echo shell_exec("sudo sh /var/www/html/administracia/musescore.sh $f /var/www/html/piesne/import/$f_");
 
     //echo "export DISPLAY=:0 vrátilo".var_dump($vystup).var_dump($x)."<BR>";
     //$command = exec("/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml", $vystup);
