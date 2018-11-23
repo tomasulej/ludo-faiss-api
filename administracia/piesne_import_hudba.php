@@ -13,6 +13,11 @@ function background($Command, $Priority = 0){
     return($PID);
 }
 
+function print_r2($val){
+    echo '<pre>';
+    print_r($val);
+    echo  '</pre>';
+}
 
 //vezmi xml
 $fileList = glob('/var/www/html/piesne/import/*.mscz');
@@ -33,7 +38,7 @@ foreach($fileList as $f){
 
     //echo "export DISPLAY=:0 vrátilo".var_dump($vystup).var_dump($x)."<BR>";
     $command = exec("/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml", $vystup);
-    echo "Spustil som príkaz <i>/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml</i>, server mi vrátil hlášku:".$command.$vystup."'<BR>";
+    echo "Spustil som príkaz <i>/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml</i>, server mi vrátil hlášku:".$command.print_r2($vystup)."'<BR>";
  
 }
 
