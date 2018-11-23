@@ -32,8 +32,8 @@ foreach($fileList as $f){
     //echo print_r($vystup);
 
     //echo "export DISPLAY=:0 vrátilo".var_dump($vystup).var_dump($x)."<BR>";
-    $command = shell_exec(escapeshellcmd("/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml"));
-    echo "Spustil som príkaz <i>/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml</i>, server mi vrátil hlášku:".$command."'<BR>";
+    $command = exec("/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml", $vystup);
+    echo "Spustil som príkaz <i>/usr/bin/mscore $f -o /var/www/html/piesne/import/$f_.xml</i>, server mi vrátil hlášku:".$command.$vystup."'<BR>";
  
 }
 
