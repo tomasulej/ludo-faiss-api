@@ -14,7 +14,7 @@ $id=(int)array_keys($_GET)[0];
 //mysql select piesen
 //$query="SELECT piesne.id_piesen, piesne.id_zbierka, piesne.nazov_variant, piesne.id_nadriadeny, piesne.identifikator, piesne.nazov_dlhy, piesne.nazov_kratky, piesne.id_zberatel, piesne.id_zberatel_miesto, piesne.id_zberatel_vyskyt, piesne.datum_zbieranie, piesne.datum_digitalizacia, piesne.datum_digitalizacia, piesne.id_digitalizator, piesne.id_hudba,piesne.id_tempo, piesne.id_tempo2, piesne.id_incipit, piesne.lyrics, zbierky.nazov as zbierky_nazov, zberatelia.meno as zberatelia_meno, digitalizatori.meno as digitalizatori_meno, hudobnici.meno as hudobnici_meno, lokality.meno as lokality_meno, lokality.meno_original as lokality_meno_original, lokality.area as lokality_area, lokality.typ_id as lokality_typ_id, tempo.tempo, tempo.bpm  FROM piesne, zbierky, zberatelia, digitalizatori, hudobnici, lokality, tempo WHERE (id_piesen=$id AND piesne.id_zbierka=zbierky.id_zbierka AND piesne.id_zberatel=zberatelia.id_zberatel AND piesne.id_digitalizator=digitalizatori.id_digitalizator AND piesne.id_hudba=hudobnici.id_hudba AND piesne.id_zberatel_miesto=lokality.id_lokalita AND piesne.id_zberatel_vyskyt=lokality.id_lokalita AND (piesne.id_tempo=tempo.id_tempo OR piesne.id_tempo2=tempo.id_tempo)";
 
-$query="SELECT piesne.id_piesen, piesne.id_nadriadeny, piesne.typ_nadriadeny, piesne.nazov_variant, piesne.abc_notes, piesne.id_zbierka, piesne.strana, piesne.nazov_variant, piesne.id_nadriadeny, piesne.identifikator, piesne.nazov_dlhy, piesne.nazov_kratky, piesne.id_zberatel, piesne.source_zberatel, piesne.id_zberatel_miesto, piesne.source_zberatel_miesto, piesne.id_zberatel_vyskyt, piesne.source_zberatel_vyskyt, piesne.datum_zbieranie, piesne.source_datum_zbieranie, piesne.datum_digitalizacia, piesne.id_digitalizator, piesne.id_digitalizator2, piesne.id_hudba,piesne.id_tempo, piesne.id_tempo2, piesne.source_tempo, piesne.source_tempo2, piesne.id_incipit, piesne.lyrics, piesne.file_xml, piesne.file_png, piesne.file_mp3, piesne.file_pdf, zbierky.nazov as zbierky_nazov, zberatelia.meno as zberatelia_meno, 
+$query="SELECT piesne.id_piesen, piesne.id_nadriadeny, piesne.typ_nadriadeny, piesne.nazov_variant, piesne.abc_notes, piesne.abc, piesne.id_zbierka, piesne.strana, piesne.nazov_variant, piesne.id_nadriadeny, piesne.identifikator, piesne.nazov_dlhy, piesne.nazov_kratky, piesne.id_zberatel, piesne.source_zberatel, piesne.id_zberatel_miesto, piesne.source_zberatel_miesto, piesne.id_zberatel_vyskyt, piesne.source_zberatel_vyskyt, piesne.datum_zbieranie, piesne.source_datum_zbieranie, piesne.datum_digitalizacia, piesne.id_digitalizator, piesne.id_digitalizator2, piesne.id_hudba,piesne.id_tempo, piesne.id_tempo2, piesne.source_tempo, piesne.source_tempo2, piesne.id_incipit, piesne.lyrics, piesne.file_xml, piesne.file_png, piesne.file_mp3, piesne.file_pdf, zbierky.nazov as zbierky_nazov, zberatelia.meno as zberatelia_meno, 
 digitalizatori.meno as digitalizatori_meno, digitalizatori2.meno as digitalizatori2_meno,  hudobnici.meno as hudobnici_meno, t1.tempo as tempo1, t2.tempo as tempo2, t1.bpm as bpm1, t2.bpm as bpm2 FROM piesne LEFT JOIN zbierky ON piesne.id_zbierka=zbierky.id_zbierka LEFT JOIN zberatelia on piesne.id_zberatel=zberatelia.id_zberatel
 LEFT JOIN digitalizatori AS digitalizatori ON piesne.id_digitalizator = digitalizatori.id_digitalizator
 LEFT JOIN digitalizatori AS digitalizatori2 ON piesne.id_digitalizator2 = digitalizatori2.id_digitalizator
@@ -32,7 +32,7 @@ $piesen=mysql_fetch_object($q);
 
 //Nemá parenta? Ak hej, vytiahni jeho údaje
 if ($piesen->id_nadriadeny<>0) {
-    $query2="SELECT piesne.id_piesen, piesne.id_nadriadeny, piesne.typ_nadriadeny, piesne.nazov_variant, piesne.abc_notes, piesne.id_zbierka, piesne.strana, piesne.nazov_variant, piesne.id_nadriadeny, piesne.identifikator, piesne.nazov_dlhy, piesne.nazov_kratky, piesne.id_zberatel, piesne.source_zberatel, piesne.id_zberatel_miesto, piesne.source_zberatel_miesto, piesne.id_zberatel_vyskyt, piesne.source_zberatel_vyskyt, piesne.datum_zbieranie, piesne.source_datum_zbieranie, piesne.datum_digitalizacia, piesne.id_digitalizator, piesne.id_digitalizator2, piesne.id_hudba,piesne.id_tempo, piesne.id_tempo2, piesne.source_tempo, piesne.source_tempo2, piesne.id_incipit, piesne.lyrics, piesne.file_xml, piesne.file_png, piesne.file_mp3, piesne.file_pdf, zbierky.nazov as zbierky_nazov, zberatelia.meno as zberatelia_meno, 
+    $query2="SELECT piesne.id_piesen, piesne.id_nadriadeny, piesne.typ_nadriadeny, piesne.nazov_variant, piesne.abc_notes, piesne.abc, piesne.id_zbierka, piesne.strana, piesne.nazov_variant, piesne.id_nadriadeny, piesne.identifikator, piesne.nazov_dlhy, piesne.nazov_kratky, piesne.id_zberatel, piesne.source_zberatel, piesne.id_zberatel_miesto, piesne.source_zberatel_miesto, piesne.id_zberatel_vyskyt, piesne.source_zberatel_vyskyt, piesne.datum_zbieranie, piesne.source_datum_zbieranie, piesne.datum_digitalizacia, piesne.id_digitalizator, piesne.id_digitalizator2, piesne.id_hudba,piesne.id_tempo, piesne.id_tempo2, piesne.source_tempo, piesne.source_tempo2, piesne.id_incipit, piesne.lyrics, piesne.file_xml, piesne.file_png, piesne.file_mp3, piesne.file_pdf, zbierky.nazov as zbierky_nazov, zberatelia.meno as zberatelia_meno, 
 digitalizatori.meno as digitalizatori_meno, digitalizatori2.meno as digitalizatori2_meno,  hudobnici.meno as hudobnici_meno, t1.tempo as tempo1, t2.tempo as tempo2, t1.bpm as bpm1, t2.bpm as bpm2 FROM piesne LEFT JOIN zbierky ON piesne.id_zbierka=zbierky.id_zbierka LEFT JOIN zberatelia on piesne.id_zberatel=zberatelia.id_zberatel
 LEFT JOIN digitalizatori AS digitalizatori ON piesne.id_digitalizator <=> digitalizatori.id_digitalizator
 LEFT JOIN digitalizatori AS digitalizatori2 ON piesne.id_digitalizator2 <=> digitalizatori2.id_digitalizator
@@ -57,14 +57,18 @@ WHERE id_piesen=$piesen->id_nadriadeny";
 //}
 
 //abc_midi
-$abc_notes=str_replace("abc_arr = [","",$piesen->abc_notes);
-$abc_notes=str_replace('abc_enc = [];','',$abc_notes);
 
-$abc_notes=str_replace('"','',$abc_notes);
-$abc_notes=str_replace(',','',$abc_notes);
-$abc_notes=str_replace('];','',$abc_notes);
-$abc_notes=str_replace("\\",'"\\',$abc_notes);
+if ($piesen->abc=='') {
+ $abc_notes=str_replace("abc_arr = [","",$piesen->abc_notes);
+ $abc_notes=str_replace('abc_enc = [];','',$abc_notes);
 
+ $abc_notes=str_replace('"','',$abc_notes);
+ $abc_notes=str_replace(',','',$abc_notes);
+ $abc_notes=str_replace('];','',$abc_notes);
+ $abc_notes=str_replace("\\",'"\\',$abc_notes);
+} else {
+    $abc_notes=$piesen->abc;
+}
 
 
 
