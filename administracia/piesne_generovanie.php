@@ -9,7 +9,7 @@ function abc_convert ($subor) {
                 if (strpos($line,"V:1") !== false) {
                     if (strpos($line,"Q:") !== false) {
                         if (strpos($line,"T:") !== false) {
-                          $abcArr.=$line;
+                          $abcArr=$abcArr.$line;
                         }
                     }
                 }
@@ -18,7 +18,7 @@ function abc_convert ($subor) {
     
         fclose($handle);
     } 
-    $abcArr.='%%bstemdown 1';
+    $abcArr=$abcArr.'%%bstemdown 1';
 
     //V:1 treble nm="Klavír" snm="Kl."
     //%%bstemdown 1
