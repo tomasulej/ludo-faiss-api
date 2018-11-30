@@ -20,6 +20,10 @@ function abc_convert ($subor) {
 
         }
         fclose($fh);
+    } else {
+
+            echo 'fopen failed. reason: ', $php_errormsg;
+
     }
 
 
