@@ -2,9 +2,10 @@
 
 function abc_convert ($subor) {
 
-    $handle = fopen($subor, "r");
-    if ($handle) {
-        while (($line = fgets($handle)) !== false) {
+
+    if ($fh = fopen($subor, 'r')) {
+        while (!feof($fh)) {
+            $line = fgets($fh);
             if (strpos($line,"V:1") !== false) {
                 if (strpos($line,"V:1") !== false) {
                     if (strpos($line,"Q:") !== false) {
@@ -15,10 +16,13 @@ function abc_convert ($subor) {
                     }
                 }
             }
+
         }
-    
-        fclose($handle);
-    } 
+        fclose($fh);
+    }
+
+
+  
     $abcArr=$abcArr.'%%bstemdown 1';
 
     //V:1 treble nm="Klavír" snm="Kl."
