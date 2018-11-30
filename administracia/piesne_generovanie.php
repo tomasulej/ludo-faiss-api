@@ -7,6 +7,7 @@ function abc_convert ($subor) {
 
         while (!feof($fh)) {
             $line = fgets($fh);
+            echo $line;
             if (strpos($line,"V:1") !== false) {
                 if (strpos($line,"V:1") !== false) {
                     if (strpos($line,"Q:") !== false) {
