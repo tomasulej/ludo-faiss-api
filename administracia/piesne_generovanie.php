@@ -1,5 +1,35 @@
 <?php
 
+function abc_convert ($subor) {
+
+    $handle = fopen($subor, "r");
+    if ($handle) {
+        while (($line = fgets($handle)) !== false) {
+            if (strpos($line,"V:1") !== false) {
+                if (strpos($line,"V:1") !== false) {
+                    if (strpos($line,"Q:") !== false) {
+                        if (strpos($line,"T:") !== false) {
+                          $abcArr.=$line;
+                        }
+                    }
+                }
+            }
+        }
+    
+        fclose($handle);
+    } 
+    $abcArr.='%%bstemdown 1';
+
+    //V:1 treble nm="Klavír" snm="Kl."
+    //%%bstemdown 1
+    //T:Title
+    //V:1
+    //Q:1/4=116
+    return $abcArr;
+
+}
+
+
 	error_reporting(E_ALL);
 	ini_set('display_errors', '1');
     include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
@@ -20,7 +50,7 @@ foreach($fileList as $f){
     //$fId = $fArr[0]; 
     //$q=mysql_query("SELECT * piesne WHERE id=$fId");
     echo "Pokúsil som vygenerovať všetky potrebné súbory.<BR>";
-    $abc=file_get_contents($_SERVER["DOCUMENT_ROOT"]."/piesne/data/".$id_piesen."/".$f_.".abc");
+    $abc=abc_convert($_SERVER["DOCUMENT_ROOT"]."/piesne/data/".$id_piesen."/".$f_.".abc");
     echo "Ak všetko prebehlo ok, tu dole vidíš obsah abc súboru.<BR>";
     echo "<blockquote><pre>$abc</pre></blockquote><BR>";    
     //Todo zapísanie do databázy;
@@ -30,6 +60,7 @@ foreach($fileList as $f){
     //echo "Snažím sa do databázy zapísať query: $query; 
 
     //TODO PNG
+  
 
 }
 
