@@ -1,9 +1,10 @@
 <?php
 
 function abc_convert ($subor) {
-
-
+    echo $subor;
+    if (file_exists($subor)<1) {echo "súbor neexistuje";}
     if ($fh = fopen($subor, 'r')) {
+
         while (!feof($fh)) {
             $line = fgets($fh);
             if (strpos($line,"V:1") !== false) {
