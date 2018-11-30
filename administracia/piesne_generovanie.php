@@ -55,7 +55,7 @@ foreach($fileList as $f){
     //$fId = $fArr[0]; 
     //$q=mysql_query("SELECT * piesne WHERE id=$fId");
     echo "Pokúsil som vygenerovať všetky potrebné súbory.<BR>";
-    $abc=abc_convert($_SERVER["DOCUMENT_ROOT"]."/piesne/data/".$id_piesen."/".$f_.".abc");
+    $abc=abc_convert($_SERVER["DOCUMENT_ROOT"]."piesne/data/".$id_piesen."/".$f_.".abc");
     echo "Ak všetko prebehlo ok, tu dole vidíš obsah abc súboru.<BR>";
     echo "<blockquote><pre>$abc</pre></blockquote><BR>";    
     //Todo zapísanie do databázy;
