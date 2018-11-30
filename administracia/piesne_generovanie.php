@@ -7,11 +7,11 @@ function abc_convert ($subor) {
 
         while (!feof($fh)) {
             $line = fgets($fh);
-            echo $line;
-            if (strpos($line,"V:1") !== false) {
-                if (strpos($line,"V:1") !== false) {
-                    if (strpos($line,"Q:") !== false) {
-                        if (strpos($line,"T:") !== false) {
+            //echo $line;
+            if (strpos($line,"V:1") === false) {
+                if (strpos($line,"V:1") === false) {
+                    if (strpos($line,"Q:") === false) {
+                        if (strpos($line,"T:") === false) {
                           $abcArr=$abcArr.$line;
                           echo $line;
                         }
