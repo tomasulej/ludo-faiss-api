@@ -35,7 +35,7 @@ function abc_convert ($subor) {
     include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
 
 
-    if ($id_piesen=='') {$id_piesen=$_GET['$id_piesen'];}
+    if ($id_piesen='') {$id_piesen=$_GET['$id_piesen'];}
 
     //vezmi xml
     $fileList = glob($_SERVER["DOCUMENT_ROOT"].'/piesne/data/'.$id_piesen.'/*.mscz');
