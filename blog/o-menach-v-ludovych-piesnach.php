@@ -1,6 +1,7 @@
 <?php
 //includes
 include $_SERVER["DOCUMENT_ROOT"]."/databaza_piesne.php";
+$blog_tab='class="active"';
 
 
 //META
