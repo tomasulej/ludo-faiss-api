@@ -14,20 +14,20 @@
   <div id="cal-heatmap"></div>
   <script type="text/javascript">
     var cal = new CalHeatMap();
-    var startDate = new Date(2019, 12, 30);
+    var startDate = new Date(2019, 12, 31);
     cal.init({
 
 
 
 
-      domain: "month",
+      domain: "year",
       subDomain: "day",
       data: "heatmap.php",
       start: startDate,
       cellSize: 10,
-      range: 12,
+      range: 1,
       domainGutter: 4,
-      legend: [500],
+      legend: [100,500],
       label: {
         position: "top"
       },
@@ -36,14 +36,30 @@
       legendVerticalPosition: "bottom",
       verticalOrientation: false,
       legendColors: {
-        min: "silver",
+        min: "#f5f5f5",
         max: "green",
         empty: "red"
       },
       itemName: ["word", "words"],
-      weekStartOnMonday: true
+      weekStartOnMonday: true,
+      afterLoadData: function (timestamps) {
+  var offset = new Date().getTimezoneOffset() * 60;
+  var results = {};
+  for (var timestamp in timestamps) {
+    var commitCount = timestamps[timestamp];
+    timestamp = parseInt(timestamp, 10);
+    console.log(timestamp)
+    results[timestamp + offset] = commitCount;
+  };
+  return results;
+}
 
     });
+
+
+
+
+
   </script>
 </body>
 </html>
