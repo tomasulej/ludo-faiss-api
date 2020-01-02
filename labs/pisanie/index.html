@@ -9,34 +9,40 @@
 </head>
 <body>
 
-<H1>Tomášovo písanie</H1>
+<H1>500 slov denne Tomáša Uleja</H1>
 
   <div id="cal-heatmap"></div>
   <script type="text/javascript">
     var cal = new CalHeatMap();
-    var startDate = new Date(2019, 1, 1);
+    var startDate = new Date(2019, 12, 30);
     cal.init({
-      domain: "year",
+
+
+
+
+      domain: "month",
       subDomain: "day",
       data: "heatmap.php",
       start: startDate,
-      cellSize: 8,
-      range: 3,
-      domainGutter: 2,
-      legend: [250, 500, 1000, 1500],
+      cellSize: 10,
+      range: 12,
+      domainGutter: 4,
+      legend: [500],
       label: {
         position: "top"
       },
+
       legendHorizontalPosition: "right",
       legendVerticalPosition: "bottom",
-      verticalOrientation: true,
+      verticalOrientation: false,
       legendColors: {
-        min: "#d2de76",
-        max: "#51682a",
-        empty: "white"
+        min: "silver",
+        max: "green",
+        empty: "red"
       },
       itemName: ["word", "words"],
       weekStartOnMonday: true
+
     });
   </script>
 </body>
