@@ -5,30 +5,28 @@ include $_SERVER["DOCUMENT_ROOT"]."/databaza_rozpravky.php";
 //ini_set('display_errors', '1');
 echo "name,count\n";
 
-$q=mysql_query("SELECT r_text FROM rozpravka LIMIT 20;");
+$q=mysql_query("SELECT r_slova FROM rozpravka LIMIT 20;");
 
 
 
     while ($rozpravka=mysql_fetch_object($q)) {
-                $slova_dokopy.=strip_tags($rozpravka->r_text);
+                $slova_dokopy.=$rozpravka->r_slova;
                 
-            }
+    }
 
 
-//echo $slova_dokopy;
-
-include $_SERVER["DOCUMENT_ROOT"]."/databaza_slova.php";
 
 
-$slova_sklon=explode(" ", $slova_dokopy);
+
+$slova_sklon=explode(";", $slova_dokopy);
 
     foreach ($slova_sklon as &$slovo) {
-       if (form_name(zakladny_tvar_form($slovo))=="podstatné meno") {$slova[zakladny_tvar($slovo)]+=1;}
+      $slova[$slovo]+=1;
 
     }
 
     foreach ($slova as $key=>$value) {
-        if ($value>10) {echo $key.",".$value."\n";}
+        if ($value<15 AND $value>9) {echo $key.",".$value."\n";}
     }
 
 

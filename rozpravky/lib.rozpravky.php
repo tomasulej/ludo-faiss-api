@@ -154,5 +154,4 @@ function je_plnovyznamove($form) {
 
 
 
-
 ?>
