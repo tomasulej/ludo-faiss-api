@@ -17,7 +17,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_rozpravky_header.php";
 
 
 
-            <div class="col-md-8">
+            <div class="col-md-8" itemprop="articleBody">
 
 
                 <?php echo $telo;?>
