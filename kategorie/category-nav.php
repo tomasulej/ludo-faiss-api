@@ -25,7 +25,7 @@
               crossorigin="anonymous"></script>
 
 
-      <script src="http://demos.flesler.com/jquery/scrollTo/js/jquery.scrollTo-min.js"></script>
+      <script src="https://demos.flesler.com/jquery/scrollTo/js/jquery.scrollTo-min.js"></script>
 
     <script>
 
