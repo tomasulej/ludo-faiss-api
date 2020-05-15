@@ -19,7 +19,7 @@ $config["detske"]["subs"]=array("beletria","pre-prvakov","pre-zacinajucich-citat
     "rozpravky","walt-disney", "scifi-fantasy-a-komiksy",
     "naucne-knihy","encyklopedie","leporela","hry-a-hracky",
     "omalovanky-vystrihovanie-papier","hlavolamy-doplnovacky-ulohy-a-hry","kucharky");
-$config["detske"]["filters"]=array("typ","vek","podzaner","odbor","charakter","tema","povod","hodnotenie","pre-koho",
+$config["detske"]["filters"]=array("typ","vek",/*"podzaner","odbor",*/"charakter","tema","povod","hodnotenie","pre-koho",
     "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
 $config["detske"]["breadcrumbs"]=array("knihy:knihy","detske");
 
