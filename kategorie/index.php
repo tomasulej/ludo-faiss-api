@@ -36,9 +36,10 @@ foreach ($config[$p]["breadcrumbs"] as $b) {
 
 
 //subs
-    $tmplSubs="<a class=\"carousel-lite__slide text-space-right flex align-items-middle\" style=\"width: 12rem; border: 1px solid #eee; padding: 10px 20px;\" href='index.php?p=%s'><i class=\"%s fa-3x fa-fal text-color-error text-space-right\"></i><span class=\"link line-small\">%s</span></a>";
+    $tmplSubs="<a class=\"carousel-lite__slide text-space-right flex align-items-middle\" style=\"width: 12rem; border: 1px solid #eee; padding: 10px 20px;\" href='%s' %s><i class=\"%s fa-3x fa-fal text-color-error text-space-right\"></i><span class=\"link line-small\">%s</span></a>";
     foreach ($config[$p]["subs"] as $s) {
-        $subs.=sprintf($tmplSubs,$config[$s]["link"],$config[$s]["icon"],$config[$s]["name"]);
+
+        $subs.=sprintf($tmplSubs,($config[$s]["link"]<>"leporela")?("index.php?p=".$config[$s]["link"]):"javascript:void(0)",($config[$s]["link"]<>"leporela")?(""):("onclick=\"$('#leporelo').prop('checked', true);addFilter('Väzba (leporelo)');\""),$config[$s]["icon"],$config[$s]["name"]);
     }
 
 if (count($config[$p]["subs"])>0) {
