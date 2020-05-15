@@ -65,7 +65,7 @@ $tmplFilters="<dl class=\"filter-small__cat\">
                         </div>
                       </dt>
                       <dd class=\"filter-small__cat-items\" id=\"filter-product-type\" data-toggle-class=\"hide\">
-                        <div class=\"form-control form-control--group no-mrg-bottom\">
+                        <div class=\"form-control form-control--group no-mrg-bottom %s\" %s>
                           <div class=\"radiocheck-group\">
                             <div class=\"form-control form-control--checkbox\">
 
@@ -74,17 +74,28 @@ $tmplFilters="<dl class=\"filter-small__cat\">
                             </div>
                           </div>
                         </div>
+                        
+                       %s     
+                        
                       </dd>
                     </dl>";
 
 foreach ($config[$p]["filters"] as $f) {
     $filters_checkbox="";
+    $show_more=false;
+    if (count($filter[$f]["subs"])>7) {$show_more=true;};
+
     foreach ($filter[$f]["subs"] as $fs) {
+
         $f_s = explode(":", $fs);
 
         $filters_checkbox.=sprintf($tmplCheckbox,$filter[$f]["name"],$f_s[0], $f_s[0],$f_s[0],$f_s[0],$f_s[0],(!empty($f_s[1]))?$f_s[1]:rand(0,50));
     }
-    $filters.=sprintf($tmplFilters,$filter[$f]["name"],$filters_checkbox);
+    $filters.=sprintf($tmplFilters,$filter[$f]["name"],($show_more)?"collapsed":"",($show_more)?"data-collapse='200' style='max-height: 200px;'":"", $filters_checkbox, ($show_more)?'
+<a class="link text-size-small" href="javascript:void(0)" data-toggle="self, previous" data-toggle-icon="icons_/app.svg#icon-arrow-up" data-toggle-text="Menej" data-collapse-trigger=""><span data-toggle-text-target="">Viac</span> 
+                                            <svg class="icon icon-arrow-down " role="img" aria-hidden="true">
+                                              <use xlink:href="icons_/app.svg#icon-arrow-down"></use>
+                        </svg></a>':"");
 
 }
 

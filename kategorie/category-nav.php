@@ -1582,8 +1582,11 @@
                   <li class="tab-nav__item" data-tabs-item><a class="tab-nav__content tab-nav__content--link">najobľúbenejšie</a></li>
                   <li class="tab-nav__item" data-tabs-item><a class="tab-nav__content tab-nav__content--link">najlacnejšie</a></li>
                   <li class="tab-nav__item" data-tabs-item><a class="tab-nav__content tab-nav__content--link">najdrahšie</a></li>
-                  <li class="tab-nav__item" data-tabs-item><a class="tab-nav__content tab-nav__content--link">najnovšie</a></li>
+                    <li class="tab-nav__item" data-tabs-item><a class="tab-nav__content tab-nav__content--link">s najvyššou zľavou</a></li>
+
+                    <li class="tab-nav__item" data-tabs-item><a class="tab-nav__content tab-nav__content--link">najnovšie</a></li>
                   <li class="tab-nav__item" data-tabs-item><a class="tab-nav__content tab-nav__content--link">najstaršie</a></li>
+
                 </ul>
                 <!--GROUPED ITEM-->
                   <div id="product_list"></div>

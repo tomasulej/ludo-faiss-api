@@ -207,19 +207,19 @@ $config["hry"]["breadcrumbs"]=array("knihy:knihy","detske:detske","hlavolamy-dop
 $config["doplnovacky"]["breadcrumbs"]=array("knihy:knihy","detske:detske","hlavolamy-doplnovacky-ulohy-a-hry:hlavolamy-doplnovacky-ulohy-a-hry","doplnovacky");
 
 //filtre
-$config["beletria"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["pre-prvakov"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["pre-zacinajucich-citatelov"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["rozpravky"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["walt-disney"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["scifi-fantasy-a-komiksy"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["naucne-knihy"]["filters"]=array("typ","vek","podzaner","odbor","charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["encyklopedie"]["filters"]=array("typ","vek","podzaner","odbor","charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["leporela"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["hry-a-hracky"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["omalovanky-vystrihovanie-papier"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["hlavolamy-doplnovacky-ulohy-a-hry"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["kucharky"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["beletria"]["filters"]=array("typ","vek",/*"podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["pre-prvakov"]["filters"]=array("typ","vek",/*"podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["pre-zacinajucich-citatelov"]["filters"]=array("typ","vek",/*"podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["rozpravky"]["filters"]=array("typ","vek",/*"podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["walt-disney"]["filters"]=array("typ","vek",/*"podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["scifi-fantasy-a-komiksy"]["filters"]=array("typ","vek",/*"podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["naucne-knihy"]["filters"]=array("typ","vek",/*"podzaner","odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["encyklopedie"]["filters"]=array("typ","vek",/*"podzaner","odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["leporela"]["filters"]=array("typ","vek",/*"podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["hry-a-hracky"]["filters"]=array("typ","vek",/*"podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["omalovanky-vystrihovanie-papier"]["filters"]=array("typ","vek",/*"podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["hlavolamy-doplnovacky-ulohy-a-hry"]["filters"]=array("typ","vek",/*"podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["kucharky"]["filters"]=array("typ","vek",/*"podzaner","odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
 $config["rozpravky"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
 $config["sci-fi"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
 $config["fantasy"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
@@ -233,18 +233,18 @@ $config["poviedky"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakt
 $config["sci-fi2"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
 $config["fantasy2"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
 $config["komiksy2"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["encyklopedie2"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["atlasy"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["prirucky"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["cudzie-jazyky"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["omalovanky"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["vystrihovanie"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["vyroba-z-papiera"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["krizovky"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["hlavolamy"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["hrave-ulohy"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["hry"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
-$config["doplnovacky"]["filters"]=array("typ","vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["encyklopedie2"]["filters"]=array("typ","vek",/*"podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["atlasy"]["filters"]=array("typ","vek",/*"podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["prirucky"]["filters"]=array("typ","vek",/*"podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["cudzie-jazyky"]["filters"]=array("typ",/*"vek","podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["omalovanky"]["filters"]=array("typ","vek",/*"podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["vystrihovanie"]["filters"]=array("typ","vek",/*"podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["vyroba-z-papiera"]["filters"]=array("typ","vek",/*"podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["krizovky"]["filters"]=array("typ","vek",/*"podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["hlavolamy"]["filters"]=array("typ","vek",/*"podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["hrave-ulohy"]["filters"]=array("typ","vek",/*"podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["hry"]["filters"]=array("typ","vek",/*"podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
+$config["doplnovacky"]["filters"]=array("typ","vek",/*"podzaner",/*"odbor",*/"charakter","tema","povod","hodnotenie","pre-koho", "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
 
 
 
@@ -301,13 +301,13 @@ $filter["typ"]["subs"]=array("knihy","e-knihy","audioknihy");
 $filter["vek"]["subs"]=array("pre najmenších","od 3 rokov","od 7 rokov","od 11 rokov","od 14 rokov");
 $filter["podzaner"]["subs"]=array("detektívky","poviedky","fantasy","sci-fi","komiksy","rozpravky","mýty, povesti, legendy","prvé skúsenosti","horory","maľované čítanie","náučné","science fantasy");
 $filter["odbor"]["subs"]=array("dejiny","dopravné prostriedky","dospievanie","ľudské telo","všeobecné","príroda","technika","vesmír","zvieratá","svet");
-$filter["charakter"]["subs"]=array("dobrodružný","napínavý","humorný","romantický","interaktívny","s darčekom","klasický","moderný","knihy s puzzle","zvukové knihy","podľa skutočnosti","hovoriace","vianočné");
+$filter["charakter"]["subs"]=array("dobrodružné","napínavé","humorné","romantické","interaktívne","s darčekom","klasické","moderné","knihy s puzzle","zvukové knihy","podľa skutočnosti","hovoriace","vianočné");
 $filter["tema"]["subs"]=array("čarodejníctvo","láska","priateľstvo","smútok","vzťahy","dobrodružstvo");
 $filter["povod"]["subs"]=array("slovenské","české","nemecké","maďarské");
 $filter["hodnotenie"]["subs"]=array("★★★★★","★★★★","★★★","★★","★");
 $filter["pre-koho"]["subs"]=array("pre chlapcov","pre dievčatá","pre prváčikov","pre začínajúcich čitateľov","pre rebelky");
 $filter["ucel"]["subs"]=array("vhodné na recitačné súťaže","rozvojové","proti stresu","vhodné na predčítanie","na dobrú noc","motivačné");
-$filter["cena"]["subs"]=array("Menej ako 3 €","3-6 €","6-10 €","Viac ako 10€");
+$filter["cena"]["subs"]=array("Do 3 €","Od 3 do 6 €","Od 6 do 10 €","Viac ako 10€");
 $filter["rok"]["subs"]=array("2020","2019","2018","2017","2016","2015","2014 a staršie");
 $filter["material"]["subs"]=array("vhodné do vody","látkové");
 $filter["vazba"]["subs"]=array("leporelo","minileporelo","priestorové leporelo","pevná väzba","brožované väzba","šitá väzba","krúžková väzba");
@@ -334,23 +334,13 @@ $config["beletria"]["icon"]="fa fa-fal fa-book";
 $config["beletria"]["subs"]=array("rozpravky","sci-fi","fantasy",
     "komiksy","basnicky", "hadanky", "riekanky",
     "myty-povesti-a-legendy","detektivky","poviedky");
-$config["beletria"]["filters"]=array("typ","vek",/* "podzaner",*/"charakter","tema","povod","hodnotenie","pre-koho",
-    "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost",
-    "kolekcie", "autori", "vydavatelstvo", "edicia");
+
 $config["beletria"]["breadcrumbs"]=array("knihy:knihy","detske:detske","beletria");
 
 
 
 
 
-$filter["typ"]["name"]="Typ produktu";
-$filter["typ"]["subs"]=array("knihy","e-knihy:20","audioknihy:30");
-
-$filter["vek"]["name"]="Vek dieťaťa";
-$filter["vek"]["subs"]=array("pre najmenších:3", "do 3 rokov:43", "do 7 rokov:233", "od 11 rokov:32", "od 14 rokov:45");
-
-$filter["podzaner"]["name"]="Žáner";
-$filter["podzaner"]["subs"]=array("detektívky:23", "poviedky:32", "fantasy:43", "sci-fi:54", "komiksy:43", "rozprávky:34", "mýty, povesti, legendy:44", "situačné knihy:24", "prvé skúsenosti:54", "horory:544", "kreslené:54", "naučné:554", "vedecko-fantastické:544");
 
 
 
