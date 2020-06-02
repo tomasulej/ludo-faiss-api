@@ -1551,7 +1551,7 @@
                                   <use xlink:href="icons_/app.svg#icon-search"></use>
                               </svg> Populárne filtre:</strong>
 
-                        <?echo $filter_navs; ?>
+                        <?php  echo $filter_navs; ?>
 
 
                           <!-- <a href="" class="link">Pre prvákov</a>, <a href="" class="link">Walt Disney</a>, <a href="" class="link">Pre začínajúcich čitateľov</a> -->
