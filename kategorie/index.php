@@ -37,20 +37,38 @@ foreach ($config[$p]["breadcrumbs"] as $b) {
 
 //subs
     $tmplSubs="<a class=\"carousel-lite__slide text-space-right flex align-items-middle\" style=\"width: 12rem; border: 1px solid #eee; padding: 10px 20px;\" href='%s' %s><i class=\"%s fa-3x fa-fal text-color-error text-space-right\"></i><span class=\"link line-small\">%s</span></a>";
+    $tmplSubs2="%s<div class='col--m-3 col--xs-6 mb-small'><a class=\"carousel-lite__slide text-space-right flex align-items-middle\" style=\"width: 12rem; border: 1px solid #eee; padding: 10px 20px;\" href='%s' %s><i class=\"%s fa-3x fa-fal text-color-error text-space-right\"></i><span class=\"link line-small\">%s</span></a></div>";
+    $i=O;
     foreach ($config[$p]["subs"] as $s) {
-
+        $i++;
         $subs.=sprintf($tmplSubs,($config[$s]["link"]<>"leporela")?("index.php?p=".$config[$s]["link"]):"javascript:void(0)",($config[$s]["link"]<>"leporela")?(""):("onclick=\"$('#leporelo').prop('checked', true);addFilter('Väzba (leporelo)');\""),$config[$s]["icon"],$config[$s]["name"]);
-    }
+        $subs_2.=sprintf($tmplSubs2,(($i % 4==0))?"":"</div><div class='row mb-small'>",($config[$s]["link"]<>"leporela")?("index.php?p=".$config[$s]["link"]):"javascript:void(0)",($config[$s]["link"]<>"leporela")?(""):("onclick=\"$('#leporelo').prop('checked', true);addFilter('Väzba (leporelo)');\""),$config[$s]["icon"],$config[$s]["name"]);
+ 
+      }
+
+
 
 if (count($config[$p]["subs"])>0) {
     $subs="<a class=\"carousel-lite__slide text-space-right flex align-items-middle\" style=\"width: 12rem; border: 1px solid #eee; padding: 10px 20px;\" href=\"#produkty\"><i class=\"fal fa-3x fa-fal fa-books text-color-error text-space-right\"></i><span class=\"link line-small\">Všetky</span></a>".$subs;
-};
+    $subs_2="<div class='row mb-small'>".$subs_2."</div>";
+  };
+
+//filter_navs
+
+$i=0;
+
+foreach ($config[$p]["filter_navs"] as $n) {
+    $i++;
+    $filter_navs.=sprintf('%s <a class="link" onclick="%s">%s</a>',($i==1)?(""):(","),$n[1],$n[0]);
+}
+
+
 
 
 
 //filters
 $tmplCheckbox="<div class=\"checkbox\" >
-                                <input onclick='addFilter(\"%s (%s)\");' class=\"radiocheck__input\" type=\"checkbox\" id=\"%s\">
+                                <input onclick='addFilter(\"%s (%s)\",true);' class=\"radiocheck__input\" type=\"checkbox\" id=\"%s\">
                                 <label class=\"radiocheck__control\" for=\"%s\"></label>
                                 <label class=\"radiocheck__label\" for=\"%s\">%s <span class=\"text-color-grey\">(%s)</span></label>
                               </div>";

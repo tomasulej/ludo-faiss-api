@@ -37,7 +37,7 @@
     }
 
 
-    function addFilter(co) {
+    function addFilter(co,posun=false) {
        $("#filter_badges").show();
        $("#filter_badges_content").append("                  <div class=\"badge mb-tiny filter_badge \">" + co + "\n"+
            "                    <div class=\"btn btn--small btn--clean btn--equal mb-none close\" onclick=\"$(this).parent().fadeOut();\">\n" +
@@ -46,7 +46,7 @@
            "                                        </svg>\n" +
            "                    </div>\n" +
            "                  </div>");
-        $('body').scrollTo('#produkty');
+        if (posun==true) {$('body').scrollTo('#produkty');}
         loadProducts();
 
     }
@@ -1376,7 +1376,7 @@
 
           <section class="section--secondary section no-pad-top">
           <div class="wrapper-main">
-            <div class="bar no-mrg-bottom">
+            <div class="bar mb-small">
               <div class="bar__item">
                 <h1><?php echo $nazov; ?></h1>
               </div>
@@ -1440,18 +1440,18 @@
                   <button class="btn btn--clean is-active no-mrg-bottom no-mrg-right" data-toggle="#mobile-reduction">
                             <svg class="icon icon-reduction icon--medium icon--left" role="img" aria-hidden="true">
                               <use xlink:href="icons_/app.svg#icon-reduction"></use>
-                            </svg><span class="show-s">Zúženie výberu</span>
+                            </svg><span class="show-xs">Filtrovať</span>
                   </button>
-                  <button class="btn btn--clean no-mrg-bottom no-mrg-right" data-toggle="#mobile-order">
+                 <!-- <button class="btn btn--clean no-mrg-bottom no-mrg-right" data-toggle="#mobile-order">
                             <svg class="icon icon-order icon--medium icon--left" role="img" aria-hidden="true">
                               <use xlink:href="icons_/app.svg#icon-order"></use>
                             </svg><span class="show-s">Zoradiť</span>
-                  </button>
-                  <button class="btn btn--clean no-mrg-bottom">
+                  </button> -->
+                 <!-- <button class="btn btn--clean no-mrg-bottom">
                             <svg class="icon icon-close icon--medium icon--left" role="img" aria-hidden="true">
                               <use xlink:href="icons_/app.svg#icon-close"></use>
                             </svg>Zrušiť
-                  </button>
+                  </button> -->
                 </div>
               </div>
               <div class="bar__item bar__item--shrinkable text-right hide-m">Titulov: <b>1762</b></div>
@@ -1511,13 +1511,24 @@
                                         <use xlink:href="icons_/app.svg#icon-arrow-down"></use>
                                       </svg></a></div>-->
                  <div id="produkty"></div>
-                  <?php if (count($config[$p]["subs"])>0) { ?>
-                  <div class="mb-large carousel-lite mj-carousel carousel-lite--fade-inside" style="height: 5rem;">
+
+
+                 <?php if (count($config[$p]["subs"])>0) { ?>
+
+                  <?php echo $subs_2; ?>
+
+
+
+
+                 <?php } //print_r($config[$p]["filter_navs"]);?>
+
+<!--
+                  <div class="mb-medium carousel-lite mj-carousel carousel-lite--fade-inside" style="height: 5rem;">
                   <div class="carousel-lite__container mj-carousel__scroll">
                     <div class="carousel-lite__wrapper mj-carousel__content align-items-stretch">
-                        <!-- <a class="carousel-lite__slide text-space-right flex align-items-middle" style="width: 12rem; border: 1px solid #eee; padding: 10px 20px;" href="#products"><i class="fal fa-3x fa-fal fa-books text-color-error text-space-right"></i><span class="link line-small">Všetky</span></a> -->
-                        <?php echo $subs; ?>
+                        <?php //echo $subs; ?>
                     </div>
+
                   </div>
 
                       <button class="btn btn--carousel btn--large btn--equal carousel__btn carousel__btn--prev mj-carousel__btn--prev" style="left: 10px;">
@@ -1531,15 +1542,27 @@
                           </svg>
                       </button>
 
+                  </div> -->
+
+
+                  <?php if (count($config[$p]["filter_navs"])>0) { ?>
+
+                  <div class="mb-large text-medium"><strong> <svg class="icon icon-search icon--medium" role="img" aria-hidden="true">
+                                  <use xlink:href="icons_/app.svg#icon-search"></use>
+                              </svg> Populárne filtre:</strong>
+
+                        <?echo $filter_navs; ?>
+
+
+                          <!-- <a href="" class="link">Pre prvákov</a>, <a href="" class="link">Walt Disney</a>, <a href="" class="link">Pre začínajúcich čitateľov</a> -->
+
                   </div>
-
-
-
-
-
                   <?php } ?>
 
-                <div class="mobile-wrapper mb-medium-l hide-m" id="mobile-order" data-toggle-lock>
+                  <?php if ((count($config[$p]["filter_navs"])==0) AND (count($config[$p]["subs"])>0)) { echo "<div class='mb-medium'></div>";} ?>
+
+
+                      <div class="mobile-wrapper mb-medium-l hide-m" id="mobile-order" data-toggle-lock>
                   <div class="mobile-wrapper__header">
                     <div class="mobile-wrapper__header-title">Radenie</div>
                     <div class="btn btn--clean mobile-wrapper__close" data-toggle="#mobile-order">
@@ -1573,12 +1596,12 @@
                     </div>
                   </div>
                 </div>
-                <div class="badges mb-tiny" id="filter_badges" style="display:none">
+                <div class="badges mb-small" id="filter_badges" style="display:none">
                   <div class="text-space-right">Filtre:</div>
                   <div id="filter_badges_content"></div>
                   <div class="btn btn--small btn--clean mb-none" id="delete-filters" onclick="$('.filter_badge').hide();$('#filter_badges').hide();$('input:checkbox').prop('checked', false);">zmazať filter</div>
                 </div>
-                <ul class="tab-nav text-size-medium mb-large show-m bg-secondary" data-tabs-container>
+                <ul class="tab-nav text-size-medium mb-tiny bg-secondary show-m" data-tabs-container>
                   <li class="tab-nav__item" data-tabs-item><a class="tab-nav__content tab-nav__content--link">najobľúbenejšie</a></li>
                   <li class="tab-nav__item" data-tabs-item><a class="tab-nav__content tab-nav__content--link">najlacnejšie</a></li>
                   <li class="tab-nav__item" data-tabs-item><a class="tab-nav__content tab-nav__content--link">najdrahšie</a></li>

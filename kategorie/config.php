@@ -15,9 +15,9 @@ $config["pre-prvakov"]["link"]="pre-prvakov";
 $config["detske"]["name"]="Pre deti";
 $config["detske"]["link"]="detske";
 $config["detske"]["icon"]="fa fa-book";
-$config["detske"]["subs"]=array("beletria","pre-prvakov","pre-zacinajucich-citatelov",
-    "rozpravky","walt-disney", "scifi-fantasy-a-komiksy",
-    "naucne-knihy","encyklopedie","leporela","hry-a-hracky",
+$config["detske"]["subs"]=array("beletria",
+    "rozpravky", "scifi-fantasy-a-komiksy",
+    "naucne-knihy","encyklopedie", "hry-a-hracky",
     "omalovanky-vystrihovanie-papier","hlavolamy-doplnovacky-ulohy-a-hry","kucharky");
 $config["detske"]["filters"]=array("typ","vek",/*"podzaner","odbor",*/"charakter","tema","povod","hodnotenie","pre-koho",
     "ucel", "cena", "rok", "material", "vazba","obrazky-a-text", "citatelnost","specificke-potreby");
@@ -319,6 +319,13 @@ $filter["seria"]["subs"]=array("Série");
 $filter["autor"]["subs"]=array("Autori");
 $filter["vydavatelstvo"]["subs"]=array("Vydavateľstvo");
 $filter["edicia"]["subs"]=array("Edícia");
+
+
+//filter_navs
+$config["detske"]["filter_navs"]=array(array("Leporelá","$('#leporelo').prop('checked', true);addFilter('Väzba (leporelo)');"),
+                                   array("Pre prváčikov","$('#pre prváčikov').prop('checked', true);addFilter('Pre koho (Pre prváčikov)');"),
+                                   array("Pre začínajúcich čitateľov","$('#pre začínajúcich čitateľov').prop('checked', true);addFilter('Pre koho (Pre začínajúcich čitateľov)');"),
+                                  array("Walt Disney","$('#walt disney').prop('checked', true);addFilter('Výrobca (Walt Disney)');"));
 
 
 
