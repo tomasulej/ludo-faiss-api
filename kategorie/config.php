@@ -321,7 +321,7 @@ $filter["vydavatelstvo"]["subs"]=array("Vydavateľstvo");
 $filter["edicia"]["subs"]=array("Edícia");
 
 
-//filter_navs
+//filter_navss
 $config["detske"]["filter_navs"]=array(array("Leporelá","$('#leporelo').prop('checked', true);addFilter('Väzba (leporelo)');"),
                                    array("Pre prváčikov","$('#pre prváčikov').prop('checked', true);addFilter('Pre koho (Pre prváčikov)');"),
                                    array("Pre začínajúcich čitateľov","$('#pre začínajúcich čitateľov').prop('checked', true);addFilter('Pre koho (Pre začínajúcich čitateľov)');"),
