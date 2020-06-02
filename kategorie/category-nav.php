@@ -1559,6 +1559,8 @@
                   </div>
                   <?php } ?>
 
+
+
                   <?php if ((count($config[$p]["filter_navs"])==0) AND (count($config[$p]["subs"])>0)) { echo "<div class='mb-medium'></div>";} ?>
 
 
@@ -1611,6 +1613,10 @@
                   <li class="tab-nav__item" data-tabs-item><a class="tab-nav__content tab-nav__content--link">najstaršie</a></li>
 
                 </ul>
+
+                <div id="produkty"></div>
+
+
                 <!--GROUPED ITEM-->
                   <div id="product_list"></div>
             </div>

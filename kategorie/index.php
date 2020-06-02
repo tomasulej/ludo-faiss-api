@@ -37,12 +37,19 @@ foreach ($config[$p]["breadcrumbs"] as $b) {
 
 //subs
     $tmplSubs="<a class=\"carousel-lite__slide text-space-right flex align-items-middle\" style=\"width: 12rem; border: 1px solid #eee; padding: 10px 20px;\" href='%s' %s><i class=\"%s fa-3x fa-fal text-color-error text-space-right\"></i><span class=\"link line-small\">%s</span></a>";
-    $tmplSubs2="%s<div class='col--m-3 col--xs-6 mb-small'><a class=\"carousel-lite__slide text-space-right flex align-items-middle\" style=\"width: 12rem; border: 1px solid #eee; padding: 10px 20px;\" href='%s' %s><i class=\"%s fa-3x fa-fal text-color-error text-space-right\"></i><span class=\"link line-small\">%s</span></a></div>";
+    $tmplSubs2="%s<div class='col--m-3 col--6 mb-small'><a class=\"carousel-lite__slide text-space-right flex align-items-middle\" style=\"width: 12rem; border: 1px solid #eee; padding: 10px 20px;\" href='%s' %s><i class=\"%s fa-3x fa-fal text-color-error text-space-right\"></i><span class=\"link line-small\">%s</span></a></div>";
     $i=O;
+
+
+    $subs_2.=sprintf($tmplSubs2,"<div class='row mb-small'>","#produkty","","fa fa-fal fal fa-books","Všetky");
+
     foreach ($config[$p]["subs"] as $s) {
         $i++;
+        if ($i==3) {$i=4;}
         $subs.=sprintf($tmplSubs,($config[$s]["link"]<>"leporela")?("index.php?p=".$config[$s]["link"]):"javascript:void(0)",($config[$s]["link"]<>"leporela")?(""):("onclick=\"$('#leporelo').prop('checked', true);addFilter('Väzba (leporelo)');\""),$config[$s]["icon"],$config[$s]["name"]);
-        $subs_2.=sprintf($tmplSubs2,(($i % 4==0))?"":"</div><div class='row mb-small'>",($config[$s]["link"]<>"leporela")?("index.php?p=".$config[$s]["link"]):"javascript:void(0)",($config[$s]["link"]<>"leporela")?(""):("onclick=\"$('#leporelo').prop('checked', true);addFilter('Väzba (leporelo)');\""),$config[$s]["icon"],$config[$s]["name"]);
+        
+        
+          $subs_2.=sprintf($tmplSubs2,(($i % 4==0))?"":"</div><div class='row mb-small'>",($config[$s]["link"]<>"leporela")?("index.php?p=".$config[$s]["link"]):"javascript:void(0)",($config[$s]["link"]<>"leporela")?(""):("onclick=\"$('#leporelo').prop('checked', true);addFilter('Väzba (leporelo)');\""),$config[$s]["icon"],$config[$s]["name"]);
  
       }
 
@@ -50,6 +57,7 @@ foreach ($config[$p]["breadcrumbs"] as $b) {
 
 if (count($config[$p]["subs"])>0) {
     $subs="<a class=\"carousel-lite__slide text-space-right flex align-items-middle\" style=\"width: 12rem; border: 1px solid #eee; padding: 10px 20px;\" href=\"#produkty\"><i class=\"fal fa-3x fa-fal fa-books text-color-error text-space-right\"></i><span class=\"link line-small\">Všetky</span></a>".$subs;
+
     $subs_2="<div class='row mb-small'>".$subs_2."</div>";
   };
 
