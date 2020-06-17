@@ -1603,7 +1603,7 @@
                   <div id="filter_badges_content"></div>
                   <div class="btn btn--small btn--clean mb-none" id="delete-filters" onclick="$('.filter_badge').hide();$('#filter_badges').hide();$('input:checkbox').prop('checked', false);">zmazať filter</div>
                 </div>
-                <ul class="tab-nav text-size-medium mb-tiny bg-secondary show-m" data-tabs-container>
+                <ul class="tab-nav text-size-medium mb-tiny bg-secondary show-m" width="100%" data-tabs-container>
                   <li class="tab-nav__item" data-tabs-item><a class="tab-nav__content tab-nav__content--link">najobľúbenejšie</a></li>
                   <li class="tab-nav__item" data-tabs-item><a class="tab-nav__content tab-nav__content--link">najlacnejšie</a></li>
                   <li class="tab-nav__item" data-tabs-item><a class="tab-nav__content tab-nav__content--link">najdrahšie</a></li>
