@@ -37,7 +37,7 @@ foreach ($config[$p]["breadcrumbs"] as $b) {
 
 //subs
     $tmplSubs="<a class=\"carousel-lite__slide text-space-right flex align-items-middle\" style=\"width: 100%%; border: 1px solid #eee; padding: 10px 20px;\" href='%s' %s><i class=\"%s  fa-3x fa-fal fa-fw text-color-error text-space-right\"></i><span class=\"link line-small\">%s</span></a>";
-    $tmplSubs2="%s<div class='col--m-3 col--6 mb-tiny'><a class=\"carousel-lite__slide text-space-right flex align-items-middle\" style=\"width: 100%%; height:100%%; border: 1px solid #eee; padding: 10px 5px;\" href='%s' %s><i class=\"%s fa-3x fa-fal fa-fw show-l  text-color-error text-space-right\"></i><i class=\"%s fa-3x fa-fal fa-fw show-m hide-l icon--medium mb-tiny text-color-error text-space-right\"></i><i class=\"%s fa-fal fa-fw hide-s icon--small text-color-error\"></i><span class=\"link line-small show-m \">%s</span><span class=\"link line-small text-small hide-m \">%s</span></a></div>";
+    $tmplSubs2="%s<div class='col--m-3 col--6 mb-tiny'><a class=\"carousel-lite__slide text-space-right flex align-items-middle\" style=\"width: 100%%; height:100%%; border: 1px solid #eee; padding: 10px 10px;\" href='%s' %s><i class=\"%s fa-3x fa-fal fa-fw show-l text-color-error text-space-right \"></i><i class=\"%s fa-3x fa-fal fa-fw show-m hide-l icon--medium mb-small text-color-error text-space-right \"></i><i class=\"%s fa-fal fa-fw hide-s icon--small mb-small text-color-error text-space-right \"></i><span class=\"link line-small show-m mb-small \">%s</span><span class=\"link line-small mb-tiny text-small hide-m text-space-right \">%s</span></a></div>";
     $i=O;
 
 
