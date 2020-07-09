@@ -18,12 +18,16 @@ function centToHz (ct) {                // abs_cent = 1200 * log2 (f/440) + 6900
 }
 
 function toOgg (xs, smpfrq, enctype) {
-    // -t raw = ruwe data, -b16 = 16 bits, -e si = signed, -c 1 = 1 kanaal
-    var opts = '-t raw -b 16 -e si -c 1 -r 22050 - -t ogg -'.split (' ');
-    opts [9] = '' + smpfrq; // de sample frequentie
-    opts [12] = enctype;    // encoding type wav, mp3, ogg
-    var ys = new Buffer (xs);
-    var o = prc.spawnSync ('sox', opts, {input: ys});
+    if (useLame) {  // -r = ruwe data, -m m = mono, -q 2 = algoritme kwaliteit, -V 4 = VBR kwaliteit
+        var opts = '-r -m m -q 2 -V 4 -s 22050 - -'.split (' ');
+        opts [8] = '' + smpfrq; // de sample frequentie
+    } else { // -t raw = ruwe data, -b16 = 16 bits, -e si = signed, -c 1 = 1 kanaal, -C -4.2 kwaliteit als boven
+        var opts = '-t raw -b 16 -e si -c 1 -r 22050 - -C -4.2 -t ogg -'.split (' ');
+        opts [9] = '' + smpfrq; // de sample frequentie
+        opts [12] = { mp3: '-4.2', ogg: '4', wav: '1' } [enctype];  // quality, see "man soxformat"
+        opts [14] = enctype;    // encoding type wav, mp3, ogg
+    }
+    var o = prc.spawnSync (useLame ? 'lame' : 'sox', opts, { input: Buffer.from (xs) });
     return o.stdout;
 }
 
@@ -89,7 +93,7 @@ function sf2_create (parser, instr, enctype, instvol) {
             ctune:   gen.coarseTune                  ? gen.coarseTune.amount      : gctun,
             ftune:   gen.fineTune                    ? gen.fineTune.amount  / 100 : gftun,
             sampleRate: sampleRate,
-            sample:  new Buffer (sample.buffer).toString ('base64'),
+            sample:  Buffer.from (sample.buffer).toString ('base64'),
         };
         parm.hold += parm.attack;
         parm.decay = parm.hold + parm.decay * (parm.sustain / 100); // decay = time until -100 dB
@@ -127,15 +131,19 @@ function mkInstrument (np, bank, instvol, sf_fnm) { // patch number, bank number
     presets.forEach (function (p) {
         if (p.instrument != null) presetMap [[p.header.bank, p.header.preset]] = p.instrument;
     });
-    var prenum = bank == 128 ? 0 : np;  // preset 0 voor drum bank 128
-    var instrument = presetMap [[bank, prenum]];
+    var instrument = presetMap [[bank, np]];
     var parms = sf2_create (parser, instrument, encType, instvol);
     var parmsJs = 'instData = ' + JSON.stringify (parms, null, 1);
+    if (bank == 128) np = parseInt (np) + 128
     var ofnm = 'instr' + np + encType + '.js';
     fs.writeFileSync (ofnm, parmsJs);
     console.log (ofnm + ' lengte: ' + parmsJs.length);
 }
 
 var encType = 'mp3';    // or 'ogg' or 'wav'
-exports.setEncType = function (t) { encType = t}; 
+var useLame = 1;
+exports.setEncType = function (t) {
+    useLame = 0     // using sox now
+    encType = t;    // 'mp3', 'ogg' or 'wav'
+};
 exports.mkInstrument = mkInstrument;
