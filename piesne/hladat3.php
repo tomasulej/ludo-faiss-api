@@ -44,6 +44,7 @@ $pocet_piesni=mysql_num_rows($q_piesne);
 $piesne=array();
 while ( $riadok = mysql_fetch_array($q_piesne)) {
   array_push($piesne, $riadok);
+  
 }
 
 // nacitanie informacii

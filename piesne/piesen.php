@@ -383,7 +383,7 @@ print_r($slova_sklon);
 foreach ($slova_sklon as &$word) {
     $word_zakl=zakladny_tvar($word);
     //echo $word."xxx";
-   $klucove_slova[]=$word_zakl."(".zakladny_tvar_form($word).")";
+   $klucove_ slova[]=$word_zakl."(".zakladny_tvar_form($word).")";
 }
 
 $klucove_slova=array_unique($klucove_slova); */

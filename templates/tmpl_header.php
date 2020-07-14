@@ -53,7 +53,8 @@
 <script src="/public/js/abc2svg-1.js"></script>
 <script src="/public/js/xmlplay_emb.js"></script>
 
-
+<!-- AdSense -->
+<script data-ad-client="ca-pub-5853905332483717" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 
 
@@ -85,9 +86,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0/MarkerCluster.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0/MarkerCluster.Default.css" />
 
-<!-- Kindle -->
-<script type="text/javascript" src="https://d1xnn692s7u6t6.cloudfront.net/widget.js"></script>
-<script type="text/javascript">(function k(){window.$SendToKindle&&window.$SendToKindle.Widget?$SendToKindle.Widget.init({}):setTimeout(k,500);})();</script>
 
 </head>
 
