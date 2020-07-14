@@ -57,6 +57,33 @@
 <script data-ad-client="ca-pub-5853905332483717" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 
+<!-- GDPR -->
+
+<script src="https://cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js"></script>
+<script>
+    var config = {
+        apiKey: '4a7cdce2e1b58e956b914628954e0073cf545033',
+        product: 'COMMUNITY',
+        optionalCookies: [
+            {
+                    name: 'marketing',
+                    label: 'Marketing',
+                    description: '',
+                    cookies: [],
+                    onAccept : function(){},
+                    onRevoke: function(){}
+                }
+        ],
+
+        position: 'RIGHT',
+        theme: 'DARK'
+    };
+    
+    CookieControl.load( config );
+</script>
+
+
+
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
