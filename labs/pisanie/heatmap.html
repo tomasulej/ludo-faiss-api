@@ -9,57 +9,35 @@
 </head>
 <body>
 
-<H1>100 slov denne Tomáša Uleja</H1>
+<H1>Tomáš píše 500 slov denne</H1>
 
   <div id="cal-heatmap"></div>
   <script type="text/javascript">
     var cal = new CalHeatMap();
-    var startDate = new Date(2019, 12, 31);
+    var startDate = new Date(2019, 1, 1);
     cal.init({
-
-
-
-
       domain: "month",
       subDomain: "day",
       data: "heatmap.php",
       start: startDate,
-      cellSize: 10,
-      range: 12,
-      domainGutter: 4,
-      legend: [1,100],
+      cellSize: 8,
+      range: 3,
+      domainGutter: 2,
+      legend: [250, 500, 1000, 1500],
       label: {
         position: "top"
       },
-
       legendHorizontalPosition: "right",
       legendVerticalPosition: "bottom",
-      verticalOrientation: false,
+      verticalOrientation: true,
       legendColors: {
-        min: "#f5f5f5",
-        max: "green",
-        empty: "red"
+        min: "#d2de76",
+        max: "#51682a",
+        empty: "white"
       },
       itemName: ["word", "words"],
-      weekStartOnMonday: true,
-      afterLoadData: function (timestamps) {
-  var offset = new Date().getTimezoneOffset() * 60;
-  var results = {};
-  for (var timestamp in timestamps) {
-    var commitCount = timestamps[timestamp];
-    timestamp = parseInt(timestamp, 10);
-    console.log(timestamp)
-    results[timestamp + offset] = commitCount;
-  };
-  return results;
-}
-
+      weekStartOnMonday: true
     });
-
-
-
-
-
   </script>
 </body>
 </html>
