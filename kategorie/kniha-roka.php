@@ -1341,7 +1341,7 @@
         <section class="section" style="background-image:url(http://mrtns.eu/assets/martinus/lb/images/content/campaign/xmas2019/bg-collection-helper-willow.jpg); background-size: cover; background-position: 50%;">
           <div class="wrapper-main">
             <div class="row mb-large">
-              <h1 class="text-color-white">Kniha roka 2020:<br>najlepšie knihy pod Vianočný stromček</h1>
+              <h1 class="text-color-white">Kniha roka 2020</h1>
             </div>
           </div>
         </section>
