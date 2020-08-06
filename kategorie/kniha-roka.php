@@ -36,7 +36,7 @@
             small  Prepáčte, ak bude vaša objednávka 1-2 dni meškať. 
               a(href="#").link prečo?
       -->
-      <div class="section section--small header-warning no-pad bg-violet">
+  <!--    <div class="section section--small header-warning no-pad bg-violet">
         <div class="wrapper-main">
           <div class="mb-tiny"></div>
           <div class="bar mb-tiny align-items-middle">
@@ -48,7 +48,7 @@
             <div class="bar__item bar__item--fill text-color-white line-small"><small> Nezmeškajte 5€ poukážku k nákupu! <a class="link link--white text-bold" href="#">Viac info</a></small></div>
           </div>
         </div>
-      </div>
+      </div> -->
       <header class="header">
         <div class="header__wrapper" data-sticky>
           <div class="wrapper-main">
