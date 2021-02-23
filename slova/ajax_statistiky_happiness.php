@@ -21,7 +21,7 @@ $tabulka=$sada->table_name;
 //echo $tabulka;
 
 
-$wordcloud_url=sprintf("http://ludoslovensky.sk/data/wordcloud/wordcloud_happiness.php?id=%s&count=%s&utvary=%s",$tabulka_id,$rebricek_count_end,$pismeno);
+$wordcloud_url=sprintf("https://ludoslovensky.sk/data/wordcloud/wordcloud_happiness.php?id=%s&count=%s&utvary=%s",$tabulka_id,$rebricek_count_end,$pismeno);
 
 	
 	?>
