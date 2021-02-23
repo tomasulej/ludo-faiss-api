@@ -7,8 +7,8 @@ include "../databaza_slova.php";
 
 
 
-$subor='matkin.txt';
-$nazov='matkin_nie_na_usta';
+$subor='martinus_recenzie.txt';
+$nazov='martinus_recenzie';
 $rnd=rand(2,200);
 $tabulka="freq2_".$nazov."_".$rnd;
 

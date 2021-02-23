@@ -48,7 +48,6 @@
 
 
 
-                <input type='button' id="play" value="play" onclick="addUnlockListener()">
 
 
 
@@ -89,7 +88,14 @@
     // var instUrl = ''; // path to directory containing sound fonts
 </script>
 
+
+<div>
 <div class="abc"><?php echo $objPiesen->abc_notes; ?></div>
+<div class="float-right">Float left on all viewport sizes</div>
+
+
+                </div>
+
 <div id="comp" class="dlog">wait until soundfonts are loaded ...<br></div>
 
 <!--

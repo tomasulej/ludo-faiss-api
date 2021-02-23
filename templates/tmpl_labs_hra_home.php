@@ -26,7 +26,7 @@ require $_SERVER["DOCUMENT_ROOT"]."/templates/tmpl_header.php";
 
         <div class="row">
 
-        <div class="col-md-8 offset-md-1" id="hra">
+        <div class="col-md-8 col-12 col-sm-12 offset-md-1" id="hra">
         <div class="card">
             <div class="card-block">
                 <p><big>Ako veľmi si rozumieš so slovami? Koľko si ich <strong>schopný(á) nájsť za minútu</strong>? Otestuj svoju slovnú zásobu v Ľudovom slovnom kvíze.</big></p>

@@ -15,7 +15,7 @@ $sada=mysql_fetch_object($q);
 
 
 //konstanty
- $rebricek_count_end=20;
+ $rebricek_count_end=1000;
  $unique_count_limit=50;
  $unique_rating_limit=500;
  $tabulka=$sada->table_name;

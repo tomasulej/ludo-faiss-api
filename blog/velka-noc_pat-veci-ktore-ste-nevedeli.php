@@ -25,7 +25,8 @@ $telo="
 
 <li><p><strong>Bahniatka</strong>: mali množstvo názvov - napríklad aj púzalky, maňky, maňušky, barky, birky, búziky, baburence, kozičky, kočičky, cícky, mládniky. „Na okolí Zvolena okiadzali vŕbovými púčikmi chorého, ktorého bolelo hrdlo. Na Orave dávali púčiky do prvej brázdy, na východnom Slovensku ich uložili k prvému zasadenému zemiaku. Na Horehroní vyháňali takýmto prútom dobytok, keď išiel po prvý raz na jar von zo stajne,“ píše Emília Horváthová v knihe Rok vo zvykoch nášho ľudu. </p></li>
 
-___STEADY_PAYWALL___
+
+
 
 <H2>2. Množstvo zvykov Veľkej noci nie je kresťanských</H2>
 <p>Aj keď sa súčasné sviatky <strong>spájajú najmä s kresťanskou tradíciou</strong>, mnohé z jej prvkov sú oveľa staršie. Vyskytovali sa na našom území už skôr a boli také obľúbené, že ich potom do svojich rituálov zaradila aj katolícka cirkev. </p>
@@ -46,6 +47,7 @@ dajže mi ty muža.<BR>
 Ak mi muža nedáš,<BR>
 na rok ma zas tu máš!“</blockquote>
 
+
 <h2>4. Prečo sa Zelený štvrtok volá Zelený?</h2>
 Prečo bol Zelený štvrtok zelený? Podľa niektorých ľudových výkladov kvôli jedlu, ktoré sa v ten deň jedlo - v Tekove zaniesli do kostola posvätiť chren a koreňovú zeleninu, z ktorej potom na obed navarili polievku. V južnejších oblastiach, kde už vegetácia pokročila varili šťavel, špenát alebo prívarok z listov mladej žihľavy, ktorá vraj ozdravovala krv. <i>„Žena, ktorá by v tento deň piekla chlieb, zapríčinila by veľké sucho a tým aj neúrodu,“</i> spomína Horváthová.</p>
 
@@ -60,6 +62,7 @@ Prečo bol Zelený štvrtok zelený? Podľa niektorých ľudových výkladov kv�
 
 <p>—————</p>
 
+___STEADY_PAYWALL___
 
 
 <div class='l-well'>
