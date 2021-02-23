@@ -2,7 +2,7 @@
     <head>
         <title>Freq wordcloud (c) Tomáš Ulej & D3 JS</title>
         <meta charset="UTF-8">
-        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script src="https://d3js.org/d3.v3.min.js"></script>
 		<script src="d3.layout.cloud.js"></script>
              <script type="text/javascript" src="wordcloud_freq_csv.php?id=<?php echo $_GET['id'];?>&radenie=<?php echo $_GET['radenie'];?>&count=<?php echo $_GET['count']?>&uniq=<?php echo $_GET['uniq'];?>&utvary=<?php echo $_GET['utvary'];?>"></script>
 
