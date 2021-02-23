@@ -153,7 +153,7 @@ function  nacitaj_happiness(co) {
 	  
 	  while ($sady=mysql_fetch_object($q)) {
 		  if ($sady->id==$id) {$class="selected";} else {$class="";}
-		  printf('<option value="http://www.ludoslovensky.sk/slova/statistiky.php?id=%s" %s>%s</option>',$sady->id,$class, $sady->display_name);
+		  printf('<option value="https://www.ludoslovensky.sk/slova/statistiky.php?id=%s" %s>%s</option>',$sady->id,$class, $sady->display_name);
 		  
 	  }
 
